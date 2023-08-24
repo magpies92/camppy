@@ -1,0 +1,113 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./mypage_reserve.css" />
+
+    <style>
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="mypage-reserve">
+      <div class="mypage-reserve__section-total">
+        <div class="mypage-reserve__reserve-list">
+          <div class="mypage-reserve__list">
+            <img
+              class="mypage-reserve__item-link-btn-pre-00-png"
+              src="item-link-btn-pre-00-png.png"
+            /><img
+              class="mypage-reserve__item-link-btn-pre-01-png"
+              src="item-link-btn-pre-01-png.png"
+            />
+            <div class="mypage-reserve__item">
+              <div class="mypage-reserve__link-1">1</div>
+            </div>
+            <div class="mypage-reserve__item">
+              <div class="mypage-reserve__link-2">2</div>
+            </div>
+            <div class="mypage-reserve__item">
+              <div class="mypage-reserve__link-3">3</div>
+            </div>
+            <div class="mypage-reserve__item">
+              <div class="mypage-reserve__link-4">4</div>
+            </div>
+            <div class="mypage-reserve__item">
+              <div class="mypage-reserve__link-5">5</div>
+            </div>
+            <div class="mypage-reserve__item">
+              <div class="mypage-reserve__link-6">6</div>
+            </div>
+            <div class="mypage-reserve__item">
+              <div class="mypage-reserve__link-7">7</div>
+            </div>
+            <div class="mypage-reserve__item">
+              <div class="mypage-reserve__link-8">8</div>
+            </div>
+            <div class="mypage-reserve__item">
+              <div class="mypage-reserve__link-9">9</div>
+            </div>
+            <div class="mypage-reserve__item2">
+              <div class="mypage-reserve__link-10">10</div>
+            </div>
+            <img
+              class="mypage-reserve__item-link-btn-next-01-png"
+              src="item-link-btn-next-01-png.png"
+            /><img
+              class="mypage-reserve__item-link-btn-next-00-png"
+              src="item-link-btn-next-00-png.png"
+            />
+          </div>
+          <div class="mypage-reserve__frame-38">
+            <div class="mypage-reserve__frame-39">
+              <div class="mypage-reserve___230810-001">230810-001</div>
+              <div class="mypage-reserve___2023-08-10">2023.08.10</div>
+              <div class="mypage-reserve__">춘식이네캠핑장</div>
+              <div class="mypage-reserve___2023-08-14-15-00-2023-08-15-11-00">
+                2023.08.14.15:00<br />2023.08.15.11:00
+              </div>
+              <div class="mypage-reserve__">예약완료</div>
+            </div>
+            <div class="mypage-reserve__frame-40">
+              <div class="mypage-reserve___230801-001">230801-001</div>
+              <div class="mypage-reserve___2023-08-01">2023.08.01</div>
+              <div class="mypage-reserve__">춘식이네캠핑장</div>
+              <div class="mypage-reserve___2023-08-09-15-00-2023-08-10-11-00">
+                2023.08.09.15:00<br />2023.08.10.11:00
+              </div>
+              <div class="mypage-reserve__">예약취소</div>
+            </div>
+          </div>
+          <div class="mypage-reserve__frame-392">
+            <div class="mypage-reserve__">예약번호</div>
+            <div class="mypage-reserve__">예약일</div>
+            <div class="mypage-reserve__">숙소명</div>
+            <div class="mypage-reserve__2">체크인 / 체크아웃</div>
+            <div class="mypage-reserve__">예약상태</div>
+          </div>
+        </div>
+      </div>
+    </button>
+  </body>
+</html>

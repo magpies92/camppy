@@ -1,0 +1,200 @@
+.mypage-popup-reserve,
+.mypage-popup-reserve * {
+  box-sizing: border-box;
+}
+.mypage-popup-reserve {
+  background: #ffffff;
+  width: 50rem;
+  height: 50rem;
+  position: relative;
+  overflow: hidden;
+}
+.mypage-popup-reserve__section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5625rem;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50rem;
+  height: 26.875rem;
+  position: absolute;
+  left: 0rem;
+  top: 14.75rem;
+}
+.mypage-popup-reserve__body-title {
+  padding: 0.625rem 0.625rem 0rem 0.625rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.625rem;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: absolute;
+  left: calc(50% - 6.25rem);
+  top: 0rem;
+}
+.mypage-popup-reserve__ {
+  color: #000000;
+  text-align: left;
+  font: 400 1.75rem/1.75rem "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-popup-reserve__tel-search {
+  display: flex;
+  flex-direction: row;
+  gap: 2.0625rem;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 50rem;
+  height: 3.75rem;
+  position: absolute;
+  left: 0rem;
+  top: 13.5rem;
+}
+.mypage-popup-reserve__button {
+  background: #4da385;
+  border-radius: 0.3125rem;
+  padding: 0.375rem 0.875rem 0.375rem 0.875rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.625rem;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 6.875rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 37.8125rem;
+  top: 0rem;
+  overflow: hidden;
+}
+.mypage-popup-reserve__2 {
+  color: #ffffff;
+  text-align: center;
+  font: 700 1.75rem/1.75rem "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-popup-reserve__rectangle-20 {
+  background: #ffffff;
+  border-radius: 0.3125rem;
+  border-style: solid;
+  border-color: #777777;
+  border-width: 0.0625rem;
+  flex-shrink: 0;
+  width: 20.625rem;
+  height: 3.4375rem;
+  position: absolute;
+  left: 14.6875rem;
+  top: 0rem;
+}
+.mypage-popup-reserve__3 {
+  color: #000000;
+  text-align: left;
+  font: 400 1.75rem/1.75rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 1.5625rem;
+  top: 0.0625rem;
+  width: 10.625rem;
+  height: 3.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-popup-reserve__num-search {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 50rem;
+  height: 3.75rem;
+  position: absolute;
+  left: 0rem;
+  top: 6.0625rem;
+}
+.mypage-popup-reserve__4 {
+  color: #000000;
+  text-align: left;
+  font: 400 1.75rem/1.75rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: calc(50% - 23.4375rem);
+  top: 0.0625rem;
+  width: 10.625rem;
+  height: 3.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-popup-reserve__rectangle-18 {
+  background: #ffffff;
+  border-radius: 0.3125rem;
+  border-style: solid;
+  border-color: #777777;
+  border-width: 0.0625rem;
+  flex-shrink: 0;
+  width: 20.625rem;
+  height: 3.4375rem;
+  position: absolute;
+  left: 14.6875rem;
+  top: 0rem;
+}
+.mypage-popup-reserve__button2 {
+  background: #4da385;
+  border-radius: 0.3125rem;
+  padding: 0.375rem 0.875rem 0.375rem 0.875rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.625rem;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 6.875rem;
+  height: 3.4375rem;
+  position: absolute;
+  left: 37.8125rem;
+  top: 0rem;
+  overflow: hidden;
+}
+.mypage-popup-reserve__section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5625rem;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50rem;
+  height: 7.9375rem;
+  position: absolute;
+  left: 0rem;
+  top: 2.875rem;
+}
+.mypage-popup-reserve__section-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  height: 7.375rem;
+  position: relative;
+}
+.mypage-popup-reserve__camppy-2 {
+  background: linear-gradient(
+    to left,
+    rgba(240, 241, 245, 0.2),
+    rgba(240, 241, 245, 0.2)
+  );
+  flex-shrink: 0;
+  width: 10.8125rem;
+  height: 7.375rem;
+  position: absolute;
+  left: calc(50% - 5.375rem);
+  top: 0rem;
+}
