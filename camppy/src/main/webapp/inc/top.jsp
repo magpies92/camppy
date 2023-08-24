@@ -55,7 +55,7 @@
 }
 .section-header {
   background: rgba(240, 241, 245, 0.1);
-  padding: 0px 10px 0px 10px;
+  padding: 0px 9.78px 0px 9.78px;
   display: flex;
   flex-direction: row;
   gap: 0px;
@@ -63,21 +63,21 @@
   justify-content: center;
   flex-wrap: wrap;
   flex-shrink: 0;
-  width: 1880px;
-  height: 285px;
+  width: 1878.04px;
+  height: 278.77px;
   position: relative;
   overflow: hidden;
 }
 .section-header__main-logo {
-  padding: 0px 10px 0px 10px;
+  padding: 0px 9.78px 0px 9.78px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 9.78px;
   align-items: center;
   justify-content: flex-start;
   flex-shrink: 0;
-  width: 1914px;
-  height: 230px;
+  width: 1872.17px;
+  height: 224.97px;
   position: relative;
 }
 .section-header__camppy-2 {
@@ -87,10 +87,11 @@
     rgba(240, 241, 245, 0.2)
   );
   flex-shrink: 0;
-  width: 364px;
-  height: 230px;
+  width: 356.05px;
+  height: 224.97px;
   position: relative;
 }
+
 .section-navi,
 .section-navi * {
   box-sizing: border-box;
@@ -219,7 +220,7 @@
 </div>
 <div class="section-header">
   <div class="section-header__main-logo">
-    <img class="section-header__camppy-2" src="../../images/camppy-2.png" />
+    <img class="section-header__camppy-2" src="images/camppy-2.png" />
   </div>
 </div>
 <div class="section-navi">
