@@ -1,0 +1,453 @@
+.mypage-reserve-detail-2,
+.mypage-reserve-detail-2 * {
+  box-sizing: border-box;
+}
+.mypage-reserve-detail-2 {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 0.611875rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 117.5rem;
+  height: 131.25rem;
+  position: relative;
+  overflow: hidden;
+}
+.mypage-reserve-detail-2__section-total {
+  display: flex;
+  flex-direction: row;
+  gap: 0.734375rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 117.5rem;
+  height: 131.25rem;
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  overflow: hidden;
+}
+.mypage-reserve-detail-2__section-body {
+  display: flex;
+  flex-direction: row;
+  gap: 7.55rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 117.5rem;
+  height: 131.25rem;
+  position: relative;
+  overflow: hidden;
+}
+.mypage-reserve-detail-2__body {
+  background: #ffffff;
+  flex-shrink: 0;
+  width: 117.5rem;
+  height: 132.009375rem;
+  position: relative;
+  overflow: hidden;
+}
+.mypage-reserve-detail-2__body-map {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0.0675rem;
+  padding: 2.03375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.8475rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: calc(50% - 45.1875rem);
+  top: 79.3275rem;
+}
+.mypage-reserve-detail-2__ {
+  color: #000000;
+  text-align: left;
+  font: 700 2.169375rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 12.95rem;
+  height: 4.135625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2__image-9 {
+  flex-shrink: 0;
+  width: 86.31125rem;
+  height: 30.849375rem;
+  position: relative;
+}
+.mypage-reserve-detail-2__boby-info {
+  display: flex;
+  flex-direction: row;
+  gap: 3.05125rem;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: calc(50% - 51.375rem);
+  top: 16.475625rem;
+}
+.mypage-reserve-detail-2__image-8 {
+  flex-shrink: 0;
+  width: 40.4775rem;
+  height: 28.1375rem;
+  position: relative;
+}
+.mypage-reserve-detail-2__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.678125rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.mypage-reserve-detail-2__info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 52.749375rem;
+  position: absolute;
+  left: 0.203125rem;
+  top: 2.983125rem;
+}
+.mypage-reserve-detail-2__list-1 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.135625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 52.749375rem;
+  position: relative;
+}
+.mypage-reserve-detail-2__2 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 17.628125rem;
+  height: 3.39rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2___230801-001 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 34.985625rem;
+  height: 3.39rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2__list-2 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.135625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 52.749375rem;
+  position: relative;
+}
+.mypage-reserve-detail-2___2023-08-02 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 17.628125rem;
+  height: 3.39rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2___2023-08-022 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 34.985625rem;
+  height: 3.39rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2__list-3 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.135625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 52.749375rem;
+  position: relative;
+}
+.mypage-reserve-detail-2__3 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 34.985625rem;
+  height: 3.39rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2__list-4 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.135625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 52.749375rem;
+  position: relative;
+}
+.mypage-reserve-detail-2___00-1 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 34.985625rem;
+  height: 3.39rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2__list-5 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 52.749375rem;
+  position: relative;
+}
+.mypage-reserve-detail-2___2023-08-23-15-00 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 34.714375rem;
+  height: 3.39rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2__list-6 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 52.749375rem;
+  position: relative;
+}
+.mypage-reserve-detail-2___2023-08-27-12-00 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 32.545rem;
+  height: 3.39rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2__body-title {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 106.855rem;
+  height: 8.13625rem;
+  position: absolute;
+  left: calc(50% - 53.4375rem);
+  top: 0rem;
+}
+.mypage-reserve-detail-2__4 {
+  color: #000000;
+  text-align: center;
+  font: 700 3.05125rem/1.491875rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: calc(50% - 16.408125rem);
+  top: 0rem;
+  width: 32.815625rem;
+  height: 8.13625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-reserve-detail-2__5 {
+  color: #000000;
+  text-align: center;
+  font: 700 2.169375rem/1.491875rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 3.3225rem;
+  top: 8.13625rem;
+  width: 29.49375rem;
+  height: 6.50875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-reserve-detail-2__account-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: calc(50% - 46.1875rem);
+  top: 49.698125rem;
+}
+.mypage-reserve-detail-2__bank {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2.78rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.mypage-reserve-detail-2__6 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 10.17rem;
+  height: 4.068125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2__7 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 16.950625rem;
+  height: 4.068125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2__account {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2.78rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.mypage-reserve-detail-2___333-4444-555555 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 16.950625rem;
+  height: 4.068125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2__cost {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2.78rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.mypage-reserve-detail-2___200-000 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.830625rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 16.950625rem;
+  height: 4.068125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mypage-reserve-detail-2__name {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2.78rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.mypage-reserve-detail-2__notice {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0rem 0rem 0.0675rem 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.678125rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.mypage-reserve-detail-2___24 {
+  color: #ff2b37;
+  text-align: left;
+  font: 400 1.6275rem/1.491875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 92.345625rem;
+  height: 3.66125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
