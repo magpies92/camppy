@@ -10,6 +10,25 @@
 
    
     <title>Document</title>
+    <style>
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+      }
+    </style>
   </head>
   <body>
   <jsp:include page="../../inc/top.jsp"/>

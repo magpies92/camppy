@@ -120,52 +120,32 @@
         </div>
         <div class="mainpage__section-category">
           <div class="mainpage__category-icon">
-            <div class="mainpage__icon-camping">
-              <div class="mainpage__div-icon-img-1">
+          <button type="button" onclick="location.href='search.camp'" >
+            
                 <img
-                  class="mainpage__img-more-png"
-                  src="camppymain/mainpage/img-more-png.png"
-                /><img
-                  class="mainpage__link-7968-yz-lbkpegl-un-qg-h-4-ooz-ld-jpg"
-                  src="camppymain/mainpage/link-7968-yz-lbkpegl-un-qg-h-4-ooz-ld-jpg.png"
+                  class="mainpage__icon-camping"
+                  src="camppymain/mainpage/1.png"
                 />
-              </div>
-            </div>
-            <div class="mainpage__icon-glamping">
-              <div class="mainpage__div-icon-img-2">
+                </button>
+         <button type="button" onclick="location.href='search.camp'" >     
                 <img
-                  class="mainpage__link-9769-xt-4-w-tei-5-mvvmt-2-o-84-x-1-q-jpg"
-                  src="camppymain/mainpage/link-9769-xt-4-w-tei-5-mvvmt-2-o-84-x-1-q-jpg.png"
+                  class="mainpage__icon-glamping"
+                  src="camppymain/mainpage/2.png"
                 />
-              </div>
-            </div>
-            <div class="mainpage__icon-caravan">
-              <div class="mainpage__div-icon-img-3">
+             </button>
+         <button type="button" onclick="location.href='search.camp'" >   
                 <img
-                  class="mainpage__link-0853-cet-k-93-gw-3-s-o-bl-p-1-pa-ldl-jpg"
-                  src="camppymain/mainpage/link-0853-cet-k-93-gw-3-s-o-bl-p-1-pa-ldl-jpg.png"
+                  class="mainpage__icon-caravan"
+                  src="camppymain/mainpage/3.png"
                 />
-              </div>
-            </div>
-            <div class="mainpage__icon-pension">
-              <div class="mainpage__div-icon-img-4">
+              </button>
+           <button type="button" onclick="location.href='search.camp'" > 
                 <img
-                  class="mainpage__link-05337-y-0-jv-qqic-9-d-6-is-82-cokf-jpg"
-                  src="camppymain/mainpage/link-05337-y-0-jv-qqic-9-d-6-is-82-cokf-jpg.png"
+                  class="mainpage__icon-pension"
+                  src="camppymain/mainpage/4.png"
                 />
-              </div>
-            </div>
-            <div class="mainpage__icon-reserve">
-              <div class="mainpage__div-icon-img-5">
-                <img
-                  class="mainpage__link-05337-y-0-jv-qqic-9-d-6-is-82-cokf-jpg"
-                  src="camppymain/mainpage/link-05337-y-0-jv-qqic-9-d-6-is-82-cokf-jpg.png"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="mainpage__category-name">
-            <div class="mainpage__name-camping">
+             </button>   
+                <div class="mainpage__name-camping">
               <div class="mainpage__7">캠핑장</div>
             </div>
             <div class="mainpage__name-glaming">
@@ -177,13 +157,11 @@
             <div class="mainpage__name-pension">
               <div class="mainpage__7">펜 션</div>
             </div>
-            <div class="mainpage__name-reserve">
-              <div class="mainpage__7">예약조회</div>
-            </div>
+            
+            
           </div>
-          <div class="mainpage__category-head">
-            <div class="mainpage__8">카테고리 별 검색</div>
-          </div>
+        
+          
         </div>
         <div class="mainpage__section-best">
           <div class="mainpage__best">

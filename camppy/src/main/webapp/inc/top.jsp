@@ -164,7 +164,7 @@
   width: 200px;
   height: 60px;
   position: absolute;
-  left: 645px;
+  left: 548.2px;
   top: 20px;
 }
 .section-navi__link2 {
@@ -192,11 +192,11 @@
   width: 200px;
   height: 60px;
   position: absolute;
-  left: 1003px;
+  left: 809.4px;
   top: 20px;
 }
 .section-navi__navi-list-4 {
-  padding: 0px 18px 1px 18px;
+  padding: 0px 16.64px 1px 18px;
   display: flex;
   flex-direction: row;
   gap: 0px;
@@ -207,9 +207,27 @@
   width: 200px;
   height: 60px;
   position: absolute;
-  left: 1361px;
+  left: 1070.6px;
   top: 20px;
 }
+
+.section-navi__navi-list-5 {
+  padding: 0px 16.64px 1px 18px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 200px;
+  height: 60px;
+  position: absolute;
+  left: 1331.8px;
+  top: 20px;
+}
+
+
 
 </style>
 <body>
@@ -219,9 +237,9 @@
   </div>
 </div>
 <div class="section-header">
-  <div class="section-header__main-logo">
-    <img class="section-header__camppy-2" src="images/camppy-2.png" />
-  </div>
+<button type="button" onclick="location.href='main.camp'" class="section-header__main-logo>">
+<img class="section-header__camppy-2" src="images/camppy-2.png" />
+</button> 
 </div>
 <div class="section-navi">
   <div class="section-navi__navi-list">
@@ -235,6 +253,9 @@
       <div class="section-navi__link">문의하기</div>
     </div>
     <div class="section-navi__navi-list-4">
+      <div class="section-navi__link">예약조회</div>
+    </div>
+    <div class="section-navi__navi-list-5">
       <div class="section-navi__link">마이페이지</div>
     </div>
   </div>
