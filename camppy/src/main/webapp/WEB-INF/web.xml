@@ -32,6 +32,16 @@
 	<servlet-class>camppy.commu.action.CommuController</servlet-class>
 </servlet>
 
+<servlet-mapping>
+	<servlet-name>MemberController</servlet-name>
+	<url-pattern>*.mem</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>MemberController</servlet-name>
+	<servlet-class>camppy.member.MemberController</servlet-class>
+</servlet>
+
   <!--   가상주소에 해당하는 처리담당자(서블릿파일)=> 주소매핑 -->
 <!-- http://localhost:8080/FunWeb/list.bo -->
 <!--

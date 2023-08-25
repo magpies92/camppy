@@ -233,7 +233,7 @@
 <body>
 <div class="section-login">
   <div class="section-login__login">
-    <div class="section-login__">회원가입 /로그인</div>
+    <button type="button" onclick="location.href='ctest.mem'" class="section-login__">회원가입</button> <div>/로그인</div>
   </div>
 </div>
 <div class="section-header">
