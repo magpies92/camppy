@@ -1,0 +1,1015 @@
+.reserve-detail,
+.reserve-detail * {
+  box-sizing: border-box;
+}
+.reserve-detail {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 0.611875rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 117.5rem;
+  height: 293.75rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__section-total {
+  display: flex;
+  flex-direction: row;
+  gap: 0.73375rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 117.4375rem;
+  height: 293.75rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__body {
+  display: flex;
+  flex-direction: row;
+  gap: 0.9175rem;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 96.63625rem;
+  height: 245.566875rem;
+  position: absolute;
+  left: 10.3975rem;
+  top: 7.461875rem;
+}
+.reserve-detail__body-head {
+  background: #ffffff;
+  flex-shrink: 0;
+  width: 96.63625rem;
+  height: 7.645rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__ {
+  color: #4da385;
+  text-align: center;
+  font: 700 3.67rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: calc(50% - 31.315rem);
+  top: 0.611875rem;
+  width: 62.63rem;
+  height: 6.483125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserve-detail__body-info-1 {
+  background: #e2e2e2;
+  flex-shrink: 0;
+  width: 96.63625rem;
+  height: 39.571875rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__info-1-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4.831875rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 73.2725rem;
+  position: absolute;
+  left: 4.3425rem;
+  top: 3.67rem;
+}
+.reserve-detail__list-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.100625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 73.2725rem;
+  position: relative;
+}
+.reserve-detail__2 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 18.593125rem;
+  height: 2.81375rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__3 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.44625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 25.26rem;
+  height: 2.324375rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__list-2 {
+  display: flex;
+  flex-direction: row;
+  gap: 24.036875rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 73.2725rem;
+  position: relative;
+}
+.reserve-detail__list-2-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  height: 10.3975rem;
+  position: relative;
+}
+.reserve-detail__4 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 9.846875rem;
+  height: 2.81375rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail___2023-01-26-15-00 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.44625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 19.14375rem;
+  height: 6.605625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__list-2-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.244375rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.reserve-detail__5 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 8.5625rem;
+  height: 2.81375rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail___2023-01-27-19-00 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.44625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 28.134375rem;
+  height: 6.605625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__list-3 {
+  display: flex;
+  flex-direction: row;
+  gap: 30.33625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 73.2725rem;
+  position: relative;
+}
+.reserve-detail__list-3-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.100625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 11.559375rem;
+  position: relative;
+}
+.reserve-detail__6 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 9.66375rem;
+  height: 2.44625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail___2 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.44625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 12.96625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__list-3-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.04rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.reserve-detail__7 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 15.045625rem;
+  height: 2.44625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail___101 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.44625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 15.045625rem;
+  height: 2.44625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__body-info-2 {
+  background: #e2e2e2;
+  flex-shrink: 0;
+  width: 96.63625rem;
+  height: 25.565625rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__list-22 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.284375rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 3.425rem;
+  top: 17.4925rem;
+}
+.reserve-detail__8 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.835rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 14.189375rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail___010-1234-1234 {
+  color: #000000;
+  text-align: left;
+  font: 400 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 24.465rem;
+  height: 2.44625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__list-12 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0rem 0rem 0.06125rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.468125rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 89.603125rem;
+  height: 11.009375rem;
+  position: absolute;
+  left: 3.425rem;
+  top: 3.730625rem;
+}
+.reserve-detail__9 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.835rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 11.620625rem;
+  height: 2.324375rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__10 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 19.510625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__11 {
+  color: #f30d0d;
+  text-align: left;
+  font: 400 1.65125rem/0.611875rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 69.90875rem;
+  height: 2.5075rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__body-info-3 {
+  background: #e2e2e2;
+  flex-shrink: 0;
+  width: 96.63625rem;
+  height: 24.40375rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__list-5 {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 0.611875rem;
+  align-items: center;
+  justify-content: center;
+  width: 12.11rem;
+  height: 3.119375rem;
+  position: absolute;
+  left: 79.633125rem;
+  top: 15.9025rem;
+  overflow: hidden;
+}
+.reserve-detail__12 {
+  color: #000000;
+  text-align: center;
+  font: 700 1.835rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserve-detail__list-4 {
+  width: 74.92375rem;
+  height: 3.36375rem;
+  position: absolute;
+  left: 3.3025rem;
+  top: 16.269375rem;
+}
+.reserve-detail__13 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 0rem;
+  top: 1.009375rem;
+  width: 10.030625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail___10-p {
+  color: #000000;
+  text-align: right;
+  font: 700 1.835rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 70.550625rem;
+  top: 4.64625rem;
+  width: 17.859375rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.reserve-detail__list-32 {
+  display: flex;
+  flex-direction: row;
+  gap: 0.550625rem;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: 15.688125rem;
+  top: 16.266875rem;
+}
+.reserve-detail__list-3-12 {
+  background: #ffffff;
+  padding: 0.244375rem 1.345625rem 0.244375rem 1.345625rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.611875rem;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 55.535625rem;
+  height: 3.36375rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail___10000 {
+  color: #000000;
+  text-align: right;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: calc(50% - -10.45875rem);
+  top: 1.04rem;
+  width: 16.208125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.reserve-detail__p {
+  color: #000000;
+  text-align: left;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 5.3825rem;
+  height: 2.201875rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__list-23 {
+  display: flex;
+  flex-direction: row;
+  gap: 71.193125rem;
+  align-items: center;
+  justify-content: flex-start;
+  width: 88.685625rem;
+  position: absolute;
+  left: 3.516875rem;
+  top: 11.195rem;
+}
+.reserve-detail__14 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 7.82875rem;
+  height: 2.324375rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail___0 {
+  color: #000000;
+  text-align: right;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 7.645rem;
+  height: 1.9575rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.reserve-detail__list-13 {
+  display: flex;
+  flex-direction: column;
+  gap: 2.140625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 3.3025rem;
+  top: 4.831875rem;
+}
+.reserve-detail__15 {
+  color: #000000;
+  text-align: left;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 10.6425rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__line-12 {
+  flex-shrink: 0;
+  position: relative;
+  transform: translate(0rem, -0.030625rem);
+  overflow: visible;
+}
+.reserve-detail__body-info-4 {
+  background: #e2e2e2;
+  flex-shrink: 0;
+  width: 96.63625rem;
+  height: 25.1375rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__list-42 {
+  display: flex;
+  flex-direction: row;
+  gap: 65.871875rem;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 17.736875rem;
+  position: absolute;
+  left: 3.730625rem;
+  top: 19.571875rem;
+}
+.reserve-detail___90-000 {
+  color: #000000;
+  text-align: right;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 75.84125rem;
+  top: 0.06125rem;
+  width: 12.2325rem;
+  height: 2.324375rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.reserve-detail__16 {
+  color: #000000;
+  text-align: left;
+  font: 800 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  width: 17.736875rem;
+  height: 2.385625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__list-33 {
+  display: flex;
+  flex-direction: row;
+  gap: 72.4775rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 95.596875rem;
+  position: absolute;
+  left: 0.244375rem;
+  top: 10.58125rem;
+}
+.reserve-detail__17 {
+  color: #000000;
+  text-align: center;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 10.825625rem;
+  height: 2.018125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserve-detail___100-000 {
+  color: #000000;
+  text-align: center;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 80.06125rem;
+  top: 0.06125rem;
+  width: 12.29375rem;
+  height: 1.9575rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserve-detail__list-24 {
+  display: flex;
+  flex-direction: row;
+  gap: 68.624375rem;
+  align-items: center;
+  justify-content: flex-start;
+  width: 95.351875rem;
+  position: absolute;
+  left: 0rem;
+  top: 14.92375rem;
+}
+.reserve-detail__18 {
+  color: #000000;
+  text-align: center;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 14.8625rem;
+  height: 2.324375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserve-detail___10-000 {
+  color: #000000;
+  text-align: center;
+  font: 700 2.140625rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 81.10125rem;
+  top: 0.18375rem;
+  width: 12.11rem;
+  height: 1.9575rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserve-detail__list-14 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.345625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 0rem;
+  top: 3.48625rem;
+}
+.reserve-detail__19 {
+  color: #000000;
+  text-align: center;
+  font: 700 2.018125rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 0.6725rem;
+  top: 0rem;
+  width: 13.8225rem;
+  height: 2.56875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserve-detail__line-13 {
+  position: absolute;
+  left: 3.60875rem;
+  top: 7.523125rem;
+  transform: translate(0rem, -0.030625rem);
+  overflow: visible;
+}
+.reserve-detail__body-info-5 {
+  background: #e2e2e2;
+  flex-shrink: 0;
+  width: 96.63625rem;
+  height: 23.48625rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__payment-1 {
+  display: flex;
+  flex-direction: row;
+  gap: 1.7125rem;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: 3.119375rem;
+  top: 11.49875rem;
+}
+.reserve-detail__check {
+  background: #ffffff;
+  border-radius: 6.11625rem;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.18375rem;
+  flex-shrink: 0;
+  width: 2.018125rem;
+  height: 2.44625rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__without-bankbook {
+  background: #ffffff;
+  border-radius: 0.611875rem;
+  flex-shrink: 0;
+  width: 16.880625rem;
+  height: 2.996875rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__20 {
+  color: #000000;
+  text-align: center;
+  font: 400 1.835rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 2.324375rem;
+  top: 0.9175rem;
+  width: 11.070625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserve-detail__payment-2 {
+  display: flex;
+  flex-direction: row;
+  gap: 0.85625rem;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: 30.6425rem;
+  top: 11.49875rem;
+}
+.reserve-detail__account-transfer {
+  background: #ffffff;
+  border-radius: 0.611875rem;
+  flex-shrink: 0;
+  width: 16.880625rem;
+  height: 2.996875rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__21 {
+  color: #000000;
+  text-align: left;
+  font: 400 1.835rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 4.22rem;
+  top: 0.85625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__payment {
+  display: flex;
+  flex-direction: row;
+  gap: 1.7125rem;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: 3.119375rem;
+  top: 16.880625rem;
+}
+.reserve-detail__next-time {
+  background: #ffffff;
+  border-radius: 0.611875rem;
+  flex-shrink: 0;
+  width: 29.969375rem;
+  height: 2.935625rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__22 {
+  color: #000000;
+  text-align: center;
+  font: 400 1.835rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 0.97875rem;
+  top: 0.366875rem;
+  width: 27.278125rem;
+  height: 2.201875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserve-detail__list-15 {
+  display: flex;
+  flex-direction: column;
+  gap: 2.079375rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 1.345625rem;
+  top: 3.60875rem;
+}
+.reserve-detail__23 {
+  color: #000000;
+  text-align: center;
+  font: 700 2.018125rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 16.146875rem;
+  height: 2.201875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserve-detail__line-14 {
+  flex-shrink: 0;
+  position: absolute;
+  left: 1.59rem;
+  top: 4.28125rem;
+  transform: translate(0rem, -0.030625rem);
+  overflow: visible;
+}
+.reserve-detail__agree-condition {
+  background: #ffffff;
+  flex-shrink: 0;
+  width: 95.535625rem;
+  height: 21.10125rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__condition-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.161875rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 40.18375rem;
+  position: absolute;
+  left: 0rem;
+  top: 4.831875rem;
+}
+.reserve-detail__total-check {
+  display: flex;
+  flex-direction: row;
+  gap: 2.263125rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.reserve-detail__rectangle-15 {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.18375rem;
+  flex-shrink: 0;
+  width: 2.018125rem;
+  height: 2.018125rem;
+  position: relative;
+}
+.reserve-detail__24 {
+  color: #f30d0d;
+  text-align: left;
+  font: 700 1.7125rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__list-25 {
+  display: flex;
+  flex-direction: row;
+  gap: 2.385625rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.reserve-detail__check2 {
+  background: #ffffff;
+  border-radius: 6.11625rem;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.1225rem;
+  flex-shrink: 0;
+  width: 1.7125rem;
+  height: 1.7125rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail___14 {
+  color: #000000;
+  text-align: left;
+  font: 400 1.223125rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__list-34 {
+  display: flex;
+  flex-direction: row;
+  gap: 2.385625rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.reserve-detail__list-43 {
+  display: flex;
+  flex-direction: row;
+  gap: 2.385625rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.reserve-detail__list-52 {
+  display: flex;
+  flex-direction: row;
+  gap: 2.385625rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.reserve-detail__user-rule {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.1225rem 0rem 0rem 0rem;
+  flex-shrink: 0;
+  width: 96.82rem;
+  height: 34.67875rem;
+  position: relative;
+  overflow: hidden;
+}
+.reserve-detail__head {
+  display: flex;
+  flex-direction: row;
+  gap: 0.611875rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 92.355rem;
+  position: absolute;
+  left: 0rem;
+  top: 3.67rem;
+}
+.reserve-detail__25 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.835rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  width: 11.620625rem;
+  height: 2.385625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__this-letter-first-started-in-england-and-gave-luck-to-the-recipients-around-the-world-and-now-this-letter-that-has-reached-you-has-to-leave-you-within-4-days-you-must-send-7-copies-including-this-letter-to-the-person-in-need-of-good-luck-you-can-also-make-a-copy-you-may-call-it-superstition-but-it-is-true-a-british-man-named-hgxwch-received-this-letter-in-1930-he-asked-his-secretary-to-copy-and-send-it-a-few-days-later-he-won-the-lottery-and-received-2-billion-won-some-received-this-letter-but-forgot-that-it-had-to-leave-their-hands-within-96-hours-he-was-soon-resigned-i-only-found-out-about-this-later-and-sent-7-letters-but-i-got-a-good-job-again-president-kennedy-of-the-united-states-received-this-letter-but-simply-threw-it-away-eventually-nine-days-later-he-was-assassinated-please-remember-if-you-send-this-letter-there-will-be-7-years-of-good-fortune-otherwise-there-will-be-3-years-of-misfortune-and-you-must-never-throw-away-or-scribble-on-this-letter-7-cans-whoever-receives-this-letter-will-be-lucky-it-s-hard-but-think-good-is-good-7-years-of-good-luck {
+  color: #000000;
+  text-align: left;
+  font: 400 3.058125rem/3.058125rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 2.324375rem;
+  top: 1.223125rem;
+  width: 93.089375rem;
+  height: 27.15625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__check3 {
+  display: flex;
+  flex-direction: row;
+  gap: 1.161875rem;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: 0.305625rem;
+  top: 30.091875rem;
+}
+.reserve-detail__rectangle-16 {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.18375rem;
+  flex-shrink: 0;
+  width: 2.018125rem;
+  height: 2.018125rem;
+  position: relative;
+}
+.reserve-detail__26 {
+  color: #f30d0d;
+  text-align: left;
+  font: 700 1.835rem/1.345625rem "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reserve-detail__reeservation-button {
+  background: #ffffff;
+  border-radius: 0.611875rem;
+  flex-shrink: 0;
+  width: 37.920625rem;
+  height: 7.645rem;
+  position: absolute;
+  left: 28.93rem;
+  top: 263.976875rem;
+  overflow: hidden;
+}
+.reserve-detail__rectangle-6 {
+  background: #4ea386;
+  border-radius: 0.305625rem;
+  width: 26.605625rem;
+  height: 4.586875rem;
+  position: absolute;
+  left: 5.810625rem;
+  top: 1.52875rem;
+}
+.reserve-detail__27 {
+  color: #ffffff;
+  text-align: center;
+  font: 700 1.835rem/1.345625rem "NanumGothic", sans-serif;
+  position: absolute;
+  left: 8.195625rem;
+  top: 2.690625rem;
+  width: 21.77375rem;
+  height: 2.263125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

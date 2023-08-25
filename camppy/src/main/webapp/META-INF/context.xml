@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/Mysql"
+	          auth="Container"
+	          type="javax.sql.DataSource"
+	          driverClassName="com.mysql.cj.jdbc.Driver"
+	          url="jdbc:mysql://itwillbs.com:3306/jspdb?serverTimezone=Asia/Seoul"
+	          username="c1d2304t3"
+	          password="1234"
+	/>
+</Context>
