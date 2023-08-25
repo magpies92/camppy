@@ -244,7 +244,7 @@
 <div class="section-navi">
   <div class="section-navi__navi-list">
     <div class="section-navi__navi-list-1">
-      <div class="section-navi__link">공지사항</div>
+      <button type="button" onclick="location.href='admin.camp'" class="section-navi__link">캠핑장 등록</button>
     </div>
     <div class="section-navi__navi-list-2">
       <div class="section-navi__link2">커뮤니티</div>

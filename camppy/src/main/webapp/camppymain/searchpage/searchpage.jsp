@@ -31,7 +31,7 @@
     </style>
   </head>
   <body>
-  <jsp:include page="../../inc/top.jsp"/>
+  <jsp:include page="/inc/top.jsp"/>
     <div class="mainpage">
   <div class="mainpage__section-total">
     <div class="mainpage__search-box-frame">
@@ -154,6 +154,6 @@
   </div>
 </div>
 
-    <jsp:include page="../../inc/bottom.jsp"/>
+    <jsp:include page="/inc/bottom.jsp"/>
   </body>
 </html>

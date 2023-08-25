@@ -1,4 +1,4 @@
-package member;
+package camppy.member;
 
 import java.sql.Timestamp;
 
