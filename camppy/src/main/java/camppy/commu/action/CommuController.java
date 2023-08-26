@@ -1,4 +1,4 @@
-package camppy.main.action;
+package camppy.commu.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-public class MainFrontController extends HttpServlet {
+public class CommuController extends HttpServlet {
 	RequestDispatcher dispatcher =null;
 //	MemberService memberService = null;
 	
@@ -37,30 +37,13 @@ public class MainFrontController extends HttpServlet {
 		String sPath=request.getServletPath();
 		System.out.println("뽑은 가상주소 :  " + sPath);
 		
-		if(sPath.equals("/main.camp")) {
+		if(sPath.equals("/commu.cum")) {
 			// member/login.jsp 주소변경 없이 이동
 			dispatcher 
-		    = request.getRequestDispatcher("camppymain/mainpage/mainpage.jsp");
+		    = request.getRequestDispatcher("camppymain/commuContentsList/commuContentsList.jsp");
 		dispatcher.forward(request, response);
 		}
-		if(sPath.equals("/search.camp")) {
-			// member/login.jsp 주소변경 없이 이동
-			dispatcher 
-		    = request.getRequestDispatcher("camppymain/searchpage/searchpage.jsp");
-		dispatcher.forward(request, response);
-		}
-		if(sPath.equals("/admin.camp")) {
-			// member/login.jsp 주소변경 없이 이동
-			dispatcher 
-		    = request.getRequestDispatcher("camppymain/admin/admin.jsp");
-		dispatcher.forward(request, response);
-		}
-		if(sPath.equals("/campupload.camp")) {
-			// member/login.jsp 주소변경 없이 이동
-			dispatcher 
-		    = request.getRequestDispatcher("camppymain/admin/uploadaction.jsp");
-		dispatcher.forward(request, response);
-		}
+		
 		//
 		
 //		if(sPath.equals("/loginPro.me")) {

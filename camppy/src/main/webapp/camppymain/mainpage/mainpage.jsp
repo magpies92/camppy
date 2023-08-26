@@ -30,7 +30,7 @@
 <script type="text/javascript" src="camppymain/mainpage/mainpage.js"></script>
 </head>
 <body>
-<jsp:include page="../../inc/top.jsp"/>
+<jsp:include page="/inc/top.jsp"/>
     <div class="mainpage">
       <div class="mainpage__section-total">
         <div class="mainpage__section-search">
@@ -96,7 +96,7 @@
           <div class="mainpage__notice-left">
             <div class="mainpage__div-notice-head">
               <div class="mainpage__5">공지사항</div>
-              <img class="mainpage__icon-speak" src="camppymain/mainpage/icon-speak.png" />
+              <img class="mainpage__icon-speak" src="/camppymain/mainpage/icon-speak.png" />
             </div>
           </div>
           <div class="mainpage__notice-center">
@@ -119,6 +119,9 @@
           </div>
         </div>
         <div class="mainpage__section-category">
+        <div class="mainpage__best-head">
+              <div class="mainpage__best-5">캠피 추천 캠핑장</div>
+            </div>
           <div class="mainpage__category-icon">
           <button type="button" onclick="location.href='search.camp'" >
             
@@ -146,16 +149,16 @@
                 />
              </button>   
                 <div class="mainpage__name-camping">
-              <div class="mainpage__7">캠핑장</div>
+              <div class="mainpage__7">캠핑장1</div>
             </div>
             <div class="mainpage__name-glaming">
-              <div class="mainpage__7">글램핑</div>
+              <div class="mainpage__7">캠핑장2</div>
             </div>
             <div class="mainpage__name-caravan">
-              <div class="mainpage__7">카라반</div>
+              <div class="mainpage__7">캠핑장3</div>
             </div>
             <div class="mainpage__name-pension">
-              <div class="mainpage__7">펜 션</div>
+              <div class="mainpage__7">캠핑장4</div>
             </div>
             
             
@@ -239,7 +242,7 @@
         </div>
       </div>
     </div>
-    <jsp:include page="../../inc/bottom.jsp"/>
+    <jsp:include page="/inc/bottom.jsp"/>
   </body>
 </html>
 
