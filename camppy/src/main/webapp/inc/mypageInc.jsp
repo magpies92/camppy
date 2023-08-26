@@ -1,8 +1,14 @@
-.mypage-review,
-.mypage-review * {
-  box-sizing: border-box;
-}
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
 .mypageProfile {
   padding: 10px 100px 10px 100px;
   display: flex;
@@ -14,12 +20,12 @@
   flex-shrink: 0;
   width: 1920px;
   height: 314px;
-  position: absolute;
+  position: relative;
   left: 1px;
-  top: 479px;
+  
   overflow: hidden;
 }
-.mypage-review__free-icon-user-8484069-2 {
+.mypageUserIcon {
   flex-shrink: 0;
   width: 217px;
   height: 217px;
@@ -183,9 +189,9 @@
   flex-shrink: 0;
   width: 1920px;
   height: 163px;
-  position: absolute;
-  left: calc(50% - 960px);
-  top: 792px;
+  position: relative;
+/*   left: calc(50% - 960px); */
+  
   padding-right : 150px;
   padding-left : 150px;
 }
@@ -222,7 +228,7 @@
   align-items: center;
   justify-content: center;
 }
-.mypageReserve{
+.mypageReserve {
   color: #000000;
   text-align: center;
   font: 400 30px/28px "NanumGothic", sans-serif;
@@ -233,3 +239,80 @@
   align-items: center;
   justify-content: center;
 }
+
+.buttonDel {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 138px;
+  height: 61px;
+  position: relative;
+  left: 1555px;
+  background: #4da385;
+  border-radius: 5px;
+  border: none;
+}
+.del{
+  color: #ffffff;
+  text-align: center;
+  font: 700 25px/45px "NanumGothic", sans-serif;
+  position: absolute;
+  left: calc(50% - 49px);
+  top: 13px;
+  width: 100px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+</style>
+
+
+
+<body>
+
+        <div class="mypageProfile">
+          <img
+            class="mypageUserIcon"
+            src="free-icon-user-8484069-2.png"
+          />
+          <div class="profileNickname">발레하는 고구마</div>
+          <button type="button" onclick="location.href = 'abc.jsp'" class="updateButton">
+            <div class="updateProfile">프로필수정</div>
+          </button>
+          <div class="mypageProfileNum">
+            <div class="myVisit">방문횟수</div>
+            <div class="visitNum">29</div>
+            <div class="myArticle">작성글</div>
+            <div class="myArticleNum">3</div>
+            <div class="myReply">댓글</div>
+            <div class="myReplyNum">6</div>       
+          </div>
+        </div>
+        <div class="mypageNavi">
+            <div class="mypageLike" >찜 목록</div>
+            <div class="mypageArticle">작성한 글</div>
+            <div class="mypageReply">작성 리뷰</div>
+            <div class="mypageReserve">예약 내역</div>
+        </div>
+		 <button type="button" onclick="popupDel();" class="buttonDel">
+            <div class="del">삭제</div>
+         	</button>
+
+<script>
+
+function popupDel(){
+    var url = "popupDel.jsp";
+    var name = "popup test";
+    var option = "width = 330, height = 110, location = center "
+    window.open(url, name, option);
+}// 삭제 팝업창 불러오기 기능
+
+</script>
+</body>
+</html>
