@@ -96,7 +96,7 @@
           <div class="mainpage__notice-left">
             <div class="mainpage__div-notice-head">
               <div class="mainpage__5">공지사항</div>
-              <img class="mainpage__icon-speak" src="/camppymain/mainpage/icon-speak.png" />
+              <img class="mainpage__icon-speak" src="camppymain/mainpage/icon-speak.png" />
             </div>
           </div>
           <div class="mainpage__notice-center">
