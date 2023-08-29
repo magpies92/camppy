@@ -39,7 +39,7 @@ public class MemberController extends HttpServlet{
 		String sPath=request.getServletPath();
 		System.out.println("뽑은 가상주소 :  " + sPath);
 		//뽑은 가상주소 비교하기 => 실제페이지 연결
-		if(sPath.equals("/ctest.mem")) {
+		if(sPath.equals("/ctest.member")) {
 			// member/join.jsp 주소변경 없이 연결
 			dispatcher 
 		    = request.getRequestDispatcher("member/join/ctest.jsp");
