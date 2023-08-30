@@ -24,6 +24,7 @@ public class CampRegDTO {
 	private String mapx;
 	private String mapy;
 	private int campid;
+	
 	public String getBankname() {
 		return bankname;
 	}
