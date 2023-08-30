@@ -1013,3 +1013,21 @@
   align-items: center;
   justify-content: center;
 }
+input[type="checkbox"] {
+  appearance: checkbox;
+  border: initial;
+  background: initial;
+}
+#large-checkbox {
+  width: 30px;
+  height: 30px;
+}
+input[type="checkbox"] {
+  appearance: radio;
+  border: initial;
+  background: initial;
+}
+#large-checkbox {
+  width: 30px;
+  height: 30px;
+}

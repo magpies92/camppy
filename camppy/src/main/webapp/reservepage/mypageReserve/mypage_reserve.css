@@ -306,7 +306,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   width: 117.5rem;
-  position: absolute;
+/*   position: absolute; */
   left: 0rem;
   top: 3.144375rem;
   overflow: hidden;
@@ -321,4 +321,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.span{
+  color: #000000;
+  text-align: center;
+  font: 400 1.53rem/1.71375rem "NanumGothic", sans-serif;
+   position: relative;
+  width: 12.606875rem;
+  height: 6.12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }

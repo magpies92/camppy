@@ -18,17 +18,18 @@
       h3,
       h4,
       h5,
-      * {
-        margin: 0;
-        padding: 0;
+       * { 
+/*         margin: 0; */
+/*         padding: 0; */
         border: none;
-        text-decoration: none;
-        appearance: none;
-        background: none;
-      }
+/*         text-decoration: none; */
+/*         appearance: none; */
+         background: none; 
+    }
     </style>
     <title>Document</title>
   </head>
+
   <body>
     <div class="reserve-detail">
       <div class="reserve-detail__section-total">
@@ -152,22 +153,23 @@
           </div>
           <div class="reserve-detail__body-info-5">
             <div class="reserve-detail__payment-1">
-              <div class="reserve-detail__check"></div>
+              <input type="radio" id="large-checkbox" name="large-checkbox" style="display: inline-block; margin-left: 5px;">	
+				
               <div class="reserve-detail__without-bankbook">
                 <div class="reserve-detail__20">무통장 입금</div>
               </div>
             </div>
             <div class="reserve-detail__payment-2">
-              <div class="reserve-detail__check"></div>
+              <input type="radio" id="large-checkbox" name="large-checkbox" style="display: inline-block; margin-left: 5px;">
               <div class="reserve-detail__account-transfer">
                 <div class="reserve-detail__21">계좌 이체</div>
               </div>
             </div>
             <div class="reserve-detail__payment">
-              <div class="reserve-detail__check"></div>
+              <input type="radio" id="large-checkbox" name="large-checkbox" style="display: inline-block; margin-left: 5px;">
               <div class="reserve-detail__next-time">
                 <div class="reserve-detail__22">
-                  이 결제 수단을 다음에도 사용
+                  현장결제
                 </div>
               </div>
             </div>
@@ -192,30 +194,31 @@
           <div class="reserve-detail__agree-condition">
             <div class="reserve-detail__condition-list">
               <div class="reserve-detail__total-check">
-                <div class="reserve-detail__rectangle-15"></div>
-                <div class="reserve-detail__24">필수 약관 전체 동의</div>
+                
+                <div class="reserve-detail__24"><input type="checkbox" id="large-checkbox" name="large-checkbox" style="display: inline-block; margin-left: 5px;">
+    			필수 약관 전체 동의
+				</div>
               </div>
-              <div class="reserve-detail__list-25">
-                <div class="reserve-detail__check2"></div>
-                <div class="reserve-detail___14">
+              <div class="reserve-detail__list-25">                
+                <div class="reserve-detail___14"><input type="checkbox" id="large-checkbox" name="large-checkbox" style="display: inline-block; margin-left: 5px;">    							
                   [필수] 만14세 이상 이용 동의
                 </div>
               </div>
               <div class="reserve-detail__list-34">
-                <div class="reserve-detail__check2"></div>
-                <div class="reserve-detail___14">
+                <div class="reserve-detail___14"><input type="checkbox" id="large-checkbox" name="large-checkbox" style="display: inline-block; margin-left: 5px;">				
                   [필수] 만14세 이상 이용 동의
                 </div>
+                  
               </div>
               <div class="reserve-detail__list-43">
-                <div class="reserve-detail__check2"></div>
-                <div class="reserve-detail___14">
+                
+                <div class="reserve-detail___14"><input type="checkbox" id="large-checkbox" name="large-checkbox" style="display: inline-block; margin-left: 5px;">				
                   [필수] 만14세 이상 이용 동의
                 </div>
               </div>
               <div class="reserve-detail__list-52">
-                <div class="reserve-detail__check2"></div>
-                <div class="reserve-detail___14">
+                
+                <div class="reserve-detail___14"><input type="checkbox" id="large-checkbox" name="large-checkbox" style="display: inline-block; margin-left: 5px;">				
                   [필수] 만14세 이상 이용 동의
                 </div>
               </div>
@@ -236,16 +239,26 @@
               </div>
             </div>
             <div class="reserve-detail__check3">
-              <div class="reserve-detail__rectangle-16"></div>
-              <div class="reserve-detail__26">확인하였습니다[필수]</div>
+              
+              <div class="reserve-detail__26">
+				<label for="terms" class="reserve-sign__2">
+    <input type="checkbox" id="large-checkbox" name="large-checkbox" style="display: inline-block; margin-left: 5px;">
+    	확인하였습니다[필수]
+</label>
+
+</div>
             </div>
           </div>
           <div class="reserve-detail__reeservation-button">
             <div class="reserve-detail__rectangle-6"></div>
-            <div class="reserve-detail__27">예약하기</div>
+            <input type="submit" class="reserve-detail__27" value="예약하기" onclick="location.href='../mypageReserveDetail/mypage_reserve_detail.jsp'">
           </div>
         </div>
       </div>
     </div>
+    
+    
+    
   </body>
+  
 </html>
