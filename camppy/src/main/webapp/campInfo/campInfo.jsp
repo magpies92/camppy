@@ -123,7 +123,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       <div class="infoList">
 <!--캠핑장 주소-->
       <div class="infoAddress">주소
-        <div class="campAddress">경남 사천시 서포면 토끼로 245-29</div>
+        <div class="campAddress"><%=detailDTO.getCamp_addr() %></div>
       </div>
 <!--캠핑장 번호-->
      <div class="infoTell">문의처

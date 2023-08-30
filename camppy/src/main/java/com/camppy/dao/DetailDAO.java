@@ -19,9 +19,10 @@ public class DetailDAO {
 	
 	//1,2단계 디비 연결 메서드 정의 -> 필요로 할 때 호출 사용
 	public Connection getConnection() throws Exception {
-		Context init = new InitialContext();
-		DataSource ds=(DataSource)init.lookup("java:comp/env/c1d2304t3");
-		con=ds.getConnection();
+			Context init = new InitialContext();
+			DataSource ds=(DataSource)init.lookup("java:comp/env/c1d2304t3");
+			con=ds.getConnection();
+
 		return con;
 	}//getConnection()
 	
@@ -37,18 +38,21 @@ public class DetailDAO {
 	
 
 	
-	public DetailDTO getDetail(int campId) {
+	public DetailDTO getDetail(int camp_id) {
 		System.out.println("DetailDAO getDetail()");
 		
 		DetailDTO detailDTO = null;
 		
 		try {
 			con = getConnection();
-			String sql = "select * from camp where camp_id = ?";
-			
+			String sql = "select * from camp where camp_id = ?; select * from camp_addr where camp_id = ?; select * from camp_like where camp_id = ?;";
+
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, campId);
+			pstmt.setInt(1, camp_id);
+			pstmt.setInt(2, camp_id);
+			pstmt.setInt(3, camp_id);
 			
+
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -56,6 +60,8 @@ public class DetailDAO {
 				
 				detailDTO.setCamp_id(rs.getInt("camp_id"));
 				detailDTO.setCamp_name(rs.getString("camp_name"));
+				detailDTO.setCamp_addr_id(rs.getString("camp_addr_id"));
+				detailDTO.setCamp_addr(rs.getString("camp_addr"));
 				detailDTO.setShort_intro(rs.getString("short_intro"));
 				detailDTO.setTel(rs.getString("tel"));
 				detailDTO.setEnvironment(rs.getString("environment"));
@@ -64,7 +70,7 @@ public class DetailDAO {
 				detailDTO.setRuntime(rs.getString("runtime"));
 				detailDTO.setHomepage(rs.getString("homepage"));
 				detailDTO.setFacility(rs.getString("facility"));
-				/* detailDTO.setReview_like_id(rs.getString("review_like_id")); */
+				detailDTO.setCamp_like_id(rs.getString("camp_like_id"));
 				detailDTO.setIntro(rs.getString("intro"));
 				
 			}

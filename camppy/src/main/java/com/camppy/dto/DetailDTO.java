@@ -4,7 +4,8 @@ public class DetailDTO {
 	private int camp_id; //캠핑장 아이디
 	private String camp_name; //캠핑장 이름
 	private String short_intro; // 한 줄 소개
-	// private String addr; 주소 보류
+	private String camp_addr_id; //캠핑장 주소 아이
+    private String camp_addr; //캠핑장 주소
 	private String tel; //문의처(전화번호)
 	private String environment; //캠핑장 환경
 	private String camp_type; //캠핑장 유형
@@ -12,7 +13,7 @@ public class DetailDTO {
 	private String runtime; //운영일
 	private String homepage; //홈페이지
 	private String facility; //주변이용시설
-	private String review_like_id; //별점
+	private String camp_like_id; //별점
 	private String intro; //상세 소개
 	
 	
@@ -37,6 +38,22 @@ public class DetailDTO {
 	}
 	public void setShort_intro(String short_intro) {
 		this.short_intro = short_intro;
+	}
+	
+	
+	public String getCamp_addr_id() {
+		return camp_addr_id;
+	}
+	public void setCamp_addr_id(String camp_addr_id) {
+		this.camp_addr_id = camp_addr_id;
+	}
+	
+	
+	public String getCamp_addr() {
+		return camp_addr;
+	}
+	public void setCamp_addr(String camp_addr) {
+		this.camp_addr = camp_addr;
 	}
 	
 	
@@ -96,11 +113,11 @@ public class DetailDTO {
 	}
 	
 	
-	public String getReview_like_id() {
-		return review_like_id;
+	public String getCamp_like_id() {
+		return camp_like_id;
 	}
-	public void setReview_like_id(String review_like_id) {
-		this.review_like_id = review_like_id;
+	public void setCamp_like_id(String camp_like_id) {
+		this.camp_like_id = camp_like_id;
 	}
 	
 	
@@ -110,6 +127,8 @@ public class DetailDTO {
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
+	
+	
 	
 	
 	
