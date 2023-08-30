@@ -123,7 +123,7 @@
               <div class="mainpage__best-5">캠피 추천 캠핑장</div>
             </div>
           <div class="mainpage__category-icon">
-          <button type="button" onclick="location.href='search.camp'" >
+          <button type="button" onclick="location.href="">
             
                 <img
                   class="mainpage__icon-camping"

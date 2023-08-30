@@ -19,6 +19,13 @@ public class CampRegDTO {
 	private String camppic;
 	private String bankaccount;
 	private String intro;
+	private String campprice;
+	public String getCampprice() {
+		return campprice;
+	}
+	public void setCampprice(String campprice) {
+		this.campprice = campprice;
+	}
 	public String getHomepage() {
 		return homepage;
 	}

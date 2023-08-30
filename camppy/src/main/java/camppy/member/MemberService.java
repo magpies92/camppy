@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.itwillbs.dao.MemberDAO;
-import com.itwillbs.domain.MemberDTO;
+import camppy.member.MemberDAO;
+import camppy.member.MemberDTO;
 
 public class MemberService {
 	MemberDAO memberDAO = null;
@@ -23,9 +23,7 @@ public class MemberService {
 			String id = request.getParameter("id");
 			String pass = request.getParameter("pass");
 			String name = request.getParameter("name");
-			// 회원가입날짜 -> 시스템날짜 java.sql.Timestamp
-			Timestamp date=
-			    new Timestamp(System.currentTimeMillis());
+			// 회원가입날짜 -> 시스템날짜 java.sql.Timestam
 			String nick = request.getParameter("nick");
 			String phone = request.getParameter("phone");
 			// id,pass,name,date -> 하나의 파일(바구니)에 저장
@@ -38,7 +36,6 @@ public class MemberService {
 			memberDTO.setId(id);
 			memberDTO.setPass(pass);
 			memberDTO.setName(name);
-			memberDTO.setDate(date);
 			memberDTO.setNick(nick);
 			memberDTO.setPhone(phone);
 			

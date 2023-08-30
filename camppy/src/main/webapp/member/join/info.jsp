@@ -1,4 +1,4 @@
-<%@page import="com.itwillbs.domain.MemberDTO"%>
+<%@page import="camppy.member.MemberDTO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>

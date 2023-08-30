@@ -34,7 +34,7 @@
 
 <servlet-mapping>
 	<servlet-name>MemberController</servlet-name>
-	<url-pattern>*.member</url-pattern>
+	<url-pattern>*.me</url-pattern>
 </servlet-mapping>
 
 <servlet>

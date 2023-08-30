@@ -24,6 +24,7 @@
 		주변이용가능시설 : <input type="text" name="facility"><br>
 		소개 : <input type="text" name="intro"><br>
 		은행 계좌 : <input type="text" name="bankaccount"><br>
+		캠핑장 가격 : <input type="text" name="campprice"><br>
 		캠핑장 사진들 : <input type="file" name="camppic"><br>
 		<input type="submit" value="submit">
 	</form>

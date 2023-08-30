@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.itwillbs.domain.MemberDTO;
-import com.itwillbs.service.MemberService;
+import camppy.member.MemberDTO;
+import camppy.member.MemberService;
 
 public class MemberController extends HttpServlet{
 	RequestDispatcher dispatcher =null;
@@ -53,7 +53,7 @@ public class MemberController extends HttpServlet{
 			// 주소가 변경되지 않으면서 이동하는 방식 (forward방식)
 			// request, response 정보도 들고 이동
 			dispatcher 
-			    = request.getRequestDispatcher("member/insert.jsp");
+			    = request.getRequestDispatcher("member/join/insert.jsp");
 			dispatcher.forward(request, response);
 			
 		}//
@@ -71,13 +71,13 @@ public class MemberController extends HttpServlet{
 			memberService.insertMember(request);
 			
 			// 로그인 주소가 변경되면서 이동(가상주소 login.me)
-			response.sendRedirect("login.me");
+			response.sendRedirect("main.camp");
 		}//
 		
 		if(sPath.equals("/login.me")) {
 			// 주소변경 없이 이동 member/login.jsp
 			dispatcher 
-		    = request.getRequestDispatcher("member/login.jsp");
+		    = request.getRequestDispatcher("member/join/login.jsp");
 		dispatcher.forward(request, response);
 		}//
 		
@@ -104,7 +104,7 @@ public class MemberController extends HttpServlet{
 				System.out.println("아이디 비밀번호 틀림");
 				// 주소 변경없이 이동 =>  member/msg.jsp 
 				dispatcher 
-			    = request.getRequestDispatcher("member/msg.jsp");
+			    = request.getRequestDispatcher("member/join/msg.jsp");
 			dispatcher.forward(request, response);
 			}
 			
@@ -113,7 +113,7 @@ public class MemberController extends HttpServlet{
 		if(sPath.equals("/main.me")) {
 			// 주소 변경없이 이동 => member/main.jsp 이동
 			dispatcher 
-		    = request.getRequestDispatcher("member/main.jsp");
+		    = request.getRequestDispatcher("member/join/main.jsp");
 			dispatcher.forward(request, response);
 		}
 		if(sPath.equals("/logout.me")) {
@@ -143,7 +143,7 @@ public class MemberController extends HttpServlet{
 			
 			// 주소 변경없이 이동 => member/info.jsp 이동
 			dispatcher 
-		    = request.getRequestDispatcher("member/info.jsp");
+		    = request.getRequestDispatcher("member/join/info.jsp");
 			dispatcher.forward(request, response);
 		}
 		// update.me 비교 일치 -> 처리 -> member/update.jsp
@@ -163,7 +163,7 @@ public class MemberController extends HttpServlet{
 			
 			// 주소 변경없이 이동 => member/update.jsp 이동
 			dispatcher 
-		    = request.getRequestDispatcher("member/update.jsp");
+		    = request.getRequestDispatcher("member/join/update.jsp");
 			dispatcher.forward(request, response);
 		}
 		if(sPath.equals("/updatePro.me")) {
@@ -185,7 +185,7 @@ public class MemberController extends HttpServlet{
 				// else => memberDTO == null
 				//     아이디 비밀번호 틀림 -> member/msg.jsp 이동
 				dispatcher 
-			    = request.getRequestDispatcher("member/msg.jsp");
+			    = request.getRequestDispatcher("member/join/msg.jsp");
 				dispatcher.forward(request, response);
 			}
 		}//
@@ -194,7 +194,7 @@ public class MemberController extends HttpServlet{
 		if(sPath.equals("/delete.me")) {
 			// 주소 변경없이 이동 => member/delete.jsp 이동
 			dispatcher 
-		    = request.getRequestDispatcher("member/delete.jsp");
+		    = request.getRequestDispatcher("member/join/delete.jsp");
 			dispatcher.forward(request, response);
 		}
 		
@@ -216,7 +216,7 @@ public class MemberController extends HttpServlet{
 				// else => memberDTO == null
 				//     아이디 비밀번호 틀림 -> member/msg.jsp 이동	
 				dispatcher 
-			    = request.getRequestDispatcher("member/msg.jsp");
+			    = request.getRequestDispatcher("member/join/msg.jsp");
 				dispatcher.forward(request, response);
 			}
 
@@ -232,7 +232,7 @@ List<MemberDTO> memberList = memberService.getMemberList();
 			request.setAttribute("memberList", memberList);
 			// 주소 변경없이 member/list.jsp 이동
 			dispatcher 
-		    = request.getRequestDispatcher("member/list.jsp");
+		    = request.getRequestDispatcher("member/join/list.jsp");
 			dispatcher.forward(request, response);
 		}
 		

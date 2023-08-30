@@ -79,6 +79,7 @@
   width: 1872.17px;
   height: 224.97px;
   position: relative;
+  cursor: pointer; 
 }
 .section-header__camppy-2 {
   background: linear-gradient(
@@ -90,6 +91,7 @@
   width: 356.05px;
   height: 224.97px;
   position: relative;
+  cursor: pointer; 
 }
 
 .section-navi,
@@ -151,6 +153,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.section-navi__link:hover { /* a태그에 마우스를 올렸을 때 */
+  color:red;
+  cursor: pointer; 
 }
 .section-navi__navi-list-2 {
   padding: 0px 16.64px 1px 18px;
@@ -233,7 +239,7 @@
 <body>
 <div class="section-login">
   <div class="section-login__login">
-    <button type="button" onclick="location.href='ctest.member'" class="section-login__">회원가입</button> <div>/로그인</div>
+    <button type="button" onclick="location.href='insert.me'" class="section-login__">회원가입</button> <div>/로그인</div>
   </div>
 </div>
 <div class="section-header">

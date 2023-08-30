@@ -14,7 +14,7 @@ import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
-import com.itwillbs.domain.MemberDTO;
+import camppy.member.MemberDTO;
 
 public class MemberDAO {
 	
@@ -49,7 +49,7 @@ public class MemberDAO {
 		// lookup 메서드 (자원위치/자원이름 불러오기)
 		// import javax.sql.DataSource;
 		DataSource ds=
-				(DataSource)init.lookup("java:comp/env/jdbc/Mysql");
+				(DataSource)init.lookup("java:comp/env/c1d2304t3");
 		// 디비연결
 		Connection con=ds.getConnection();
 		return con;
@@ -74,21 +74,19 @@ public class MemberDAO {
 		System.out.println("주소를 찾아가서 id값 가져오기 : " + memberDTO.getId());
 		System.out.println("주소를 찾아가서 pass값 가져오기 : " + memberDTO.getPass());
 		System.out.println("주소를 찾아가서 name값 가져오기 : " + memberDTO.getName());
-		System.out.println("주소를 찾아가서 date값 가져오기 : " + memberDTO.getDate());
 		try {
 			// 1단계 JDBC 프로그램 가져오기 
 			// 2단계 디비 연결
 			con=getConnection();
 			
 			// 3단계 문자열 -> sql구문 변경
-			String sql = "insert into members(id,pass,name,date,nick,phone) values(?,?,?,?,?,?)";
+			String sql = "insert into members(id,pass,name,nickname,phonenum) values(?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, memberDTO.getId());      //(물음표 순서,값)
 			pstmt.setString(2, memberDTO.getPass()); 
 			pstmt.setString(3, memberDTO.getName());
-			pstmt.setTimestamp(4, memberDTO.getDate());
-			pstmt.setString(5, memberDTO.getNick());
-			pstmt.setString(6, memberDTO.getPhone());
+			pstmt.setString(4, memberDTO.getNick());
+			pstmt.setString(5, memberDTO.getPhone());
 			// 4단계 sql구문 실행
 			pstmt.executeUpdate();
 			

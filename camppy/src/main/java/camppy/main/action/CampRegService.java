@@ -154,6 +154,7 @@ public class CampRegService {
 			String camppic = multi.getFilesystemName("camppic");
 			String bankaccount = multi.getParameter("bankaccount");
 			String intro = multi.getParameter("intro");
+			String campprice = multi.getParameter("campprice");
 			
 			//첨부파일이름 가져오기
 			
@@ -184,6 +185,7 @@ public class CampRegService {
 			campregDTO.setCamppic(camppic);
 			campregDTO.setBankaccount(bankaccount);
 			campregDTO.setIntro(intro);
+			campregDTO.setCampprice(campprice);
 			
 			//첨부파일
 			//campregDTO.setFile(file);
