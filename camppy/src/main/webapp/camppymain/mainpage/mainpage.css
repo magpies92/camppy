@@ -522,10 +522,11 @@
   height: 300px;
   border-radius: 150px;
 }
-.mainpage__7 {
+ .mainpage__7 {
   color: #000000;
   text-align: center;
-  font: 700 50px "Inter", sans-serif;
+  
+  font: 700 20px "Inter", sans-serif;
   position: relative;
   width: 215px;
   height: 50px;
@@ -533,7 +534,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .mainpage__name-camping {
   padding: 0px 6.85px 0px 6.85px;
   display: flex;

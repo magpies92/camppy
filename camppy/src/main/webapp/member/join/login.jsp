@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="member/join/login.css" />
 
     <style>
       a,
@@ -45,7 +45,7 @@
         </svg>
 
         <div class="popup-login__sign-in-with-google">Sign in with Google</div>
-        <img class="popup-login__google-image" src="./images/google-image.png" />
+        <img class="popup-login__google-image" src="member/join/images/images/google-image.png" />
       </div>
       <div class="popup-login__logi-naver">
         <svg
@@ -59,7 +59,7 @@
           <path d="M0 0H483V69H0V0Z" fill="#CCEBC7" />
         </svg>
 
-        <img class="popup-login__naver-image" src="./images/naver-image.png" />
+        <img class="popup-login__naver-image" src="member/join/images/images/naver-image.png" />
         <div class="popup-login__sign-in-with-naver">Sign in with Naver</div>
       </div>
       <div class="popup-login__function">
@@ -76,7 +76,7 @@
 <input type="password" id="pass" class="popup-login__password" name="pass" placeholder="PASSWORD">
       </div>
       <div class="popup-login__main-logo">
-        <img class="popup-login__camppy-2" src="./images/camppy-2.png" />
+        <img class="popup-login__camppy-2" src="member/join/images/camppy-2.png" />
       </div>
       <div class="popup-login__button">
         <div class="popup-login__x">X</div>

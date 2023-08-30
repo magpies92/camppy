@@ -97,7 +97,7 @@ public class MemberController extends HttpServlet{
 				HttpSession session = request.getSession();
 				session.setAttribute("id", memberDTO.getId());
 				// 주소 변경하면서 이동 -> 가상주소 main.me 이동 
-				response.sendRedirect("main.me");
+				response.sendRedirect("main.camp");
 			}else {
 			// 아이디 비밀번호 틀림 -> 아이디 , 비밀번호 틀림 , 뒤로이동
 				System.out.println(memberDTO);
@@ -123,7 +123,7 @@ public class MemberController extends HttpServlet{
 			// 세션 내장객체 전체 삭제(기억장소 해제)
 			session.invalidate();
 			// 주소 변경하면서 이동  main.me 이동
-			response.sendRedirect("main.me");
+			response.sendRedirect("main.camp");
 		}
 		
 		// info.me 비교 일치 -> 처리 -> member/info.jsp

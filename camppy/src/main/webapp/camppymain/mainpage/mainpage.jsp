@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="camppy.main.action.CampRegDTO" %>
+<%@ page import="camppy.main.action.CampRegDAO" %>
+<%@ page import="camppy.main.action.CampRegService" %>
+
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +32,7 @@
       }
     </style>
 <title>Insert title here</title>
-<script type="text/javascript" src="camppymain/mainpage/mainpage.js"></script>
+<!-- <script type="text/javascript" src="camppymain/mainpage/mainpage.js"></script> -->
 </head>
 <body>
 <jsp:include page="/inc/top.jsp"/>
@@ -123,42 +128,58 @@
               <div class="mainpage__best-5">캠피 추천 캠핑장</div>
             </div>
           <div class="mainpage__category-icon">
+          <%
+			// BoardService 객체생성
+			CampRegService campregService1 = new CampRegService();
+			// BoardDTO boardDTO = getBoard(request) 메서드 호출
+			CampRegDTO campregDTO1 = campregService1.getCampReg(1);
+			// request에 "boardDTO",boardDTO 담아서
+			CampRegService campregService2 = new CampRegService();
+			// BoardDTO boardDTO = getBoard(request) 메서드 호출
+			CampRegDTO campregDTO2 = campregService2.getCampReg(2);
+			CampRegService campregService3 = new CampRegService();
+			// BoardDTO boardDTO = getBoard(request) 메서드 호출 
+			CampRegDTO campregDTO3 = campregService3.getCampReg(3);
+			CampRegService campregService4 = new CampRegService();
+			// BoardDTO boardDTO = getBoard(request) 메서드 호출
+			CampRegDTO campregDTO4 = campregService2.getCampReg(4);
+		%>
           <button type="button" onclick="location.href="">
             
                 <img
                   class="mainpage__icon-camping"
-                  src="camppymain/mainpage/1.png"
+                  src="camppymain/campreg/campimg/<%=campregDTO1.getCampimg()%>"
                 />
                 </button>
          <button type="button" onclick="location.href='search.camp'" >     
                 <img
                   class="mainpage__icon-glamping"
-                  src="camppymain/mainpage/2.png"
+                  src="camppymain/campreg/campimg/<%=campregDTO2.getCampimg()%>"
                 />
              </button>
          <button type="button" onclick="location.href='search.camp'" >   
                 <img
                   class="mainpage__icon-caravan"
-                  src="camppymain/mainpage/3.png"
+                  src="camppymain/campreg/campimg/<%=campregDTO3.getCampimg()%>"
                 />
               </button>
            <button type="button" onclick="location.href='search.camp'" > 
                 <img
                   class="mainpage__icon-pension"
-                  src="camppymain/mainpage/4.png"
+                  src="camppymain/campreg/campimg/<%=campregDTO4.getCampimg()%>"
                 />
              </button>   
                 <div class="mainpage__name-camping">
-              <div class="mainpage__7">캠핑장1</div>
+              <div class="mainpage__7"><%=campregDTO1.getCampname() %></div>
             </div>
             <div class="mainpage__name-glaming">
-              <div class="mainpage__7">캠핑장2</div>
+              <div class="mainpage__7"><%=campregDTO2.getCampname() %></div>
             </div>
             <div class="mainpage__name-caravan">
-              <div class="mainpage__7">캠핑장3</div>
+              <div class="mainpage__7"><%=campregDTO3.getCampname() %></div>
             </div>
             <div class="mainpage__name-pension">
-              <div class="mainpage__7">캠핑장4</div>
+              <div class="mainpage__7"><%=campregDTO4.getCampname() %></div>
             </div>
             
             

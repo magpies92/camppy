@@ -41,13 +41,35 @@
   text-align: center;
   font: 400 20px/22px "NanumGothic", sans-serif;
   position: absolute;
-  left: 4px;
+  left:0px;
   top: 0px;
-  width: 217px;
-  height: 40px;
+ /*  width: 217px;
+  height: 40px; */
   display: flex;
-  align-items: center;
-  justify-content: center;
+ /*  align-items: center;
+  justify-content: center; */
+}
+.section-login__:hover { /* a태그에 마우스를 올렸을 때 */
+  color:red;
+  cursor: pointer; 
+}
+
+.section-login__1 {
+  color: #000000;
+  text-align: center;
+  font: 400 20px/22px "NanumGothic", sans-serif;
+  position: absolute;
+   left:100px;
+  top: 0px;
+  /* width: 217px;
+  height: 40px; */
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+}
+.section-login__1:hover { /* a태그에 마우스를 올렸을 때 */
+  color:red;
+  cursor: pointer; 
 }
 .section-header,
 .section-header * {
@@ -233,15 +255,114 @@
   top: 20px;
 }
 
+.logout,
+.logout * {
+  box-sizing: border-box;
+}
+.logout {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  width: 383px;
+  height: 55px;
+  position: relative;
+  left: 1500px;
+}
+
+.logout___000 {
+  color: #000000;
+  text-align: left;
+  font: 400 20px/22px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 61px;
+  top: 13px;
+  width: 165px;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logout__free-icon-user-8484069-5 {
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  left: 0px;
+  top: 5px;
+}
+.logout__button {
+  background: #4da385;
+  border-radius: 10px;
+  flex-shrink: 0;
+  width: 95px;
+  height: 44px;
+  position: absolute;
+  top: 7px;
+  left: 200px;
+  color: #ffffff;
+  text-align: center;
+  font: 700 15px/44px "Inter", sans-serif;
+}
+.logout__button:hover { /* a태그에 마우스를 올렸을 때 */
+
+  cursor: pointer; 
+}
+
+.logout__ {
+  
+  
+  
+  position: absolute;
+  left: 16px;
+  top: 9px;
+  width: 64px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 
 </style>
 <body>
+<%
+//로그인 하면 => 로그인한 정보를 세션 저장
+// 세션에 로그인 정보 가져오기
+String id=(String)session.getAttribute("id");
+// 세션에 로그인 정보가 없으면(null) => 로그인login, 회원가입join
+// 세션에 로그인 정보가 있으면 => ..님 로그아웃logout 회원수정update
+if(id == null){
+	%>
 <div class="section-login">
   <div class="section-login__login">
-    <button type="button" onclick="location.href='insert.me'" class="section-login__">회원가입</button> <div>/로그인</div>
+    <button type="button" onclick="location.href='insert.me'" class="section-login__">회원가입</button>
+    <button type="button" onclick="location.href='login.me'" class="section-login__1">로그인</button>
   </div>
 </div>
+	<%
+}else{
+%>
+<div class="logout">
+  <div class="logout___000"><%=id %>님</div>
+  <!-- <img
+    class="login__free-icon-user-8484069-5"
+    src="free-icon-user-8484069-5.png"
+  /> -->
+ 
+  <button type="button" onclick="location.href='logout.me'" class="logout__button">로그아웃</button>
+  
+</div>
+
+<%	
+}
+%>
+
 <div class="section-header">
 <button type="button" onclick="location.href='main.camp'" class="section-header__main-logo>">
 <img class="section-header__camppy-2" src="images/camppy-2.png" />

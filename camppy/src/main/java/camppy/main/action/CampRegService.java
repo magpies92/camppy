@@ -13,39 +13,21 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class CampRegService {
 	CampRegDAO campregDAO = null; 
-//	public List<CampRegDTO> getCampRegList(PageDTO pageDTO) {
-//		System.out.println("CampRegService getCampRegList()");
-//		List<CampRegDTO> campregList = null;
-//		try {
-//			// 시작하는 행부터 10개 뽑아오기
-////			페이지번호     한화면에 보여줄 글개수 => 시작하는 행번호
-////			currentPage         pageSize    => startRow
-////			    1                 10        => (1-1)*10+1=>0*10+1=> 0+1=>1        ~ 10
-////			    2                 10        => (2-1)*10+1=>1*10+1=>10+1=>11       ~ 20
-////		        3                 10        => (3-1)*10+1=>2*10+1=>20+1=>21       ~ 30			
-//			
-//			
-//			int startRow = (pageDTO.getCurrentPage()-1)*pageDTO.getPageSize()+1;
-//			// 시작하는 행부터 끝나는 행까지 뽑아오기
-////			startRow  pageSize => endRow
-////			    1         10   =>   1+10-1 =>10
-////			    11        10   =>   11+10-1 =>20
-////		        21        10   =>   21+10-1 =>30
-//			    		
-//			int endRow = startRow+pageDTO.getPageSize()-1;
-//			//pageDTO 저장 <= startRow, endRow
-//			pageDTO.setStartRow(startRow);
-//			pageDTO.setEndRow(endRow);
-//			
-//			// CampRegDAO 객체생성
-//			campregDAO = new CampRegDAO();
-//			// campregList = getCampRegList() 메서드 호출
-//			campregList = campregDAO.getCampRegList(pageDTO);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return campregList;
-//	}//getCampRegList()
+	public List<CampRegDTO> getCampRegList(int campid) {
+		System.out.println("CampRegService getCampRegList()");
+		List<CampRegDTO> campregList = null;
+		try {
+		
+		
+			// CampRegDAO 객체생성
+			campregDAO = new CampRegDAO();
+			// campregList = getCampRegList() 메서드 호출
+			campregList = campregDAO.getCampRegList(campid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return campregList;
+	}//getCampRegList()
 //	
 //	public void insertCampReg(HttpServletRequest request) {
 //		try {
@@ -91,23 +73,23 @@ public class CampRegService {
 //		return count;
 //	}//getCampRegCount
 //
-//	public CampRegDTO getCampReg(HttpServletRequest request) {
-//		System.out.println("CampRegService getCampReg()");
-//		CampRegDTO campregDTO = null;
-//		try {
-//			// request 한글처리
-//			request.setCharacterEncoding("utf-8");
-//			// request 파라미터 가져오기 => int num 저장
-//			int num = Integer.parseInt(request.getParameter("num"));
-//			// CampRegDAO 객체생성
-//			campregDAO = new CampRegDAO();
-//			// campregDTO = getCampReg(num) 메서드 호출
-//			campregDTO = campregDAO.getCampReg(num);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return campregDTO;
-//	}//getCampReg
+	public CampRegDTO getCampReg(int campid) {
+		System.out.println("CampRegService getCampReg()");
+		CampRegDTO campregDTO = null;
+		try {
+			// request 한글처리
+		
+			// request 파라미터 가져오기 => int num 저장
+			
+			// CampRegDAO 객체생성
+			campregDAO = new CampRegDAO();
+			// campregDTO = getCampReg(num) 메서드 호출
+			campregDTO = campregDAO.getCampReg(campid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return campregDTO;
+	}//getCampReg
 
 	//첨부파일
 	public void finsertCampReg(HttpServletRequest request) {
