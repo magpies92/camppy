@@ -52,6 +52,16 @@
 	<servlet-class>camppy.main.action.CampRegController</servlet-class>
 </servlet>
 
+  <servlet>
+  	<servlet-name>DetailController</servlet-name>
+  	<servlet-class>com.camppy.controller.DetailController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DetailController</servlet-name>
+  	 <url-pattern>*.de</url-pattern>
+  </servlet-mapping>
+
 
   <!--   가상주소에 해당하는 처리담당자(서블릿파일)=> 주소매핑 -->
 <!-- http://localhost:8080/FunWeb/list.bo -->
