@@ -267,7 +267,41 @@
   align-items: center;
   justify-content: center;
 }
+div.tab.active {
+	color:black;
+	font-weight: bold;
+}
 
+.mypageNavi {
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px 0px 1px 0px;
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	width: 1920px;
+	height: 163px;
+	position: relative;
+	/*   left: calc(50% - 960px); */
+	padding-right: 150px;
+	padding-left: 150px;
+}
+
+.tab {
+	color: grey;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
 
 </style>
@@ -295,16 +329,49 @@
           </div>
         </div>
         <div class="mypageNavi">
-            <div class="mypageLike" >찜 목록</div>
-            <div class="mypageArticle">작성한 글</div>
-            <div class="mypageReply">작성 리뷰</div>
-            <div class="mypageReserve">예약 내역</div>
-        </div>
+		<div class="tab" id="tab1">찜 목록</div>
+		<div class="tab" id="tab2">작성한 글</div>
+		<div class="tab" id="tab3">작성 리뷰</div>
+		<div class="tab" id="tab4">예약 내역</div>
+	</div>
+	<div class="tabContents">
+		<!-- The content from tab1 (star.html) will be displayed here by default -->
+		<jsp:include page="./top.jsp" />
+	</div>
 		 <button type="button" onclick="popupDel();" class="buttonDel">
             <div class="del">삭제</div>
          	</button>
 
-<script>
+
+<script type="text/javascript">
+const tabs = document.querySelectorAll('.tab');
+const tabContents = document.querySelector('.tabContents');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        let contentPath = "";
+        if (tab.id === "tab1") {
+            contentPath = "./top.jsp";
+        } else if (tab.id === "tab2") {
+            contentPath = "./test.jsp";
+        } else if (tab.id === "tab3") {
+            contentPath = "./bottom.jsp";
+        } else if (tab.id === "tab4") {
+            contentPath = "./mypageInc.jsp";
+        }
+        
+        // Load content using jQuery
+        $.get(contentPath, function (data) {
+            tabContents.innerHTML = data;
+        });
+    });
+});
+
+// Simulate a click on the first tab to show its content by default
+tabs[0].click();
 
 function popupDel(){
     var url = "popupDel.jsp";
