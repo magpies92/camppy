@@ -159,10 +159,14 @@ public class CampRegDAO {
 //	
 			pstmt2.executeUpdate();
 //			
-			String sql3 = "insert into camp_addr(camp_id,camp_addr) values(?,?)";
+			String sql3 = "insert into camp_addr(camp_id,camp_addr,do_nm,sigungu_nm,mapx,mapy) values(?,?,?,?,?,?)";
 			pstmt3=con.prepareStatement(sql3);
 			pstmt3.setInt(1, num);	
 			pstmt3.setString(2, campregDTO.getCampaddr());
+			pstmt3.setString(3, campregDTO.getDoo());
+			pstmt3.setString(4, campregDTO.getSigungu());
+			pstmt3.setString(5, campregDTO.getMapx());
+			pstmt3.setString(6, campregDTO.getMapy());
 			pstmt3.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -210,6 +214,7 @@ public class CampRegDAO {
 				campregDTO = new CampRegDTO();
 				campregDTO.setCampimg(rs.getString("camp_img"));
 				campregDTO.setCampname(rs.getString("camp_name"));
+				campregDTO.setCampid(rs.getInt("camp_id"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

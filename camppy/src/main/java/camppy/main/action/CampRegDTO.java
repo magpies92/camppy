@@ -19,7 +19,42 @@ public class CampRegDTO {
 	private String camppic;
 	private String bankaccount;
 	private String intro;
+	public String getMapx() {
+		return mapx;
+	}
+	public void setMapx(String mapx) {
+		this.mapx = mapx;
+	}
+	public String getMapy() {
+		return mapy;
+	}
+	public void setMapy(String mapy) {
+		this.mapy = mapy;
+	}
 	private String campprice;
+	private String doo;
+	private String mapx;
+	private String mapy;
+	private int campid;
+	public int getCampid() {
+		return campid;
+	}
+	public void setCampid(int campid) {
+		this.campid = campid;
+	}
+	public String getDoo() {
+		return doo;
+	}
+	public void setDoo(String doo) {
+		this.doo = doo;
+	}
+	public String getSigungu() {
+		return sigungu;
+	}
+	public void setSigungu(String sigungu) {
+		this.sigungu = sigungu;
+	}
+	private String sigungu;
 	public String getCampprice() {
 		return campprice;
 	}

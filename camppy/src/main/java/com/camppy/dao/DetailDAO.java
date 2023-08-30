@@ -20,7 +20,7 @@ public class DetailDAO {
 	//1,2단계 디비 연결 메서드 정의 -> 필요로 할 때 호출 사용
 	public Connection getConnection() throws Exception {
 		Context init = new InitialContext();
-		DataSource ds=(DataSource)init.lookup("java:comp/env/jdbc/Mysql");
+		DataSource ds=(DataSource)init.lookup("java:comp/env/c1d2304t3");
 		con=ds.getConnection();
 		return con;
 	}//getConnection()
@@ -64,7 +64,7 @@ public class DetailDAO {
 				detailDTO.setRuntime(rs.getString("runtime"));
 				detailDTO.setHomepage(rs.getString("homepage"));
 				detailDTO.setFacility(rs.getString("facility"));
-				detailDTO.setReview_like_id(rs.getString("review_like_id"));
+				/* detailDTO.setReview_like_id(rs.getString("review_like_id")); */
 				detailDTO.setIntro(rs.getString("intro"));
 				
 			}

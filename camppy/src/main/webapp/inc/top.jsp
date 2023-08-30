@@ -374,7 +374,7 @@ if(id == null){
       <button type="button" onclick="location.href='campreg.campreg'" class="section-navi__link">캠핑장 등록</button>
     </div>
     <div class="section-navi__navi-list-2">
-      <div class="section-navi__link2">커뮤니티</div>
+      <div class="section-navi__link">커뮤니티</div>
     </div>
     <div class="section-navi__navi-list-3">
       <div class="section-navi__link">문의하기</div>

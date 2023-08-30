@@ -144,28 +144,28 @@
 			// BoardDTO boardDTO = getBoard(request) 메서드 호출
 			CampRegDTO campregDTO4 = campregService2.getCampReg(4);
 		%>
-          <button type="button" onclick="location.href="">
+          <button type="button" onclick="location.href='detail.de?campId=<%=campregDTO1.getCampid()%>'">
             
                 <img
-                  class="mainpage__icon-camping"
+                  class="mainpage__icon-1"
                   src="camppymain/campreg/campimg/<%=campregDTO1.getCampimg()%>"
                 />
                 </button>
-         <button type="button" onclick="location.href='search.camp'" >     
+         <button type="button" onclick="location.href='detail.de?campId=<%=campregDTO2.getCampid()%>'" >     
                 <img
-                  class="mainpage__icon-glamping"
+                  class="mainpage__icon-2"
                   src="camppymain/campreg/campimg/<%=campregDTO2.getCampimg()%>"
                 />
              </button>
-         <button type="button" onclick="location.href='search.camp'" >   
+         <button type="button" onclick="location.href='detail.de?campId=<%=campregDTO3.getCampid()%>'" >   
                 <img
-                  class="mainpage__icon-caravan"
+                  class="mainpage__icon-3"
                   src="camppymain/campreg/campimg/<%=campregDTO3.getCampimg()%>"
                 />
               </button>
-           <button type="button" onclick="location.href='search.camp'" > 
+           <button type="button" onclick="location.href='detail.de?campId=<%=campregDTO4.getCampid()%>'" > 
                 <img
-                  class="mainpage__icon-pension"
+                  class="mainpage__icon-4"
                   src="camppymain/campreg/campimg/<%=campregDTO4.getCampimg()%>"
                 />
              </button>   

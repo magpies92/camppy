@@ -124,7 +124,6 @@ public class CampRegService {
 			String campname = multi.getParameter("campname");
 			String shortintro = multi.getParameter("shortintro");
 			String camptag = multi.getParameter("camptag");
-			String campaddr = multi.getParameter("campaddr");
 			String tel = multi.getParameter("tel");
 			String environment = multi.getParameter("environment");
 			String camptype = multi.getParameter("camptype");
@@ -137,6 +136,14 @@ public class CampRegService {
 			String bankaccount = multi.getParameter("bankaccount");
 			String intro = multi.getParameter("intro");
 			String campprice = multi.getParameter("campprice");
+			String  addr1= multi.getParameter("postAddr1");
+			String  addr2= multi.getParameter("postAddr2");
+			String  addr3= multi.getParameter("postAddr3");
+			String  doo= multi.getParameter("doo");
+			String  sigungu= multi.getParameter("sigungu");
+			String campaddr = addr1+" "+addr2+" "+addr3;
+			String mapx=multi.getParameter("mapx");
+			String mapy=multi.getParameter("mapy");
 			
 			//첨부파일이름 가져오기
 			
@@ -168,6 +175,10 @@ public class CampRegService {
 			campregDTO.setBankaccount(bankaccount);
 			campregDTO.setIntro(intro);
 			campregDTO.setCampprice(campprice);
+			campregDTO.setDoo(doo);
+			campregDTO.setSigungu(sigungu);
+			campregDTO.setMapx(mapx);
+			campregDTO.setMapy(mapy);
 			
 			//첨부파일
 			//campregDTO.setFile(file);
@@ -181,4 +192,6 @@ public class CampRegService {
 		}
 	}//finsertCampReg
 
+	
+	
 }//클래스

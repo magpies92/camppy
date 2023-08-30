@@ -33,11 +33,10 @@
   </head>
   <body>
 <!-- 헤더들어가는 곳 -->
-<jsp:include page="../inc/top.jsp"></jsp:include>
+<jsp:include page="/inc/top.jsp"></jsp:include>
 <!-- 헤더들어가는 곳 -->
 
 <%
-String id=(String)session.getAttribute("camp_id");
 DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
 %>
 
@@ -226,7 +225,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
 
  </div> <!-- 페이지 전체 닫기 -->
 <!-- 푸터들어가는 곳 -->
-<jsp:include page="../inc/bottom.jsp"></jsp:include>
+<jsp:include page="/inc/bottom.jsp"></jsp:include>
 <!-- 푸터들어가는 곳 -->    
   </body>
 </html>

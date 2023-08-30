@@ -449,7 +449,7 @@
   
  
 }
-.mainpage__icon-camping {
+.mainpage__icon-1 {
   padding: 0px 6.85px 0px 6.85px;
   display: flex;
   flex-direction: column;
@@ -467,7 +467,11 @@
   height: 300px;
   border-radius: 150px;
 }
-.mainpage__icon-glamping {
+.mainpage__icon-1:hover { /* a태그에 마우스를 올렸을 때 */
+
+  cursor: pointer; 
+}
+.mainpage__icon-2 {
   padding: 0px 6.85px 0px 6.85px;
   display: flex;
   flex-direction: column;
@@ -485,8 +489,11 @@
   height: 300px;
   border-radius: 150px;
 }
+.mainpage__icon-2:hover { /* a태그에 마우스를 올렸을 때 */
 
-.mainpage__icon-caravan {
+  cursor: pointer; 
+}
+.mainpage__icon-3 {
   padding: 0px 6.85px 0px 6.85px;
   display: flex;
   flex-direction: column;
@@ -504,7 +511,11 @@
   height: 300px;
   border-radius: 150px;
 }
-.mainpage__icon-pension {
+.mainpage__icon-3:hover { /* a태그에 마우스를 올렸을 때 */
+
+  cursor: pointer; 
+}
+.mainpage__icon-4 {
   padding: 0px 6.85px 0px 6.85px;
   display: flex;
   flex-direction: column;
@@ -521,6 +532,10 @@
   width: 300px;
   height: 300px;
   border-radius: 150px;
+}
+.mainpage__icon-4:hover { /* a태그에 마우스를 올렸을 때 */
+
+  cursor: pointer; 
 }
  .mainpage__7 {
   color: #000000;
