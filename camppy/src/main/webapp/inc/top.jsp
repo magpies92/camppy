@@ -233,7 +233,7 @@
 <body>
 <div class="section-login">
   <div class="section-login__login">
-    <button type="button" onclick="location.href='ctest.mem'" class="section-login__">회원가입</button> <div>/로그인</div>
+    <button type="button" onclick="location.href='ctest.member'" class="section-login__">회원가입</button> <div>/로그인</div>
   </div>
 </div>
 <div class="section-header">
@@ -244,7 +244,7 @@
 <div class="section-navi">
   <div class="section-navi__navi-list">
     <div class="section-navi__navi-list-1">
-      <button type="button" onclick="location.href='admin.camp'" class="section-navi__link">캠핑장 등록</button>
+      <button type="button" onclick="location.href='campreg.campreg'" class="section-navi__link">캠핑장 등록</button>
     </div>
     <div class="section-navi__navi-list-2">
       <div class="section-navi__link2">커뮤니티</div>

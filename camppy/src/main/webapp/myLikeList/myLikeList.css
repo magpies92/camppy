@@ -1,0 +1,521 @@
+.likeListBody,
+.likeListBody * {
+  box-sizing: border-box;
+}
+.likeListBody {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5207vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  height: 78.1250vw;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.allCheck {
+  color: #000000;
+  text-align: center;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+  position: relative;
+  width: 12.6564vw;
+  height: 2.5000vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 77vw;
+  top: 2vw;
+}
+
+.likeList {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
+  display: flex;
+  flex-direction: row;
+  gap: 3.1250vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 76.0415vw;
+  position: absolute;
+  left: calc(50% - 38.0207vw);
+  top: 6.3543vw;
+}
+.likeListPhoto {
+  background: #d9d9d9;
+  flex-shrink: 0;
+  width: 12.5000vw;
+  height: 12.5000vw;
+  position: relative;
+  bottom:0.5vw;
+}
+.likeListTitle {
+  color: #000000;
+  text-align: left;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+  position: absolute;
+  left: 14.5vw;
+  top: 0.0000vw;
+  width: 46.8750vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.likeListAdd {
+  color: #000000;
+  text-align: left;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+  position: absolute;
+  left: 14.5vw;
+  padding-top: 2.5vw;
+  width: 46.8750vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.likeListTag {
+  color: #000000;
+  text-align: left;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+  position: absolute;
+  left: 14.5vw;
+  padding-top: 5vw;
+  width: 46.8750vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.likeListTell {
+  color: #000000;
+  text-align: left;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+  position: absolute;
+  left: 14.5vw;
+  padding-top: 7.5vw;
+  width: 46.8750vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.likeTitle {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+  position: absolute;
+  left: 14.5vw;
+  top: 9.9vw;
+}
+
+.likeNum {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+  position: absolute;
+  left: 3vw;
+  top: 0vw;
+}
+
+.readCount {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+  position: absolute;
+  left: 22vw;
+  top: 9.9vw;
+}
+
+.count {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+  position: absolute;
+  left: 5.5vw;
+  top: 0vw;
+}
+
+.each {
+  border-radius: 0.0000vw;
+  flex-shrink: 0;
+  position: absolute;
+  right: 0.0000vw;
+  top: 4.3750vw;
+  overflow: visible;
+}
+
+.eachCheck {
+  color: #000000;
+  text-align: center;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+  position: relative;
+  width: 12.6564vw;
+  height: 2.5000vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 53.3vw;
+  top: 4.5vw;
+}
+
+.bannerRsButton {
+  color: #ffffff;
+  font: 700 0.6915vw "Inter", sans-serif;
+  text-align: center;
+  background: #4da385;
+  border-radius: 0.2660vw;
+  flex-direction: row;
+  gap: 0.0000vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 4.9468vw;
+  height: 1.7553vw;
+  position: absolute;
+  left: 71vw;
+  top: 14vw;
+}
+
+.mypage-like-list__contents-2 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
+  display: flex;
+  flex-direction: row;
+  gap: 3.1250vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 76.0415vw;
+  position: absolute;
+  left: calc(50% - 38.0207vw);
+  top: 20.3128vw;
+}
+.mypage-like-list-25-span3 {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-25-span4 {
+  color: #000000;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-4-span3 {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-4-span4 {
+  color: #000000;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-1153-span3 {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-1153-span4 {
+  color: #000000;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list__checkbox3 {
+  border-radius: 0.0000vw;
+  flex-shrink: 0;
+  position: absolute;
+  right: 0.0000vw;
+  top: 4.3750vw;
+  overflow: visible;
+}
+.mypage-like-list__contents-3 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
+  display: flex;
+  flex-direction: row;
+  gap: 3.1250vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 76.0415vw;
+  position: absolute;
+  left: calc(50% - 38.0207vw);
+  top: 34.2707vw;
+}
+.mypage-like-list-25-span5 {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-25-span6 {
+  color: #000000;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-4-span5 {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-4-span6 {
+  color: #000000;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-1153-span5 {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-1153-span6 {
+  color: #000000;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list__checkbox4 {
+  border-radius: 0.0000vw;
+  flex-shrink: 0;
+  position: absolute;
+  right: 0.0000vw;
+  top: 4.3750vw;
+  overflow: visible;
+}
+.mypage-like-list__contents-4 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
+  display: flex;
+  flex-direction: row;
+  gap: 3.1250vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 76.0415vw;
+  position: absolute;
+  left: calc(50% - 38.0207vw);
+  top: 48.2293vw;
+}
+.mypage-like-list-1153-span7 {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-1153-span8 {
+  color: #000000;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list__checkbox5 {
+  border-radius: 0.0000vw;
+  flex-shrink: 0;
+  position: absolute;
+  right: 0.0000vw;
+  top: 4.3750vw;
+  overflow: visible;
+}
+.mypage-like-list__like2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.0000vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 6.3543vw;
+  position: absolute;
+  left: 14.5835vw;
+  top: 10.1043vw;
+}
+.mypage-like-list___252 {
+  color: #000000;
+  text-align: right;
+  position: absolute;
+  left: 2.9255vw;
+  top: 0.0000vw;
+  width: 3.3856vw;
+  height: 1.8229vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.mypage-like-list-252-span {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-252-span2 {
+  color: #000000;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-4-span7 {
+  color: #000000;
+  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list-4-span8 {
+  color: #000000;
+  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+}
+.mypage-like-list__button-del {
+  display: flex;
+  flex-direction: column;
+  gap: 0.0000vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 7.1872vw;
+  height: 3.1771vw;
+  position: absolute;
+  left: 80.9894vw;
+  top: 66.8750vw;
+}
+.mypage-like-list__rectangle-15 {
+  border-radius: 0.0000vw;
+  flex-shrink: 0;
+  position: absolute;
+  left: 0.5207vw;
+  top: 0.0000vw;
+  overflow: visible;
+}
+.mypage-like-list__6 {
+  color: #ffffff;
+  text-align: center;
+  font: 700 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+  position: absolute;
+  left: calc(50% - 2.5521vw);
+  top: 0.6771vw;
+  width: 5.2085vw;
+  height: 1.5628vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-like-list__page-list {
+  padding: 0.0521vw 17.2394vw 0.0521vw 17.2394vw;
+  display: flex;
+  flex-direction: row;
+  gap: 0.3644vw;
+  align-items: center;
+  justify-content: center;
+  height: 3.3856vw;
+  position: absolute;
+  left: calc(50% - 32.2415vw);
+  top: 72.2915vw;
+  overflow: hidden;
+}
+.mypage-like-list__item-link-btn-pre-00-png {
+  flex-shrink: 0;
+  width: 1.6665vw;
+  height: 1.6665vw;
+  position: relative;
+}
+.mypage-like-list__item-link-btn-pre-01-png {
+  flex-shrink: 0;
+  width: 1.6665vw;
+  height: 1.6665vw;
+  position: relative;
+}
+.mypage-like-list__item {
+  padding: 0.0000vw 0.6122vw 0.2085vw 0.5862vw;
+  display: flex;
+  flex-direction: row;
+  gap: 0.0000vw;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.mypage-like-list__link-1 {
+  color: #626262;
+  text-align: center;
+  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-like-list__link-2 {
+  color: #626262;
+  text-align: center;
+  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-like-list__link-3 {
+  color: #626262;
+  text-align: center;
+  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-like-list__link-4 {
+  color: #626262;
+  text-align: center;
+  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-like-list__link-5 {
+  color: #626262;
+  text-align: center;
+  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-like-list__link-6 {
+  color: #626262;
+  text-align: center;
+  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-like-list__link-7 {
+  color: #626262;
+  text-align: center;
+  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-like-list__link-8 {
+  color: #626262;
+  text-align: center;
+  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-like-list__link-9 {
+  color: #626262;
+  text-align: center;
+  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-like-list__item2 {
+  padding: 0.0000vw 0.3894vw 0.2085vw 0.4436vw;
+  display: flex;
+  flex-direction: row;
+  gap: 0.0000vw;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.mypage-like-list__link-10 {
+  color: #626262;
+  text-align: center;
+  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mypage-like-list__item-link-btn-next-01-png {
+  flex-shrink: 0;
+  width: 1.6665vw;
+  height: 1.6665vw;
+  position: relative;
+}
+.mypage-like-list__item-link-btn-next-00-png {
+  flex-shrink: 0;
+  width: 1.6665vw;
+  height: 1.6665vw;
+  position: relative;
+}

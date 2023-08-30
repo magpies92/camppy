@@ -37,7 +37,7 @@ public class CommuController extends HttpServlet {
 		String sPath=request.getServletPath();
 		System.out.println("뽑은 가상주소 :  " + sPath);
 		
-		if(sPath.equals("/commu.cum")) {
+		if(sPath.equals("/commu.commu")) {
 			// member/login.jsp 주소변경 없이 이동
 			dispatcher 
 		    = request.getRequestDispatcher("camppymain/commuContentsList/commuContentsList.jsp");

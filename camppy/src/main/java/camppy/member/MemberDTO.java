@@ -3,18 +3,34 @@ package camppy.member;
 import java.sql.Timestamp;
 
 public class MemberDTO {
-	private String member_id;
+	// 전달 할 데이터를 담는곳 => 멤버변수 정의
+	// 전달 할 데이터는 아주 중요한 데이터 => 멤버변수 private 은닉
+	// 외부에서 접근 할 수 있는 set,get메서드 
+	private String id;
 	private String pass;
 	private String name;
-	private Timestamp created_date;
-	private String nickname;
-	private String phonenum;
+	private Timestamp date;
+	private String nick;
+	private String phone;
 	
-	public String getMember_id() {
-		return member_id;
+	public String getNick() {
+		return nick;
 	}
-	public void setMember_id(String member_id) {
-		this.member_id = member_id;
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	// alt shift s -> r
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getPass() {
 		return pass;
@@ -28,23 +44,14 @@ public class MemberDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Timestamp getCreated_date() {
-		return created_date;
+	public Timestamp getDate() {
+		return date;
 	}
-	public void setCreated_date(Timestamp created_date) {
-		this.created_date = created_date;
+	public void setDate(Timestamp date) {
+		this.date = date;
 	}
-	public String getNickname() {
-		return nickname;
-	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-	public String getPhonenum() {
-		return phonenum;
-	}
-	public void setPhonenum(String phonenum) {
-		this.phonenum = phonenum;
-	}
-
+	
+	
+	
+	
 }

@@ -1,0 +1,274 @@
+@charset "UTF-8";
+.edit-profile,
+.edit-profile * {
+  box-sizing: border-box;
+}
+.edit-profile {
+  background: #ffffff;
+  padding: 5.21875rem 0rem 5.21875rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.61375rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 117.5rem;
+  height: 68.75rem;
+  position: relative;
+  overflow: hidden;
+}
+.edit-profile__edit-header {
+  display: flex;
+  flex-direction: row;
+  gap: 0.61375rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: absolute;
+  left: calc(50% - 17.458125rem);
+  top: 3.990625rem;
+}
+.edit-profile__ {
+  color: #000000;
+  text-align: center;
+  font: 400 3.07rem/2.70125rem "Inter", sans-serif;
+  position: relative;
+  width: 34.933125rem;
+  height: 5.4025rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-profile__deit-contents {
+  flex-shrink: 0;
+  width: 79.259375rem;
+  height: 35.30125rem;
+  position: absolute;
+  left: calc(50% - 39.62125rem);
+  top: 13.2rem;
+  overflow: hidden;
+}
+.edit-profile__tel {
+  width: 51.26375rem;
+  height: 3.376875rem;
+  position: absolute;
+  left: calc(50% - 19.88375rem);
+  top: 24.3rem;
+}
+.edit-profile__2 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.350625rem/2.70125rem "Inter", sans-serif;
+  position: absolute;
+  left: 0rem;
+  top: 0.920625rem;
+  width: 9.884375rem;
+  height: 1.535rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.edit-profile__input-tel {
+  background: #efefef;
+  border-radius: 0.306875rem;
+  width: 24.5575rem;
+  height: 2.70125rem;
+  position: absolute;
+  left: 15.125rem;
+  top: 0rem;
+}
+.edit-profile__phone-certify {
+  background: #4da385;
+  border-radius: 0.306875rem;
+  width: 9.331875rem;
+  height: 3.376875rem;
+  position: absolute;
+  left: 41.931875rem;
+  top: 0rem;
+}
+.edit-profile__3 {
+  color: #ffffff;
+  text-align: center;
+  font: 700 1.535rem/2.70125rem "Inter", sans-serif;
+  position: absolute;
+  left: calc(50% - 4.051875rem);
+  top: calc(50% - 1.013125rem);
+  width: 7.92rem;
+  height: 2.02625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-profile__pass-check {
+  display: flex;
+  flex-direction: row;
+  gap: 2.885625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: calc(50% - 19.860625rem);
+  top: 19.155rem;
+}
+.edit-profile__4 {
+  color: #000000;
+  text-align: left;
+  font: 700 1.350625rem/2.70125rem "Inter", sans-serif;
+  position: relative;
+  width: 12.27875rem;
+  height: 2.7625rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.edit-profile__input-passcheck {
+  background: #efefef;
+  border-radius: 0.306875rem;
+  flex-shrink: 0;
+  width: 24.5575rem;
+  height: 2.70125rem;
+  position: relative;
+}
+.edit-profile__pass {
+  display: flex;
+  flex-direction: row;
+  gap: 2.946875rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: calc(50% - 19.860625rem);
+  top: 13.9975rem;
+}
+.edit-profile__input-pass {
+  background: #efefef;
+  border-radius: 0.306875rem;
+  flex-shrink: 0;
+  width: 24.5575rem;
+  height: 2.70125rem;
+  position: relative;
+}
+.edit-profile__id {
+  display: flex;
+  flex-direction: row;
+  gap: 2.885625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: calc(50% - 19.860625rem);
+  top: 8.840625rem;
+}
+.edit-profile__input-id {
+  background: #efefef;
+  border-radius: 0.306875rem;
+  flex-shrink: 0;
+  width: 24.5575rem;
+  height: 2.7625rem;
+  position: relative;
+}
+.edit-profile__nickname {
+  display: flex;
+  flex-direction: row;
+  gap: 2.885625rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: calc(50% - 19.799375rem);
+  top: 3.68375rem;
+}
+.edit-profile__input-nickname {
+  background: #efefef;
+  border-radius: 0.306875rem;
+  flex-shrink: 0;
+  width: 24.5575rem;
+  height: 2.7625rem;
+  position: relative;
+}
+.edit-profile__picture {
+  display: flex;
+  flex-direction: column;
+  gap: 3.80625rem;
+  align-items: flex-end;
+  justify-content: flex-start;
+  position: absolute;
+  left: 4.78875rem;
+  top: 5.28rem;
+}
+.edit-profile__free-icon-user-8484069-2 {
+  flex-shrink: 0;
+  width: 9.08625rem;
+  height: 9.08625rem;
+  position: relative;
+}
+.edit-profile__input-button {
+  background: #4da385;
+  border-radius: 0.306875rem;
+  flex-shrink: 0;
+  width: 9.5775rem;
+  height: 4.051875rem;
+  position: relative;
+}
+.edit-profile__5 {
+  color: #ffffff;
+  text-align: center;
+  font: 700 1.535rem/2.70125rem "Inter", sans-serif;
+  position: absolute;
+  left: calc(50% - 3.929375rem);
+  top: calc(50% - 1.16625rem);
+  width: 7.674375rem;
+  height: 2.394375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-profile__button {
+  display: flex;
+  flex-direction: row;
+  gap: 2.64rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: absolute;
+  left: 55.5rem;
+  top: 48.5rem;
+}
+.edit-profile__button-update {
+  background: #4da385;
+  border-radius: 0.306875rem;
+  flex-shrink: 0;
+  width: 9.5775rem;
+  height: 4.051875rem;
+  position: relative;
+}
+.edit-profile__6 {
+  color: #ffffff;
+  text-align: center;
+  font: 700 1.535rem/2.70125rem "Inter", sans-serif;
+  position: absolute;
+  left: calc(50% - 2.885625rem);
+  top: calc(50% - 0.798125rem);
+  width: 5.8325rem;
+  height: 1.6575rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-profile__button-withdraw {
+  background: #4da385;
+  border-radius: 0.306875rem;
+  flex-shrink: 0;
+  width: 9.5775rem;
+  height: 4.051875rem;
+  position: relative;
+}
+.edit-profile__7 {
+  color: #ffffff;
+  text-align: center;
+  font: 700 1.535rem/2.70125rem "Inter", sans-serif;
+  position: absolute;
+  left: calc(50% - 3.499375rem);
+  top: calc(50% - 1.289375rem);
+  width: 6.87625rem;
+  height: 2.516875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

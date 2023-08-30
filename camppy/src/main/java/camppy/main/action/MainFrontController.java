@@ -49,18 +49,14 @@ public class MainFrontController extends HttpServlet {
 		    = request.getRequestDispatcher("camppymain/searchpage/searchpage.jsp");
 		dispatcher.forward(request, response);
 		}
-		if(sPath.equals("/admin.camp")) {
-			// member/login.jsp 주소변경 없이 이동
-			dispatcher 
-		    = request.getRequestDispatcher("camppymain/admin/admin.jsp");
-		dispatcher.forward(request, response);
-		}
-		if(sPath.equals("/campupload.camp")) {
-			// member/login.jsp 주소변경 없이 이동
-			dispatcher 
-		    = request.getRequestDispatcher("camppymain/admin/uploadaction.jsp");
-		dispatcher.forward(request, response);
-		}
+		/*
+		 * if(sPath.equals("/admin.camp")) { // member/login.jsp 주소변경 없이 이동 dispatcher =
+		 * request.getRequestDispatcher("camppymain/admin/admin.jsp");
+		 * dispatcher.forward(request, response); } if(sPath.equals("/campupload.camp"))
+		 * { // member/login.jsp 주소변경 없이 이동 dispatcher =
+		 * request.getRequestDispatcher("camppymain/admin/uploadaction.jsp");
+		 * dispatcher.forward(request, response); }
+		 */
 		//
 		
 //		if(sPath.equals("/loginPro.me")) {
