@@ -134,6 +134,7 @@ public class CampRegService {
 			String campimg = multi.getFilesystemName("campimg");
 			String camppic = multi.getFilesystemName("camppic");
 			String bankaccount = multi.getParameter("bankaccount");
+			String bankname = multi.getParameter("bankname");
 			String intro = multi.getParameter("intro");
 			String campprice = multi.getParameter("campprice");
 			String  addr1= multi.getParameter("postAddr1");
@@ -173,6 +174,7 @@ public class CampRegService {
 			campregDTO.setCampimg(campimg);
 			campregDTO.setCamppic(camppic);
 			campregDTO.setBankaccount(bankaccount);
+			campregDTO.setBankname(bankname);
 			campregDTO.setIntro(intro);
 			campregDTO.setCampprice(campprice);
 			campregDTO.setDoo(doo);

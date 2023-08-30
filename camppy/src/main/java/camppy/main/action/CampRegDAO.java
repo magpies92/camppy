@@ -103,7 +103,7 @@ public class CampRegDAO {
 			//1,2 디비연결
 			con=getConnection();
 			//3 sql insert
-			String sql = "insert into camp(homepage,camp_type,intro,runtime,season,facility,tel,environment,bank_account,camp_name,short_intro,camp_img,camp_price) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into camp(homepage,camp_type,intro,runtime,season,facility,tel,environment,bank_account,camp_name,short_intro,camp_img,camp_price,bank_name) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			    //(물음표 순서,값)
 			pstmt.setString(1, campregDTO.getHomepage());
@@ -118,7 +118,8 @@ public class CampRegDAO {
 			pstmt.setString(10, campregDTO.getCampname());
 			pstmt.setString(11, campregDTO.getShortintro());
 			pstmt.setString(12, campregDTO.getCampimg()); 
-			pstmt.setString(13, campregDTO.getCampprice()); 
+			pstmt.setString(13, campregDTO.getCampprice());
+			pstmt.setString(14, campregDTO.getBankname()); 
 			pstmt.executeUpdate();
 			
 			

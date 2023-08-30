@@ -40,7 +40,8 @@
 		홈페이지 : <input type="text" name="homepage" required><br>
 		주변이용가능시설 : <input type="text" name="facility" required><br>
 		소개 : <input type="text" name="intro" required><br>
-		은행 계좌 : <input type="text" name="bankaccount" required><br>
+		은행명 : <input type="text" name="bankname" required><br>
+		계좌번호 : <input type="text" name="bankaccount" required><br>
 		캠핑장 가격 : <input type="text" name="campprice" required><br>
 		캠핑장 사진들 : <input type="file" name="camppic" required><br>
 		

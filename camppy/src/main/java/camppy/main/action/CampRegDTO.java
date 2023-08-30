@@ -18,6 +18,18 @@ public class CampRegDTO {
 	private String campimg;
 	private String camppic;
 	private String bankaccount;
+	private String bankname;
+	private String campprice;
+	private String doo;
+	private String mapx;
+	private String mapy;
+	private int campid;
+	public String getBankname() {
+		return bankname;
+	}
+	public void setBankname(String bankname) {
+		this.bankname = bankname;
+	}
 	private String intro;
 	public String getMapx() {
 		return mapx;
@@ -31,11 +43,7 @@ public class CampRegDTO {
 	public void setMapy(String mapy) {
 		this.mapy = mapy;
 	}
-	private String campprice;
-	private String doo;
-	private String mapx;
-	private String mapy;
-	private int campid;
+	
 	public int getCampid() {
 		return campid;
 	}
