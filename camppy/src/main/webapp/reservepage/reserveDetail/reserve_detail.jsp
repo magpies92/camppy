@@ -7,14 +7,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
-<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet"> -->
+<!-- <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet"> -->
 <!-- <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png"> -->
 <meta charset="UTF-8">
 <title>Camppy</title>
 
 <!-- <link rel="stylesheet" href="css/insert.css" type="text/css" > -->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 <style>
 div {
     display: block;
@@ -145,30 +145,66 @@ label {
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
-<jsp:include page="../../inc/top.jsp" />
+<%-- <jsp:include page="../../inc/top.jsp" /> --%>
 <!-- 헤더파일들어가는 곳 -->
 <%
-String id=(String)session.getAttribute("id"); 
-CampRegDTO cdto = (CampRegDTO)request.getAttribute("cdto");
-MemberDTO mdto = (MemberDTO)request.getAttribute("mdto");
+// String id=(String)session.getAttribute("id"); 
+// CampRegDTO cdto = (CampRegDTO)request.getAttribute("cdto");
+// MemberDTO mdto = (MemberDTO)request.getAttribute("mdto");
 	
 	%>
 <article>
 <!-- 	<h2 class="heading-section">예약</h2> -->
-	<div id="wrap">              
+<!-- 	<div id="wrap">               -->
+<!--   		<form action="ProductAppointmentPro.pr" name="appointmentform" id="appointment" method="post"> -->
+<!--           <fieldset>                   -->
+<!--                <h3 class="menu-section">예약자 정보확인</h3> -->
+<!--                  <div class="ap-services"> -->
+<%--                     예약자명 : <input type="text" name="mname" value="<%=mdto.getName()%>" readonly><br> --%>
+<%--                     전화번호 : <input type="text" name="phone" value="<%=mdto.getPhone()%>" readonly> --%>
+<%--                     닉네임 : <input type="text" name="" value="<%=mdto.getNick()%>" readonly> --%>
+<!-- 				 </div> -->
+
+<!--  <h3 class="menu-section">예약정보 입력</h3> -->
+<!-- 				  <div class="ap-services">	 -->
+<%-- 					펜션이름 : <input type="text" name="pname" value="<%=cdto.getCampname()%>" readonly><br> --%>
+<%-- 					숙박료 : <input type="text" name="price" value="<%=cdto.getCampprice()%>원 /1박" readonly><br> --%>
+<!-- 					입실일 : <input type="date" name="indate" id="chekcin"><br> -->
+<!-- 					퇴실일 : <input type="date" name="checkout"><br> -->
+<!-- 					인원수 : <select name="guest"> -->
+<!--                                                     <option value="1">1명</option> -->
+<!--                                                     <option value="2">2명</option> -->
+<!--                                                     <option value="3">3명</option> -->
+<!--                                                     <option value="4">4명</option> -->
+<!--                                                     <option value="5">5명</option> -->
+<!--                                                     <option value="6">6명</option> -->
+<!--                                                     <option value="7">7명</option> -->
+<!--                                                     <option value="8">8명</option> -->
+<!--                                                     <option value="9">9명</option></select><br> -->
+<!-- 				</div> -->
+<!-- 					<input type="submit" value="예약하기"> -->
+<%-- 					<input type="hidden" name="id" value="<%=mdto.getId()%>"> --%>
+<%-- 					<input type="hidden" name="campid" value="<%=cdto.getCampid()%>"> --%>
+<!-- 					</fieldset> -->
+<!-- 				</form> -->
+<!--                </div>   -->
+
+
+
+<div id="wrap">              
   		<form action="ProductAppointmentPro.pr" name="appointmentform" id="appointment" method="post">
           <fieldset>                  
                <h3 class="menu-section">예약자 정보확인</h3>
                  <div class="ap-services">
-                    예약자명 : <input type="text" name="mname" value="<%=mdto.getName()%>" readonly><br>
-                    전화번호 : <input type="text" name="phone" value="<%=mdto.getPhone()%>" readonly>
-                    닉네임 : <input type="text" name="" value="<%=mdto.getNick()%>" readonly>
+                    예약자명 : <input type="text" name="mname" value=" " ><br>
+                    전화번호 : <input type="text" name="phone" value="textbox"><br>
+                    닉네임 : <input type="text" name="" value="textbox">
 				 </div>
 							
                 <h3 class="menu-section">예약정보 입력</h3>
 				  <div class="ap-services">	
-					펜션이름 : <input type="text" name="pname" value="<%=cdto.getCampname()%>" readonly><br>
-					숙박료 : <input type="text" name="price" value="<%=cdto.getCampprice()%>원 /1박" readonly><br>
+					펜션이름 : <input type="text" name="pname" value="textbox"><br>
+					숙박료 : <input type="text" name="price" value="textbox원 /1박"><br>
 					입실일 : <input type="date" name="indate" id="chekcin"><br>
 					퇴실일 : <input type="date" name="checkout"><br>
 					인원수 : <select name="guest">
@@ -183,15 +219,15 @@ MemberDTO mdto = (MemberDTO)request.getAttribute("mdto");
                                                     <option value="9">9명</option></select><br>
 				</div>
 					<input type="submit" value="예약하기">
-					<input type="hidden" name="id" value="<%=mdto.getId()%>">
-					<input type="hidden" name="campid" value="<%=cdto.getCampid()%>">
+					<input type="hidden" name="id" value="textbox">
+					<input type="hidden" name="campid" value="textbox">
 					</fieldset>
 				</form>
                </div>  
                   
 </article>
 <!-- 푸터 들어가는 곳 -->
-<jsp:include page="../../inc/bottom.jsp" />
+<%-- <jsp:include page="../../inc/bottom.jsp" /> --%>
 <!-- 푸터 들어가는 곳 -->
 </body>
 </html>
