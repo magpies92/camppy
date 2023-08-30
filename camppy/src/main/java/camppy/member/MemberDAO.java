@@ -39,12 +39,14 @@ public class MemberDAO {
 			//1,2 디비연결
 			con = getConnection();
 			//3 sql
-			String sql="insert into members(id,pass,name,date) values(?,?,?,?)";
+			String sql="insert into members(member_id,pass,name,created_date,nickname,phonenum) values(?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, memberDTO.getId());
+			pstmt.setString(1, memberDTO.getMember_id());
 			pstmt.setString(2, memberDTO.getPass());
 			pstmt.setString(3, memberDTO.getName());
-			pstmt.setTimestamp(4, memberDTO.getDate());
+			pstmt.setTimestamp(4, memberDTO.getCreated_date());
+			pstmt.setString(5, memberDTO.getNickname());
+			pstmt.setString(6, memberDTO.getPhonenum());
 			//4 실행
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -60,19 +62,19 @@ public class MemberDAO {
 			//1,2 단계 디비연결
 			con=getConnection();
 			//3단계 sql
-			String sql = "select * from members where id=? and pass=?";
+			String sql = "select * from members where member_id=? and pass=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, memberDTO2.getId());
+			pstmt.setString(1, memberDTO2.getMember_id());
 			pstmt.setString(2, memberDTO2.getPass());
 			//4단계 실행
 			rs = pstmt.executeQuery();
 			//5단계 데이터 있으면 MemberDTO 객체생성 set호출해서 열 값을 저장
 			if(rs.next()) {
 				memberDTO=new MemberDTO();
-				memberDTO.setId(rs.getString("id"));
+				memberDTO.setMember_id(rs.getString("id"));
 				memberDTO.setPass(rs.getString("pass"));
 				memberDTO.setName(rs.getString("name"));
-				memberDTO.setDate(rs.getTimestamp("date"));
+				memberDTO.setCreated_date(rs.getTimestamp("date"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

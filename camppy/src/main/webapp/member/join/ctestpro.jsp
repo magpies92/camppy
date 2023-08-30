@@ -1,111 +1,53 @@
-<%@page import="camppy.member.MemberDAO"%>
-<%@page import="camppy.member.MemberDTO"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Timestamp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>jsp3/insertPro.jsp</title>
 </head>
 <body>
-<script type="text/javascript">
-
-//로그인 버튼에 이벤트 리스너 추가
-document.getElementById("loginButton").addEventListener("click", function(event) {
-    // 폼 데이터 가져오기
-    var formData = new FormData(document.getElementById("loginForm"));
-    // 서버에 로그인 요청 전송
-    fetch("ctestpro.jsp", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        // 로그인 성공 여부 확인
-        if (data === "success") {
-            // 로그인 성공 시 메인 페이지로 이동
-            window.location.href = "main.jsp";
-        } else {
-            // 로그인 실패 시 오류 메시지 표시
-            document.getElementById("errorMessage").textContent = "로그인에 실패했습니다.";
-        }
-    });
-    // 폼 제출 방지
-    event.preventDefault();
-});
-
-
-window.onload = function() {
-    var phoneInput = document.getElementById("memberSingPhone");
-    phoneInput.addEventListener("keypress", function(event) {
-        if (event.which < 48 || event.which > 57) {
-            event.preventDefault();
-        }
-    });
-}
-function validateForm() {
-	var id = document.getElementById("memberSignId");
-    if (id.value.length < 5 || id.value.length > 20) {
-        alert("아이디는 5~20자 사이여야 합니다.");
-        id.style.borderColor = "red";
-        return false;
-    } else {
-        id.style.borderColor = "green";
-    }
-    var pass = document.getElementById("memberSingPw").value;
-    if (pass.length < 5 || pass.length > 20) {
-        alert("비밀번호는 5~20자 사이여야 합니다.");
-        return false;
-    }
-    var passConfirm = document.getElementById("memberSingCh").value;
-    if (pass !== passConfirm) {
-        alert("비밀번호가 일치하지 않습니다.");
-        return false;
-    }
-    var nickname = document.getElementById("memberSingNick").value;
-    if (nickname.length < 5 || nickname.length > 20) {
-        alert("닉네임은 5~20자 사이여야 합니다.");
-        return false;
-    }
-    var name = document.getElementById("memberSingName").value;
-    if (name.length < 5 || name.length > 20) {
-        alert("이름은 5~20자 사이여야 합니다.");
-        return false;
-    }
-    var phone = document.getElementById("memberSingPhone").value;
-    if (phone.length != 11) {
-        alert("휴대전화 번호는 11자여야 합니다.");
-        return false;
-    }
-    alert('가입이 완료되었습니다!');
-}
-
-
-</script>  
 <%
-String id = request.getParameter("id");
+request.setCharacterEncoding("utf-8");
+String member_id = request.getParameter("member_id");
 String pass = request.getParameter("pass");
+String name = request.getParameter("name");
+Timestamp created_date=
+    new Timestamp(System.currentTimeMillis());
+String nickname = request.getParameter("nickname");
+String phonenum = request.getParameter("phonenum");
+ 
+Class.forName("com.mysql.cj.jdbc.Driver");
 
-MemberDTO memberDTO2 = new MemberDTO();
+String dbUrl="jdbc:mysql://itwillbs.com:3306/jspdb?serverTimezone=Asia/Seoul";
+String dbUser="c1d2304t3";
+String dbPass="1234";
+Connection con=DriverManager.getConnection(dbUrl, dbUser, dbPass);
 
-memberDTO2.setId(id);
-memberDTO2.setPass(pass);
+String sql = "insert into members(member_id,pass,name,created_date,nickname,phonenum) values(?,?,?,?,?,?)";
+PreparedStatement pstmt=con.prepareStatement(sql);
+pstmt.setString(1, member_id);
+pstmt.setString(2, pass); 
+pstmt.setString(3, name);
+pstmt.setTimestamp(4, created_date);
+pstmt.setString(5, nickname);
+pstmt.setString(6, phonenum);
 
-MemberDAO memberDAO = new MemberDAO();
+pstmt.executeUpdate();
 
-MemberDTO memberDTO = memberDAO.userCheck(memberDTO2);
-if(memberDTO != null){
-	session.setAttribute("id", id);
-	response.sendRedirect("main.jsp");
-} else {
+
+response.sendRedirect("login.jsp");
 %>
-	<script type="text/javascript">
-		alert("틀림");
-		location.href="ctest.jsp";
-	</script>
-	<%
-}
-%>
+<a href="login.jsp">로그인 페이지 이동</a>
+
+<script type="text/javascript">
+alert("로그인 페이지 이동");
+location.href="login.jsp";
+</script>
+
 </body>
 </html>

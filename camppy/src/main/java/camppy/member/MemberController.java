@@ -1,19 +1,12 @@
 package camppy.member;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 public class MemberController extends HttpServlet{
 	RequestDispatcher dispatcher =null;
@@ -39,6 +32,9 @@ public class MemberController extends HttpServlet{
 		String sPath=request.getServletPath();
 		System.out.println("뽑은 가상주소 :  " + sPath);
 		//뽑은 가상주소 비교하기 => 실제페이지 연결
+		
+		
+		
 		if(sPath.equals("/ctest.mem")) {
 			// member/join.jsp 주소변경 없이 연결
 			dispatcher 
@@ -46,8 +42,11 @@ public class MemberController extends HttpServlet{
 		dispatcher.forward(request, response);
 		}//
 		
-	
-	
+		if(sPath.equals("/ctestpro.mem")) {
+//			memberService = new MemberService();
+//			memberService.insertMember(request);
+			response.sendRedirect("login.mem");
+		}
 		
 	}//doProcess()
 
