@@ -338,9 +338,7 @@ div.tab.active {
 		<!-- The content from tab1 (star.html) will be displayed here by default -->
 		<jsp:include page="./top.jsp" />
 	</div>
-		 <button type="button" onclick="popupDel();" class="buttonDel">
-            <div class="del">삭제</div>
-         	</button>
+		
 
 
 <script type="text/javascript">
