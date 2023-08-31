@@ -226,18 +226,15 @@ function subtractInputBox() {
  //var max = document.gForm.checkList.length;
  //alert(max);
  var rows = dynamic_table.rows.length;
+ var j = 0;
  
  if(rows >= 1){
 	 
 	 
 	 for (var i=0; i<=rows; i++) { 
-		 if(rows==1)
-	    	{
-	    	table.deleteRow(0);
-	    	count--;
-	    	}		
+			j=i-1;
 		 else if (document.campreg.checkList[i].checked == true) {
-		    table.deleteRow(i);
+		    table.deleteRow(j);
 		    i--;
 		    count--;
 		    
