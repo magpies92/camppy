@@ -155,6 +155,14 @@
 }
 
 .mainpage__options-2 {
+	
+	 padding-left: 83px;
+    border: 1px solid #ddd;  
+		color: #626262;
+  text-align: left;
+  font: 400 20px/43.08px "NanumGothic", sans-serif;
+  
+  
   background: #efefef;
   border-radius: 4.9px;
   width: 266.33px;
@@ -162,27 +170,24 @@
   position: absolute;
   left: 237.94px;
   top: 0.98px;
-  text-indent: 10px;
   
- /*  display: flex;
-  flex-direction: row;
-  gap: 0px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  right: 0px;
-  overflow: hidden;
-  text-indent: 10px; */
+
 }
 .mainpage__3 {
-  color: #626262;
-  text-align: left;
-  font: 400 12.73px/43.08px "NanumGothic", sans-serif;
+  
   position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
-.mainpage__options-1 {
+.mainpage__options-1 {	
+     padding-left: 33px;
+    border: 1px solid #ddd;    
+    
+	color: #626262;
+  text-align: left;
+  font: 400 20px/43.08px "NanumGothic", sans-serif;
+  
   background: #efefef;
   border-radius: 4.9px;
   width: 166.46px;
@@ -190,15 +195,7 @@
   position: absolute;
   left: 61.69px;
   top: 0.98px;
-  text-indent: 10px;
-  
-  /* display: flex;
-  flex-direction: row;
-  gap: 0px;
-   align-items: flex-start;
-  justify-content: flex-start; 
-  right: 0px;
-  overflow: hidden; */
+
 }
 .mainpage__div2 {
   padding: 0px 106.73px 0.98px 0px;
@@ -226,14 +223,23 @@
   position: relative;
 }
 .mainpage__options {
+	padding-left: 33px;
+    border: 1px solid #ddd;    
+    
+	color: #626262;
+  text-align: left;
+  font: 400 20px/43.08px "NanumGothic", sans-serif;
+  
+ 
+  
+  
   background: #efefef;
   border-radius: 4.9px;
   width: 342.71px;
   height: 43.08px;
   position: absolute;
   left: 61.65px;
-  top: 0px;
-  text-indent: 10px;
+  top: 0px;;
 }
 .mainpage__button {
   background: #4da385;
