@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 	    private int member_id;
 	    private int camp_id;
 	    private int res_id;
-	    private int review_rate;
+	    private int rating;
 	    private Timestamp created_date;
 	    private Timestamp last_modified_date;
 	    
@@ -70,11 +70,11 @@ import java.sql.Timestamp;
 		public void setRes_id(int res_id) {
 			this.res_id = res_id;
 		}
-		public int getReview_rate() {
-			return review_rate;
+		public int getRating() {
+			return rating;
 		}
-		public void setReview_rate(int review_rate) {
-			this.review_rate = review_rate;
+		public void setRating(int rating) {
+			this.rating = rating;
 		}
 		public Timestamp getCreated_date() {
 			return created_date;
