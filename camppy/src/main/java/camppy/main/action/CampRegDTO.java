@@ -16,7 +16,6 @@ public class CampRegDTO {
 	private String homepage;
 	private String facility;
 	private String campimg;
-	private String camppic;
 	private String bankaccount;
 	private String bankname;
 	private String campprice;
@@ -24,14 +23,23 @@ public class CampRegDTO {
 	private String mapx;
 	private String mapy;
 	private int campid;
-	
+	private String intro;
+	private String[] camppic=new String[5];
+	public String[] getCamppic() {
+		return camppic;
+	}
+
+	public void setCamppic(String[] camppic) {
+		this.camppic = camppic;
+	}
+
 	public String getBankname() {
 		return bankname;
 	}
 	public void setBankname(String bankname) {
 		this.bankname = bankname;
 	}
-	private String intro;
+
 	public String getMapx() {
 		return mapx;
 	}
@@ -156,12 +164,7 @@ public class CampRegDTO {
 	public void setCampimg(String campimg) {
 		this.campimg = campimg;
 	}
-	public String getCamppic() {
-		return camppic;
-	}
-	public void setCamppic(String camppic) {
-		this.camppic = camppic;
-	}
+	
 	
 	
 	
