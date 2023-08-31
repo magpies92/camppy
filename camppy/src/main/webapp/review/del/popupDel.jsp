@@ -68,7 +68,7 @@
   width: 64.48px;
   height: 26.27px;
   position: absolute;
-  left: 207.76px;
+  left: 123px;
   top: 62.09px;
   color: #ffffff;
   text-align: center;

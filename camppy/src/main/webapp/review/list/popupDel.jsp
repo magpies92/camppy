@@ -95,7 +95,7 @@
 String id=(String)session.getAttribute("id");
 %>
   <body>
-    <form action="deletePro.jsp" method="post" class="popupDel">
+    <form action="reviewDelPro.jsp" method="post" class="popupDel">
       <div class="delSection">
  		<div class="delAlert">삭제 하시겠습니까?</div>
          <input type="submit" value="네" class="yesButton" onclick="deleteReview();">

@@ -62,10 +62,10 @@ public class ReviewController extends HttpServlet{
 			List<ReviewDTO> reviewList=reviewService.getReviewList();
 			
 			// request 데이터(boardList) 담아서
-			request.setAttribute("boardList", reviewList);
+			request.setAttribute("reviewList", reviewList);
 			
 			dispatcher 
-		    = request.getRequestDispatcher("board/list.jsp");
+		    = request.getRequestDispatcher("review/list/reviewList.jsp");
 			dispatcher.forward(request, response);
 		}//
 //		// http://localhost:8080/MVCProject/content.bo?num=1
@@ -98,7 +98,7 @@ public class ReviewController extends HttpServlet{
 //			dispatcher.forward(request, response);
 //		}//
 		
-		if(sPath.equals("/updatePro.bo")) {
+		if(sPath.equals("/reviewUpdatePro.rv")) {
 			System.out.println("주소 비교 : /updatePro.bo");
 			// BoardService 객체생성
 			reviewService = new ReviewService();
@@ -111,11 +111,11 @@ public class ReviewController extends HttpServlet{
 			//    3 sql구문 update set subject,content수정 where num = 
 			//    4 실행
 			// 주소 변경되면서 list.bo 이동 
-			response.sendRedirect("list.bo");
+			response.sendRedirect("reviewList.rv");
 		}
 		
 //		http://localhost:8080/MVCProject/delete.bo?num=1		
-		if(sPath.equals("/delete.bo")) {
+		if(sPath.equals("/reviewDel.rv")) {
 			// BoardService 객체생성
 			reviewService = new ReviewService();
 			//  deleteBoard(request) 호출
@@ -125,7 +125,7 @@ public class ReviewController extends HttpServlet{
 			//  BoardDAO => deleteBoard() 메서드 정의
 			//             1,2 디비연결, 3sql delete 4실행
 			// 주소 변경되면서 list.bo 이동 
-			response.sendRedirect("list.bo");
+			response.sendRedirect("reviewList.rv");
 		}
 		
 	}//doProcess()
