@@ -336,7 +336,7 @@ div.tab.active {
 	</div>
 	<div class="tabContents">
 		<!-- The content from tab1 (star.html) will be displayed here by default -->
-		<jsp:include page="star.html" />
+		<jsp:include page="../popupDel.jsp"/>
 	</div>
 		 <button type="button" onclick="popupDel();" class="buttonDel">
             <div class="del">삭제</div>
@@ -354,13 +354,13 @@ tabs.forEach(tab => {
         
         let contentPath = "";
         if (tab.id === "tab1") {
-            contentPath = "./star.html";
+            contentPath = "../popupDel.jsp"";
         } else if (tab.id === "tab2") {
-            contentPath = "./star.html";
+            contentPath = "../popupDel.jsp"";
         } else if (tab.id === "tab3") {
-            contentPath = "./star.html";
+            contentPath = "../popupDel.jsp"";
         } else if (tab.id === "tab4") {
-            contentPath = "./star.html";
+            contentPath = "../popupDel.jsp"";
         }
         
         // Load content using jQuery
