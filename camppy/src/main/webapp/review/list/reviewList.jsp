@@ -63,7 +63,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		<div class="campinfoStar">
 			<div class="campinfoStar1">
 				★
-				<%=rs.getFloat("review_rate")%></div>
+				<%=rs.getFloat("rating")%></div>
 		</div>
 		<div class="reviewNum">
 			<div class="reviewNum1"><%=rs.getInt("review_id")%></div>
