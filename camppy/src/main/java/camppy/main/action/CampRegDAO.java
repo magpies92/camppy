@@ -216,6 +216,7 @@ public class CampRegDAO {
 				campregDTO.setCampimg(rs.getString("camp_img"));
 				campregDTO.setCampname(rs.getString("camp_name"));
 				campregDTO.setCampid(rs.getInt("camp_id"));
+				campregDTO.setCampprice(rs.getString("camp_price"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -12,7 +12,16 @@ public class MemberDTO {
 	private Timestamp date;
 	private String nick;
 	private String phone;
+	private int member_id;
 	
+	
+	
+	public int getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
 	public String getNick() {
 		return nick;
 	}
