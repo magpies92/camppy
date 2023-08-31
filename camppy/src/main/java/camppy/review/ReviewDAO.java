@@ -54,8 +54,7 @@ import camppy.review.ReviewDTO;
 				pstmt.setInt(2, reviewDTO.getMember_id()); 
 				pstmt.setString(3, reviewDTO.getContent());
 				pstmt.setInt(4, reviewDTO.getReview_rate());
-				pstmt.setString(5, reviewDTO.getCreated_by());
-				
+				pstmt.setString(5, reviewDTO.getCreated_by());				
 				pstmt.setTimestamp(6, reviewDTO.getCreated_date());
 				// 4단계 sql구문 실행
 				pstmt.executeUpdate();

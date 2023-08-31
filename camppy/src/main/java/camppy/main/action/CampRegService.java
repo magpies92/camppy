@@ -120,7 +120,7 @@ public class CampRegService {
 			// 생성자 1) request 2)업로드할 파일경로 3) 파일크기 4) 한글처리 5) 파일이름변경
 			//업로드 폴더 만들기 webapp - upload 폴더만들기
 			// 업로드 폴더 경로=> 물리적 경로
-			String uploadPath=request.getRealPath("/camppymain/campreg/campimg");
+			String uploadPath=request.getRealPath("campimg");
 			// 이클립스에 실행하면 이클립스 가상경로 
 			System.out.println(uploadPath);
 			//파일 최대크기 지정  10M

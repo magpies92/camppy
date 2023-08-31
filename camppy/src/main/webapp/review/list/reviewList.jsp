@@ -39,7 +39,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	//1단계 JDBC 프로그램 가져오기 
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	// 2단계 디비 연결
-	String dbUrl = "jdbc:mysql://itwillbs.com:3306/c1d2304t3";
+	String dbUrl = "jdbc:mysql://itwillbs.com:3306/c1d2304t3?serverTimezone=Asia/Seoul";
 	String dbUser = "c1d2304t3";
 	String dbPass = "1234";
 	Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);

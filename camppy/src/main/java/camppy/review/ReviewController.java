@@ -40,22 +40,20 @@ public class ReviewController extends HttpServlet{
 		System.out.println("가상주소 뽑아오기 : " +  sPath);
 		
 //		http://localhost:8080/MVCProject/write.bo
-		if(sPath.equals("/reviewInsert.jsp")) {
-			System.out.println("주소 비교 : /reviewInsert.jsp");
+		if(sPath.equals("/reviewInsert.rv")) {
 			// 주소변경 없이 => board/write.jsp 이동
 			dispatcher 
-		    = request.getRequestDispatcher("board/write.jsp");
+		    = request.getRequestDispatcher("review/insert/reviewInsert.jsp");
 			dispatcher.forward(request, response);
 		}//if
-		if(sPath.equals("/writePro.bo")) {
-			System.out.println("주소 비교 : /writePro.bo");
+		if(sPath.equals("/reviewInsertPro.rv")) {
 			request.setCharacterEncoding("utf-8");
 			// BoardService 객체생성
 			reviewService = new ReviewService();
 			// insertBoard(request) 메서드 호출
 			reviewService.insertReview(request);
 			// 주소 변경되면서 list.bo 이동 
-			response.sendRedirect("list.bo");
+			response.sendRedirect("reviewInsert.rv");
 		}//if
 		if(sPath.equals("/list.bo")) {
 			// BoardService 객체생성
