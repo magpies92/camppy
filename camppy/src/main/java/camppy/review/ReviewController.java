@@ -51,61 +51,61 @@ public class ReviewController extends HttpServlet{
 			System.out.println("주소 비교 : /writePro.bo");
 			request.setCharacterEncoding("utf-8");
 			// BoardService 객체생성
-			boardService = new BoardService();
+			reviewService = new ReviewService();
 			// insertBoard(request) 메서드 호출
-			boardService.insertBoard(request);
+			reviewService.insertReview(request);
 			// 주소 변경되면서 list.bo 이동 
 			response.sendRedirect("list.bo");
 		}//if
 		if(sPath.equals("/list.bo")) {
 			// BoardService 객체생성
-			boardService =new BoardService();
+			reviewService =new ReviewService();
 			// List<BoardDTO> boardList  = getBoardList()
-			List<BoardDTO> boardList=boardService.getBoardList();
+			List<ReviewDTO> reviewList=reviewService.getReviewList();
 			
 			// request 데이터(boardList) 담아서
-			request.setAttribute("boardList", boardList);
+			request.setAttribute("boardList", reviewList);
 			
 			dispatcher 
 		    = request.getRequestDispatcher("board/list.jsp");
 			dispatcher.forward(request, response);
 		}//
-		// http://localhost:8080/MVCProject/content.bo?num=1
-		if(sPath.equals("/content.bo")) {
-			// BoardService 객체생성
-			boardService =new BoardService();
-			// 조회수 증가 메서드 호출
-			boardService.updateReadcount(request);
-			// BoardDTO boardDTO  = getBoard(request) 메서드 호출
-			BoardDTO boardDTO = boardService.getBoard(request);
-			// request 데이터(boardDTO) 담아서
-			request.setAttribute("boardDTO", boardDTO);
-			// board/content.jsp
-			dispatcher 
-		    = request.getRequestDispatcher("board/content.jsp");
-			dispatcher.forward(request, response);
-		}//
+//		// http://localhost:8080/MVCProject/content.bo?num=1
+//		if(sPath.equals("/content.bo")) {
+//			// BoardService 객체생성
+//			reviewService =new ReviewService();
+//			// 조회수 증가 메서드 호출
+//			reviewService.updateReadcount(request);
+//			// BoardDTO boardDTO  = getBoard(request) 메서드 호출
+//			BoardDTO boardDTO = boardService.getBoard(request);
+//			// request 데이터(boardDTO) 담아서
+//			request.setAttribute("boardDTO", boardDTO);
+//			// board/content.jsp
+//			dispatcher 
+//		    = request.getRequestDispatcher("board/content.jsp");
+//			dispatcher.forward(request, response);
+//		}//
 		
-//		http://localhost:8080/MVCProject/update.bo?num=1
-		if(sPath.equals("/update.bo")) {
-			// BoardService 객체생성
-			boardService =new BoardService();
-			// BoardDTO boardDTO  = getBoard(request) 메서드 호출
-			BoardDTO boardDTO=boardService.getBoard(request);
-			// request 데이터(boardDTO) 담아서
-			request.setAttribute("boardDTO", boardDTO);
-			// 수정하면 board/update.jsp 이동
-			dispatcher 
-		    = request.getRequestDispatcher("board/update.jsp");
-			dispatcher.forward(request, response);
-		}//
+////		http://localhost:8080/MVCProject/update.bo?num=1
+//		if(sPath.equals("/update.bo")) {
+//			// BoardService 객체생성
+//			reviewService =new ReviewService();
+//			// BoardDTO boardDTO  = getBoard(request) 메서드 호출
+//			ReviewDTO reviewDTO=reviewService.getReview(request);
+//			// request 데이터(boardDTO) 담아서
+//			request.setAttribute("reviewDTO", reviewDTO);
+//			// 수정하면 board/update.jsp 이동
+//			dispatcher 
+//		    = request.getRequestDispatcher("board/update.jsp");
+//			dispatcher.forward(request, response);
+//		}//
 		
 		if(sPath.equals("/updatePro.bo")) {
 			System.out.println("주소 비교 : /updatePro.bo");
 			// BoardService 객체생성
-			boardService = new BoardService();
+			reviewService = new ReviewService();
 			// updateBoard(request) 호출
-			reviewService.reviewBoard(request);
+			reviewService.updateReview(request);
 			// => request 한글처리, request 값 가져오기, BoardDTO 값저장
 			//    BoardDAO 객체생성 updateBoard(boardDTO) 호출
 			

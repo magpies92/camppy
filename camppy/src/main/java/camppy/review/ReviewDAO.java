@@ -158,26 +158,26 @@ import camppy.review.ReviewDTO;
 //		}
 //
 
-//		public void updateReview(ReviewDTO reviewDTO) {
-//			try {
-//				// => BoardDAO updateBoard() 1,2 디비연결,
-//				// 1단계 JDBC 프로그램 가져오기 
-//				// 2단계 디비 연결
-//				con=getConnection();
-//				//    3 sql구문 update board  set subject,content수정 where num =
-//				String sql = "update review set rate=?,reply=? where num=?";
-//				pstmt=con.prepareStatement(sql);
-//				pstmt.setInt(1, reviewDTO.getRate());
-//				pstmt.setString(2, reviewDTO.getReply());
-//				pstmt.setInt(3, reviewDTO.getNum());      //(물음표 순서,값)
-//				//    4 실행
-//				pstmt.executeUpdate();
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}finally {
-//				dbClose();
-//			}
-//		}
+		public void updateReview(ReviewDTO reviewDTO) {
+			try {
+				// => BoardDAO updateBoard() 1,2 디비연결,
+				// 1단계 JDBC 프로그램 가져오기 
+				// 2단계 디비 연결
+				con=getConnection();
+				//    3 sql구문 update board  set subject,content수정 where num =
+				String sql = "update review set review_rate=?,content=? where review_id=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, reviewDTO.getReview_rate());
+				pstmt.setString(2, reviewDTO.getContent());
+				pstmt.setInt(3, reviewDTO.getReview_id());      //(물음표 순서,값)
+				//    4 실행
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbClose();
+			}
+		}
 
 		public void deleteReview(int review_id) {
 			try {

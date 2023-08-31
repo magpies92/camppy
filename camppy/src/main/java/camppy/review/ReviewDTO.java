@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 	    private int res_id;
 	    private int review_rate;
 	    private Timestamp created_date;
-	    private Timestamp last_modified_time;
+	    private Timestamp last_modified_date;
 	    
 	    public int getReview_id() {
 			return review_id;
@@ -82,11 +82,11 @@ import java.sql.Timestamp;
 		public void setCreated_date(Timestamp created_date) {
 			this.created_date = created_date;
 		}
-		public Timestamp getLast_modified_time() {
-			return last_modified_time;
+		public Timestamp getLast_modified_date() {
+			return last_modified_date;
 		}
-		public void setLast_modified_time(Timestamp last_modified_time) {
-			this.last_modified_time = last_modified_time;
+		public void setLast_modified_time(Timestamp last_modified_date) {
+			this.last_modified_date = last_modified_date;
 		}
 		
 	}

@@ -21,7 +21,7 @@ public class ReviewService {
 			
 			
 			// 변수저장
-			Timestamp created_time = new Timestamp(System.currentTimeMillis());
+			Timestamp created_date = new Timestamp(System.currentTimeMillis());
 			
 			int review_id = 1;
 			// BoardDAO 객체생성
@@ -59,21 +59,21 @@ public class ReviewService {
 		return reviewList;
 	}
 
-	public ReviewDTO getReview(HttpServletRequest request) {
-		ReviewDTO reviewDTO=null;
-		try {
-			// request에 num 파라미터 값 가져오기
-     int num = Integer.parseInt(request.getParameter("num"));
-			// BoardDAO 객체생성 
-     reviewDAO = new ReviewDAO();
-			// boardDTO = getBoard(num);
-     reviewDTO=reviewDAO.getreview(num);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return reviewDTO;
-	}
+//	public ReviewDTO getReview(HttpServletRequest request) {
+//		ReviewDTO reviewDTO=null;
+//		try {
+//			// request에 num 파라미터 값 가져오기
+//     int review_id = Integer.parseInt(request.getParameter("review_id"));
+//			// BoardDAO 객체생성 
+//     reviewDAO = new ReviewDAO();
+//			// boardDTO = getBoard(num);
+//     reviewDTO=reviewDAO.getReview(review_id);
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return reviewDTO;
+//	}
 
 
 	public void updateReview(HttpServletRequest request) {
@@ -81,14 +81,14 @@ public class ReviewService {
 			// => request 한글처리, request 값 가져오기, BoardDTO 값저장
 		    //    BoardDAO 객체생성 updateBoard(boardDTO) 호출
 			request.setCharacterEncoding("utf-8");
-			int num=Integer.parseInt(request.getParameter("num"));
-			int rate=Integer.parseInt(request.getParameter("rate"));
-			String reply =request.getParameter("reply");
+			int review_id=Integer.parseInt(request.getParameter("review_id"));
+			int review_rate=Integer.parseInt(request.getParameter("review_rate"));
+			String content =request.getParameter("content");
 			
 			ReviewDTO reviewDTO =new ReviewDTO();
-			reviewDTO.setNum(num);
-			reviewDTO.setRate(rate);
-			reviewDTO.setReply(reply);
+			reviewDTO.setReview_id(review_id);
+			reviewDTO.setReview_rate(review_rate);
+			reviewDTO.setContent(content);
 			
 			reviewDAO =new ReviewDAO();
 			reviewDAO.updateReview(reviewDTO);
