@@ -13,7 +13,7 @@ public class DetailDTO {
 	private String runtime; //운영일
 	private String homepage; //홈페이지
 	private String facility; //주변이용시설
-	private String camp_like_id; //별점
+	private String review_rate; //별점
 	private String intro; //상세 소개
 	
 	
@@ -113,11 +113,11 @@ public class DetailDTO {
 	}
 	
 	
-	public String getCamp_like_id() {
-		return camp_like_id;
+	public String getReview_rate() {
+		return review_rate;
 	}
-	public void setCamp_like_id(String camp_like_id) {
-		this.camp_like_id = camp_like_id;
+	public void setReview_rate(String review_rate) {
+		this.review_rate = review_rate;
 	}
 	
 	

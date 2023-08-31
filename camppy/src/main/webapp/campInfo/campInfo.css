@@ -383,15 +383,13 @@
 }
 
 .star {
-  color: #FFD732;
-  text-align: left;
-  font: 2vw "NanumGothic", sans-serif;
+  bottom: 0vw;
+  left: 7vw;
   position: absolute;
-  left: 6.9vw;
-  height: 2.5521vw;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+}
+
+.starImg{
+  width: 1.75vw;
 }
 
 .likeButton {
@@ -403,7 +401,7 @@
   height: 1.8vw;
   position: absolute;
   width: 4vw;
-  left: 17vw;
+  left: 19vw;
 }
 
 .infoLinkList {

@@ -27,6 +27,11 @@
         appearance: none;
         background: none;
       }
+      
+      .starImg{
+      position: relative; 
+      display: inline-block; 
+      }
     </style>
     
     <title>Document</title>
@@ -127,40 +132,91 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       </div>
 <!--캠핑장 번호-->
      <div class="infoTell">문의처
-       <div class="tellNum">055-854-0404 , 010-4955-0506</div>
+       <div class="tellNum"><%=detailDTO.getTel() %></div>
      </div>
 <!--캠핑장 환경-->
      <div class="infoSet">캠핑장 환경
-       <div class="setBg">산, 숲 / 민간</div>
+       <div class="setBg"><%=detailDTO.getEnvironment() %></div>
      </div>
 <!--캠핑장 유형-->
      <div class="infoType">캠핑장 유형
-       <div class="type">자동차야영장</div>
+       <div class="type"><%=detailDTO.getCamp_type() %></div>
      </div>
 <!--운영 기간-->
      <div class="runSeason">운영기간
-       <div class="season">봄, 여름, 가을, 겨울</div>
+       <div class="season"><%=detailDTO.getSeason() %></div>
      </div>
 <!--운영일-->
       <div class="runDay">운영일
-        <div class="week">평일+주말</div>
+        <div class="week"><%=detailDTO.getCamp_addr() %></div>
       </div>
 <!--홈페이지 연결-->
       <div class="homePage">홈페이지
-        <div class="pageLink">홈페이지 바로가기</div>
+        <div class="pageLink"><%=detailDTO.getHomepage() %></div>
       </div>
 <!--주변이용시설-->
      <div class="useSpace">주변이용시설
-       <div class="space">산책로, 낚시, 강/물놀이, 청소년체험시설</div>
+       <div class="space"><%=detailDTO.getFacility() %></div>
      </div>
 <!--별점-->
      <div class="rating">별점
-       <div class="star">
-        <span id="star1">✰</span>
-        <span id="star2">✰</span>
-        <span id="star3">✰</span>
-        <span id="star4">✰</span>
-        <span id="star5">✰</span></div>
+       <div class="star"> 
+       <%-- <%=detailDTO.getReview_rate() %> --%>
+        <%-- <%
+        float review_rate=Float.parseFloat(detailDTO.getReview_rate());
+        int r1=(int)review_rate;
+        
+        for(int i=1; i<=5; i++){
+        	if(i<=r1){
+        		%>
+        		
+        		
+             	<img src="campInfo/star-on.png"> 
+             	<%
+        	}else{
+        		if(review_rate>0/* review_rate*10.0%10==0 */){
+        			%>
+        			<img src="campInfo/star-half.png"> 
+        			<% 
+                }else{
+                	
+                } 
+        		%>
+        		
+        		<img src="campInfo/star-off.png">
+        		<%
+        	}
+         	
+         }
+
+        %> --%>
+        
+        <%
+float reviewRate = Float.parseFloat(detailDTO.getReview_rate());
+int integerPart = (int) reviewRate;
+int fractionalPart = Math.round((reviewRate - integerPart) * 10);
+
+for (int i = 1; i <= 5; i++) {
+    if (i <= integerPart) {
+%>
+    <img src="campInfo/star-on.png" class="starImg">
+<%
+    } else {
+        if (fractionalPart > 0) {
+%>
+            <img src="campInfo/star-half.png" class="starImg">
+<%
+            fractionalPart = 0;
+        } else {
+%>
+            <img src="campInfo/star-off.png" class="starImg">
+<%
+        }
+    }
+}
+%>
+  <!-- </div> -->
+ </div> 
         <input type="button" value="찜하기" class="likeButton">
      </div>
  </div> <!--캠핑장 메인 정보 닫기-->
