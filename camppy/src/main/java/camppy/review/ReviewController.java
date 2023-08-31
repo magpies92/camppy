@@ -55,7 +55,7 @@ public class ReviewController extends HttpServlet{
 			// 주소 변경되면서 list.bo 이동 
 			response.sendRedirect("reviewInsert.rv");
 		}//if
-		if(sPath.equals("/list.bo")) {
+		if(sPath.equals("/reviewlist.rv")) {
 			// BoardService 객체생성
 			reviewService =new ReviewService();
 			// List<BoardDTO> boardList  = getBoardList()
