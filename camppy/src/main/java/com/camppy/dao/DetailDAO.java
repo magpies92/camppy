@@ -106,12 +106,11 @@ public class DetailDAO {
 			
 			
 			
-			ResultSet rs2=pstmt2.executeQuery();
-			
-			if(rs2.next()) {
-				detailDTO.setReview_rate(rs2.getString("review_rate"));
-			}
-			
+			/*
+			 * ResultSet rs2=pstmt2.executeQuery();
+			 * 
+			 * if(rs2.next()) { detailDTO.setReview_rate(rs2.getString("review_rate")); }
+			 */
 			
 			ResultSet rs3=pstmt3.executeQuery();
 			
