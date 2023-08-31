@@ -45,12 +45,24 @@ public class DetailDAO {
 		
 		try {
 			con = getConnection();
-			String sql = "select * from camp where camp_id = ?; select * from camp_addr where camp_id = ?; select * from camp_like where camp_id = ?;";
+//			String sql = "select * from camp where camp_id = ?; select * from camp_addr where camp_id = ?; select * from camp_like where camp_id = ?;";
 
+//			pstmt=con.prepareStatement(sql);
+//			pstmt.setInt(1, camp_id);
+//			pstmt.setInt(2, camp_id);
+//			pstmt.setInt(3, camp_id);
+			
+			String sql = "select * from camp where camp_id = ?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, camp_id);
-			pstmt.setInt(2, camp_id);
-			pstmt.setInt(3, camp_id);
+			
+			String sql1 = "select * from camp_addr where camp_id = ?";
+			PreparedStatement pstmt1=con.prepareStatement(sql1);
+			pstmt1.setInt(1, camp_id);
+			
+			String sql2 = "select * select * from camp_like where camp_id = ?";
+			PreparedStatement pstmt2=con.prepareStatement(sql2);
+			pstmt2.setInt(1, camp_id);
 			
 
 			rs=pstmt.executeQuery();
