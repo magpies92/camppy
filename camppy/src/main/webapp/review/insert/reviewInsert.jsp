@@ -18,34 +18,36 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 }
 
 .star-rating {
-  display: flex;
-  flex-direction: row-reverse;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  justify-content: space-around;
-  padding: 0 0.2em;
-  text-align: center;
-  width: 5em;
+	display: flex;
+	flex-direction: row-reverse;
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	justify-content: space-around;
+	padding: 0 0.2em;
+	text-align: center;
+	width: 5em;
 }
- 
+
 .star-rating input {
-  display: none;
+	display: none;
 }
- 
+
 .star-rating label {
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 2.3px;
-  -webkit-text-stroke-color: #2b2a29;
-  cursor: pointer;
+	-webkit-text-fill-color: transparent;
+	/* Will override color (regardless of order) */
+	-webkit-text-stroke-width: 2.3px;
+	-webkit-text-stroke-color: #2b2a29;
+	cursor: pointer;
 }
- 
+
 .star-rating :checked ~ label {
-  -webkit-text-fill-color: gold;
+	-webkit-text-fill-color: gold;
 }
- 
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-  -we
+
+.star-rating label:hover, .star-rating label:hover ~ label {
+	
+}
+-we
 </style>
 
 <title>리뷰를 작성하세요</title>
@@ -69,33 +71,34 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 				<div class="starCheck">평가를 위해 별점을 체크해주세요</div>
 				<div class="star-rating space-x-4 mx-auto">
-	<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
-	<label for="5-stars" class="star pr-4">★</label>
-	<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
-	<label for="4-stars" class="star">★</label>
-	<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
-	<label for="3-stars" class="star">★</label>
-	<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
-	<label for="2-stars" class="star">★</label>
-	<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
-	<label for="1-star" class="star">★</label>
-</div>
-	
+					<input type="radio" id="5-stars" name="rating" value="5"
+						v-model="ratings" /> <label for="5-stars" class="star pr-4">★</label>
+					<input type="radio" id="4-stars" name="rating" value="4"
+						v-model="ratings" /> <label for="4-stars" class="star">★</label> <input
+						type="radio" id="3-stars" name="rating" value="3"
+						v-model="ratings" /> <label for="3-stars" class="star">★</label> <input
+						type="radio" id="2-stars" name="rating" value="2"
+						v-model="ratings" /> <label for="2-stars" class="star">★</label> <input
+						type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
+					<label for="1-star" class="star">★</label>
+				</div>
+
 			</div>
 			<div class="nameBox">
-				닉네임 : <input type="text" name="created_by" value="ksb" class="nickname" readonly>
+				닉네임 : <input type="text" name="created_by" value="ksb"
+					class="nickname" readonly>
 			</div>
 			<div class="idBox">
-				아이디 : (주석해제로 가릴 예정) <input type="text" name="member_id"
-					value="1" readonly>
+				아이디 : (주석해제로 가릴 예정) <input type="text" name="member_id" value="1"
+					readonly>
 			</div>
 			<div class="residBox">
 				예약번호 : (주석해제로 가릴 예정) <input type="text" name="res_id" value="2"
 					readonly>
 			</div>
 			<div class="campidBox">
-				캠프장아이디 : (주석해제로 가릴 예정) <input type="text" name="camp_id"
-					value="1" readonly>
+				캠프장아이디 : (주석해제로 가릴 예정) <input type="text" name="camp_id" value="1"
+					readonly>
 			</div>
 
 			<textarea name="content" placeholder="후기를 입력하세요" maxlength="100"
@@ -105,13 +108,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					onclick="validateForm()">
 			</div>
 		</div>
-
-
 	</form>
-	
-	
-	
-	
-	
+
 </body>
 </html>
