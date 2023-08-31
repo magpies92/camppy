@@ -153,25 +153,25 @@
             
                 <img
                   class="mainpage__icon-1"
-                  src="camppymain/campreg/campimg/<%=campregDTO1.getCampimg()%>"
+                  src="campimg/<%=campregDTO1.getCampimg()%>"
                 />
                 </button>
          <button type="button" onclick="location.href='detail.de?campId=<%=campregDTO2.getCampid()%>'" >     
                 <img
                   class="mainpage__icon-2"
-                  src="camppymain/campreg/campimg/<%=campregDTO2.getCampimg()%>"
+                  src="campimg/<%=campregDTO2.getCampimg()%>"
                 />
              </button>
          <button type="button" onclick="location.href='detail.de?campId=<%=campregDTO3.getCampid()%>'" >   
                 <img
                   class="mainpage__icon-3"
-                  src="camppymain/campreg/campimg/<%=campregDTO3.getCampimg()%>"
+                  src="campimg/<%=campregDTO3.getCampimg()%>"
                 />
               </button>
            <button type="button" onclick="location.href='detail.de?campId=<%=campregDTO4.getCampid()%>'" > 
                 <img
                   class="mainpage__icon-4"
-                  src="camppymain/campreg/campimg/<%=campregDTO4.getCampimg()%>"
+                  src="campimg/<%=campregDTO4.getCampimg()%>"
                 />
              </button>   
                 <div class="mainpage__name-camping">
