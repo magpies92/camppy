@@ -1,6 +1,7 @@
 package com.camppy.service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.plaf.multi.MultiButtonUI;
 
 import com.camppy.dao.DetailDAO;
 import com.camppy.dto.DetailDTO;
@@ -20,7 +21,7 @@ public class DetailService {
 			
 			//request 파라미터 값 가져오기 -> String campId
 			int campId = Integer.parseInt(request.getParameter("campId"));
-
+			
 			
 			//DetailDAO 객체 생성
 			//detailDTO = getDetail(campid, camp_addr_id) 메서드 호출

@@ -2,12 +2,15 @@ package camppy.main.action;
 
 import java.io.IOException;
 import java.util.List;
-
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
 
 import camppy.main.action.CampRegDTO;
 import camppy.main.action.CampRegService;
@@ -66,9 +69,33 @@ public class CampRegController extends HttpServlet {
 //		http://localhost:8080/FunWeb/fwrite.bo
 		if (sPath.equals("/campreg.campreg")) {
 			// 주소변경없이 이동 center/fwrite.jsp
-			dispatcher = request.getRequestDispatcher("camppymain/campreg/campreg.jsp");
-			dispatcher.forward(request, response);
-		}
+			HttpSession session = request.getSession();
+			// 세션에서 로그인 정보 가져오기
+			String id=(String)session.getAttribute("id");
+			if(id == null){
+				 response.setContentType("text/html; charset=utf-8");
+			        PrintWriter w = response.getWriter();
+			        w.write("<script>alert('관리자 계정으로 로그인 먼저 해주세요');history.go(-1);</script>");
+			        w.flush();
+			        w.close();			        
+		       
+		    } 
+			else if(id.equals("admin")){
+				dispatcher = request.getRequestDispatcher("camppymain/campreg/campreg.jsp");
+				dispatcher.forward(request, response);
+			}
+			else {
+				response.setContentType("text/html; charset=utf-8");
+		        PrintWriter w = response.getWriter();
+		        w.write("<script>alert('관리자 계정이 아닙니다');history.go(-1);</script>");
+		        w.flush();
+		        w.close();
+				
+			}
+			
+			}
+		
+		
 
 		
 		if(sPath.equals("/campregPro.campreg")) {

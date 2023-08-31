@@ -62,10 +62,18 @@
   	 <url-pattern>*.de</url-pattern>
   </servlet-mapping>
   
-<!--  <context-param>
-  	<param-name>JDBCUrl</param-name>
-  	<param-value>jdbc:mysql://itwillbs.com:3306/c1d2304t3?allowMultiQueries=ture</param-value>
-  </context-param>-->
+
+  
+  <servlet-mapping>
+	<servlet-name>ReserveController</servlet-name>
+	<url-pattern>*.re</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>ReserveController</servlet-name>
+	<servlet-class>camppy.reserve.action.ReserveController</servlet-class>
+</servlet>
+
 
 
   <!--   가상주소에 해당하는 처리담당자(서블릿파일)=> 주소매핑 -->

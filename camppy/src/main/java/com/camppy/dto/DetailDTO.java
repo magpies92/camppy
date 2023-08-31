@@ -1,5 +1,7 @@
 package com.camppy.dto;
 
+
+
 public class DetailDTO {
 	private int camp_id; //캠핑장 아이디
 	private String camp_name; //캠핑장 이름
@@ -15,7 +17,7 @@ public class DetailDTO {
 	private String facility; //주변이용시설
 	private String review_rate; //별점
 	private String intro; //상세 소개
-	
+	private String camp_img; //캠핑장 이미지
 	
 	public int getCamp_id() {
 		return camp_id;
@@ -126,6 +128,14 @@ public class DetailDTO {
 	}
 	public void setIntro(String intro) {
 		this.intro = intro;
+	}
+	
+	
+	public String getCamp_img() {
+		return camp_img;
+	}
+	public void setCamp_img(String camp_img) {
+		this.camp_img = camp_img;
 	}
 	
 	

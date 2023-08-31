@@ -1,0 +1,143 @@
+.popup-write-review, .popup-write-review * {
+	box-sizing: border-box;
+}
+
+
+.writeReview {
+	background: #ffffff;
+	width: 700px;
+	height: 700px;
+	position: relative;
+	overflow: hidden;
+}
+
+.writeBody {
+	width: 700px;
+	height: 700px;
+	position: relative;
+	left: 0px;
+	overflow: hidden;
+}
+
+.writeReviewLogo {
+	padding: 0px 10px 0px 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+	justify-content: flex-start;
+	width: 550px;
+	position: relative;
+	left: calc(50% - 275px);
+}
+
+.camppyLogo {
+	background: linear-gradient(to left, rgba(240, 241, 245, 0.2),
+		rgba(240, 241, 245, 0.2));
+	flex-shrink: 0;
+	width: 225px;
+	height: 174px;
+	position: relative;
+	font-size: 25px;
+}
+
+.writeStar {
+	border-style: solid;
+	border-color: #b3b3b3;
+	border-width: 1px 0px 1px 0px;
+	display: flex;
+	flex-direction: column;
+	gap: 0px;
+	align-items: center;
+	justify-content: flex-start;
+	width: 700px;
+	height: 118px;
+	position: relative;
+	left: 1px;
+	top: 6px;
+}
+
+.star {
+	position: relative;
+	font-size: 2rem;
+	color: #ddd;
+}
+
+.star input {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.star span {
+	width: 0;
+	position: absolute;
+	left: 0;
+	color: red;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.starCheck {
+	
+	font-size: 23px;
+}
+
+
+.reviewTextarea {
+	color: #000000;
+	text-align: left;
+	font: 23px "Inter", sans-serif;
+	position: relative;
+	width: 680px;
+	height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	resize: none;
+	margin: 10px;
+	line-height: 150%;
+}
+.submitButton{
+	text-align: center;
+}
+.submitReply {
+	color: #ffffff;
+	text-align: center;
+	font: 700 14px/45px "NanumGothic", sans-serif;
+	background: #4da385;
+	width: 100px;
+	height: 30px;
+	position: relative;
+	line-height: inherit;
+}
+
+.nameBox {
+	position: relative;
+	margin: 10px;
+	font: 20px "Inter", sans-serif;
+}
+.nickname {
+	font-size: 20px;
+}
+.idBox {
+	position: relative;
+	margin: 10px;
+	font: 20px "Inter", sans-serif;
+/* 	display: none;  */
+}
+.residBox {
+	position: relative;
+	margin: 10px;
+	font: 20px "Inter", sans-serif;
+/* 	display: none;   */
+}
+.campidBox {
+	position: relative;
+	margin: 10px;
+	font: 20px "Inter", sans-serif;
+/* 	display: none;  */
+}

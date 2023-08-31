@@ -45,6 +45,7 @@ public class DetailDAO {
 		
 		try {
 			con = getConnection();
+
 //			String sql = "select * from camp where camp_id = ?; select * from camp_addr where camp_id = ?; select * from camp_like where camp_id = ?;";
 
 //			pstmt=con.prepareStatement(sql);
@@ -52,9 +53,11 @@ public class DetailDAO {
 //			pstmt.setInt(2, camp_id);
 //			pstmt.setInt(3, camp_id);
 			
+
 			String sql = "select * from camp where camp_id = ?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, campId);
+
 			
 			String sql1 = "select * from camp_addr where camp_id = ?";
 			PreparedStatement pstmt1=con.prepareStatement(sql1);
@@ -63,16 +66,22 @@ public class DetailDAO {
 			String sql2 = "select avg(review_rate) as review_rate, camp_id from review where camp_id = ? group by camp_id";
 			PreparedStatement pstmt2=con.prepareStatement(sql2);
 			pstmt2.setInt(1, campId);
-			
 
-			rs=pstmt.executeQuery();
+
+			/*
+			 * String sql2 = "select * select * from camp_like where camp_id = ?";
+			 * pstmt2=con.prepareStatement(sql2); pstmt2.setInt(1, campId);
+			 */
+
 			detailDTO = new DetailDTO();
+			
+			rs=pstmt.executeQuery();
+
 			if(rs.next()) {
-				
-				
 				detailDTO.setCamp_id(rs.getInt("camp_id"));
 				detailDTO.setCamp_name(rs.getString("camp_name"));
 				detailDTO.setShort_intro(rs.getString("short_intro"));
+				detailDTO.setCamp_img(rs.getString("camp_img"));
 				detailDTO.setTel(rs.getString("tel"));
 				detailDTO.setEnvironment(rs.getString("environment"));
 				detailDTO.setCamp_type(rs.getString("camp_type"));
@@ -81,8 +90,9 @@ public class DetailDAO {
 				detailDTO.setHomepage(rs.getString("homepage"));
 				detailDTO.setFacility(rs.getString("facility"));
 				detailDTO.setIntro(rs.getString("intro"));
-				
+
 			}
+			
 			
 			ResultSet rs1=pstmt1.executeQuery();
 			
@@ -91,13 +101,13 @@ public class DetailDAO {
 				detailDTO.setCamp_addr(rs1.getString("camp_addr"));
 			}
 			
+			
+			
 			ResultSet rs2=pstmt2.executeQuery();
 			
 			if(rs2.next()) {
 				detailDTO.setReview_rate(rs2.getString("review_rate"));
 			}
-			
-		System.out.println(detailDTO.getReview_rate());
 			
 		} catch (Exception e) {
 			e.printStackTrace();

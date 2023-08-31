@@ -12,10 +12,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.mysql.cj.Session;
+
+import camppy.main.action.CampRegDTO;
+import camppy.main.action.CampRegService;
+import camppy.member.MemberDTO;
+import camppy.member.MemberService;
+import camppy.reserve.dao.ReserveDetailDTO;
+
 
 public class ReserveController extends HttpServlet {
 	RequestDispatcher dispatcher =null;
-//	MemberService memberService = null;
+	MemberService memberService = null;
+	CampRegService campRegService = null;
+	ReserveService reserveService = null;
 	
 // HttpServlet 처리담당자 -> 자동으로 doGet, doPost 호출
 	// -> 재정의 해서 사용
@@ -37,12 +47,64 @@ public class ReserveController extends HttpServlet {
 		String sPath=request.getServletPath();
 		System.out.println("뽑은 가상주소 :  " + sPath);
 		
-		if(sPath.equals("/reserve_detail.res")) {
+		if(sPath.equals("/reserve_detail.re")) {
 			// reserve/login.jsp 주소변경 없이 이동
+//			HttpSession session=request.getSession();
+//			String id=(String)session.getAttribute("id");
+			String id="ljy";
+			
+			memberService= new MemberService();
+			MemberDTO memberDTO=memberService.getMember(id);			
+			
+			
+//			int campid=Integer.parseInt(request.getParameter("campid"));
+			int campid=2;
+			campRegService = new CampRegService();
+			CampRegDTO campRegDTO=campRegService.getCampReg(campid);
+			
+			
+			request.setAttribute("memberDTO", memberDTO);	
+			request.setAttribute("campRegDTO", campRegDTO);
+			
+			
 			dispatcher 
-		    = request.getRequestDispatcher("reserveDetail/reserve_detail.jsp");
+		    = request.getRequestDispatcher("reservepage/reserveDetail/reserve_detail.jsp");
 		dispatcher.forward(request, response);
 		}
+		
+		if(sPath.equals("/reserve_detailPro.re")) {
+			System.out.println("비교 : reserve_detailPro.re");
+			reserveService = new ReserveService();
+			reserveService.insertReserve(request);
+			
+			response.sendRedirect("mypage_reserve.re");
+			
+//			dispatcher 
+//		    = request.getRequestDispatcher("reservepage/mypageReserve/mypage_reserve.jsp");
+//		dispatcher.forward(request, response);
+		}
+		if(sPath.equals("/mypage_reserve.re")) {
+			// reserve/login.jsp 주소변경 없이 이동
+//			HttpSession session=request.getSession();
+//			String id=(String)session.getAttribute("id");
+			String id="ljy";
+			
+			memberService= new MemberService();
+			MemberDTO memberDTO=memberService.getMember(id);
+			
+			int member_id=memberDTO.getMember_id();
+			
+			reserveService = new ReserveService();
+			List<ReserveDetailDTO> reserveList =reserveService.getReserveList(member_id);
+		
+			request.setAttribute("reserveList", reserveList);
+			
+			dispatcher 
+		    = request.getRequestDispatcher("reservepage/mypageReserve/mypage_reserve.jsp");
+		dispatcher.forward(request, response);
+		}
+		
+		
 		
 		//
 		

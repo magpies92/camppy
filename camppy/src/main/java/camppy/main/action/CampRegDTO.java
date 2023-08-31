@@ -3,11 +3,19 @@ package camppy.main.action;
 import java.sql.Timestamp;
 
 public class CampRegDTO {
+	public Timestamp getDate() {
+		return date;
+	}
+	public void setDate(Timestamp date) {
+		this.date = date;
+	}
+	private Timestamp date;		
 	
 	private String campname;
 	private String shortintro;
-	private String camptag;
+	
 	private String campaddr;
+	
 	private String tel;
 	private String environment;
 	private String camptype;
@@ -16,7 +24,6 @@ public class CampRegDTO {
 	private String homepage;
 	private String facility;
 	private String campimg;
-	private String camppic;
 	private String bankaccount;
 	private String bankname;
 	private String campprice;
@@ -24,14 +31,30 @@ public class CampRegDTO {
 	private String mapx;
 	private String mapy;
 	private int campid;
-	
+	private String intro;
+	private String[] camppic = new String[5];			
+	private String[] camptag = new String[7];
+	public void setCamptag(String[] camptag) {
+		this.camptag = camptag;
+	}
+	public String[] getCamptag() {
+		return camptag;
+	}
+	public String[] getCamppic() {
+		return camppic;
+	}
+
+	public void setCamppic(String[] camppic) {
+		this.camppic = camppic;
+	}
+
 	public String getBankname() {
 		return bankname;
 	}
 	public void setBankname(String bankname) {
 		this.bankname = bankname;
 	}
-	private String intro;
+
 	public String getMapx() {
 		return mapx;
 	}
@@ -101,12 +124,7 @@ public class CampRegDTO {
 	public void setShortintro(String shortintro) {
 		this.shortintro = shortintro;
 	}
-	public String getCamptag() {
-		return camptag;
-	}
-	public void setCamptag(String camptag) {
-		this.camptag = camptag;
-	}
+	
 	public String getCampaddr() {
 		return campaddr;
 	}
@@ -156,12 +174,7 @@ public class CampRegDTO {
 	public void setCampimg(String campimg) {
 		this.campimg = campimg;
 	}
-	public String getCamppic() {
-		return camppic;
-	}
-	public void setCamppic(String camppic) {
-		this.camppic = camppic;
-	}
+	
 	
 	
 	

@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 
 import camppy.main.action.CampRegDTO;
 import camppy.main.action.PageDTO;
+import java.time.format.DateTimeFormatter;
 
 public class CampRegDAO {
 	Connection con=null;
@@ -145,17 +146,27 @@ public class CampRegDAO {
 			if(rs.next()) {
 				num = rs.getInt("camp_id");
 			}			
-			sql1 = "insert into camp_pic(camp_id,pic) values(?,?)";
+			sql1 = "insert into camp_pic(camp_id,pic1,pic2,pic3,pic4,pic5) values(?,?,?,?,?,?)";
 			pstmt1=con.prepareStatement(sql1);
 			pstmt1.setInt(1, num);		
-			pstmt1.setString(2, campregDTO.getCamppic());	
+			pstmt1.setString(2, campregDTO.getCamppic()[0]);
+			pstmt1.setString(3, campregDTO.getCamppic()[1]);	
+			pstmt1.setString(4, campregDTO.getCamppic()[2]);	
+			pstmt1.setString(5, campregDTO.getCamppic()[3]);	
+			pstmt1.setString(6, campregDTO.getCamppic()[4]);	
 			pstmt1.executeUpdate();			
 		
 			
-			String sql2 = "insert into camp_tag(camp_id,tag) values(?,?)";
+			String sql2 = "insert into camp_tag(camp_id,elec,wifi,wood,hot,pool,play,gym) values(?,?,?,?,?,?,?,?)";
 			pstmt2=con.prepareStatement(sql2);
 			pstmt2.setInt(1, num);	
-			pstmt2.setString(2, campregDTO.getCamptag());
+			pstmt2.setString(2, campregDTO.getCamptag()[0]);
+			pstmt2.setString(3, campregDTO.getCamptag()[1]);
+			pstmt2.setString(4, campregDTO.getCamptag()[2]);
+			pstmt2.setString(5, campregDTO.getCamptag()[3]);
+			pstmt2.setString(6, campregDTO.getCamptag()[4]);
+			pstmt2.setString(7, campregDTO.getCamptag()[5]);
+			pstmt2.setString(8, campregDTO.getCamptag()[6]);
 //								//파일추가
 //	
 			pstmt2.executeUpdate();
@@ -216,6 +227,9 @@ public class CampRegDAO {
 				campregDTO.setCampimg(rs.getString("camp_img"));
 				campregDTO.setCampname(rs.getString("camp_name"));
 				campregDTO.setCampid(rs.getInt("camp_id"));
+				campregDTO.setDate(rs.getTimestamp("reg_time"));
+				
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

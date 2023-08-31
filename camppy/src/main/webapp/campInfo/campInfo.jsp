@@ -54,10 +54,11 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
   <img class="bannerBg" src="campInfo/banner-bg.png" />
 <!-- 캠핑장명 및 한 줄 소개 -->
     <div class="campName"><%=detailDTO.getCamp_name() %>
-    <div class="campReport">일몰과 바다 전망이 장관인 솔섬오토캠핑장</div>
+    <div class="campReport"><%=detailDTO.getShort_intro() %></div>
    </div>
 <!-- 예약하기 버튼 -->              
-    <input type="button" value="예약하기" class="bannerRsButton" >        
+    <input type="button" value="예약하기" class="bannerRsButton"
+           onclick="location.href='reserve_detail.re?campId=<%=detailDTO.getCamp_id() %>'" >        
   </div> <!-- 캠핑장명 및 예약하기 버튼 있는 헤더 닫기 -->
 
 <!-- 캠핑장 정보 -->     
@@ -79,7 +80,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       				<label for=slide4 class="left">
       				<img src="campInfo/left-arrow.png" 
       				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
-      				<img src="campInfo/photo1.png"/>
+      				<img src="camppymain/campreg/campimg/<%=detailDTO.getCamp_img() %>">
       				<label for="slide2" class="right">
       				<img src="campInfo/right-arrow.png"
       				style="width: 50px; opacity: 50%; position: relative; left: 78px;" ></label>
@@ -90,7 +91,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       				<label for=slide1 class="left">
       				<img src="campInfo/left-arrow.png" 
       				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
-      				<img src="campInfo/photo2.png"/>
+      				<!-- <img src="campInfo/photo2.png"/> -->
       				<label for="slide3" class="right">
       				<img src="campInfo/right-arrow.png"
       				style="width: 50px; opacity: 50%; position: relative; left: 78px;" ></label>
@@ -101,7 +102,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       				<label for=slide2 class="left">
       				<img src="campInfo/left-arrow.png" 
       				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
-      				<img src="campInfo/photo6.png"/>
+      				<!-- <img src="campInfo/photo6.png"/> -->
       				<label for="slide4" class="right">
       				<img src="campInfo/right-arrow.png"
       				style="width: 50px; opacity: 50%; position: relative; left: 78px;" ></label>
@@ -112,7 +113,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       				<label for=slide3 class="left">
       				<img src="campInfo/left-arrow.png" 
       				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
-      				<img src="campInfo/photo7.png"/>
+      				<!-- <img src="campInfo/photo7.png"/> -->
       				<label for="slide1" class="right">
       				<img src="campInfo/right-arrow.png"
       				style="width: 50px; opacity: 50%; position: relative; left: 78px;" ></label>
@@ -127,7 +128,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
 <!--캠핑장 메인 정보 프레임-->
       <div class="infoList">
 <!--캠핑장 주소-->
-      <div class="infoAddress">주소
+      <div class="infoAddress">주소 
         <div class="campAddress"><%=detailDTO.getCamp_addr() %></div>
       </div>
 <!--캠핑장 번호-->

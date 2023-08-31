@@ -17,6 +17,7 @@ public class MainFrontController extends HttpServlet {
 	RequestDispatcher dispatcher =null;
 //	MemberService memberService = null;
 	
+	
 // HttpServlet 처리담당자 -> 자동으로 doGet, doPost 호출
 	// -> 재정의 해서 사용
 	@Override
@@ -38,12 +39,18 @@ public class MainFrontController extends HttpServlet {
 		System.out.println("뽑은 가상주소 :  " + sPath);
 		
 		if(sPath.equals("/main.camp")) {
+			HttpSession session = request.getSession();
+			// "id" 세션값 가져오기=> String id 변수 저장
+			String id = (String)session.getAttribute("id");
 			// member/login.jsp 주소변경 없이 이동
 			dispatcher 
 		    = request.getRequestDispatcher("camppymain/mainpage/mainpage.jsp");
 		dispatcher.forward(request, response);
 		}
 		if(sPath.equals("/search.camp")) {
+			HttpSession session = request.getSession();
+			// "id" 세션값 가져오기=> String id 변수 저장
+			String id = (String)session.getAttribute("id");
 			// member/login.jsp 주소변경 없이 이동
 			dispatcher 
 		    = request.getRequestDispatcher("camppymain/searchpage/searchpage.jsp");

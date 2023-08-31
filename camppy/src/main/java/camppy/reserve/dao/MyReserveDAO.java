@@ -49,7 +49,7 @@ public class MyReserveDAO {
 				pstmt.setString(3, myReserveDTO.getCamp_id());
 				pstmt.setString(4, myReserveDTO.getCheckin_date());
 				pstmt.setString(5, myReserveDTO.getCheckout_date());
-				pstmt.setString(6, myReserveDTO.getRes_status());
+				pstmt.setInt(6, myReserveDTO.getRes_status());
 				
 				//4 실행
 				pstmt.executeUpdate();
@@ -105,7 +105,7 @@ public class MyReserveDAO {
 					myReserveDTO.setCamp_id(rs.getString(3));
 					myReserveDTO.setCheckin_date(rs.getString(4));
 					myReserveDTO.setCheckout_date(rs.getString(5));
-					myReserveDTO.setRes_status(rs.getString(6));
+					myReserveDTO.setRes_status(rs.getInt(6));
 					list.add(myReserveDTO);	
 				}
 			} catch (Exception e) {
