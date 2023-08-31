@@ -17,7 +17,13 @@ public class DetailDTO {
 	private String facility; //주변이용시설
 	private String review_rate; //별점
 	private String intro; //상세 소개
-	private String camp_img; //캠핑장 이미지
+	private String camp_img; //캠핑장 메인 이미지
+	private String pic1; //캠핑장 이미지1
+	private String pic2; //캠핑장 이미지2
+	private String pic3; //캠핑장 이미지3
+	private String pic4; //캠핑장 이미지4
+	private String pic5; //캠핑장 이미지5
+	
 	
 	public int getCamp_id() {
 		return camp_id;
@@ -136,6 +142,46 @@ public class DetailDTO {
 	}
 	public void setCamp_img(String camp_img) {
 		this.camp_img = camp_img;
+	}
+	
+	
+	public String getPic1() {
+		return pic1;
+	}
+	public void setPic1(String pic1) {
+		this.pic1 = pic1;
+	}
+	
+	
+	public String getPic2() {
+		return pic2;
+	}
+	public void setPic2(String pic2) {
+		this.pic2 = pic2;
+	}
+	
+	
+	public String getPic3() {
+		return pic3;
+	}
+	public void setPic3(String pic3) {
+		this.pic3 = pic3;
+	}
+	
+	
+	public String getPic4() {
+		return pic4;
+	}
+	public void setPic4(String pic4) {
+		this.pic4 = pic4;
+	}
+	
+	
+	public String getPic5() {
+		return pic5;
+	}
+	public void setPic5(String pic5) {
+		this.pic5 = pic5;
 	}
 	
 	

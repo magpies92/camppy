@@ -58,7 +58,6 @@ public class DetailDAO {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, campId);
 
-			
 			String sql1 = "select * from camp_addr where camp_id = ?";
 			PreparedStatement pstmt1=con.prepareStatement(sql1);
 			pstmt1.setInt(1, campId);
@@ -66,6 +65,10 @@ public class DetailDAO {
 			String sql2 = "select avg(review_rate) as review_rate, camp_id from review where camp_id = ? group by camp_id";
 			PreparedStatement pstmt2=con.prepareStatement(sql2);
 			pstmt2.setInt(1, campId);
+			
+			String sql3 = "select * from camp_pic where camp_id = ?";
+			PreparedStatement pstmt3=con.prepareStatement(sql3);
+			pstmt3.setInt(1, campId);
 
 
 			/*
@@ -107,6 +110,17 @@ public class DetailDAO {
 			
 			if(rs2.next()) {
 				detailDTO.setReview_rate(rs2.getString("review_rate"));
+			}
+			
+			
+			ResultSet rs3=pstmt3.executeQuery();
+			
+			if(rs3.next()) {
+				detailDTO.setPic1(rs3.getString("pic1"));
+				detailDTO.setPic2(rs3.getString("pic2"));
+				detailDTO.setPic3(rs3.getString("pic3"));
+				detailDTO.setPic4(rs3.getString("pic4"));
+				detailDTO.setPic5(rs3.getString("pic5"));
 			}
 			
 		} catch (Exception e) {

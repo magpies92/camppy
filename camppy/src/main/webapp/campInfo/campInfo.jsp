@@ -80,7 +80,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       				<label for=slide4 class="left">
       				<img src="campInfo/left-arrow.png" 
       				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
-      				<img src="camppymain/campreg/campimg/<%=detailDTO.getCamp_img() %>">
+      				<img src="campimg/<%=detailDTO.getCamp_img() %>">
       				<label for="slide2" class="right">
       				<img src="campInfo/right-arrow.png"
       				style="width: 50px; opacity: 50%; position: relative; left: 78px;" ></label>
@@ -91,7 +91,8 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       				<label for=slide1 class="left">
       				<img src="campInfo/left-arrow.png" 
       				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
-      				<!-- <img src="campInfo/photo2.png"/> -->
+      				<!-- <img src="campInfo/photo2.png"/>  -->
+      				<img src="campimg/<%=detailDTO.getPic1() %>">
       				<label for="slide3" class="right">
       				<img src="campInfo/right-arrow.png"
       				style="width: 50px; opacity: 50%; position: relative; left: 78px;" ></label>
@@ -103,6 +104,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       				<img src="campInfo/left-arrow.png" 
       				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
       				<!-- <img src="campInfo/photo6.png"/> -->
+      				<img src="campimg/<%=detailDTO.getPic2() %>">
       				<label for="slide4" class="right">
       				<img src="campInfo/right-arrow.png"
       				style="width: 50px; opacity: 50%; position: relative; left: 78px;" ></label>
@@ -114,6 +116,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       				<img src="campInfo/left-arrow.png" 
       				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
       				<!-- <img src="campInfo/photo7.png"/> -->
+      				<img src="campimg/<%=detailDTO.getPic3() %>">
       				<label for="slide1" class="right">
       				<img src="campInfo/right-arrow.png"
       				style="width: 50px; opacity: 50%; position: relative; left: 78px;" ></label>
@@ -192,7 +195,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
 
         %> --%>
         
-        <%
+       <%--  <%
 float reviewRate = Float.parseFloat(detailDTO.getReview_rate());
 int integerPart = (int) reviewRate;
 int fractionalPart = Math.round((reviewRate - integerPart) * 10);
@@ -215,7 +218,7 @@ for (int i = 1; i <= 5; i++) {
         }
     }
 }
-%>
+%> --%>
   <!-- </div> -->
  </div> 
         <input type="button" value="찜하기" class="likeButton">
