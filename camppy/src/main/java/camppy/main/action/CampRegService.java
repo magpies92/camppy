@@ -134,7 +134,7 @@ public class CampRegService {
 			// multi 파라미터 값 가져오기
 			String campname = multi.getParameter("campname");
 			String shortintro = multi.getParameter("shortintro");
-			String camptag = multi.getParameter("camptag");
+			
 			String tel = multi.getParameter("tel");
 			String environment = multi.getParameter("environment");
 			String camptype = multi.getParameter("camptype");
@@ -154,10 +154,10 @@ public class CampRegService {
 			String  sigungu= multi.getParameter("sigungu");
 			String campaddr = addr1+" "+addr2+" "+addr3;
 			String mapx=multi.getParameter("mapx");
-			String mapy=multi.getParameter("mapy");		          
+			String mapy=multi.getParameter("mapy");	    		
 		                     int i = 0;
 		                     int j =0;
-		                     String[] camppic=new String[5];
+		                     String[] camppic= new String[5];
 		                   
 		                     
 		                     for(i=0; i<5; i++){
@@ -165,7 +165,15 @@ public class CampRegService {
 		                         String name = "camppic"+String.valueOf(j);
 		                         camppic[i] = multi.getFilesystemName(name); 
 		                      
-		                     }
+		                     }		                     
+		  String[] camptag = new String[7];
+		  for(i=0; i<7; i++){
+         	 j = i+1;
+              String name = "camptag"+String.valueOf(j);
+              camptag[i] = multi.getParameter(name); 
+           
+          }
+				  
 		                        
 		                  
 		                    	                         
@@ -189,7 +197,7 @@ public class CampRegService {
 			// set메서드 호출 파라미터값 저장
 			campregDTO.setCampname(campname);
 			campregDTO.setShortintro(shortintro);
-			campregDTO.setCamptag(camptag);
+			
 			campregDTO.setCampaddr(campaddr);
 			campregDTO.setTel(tel);
 			campregDTO.setEnvironment(environment);
@@ -209,6 +217,7 @@ public class CampRegService {
 			campregDTO.setMapx(mapx);
 			campregDTO.setMapy(mapy);
 			campregDTO.setCamppic(camppic);
+			campregDTO.setCamptag(camptag);
              
 			
 			//첨부파일
