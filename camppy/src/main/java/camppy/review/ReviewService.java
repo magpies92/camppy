@@ -16,7 +16,7 @@ public class ReviewService {
 		try {
 			// request => name Rate Reply 가져오기 => 변수저장
 			String created_by = request.getParameter("created_by");
-			int review_rate = Integer.parseInt(request.getParameter("review_rate"));
+			int rating = Integer.parseInt(request.getParameter("rating"));
 			String content = request.getParameter("content");
 			
 			
@@ -35,7 +35,7 @@ public class ReviewService {
 			// set 메서드 호출 변수값 저장
 			reviewDTO.setReview_id(review_id);
 			reviewDTO.setCreated_by(created_by);
-			reviewDTO.setReview_rate(review_rate);
+			reviewDTO.setRating(rating);
 			reviewDTO.setContent(content);			
 			reviewDTO.setCreated_date(created_date);
 			
@@ -82,12 +82,12 @@ public class ReviewService {
 		    //    BoardDAO 객체생성 updateBoard(boardDTO) 호출
 			request.setCharacterEncoding("utf-8");
 			int review_id=Integer.parseInt(request.getParameter("review_id"));
-			int review_rate=Integer.parseInt(request.getParameter("review_rate"));
+			int rating=Integer.parseInt(request.getParameter("rating"));
 			String content =request.getParameter("content");
 			
 			ReviewDTO reviewDTO =new ReviewDTO();
 			reviewDTO.setReview_id(review_id);
-			reviewDTO.setReview_rate(review_rate);
+			reviewDTO.setRating(rating);
 			reviewDTO.setContent(content);
 			
 			reviewDAO =new ReviewDAO();

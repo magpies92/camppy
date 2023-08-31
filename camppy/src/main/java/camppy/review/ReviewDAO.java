@@ -24,7 +24,7 @@ import camppy.review.ReviewDTO;
 			
 			Context init = new InitialContext();
 			DataSource ds=
-			(DataSource)init.lookup("java:comp/env/c1d2304t3");
+			(DataSource)init.lookup("jdbc:mysql://itwillbs.com:3306/c1d2304t3?serverTimezone=Asia/Seoul");
 			Connection con=ds.getConnection();
 			return con;
 			// 작업 속도가 빨라짐(1,2 단계 생략)=> 성능향상
@@ -48,12 +48,12 @@ import camppy.review.ReviewDTO;
 				con=getConnection();
 				
 				// 3단계 문자열 -> sql구문 변경  //(물음표 순서,값)
-				String sql = "insert into review(review_id,member_id,content,review_rate,created_by,created_date) values(?,?,?,?,?,?)";
+				String sql = "insert into review(review_id,member_id,content,rating,created_by,created_date) values(?,?,?,?,?,?)";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1, reviewDTO.getReview_id());     
 				pstmt.setInt(2, reviewDTO.getMember_id()); 
 				pstmt.setString(3, reviewDTO.getContent());
-				pstmt.setInt(4, reviewDTO.getReview_rate());
+				pstmt.setInt(4, reviewDTO.getRating());
 				pstmt.setString(5, reviewDTO.getCreated_by());				
 				pstmt.setTimestamp(6, reviewDTO.getCreated_date());
 				// 4단계 sql구문 실행
@@ -111,7 +111,7 @@ import camppy.review.ReviewDTO;
 					ReviewDTO reviewDTO =new ReviewDTO();
 					reviewDTO.setReview_id(rs.getInt("review_id"));
 					reviewDTO.setCreated_by(rs.getString("created_by"));
-					reviewDTO.setReview_rate(rs.getInt("review_rate"));
+					reviewDTO.setRating(rs.getInt("rating"));
 					reviewDTO.setContent(rs.getString("content"));
 					reviewDTO.setCreated_date(rs.getTimestamp("created_date"));
 					//배열 한칸 저장
@@ -144,7 +144,7 @@ import camppy.review.ReviewDTO;
 //					reviewDTO = new ReviewDTO();
 //					reviewDTO.setNum(rs.getInt("num"));
 //					reviewDTO.setName(rs.getString("name"));
-//					reviewDTO.setRate(rs.getInt("rate"));
+//					reviewDTO.setrating(rs.getInt("rating"));
 //					reviewDTO.setReply(rs.getString("reply"));
 //					reviewDTO.setDate(rs.getTimestamp("date"));
 //				}
@@ -164,9 +164,9 @@ import camppy.review.ReviewDTO;
 				// 2단계 디비 연결
 				con=getConnection();
 				//    3 sql구문 update board  set subject,content수정 where num =
-				String sql = "update review set review_rate=?,content=? where review_id=?";
+				String sql = "update review set rating=?,content=? where review_id=?";
 				pstmt=con.prepareStatement(sql);
-				pstmt.setInt(1, reviewDTO.getReview_rate());
+				pstmt.setInt(1, reviewDTO.getRating());
 				pstmt.setString(2, reviewDTO.getContent());
 				pstmt.setInt(3, reviewDTO.getReview_id());      //(물음표 순서,값)
 				//    4 실행
