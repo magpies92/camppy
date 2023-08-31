@@ -228,7 +228,7 @@ for (int i = 1; i <= 5; i++) {
 
 <!-- 카테고리 링크 -->
  <div class="infoLinkList">
-   <div class="infoLink1">캠핑장소개!</div>
+   <div class="infoLink1">캠핑장소개</div>
    <div class="infoLink2">위치/주변정보</div>
    <div class="infoLink2">캠핑후기</div>
  </div>
