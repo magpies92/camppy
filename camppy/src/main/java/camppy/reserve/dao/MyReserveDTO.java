@@ -1,13 +1,17 @@
 package camppy.reserve.dao;
 
+import java.sql.Timestamp;
+
 public class MyReserveDTO {
 	
 	private int res_id;
-	private String res_time;
+	private Timestamp res_time;
 	private String camp_id;
-	private String checkin_date;
-	private String checkout_date;
-	private String res_status;
+	private Timestamp checkin_date;
+	private Timestamp checkout_date;
+	private int res_status;
+	private int member_id;
+	
 	
 	
 	
@@ -42,12 +46,13 @@ public class MyReserveDTO {
 	public void setCheckout_date(String checkout_date) {
 		this.checkout_date = checkout_date;
 	}
-	public String getRes_status() {
+	public int getRes_status() {
 		return res_status;
 	}
-	public void setRes_status(String res_status) {
+	public void setRes_status(int res_status) {
 		this.res_status = res_status;
 	}
+	
 	
 	
 	

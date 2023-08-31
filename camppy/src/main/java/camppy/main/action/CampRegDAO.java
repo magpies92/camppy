@@ -227,9 +227,13 @@ public class CampRegDAO {
 				campregDTO.setCampimg(rs.getString("camp_img"));
 				campregDTO.setCampname(rs.getString("camp_name"));
 				campregDTO.setCampid(rs.getInt("camp_id"));
+<<<<<<< HEAD
 				campregDTO.setDate(rs.getTimestamp("reg_time"));
 				
 				
+=======
+				campregDTO.setCampprice(rs.getString("camp_price"));
+>>>>>>> branch 'main' of https://github.com/magpies92/camppy.git
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

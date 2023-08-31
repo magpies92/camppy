@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -18,7 +19,7 @@ public class ReserveDetailDAO {
 	//1,2 단계 디비 연결 메서드  정의 => 필요로 할때 호출 사용
 	public Connection getConnection() throws Exception {
 		Context init = new InitialContext();
-		DataSource ds=	(DataSource)init.lookup("java:comp/env/jdbc/Mysql");
+		DataSource ds=	(DataSource)init.lookup("java:comp/env/c1d2304t3");
 		// 디비연결
 		Connection con=ds.getConnection();
 		return con;
@@ -34,28 +35,29 @@ public class ReserveDetailDAO {
 	}
 	
 	
-	public ArrayList<ReserveDetailDTO> getList(int pageNumber){
-		String SQL = "select camp_name, camp_price from camp ORDER BY camp_name;";
-		ArrayList<ReserveDetailDTO> list = new ArrayList<ReserveDetailDTO>();
+	public List<ReserveDetailDTO> getReserveList(int member_id){
+		String SQL = "select * from reservation order by res_id desc where member_id=?";
+		List<ReserveDetailDTO> list = new ArrayList<ReserveDetailDTO>();
 		try {
 			con = getConnection();
 			PreparedStatement pstmt = con.prepareStatement(SQL);
-			// pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+			 pstmt.setInt(1, member_id);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ReserveDetailDTO reserveDetailDTO = new ReserveDetailDTO();
-//				reserveDetailDTO.setMember_id(rs.getString(1));
-				System.out.println(rs.getInt(1));
-//				reserveDetailDTO.setTel(rs.getString(2));
-				reserveDetailDTO.setCamp_name(rs.getString(1));
-				reserveDetailDTO.setCamp_price(rs.getString(2));
-//				reserveDetailDTO.setCheckin_date(rs.getString(5));
-//				reserveDetailDTO.setCheckout_date(rs.getString(6));
-//				reserveDetailDTO.setMax_men(rs.getString(7));
+				reserveDetailDTO.setMember_id(rs.getInt("member_id"));
+				reserveDetailDTO.setRes_id(rs.getInt("res_id"));
+				reserveDetailDTO.setRes_status(rs.getInt("res_status"));
+				reserveDetailDTO.setCamp_price(rs.getInt("camp_price"));
+				reserveDetailDTO.setCheckin_date(rs.getString("checkin_date"));
+				reserveDetailDTO.setCheckout_date(rs.getString("checkout_date"));
+				reserveDetailDTO.setCamp_id(rs.getInt("camp_id"));
 				list.add(reserveDetailDTO);	
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			dbClose();
 		}
 		return list;
 	}
@@ -72,8 +74,32 @@ public class ReserveDetailDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			dbClose();
 		}
 		return false;
+	}
+
+	public void insertReserve(ReserveDetailDTO reserveDetailDTO) {
+		try {
+			con=getConnection();
+			String sql = "insert into reservation(checkout_date, res_status, member_id, res_time, camp_id, checkin_date) values(?,?,?,?,?,?)";
+			pstmt=con.prepareStatement(sql);
+			
+			pstmt.setString(1, reserveDetailDTO.getCheckout_date());
+			pstmt.setInt(2, reserveDetailDTO.getRes_status());
+			pstmt.setInt(3, reserveDetailDTO.getMember_id());
+			pstmt.setTimestamp(4, reserveDetailDTO.getRes_time());
+			pstmt.setInt(5, reserveDetailDTO.getCamp_id());
+			pstmt.setString(6, reserveDetailDTO.getCheckin_date());
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		
 	}
 	
 	

@@ -1,40 +1,43 @@
 package camppy.reserve.dao;
 
+import java.sql.Timestamp;
+
 public class ReserveDetailDTO {
 	
-	private String camp_name;
-	private String member_id;
-	private String tel;
-	private String camp_price;
+	private int res_id;	
+	private int member_id;
+	private int res_status;
 	private String checkin_date;
 	private String checkout_date;
-	private String max_men;
+	private Timestamp res_time;
+	private int camp_id;
+	private int camp_price;
 	
 	
 	
-	public String getCamp_name() {
-		return camp_name;
-	}
-	public void setCamp_name(String camp_name) {
-		this.camp_name = camp_name;
-	}
-	public String getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(String member_id) {
-		this.member_id = member_id;
-	}
-	public String getTel() {
-		return tel;
-	}
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-	public String getCamp_price() {
+	public int getCamp_price() {
 		return camp_price;
 	}
-	public void setCamp_price(String camp_price) {
+	public void setCamp_price(int camp_price) {
 		this.camp_price = camp_price;
+	}
+	public int getRes_id() {
+		return res_id;
+	}
+	public void setRes_id(int res_id) {
+		this.res_id = res_id;
+	}
+	public int getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+	public int getRes_status() {
+		return res_status;
+	}
+	public void setRes_status(int res_status) {
+		this.res_status = res_status;
 	}
 	public String getCheckin_date() {
 		return checkin_date;
@@ -48,12 +51,21 @@ public class ReserveDetailDTO {
 	public void setCheckout_date(String checkout_date) {
 		this.checkout_date = checkout_date;
 	}
-	public String getMax_men() {
-		return max_men;
+	public Timestamp getRes_time() {
+		return res_time;
 	}
-	public void setMax_men(String max_men) {
-		this.max_men = max_men;
+	public void setRes_time(Timestamp res_time) {
+		this.res_time = res_time;
 	}
+	public int getCamp_id() {
+		return camp_id;
+	}
+	public void setCamp_id(int camp_id) {
+		this.camp_id = camp_id;
+	}
+	
+	
+	
 	
 	
 	

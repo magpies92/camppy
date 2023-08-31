@@ -170,7 +170,11 @@ public class MemberDAO {
 			memberDTO.setId(rs.getString("id"));
 			memberDTO.setPass(rs.getString("pass"));
 			memberDTO.setName(rs.getString("name"));
-			memberDTO.setDate(rs.getTimestamp("date"));
+			memberDTO.setDate(rs.getTimestamp("created_date"));
+			memberDTO.setPhone(rs.getString("phonenum")); 
+			memberDTO.setNick(rs.getString("nickname")); 
+			memberDTO.setMember_id(rs.getInt("member_id"));
+			
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
