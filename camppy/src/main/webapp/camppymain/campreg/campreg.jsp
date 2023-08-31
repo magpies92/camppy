@@ -1,24 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("a[name='file-delete']").on("click", function(e) {
+            e.preventDefault();
+            deleteFile($(this));
+        });
+    })
+ 
+    function addFile() {
+        var str = "<div class='file-group'><input type='file' name='file'><a href='#this' name='file-delete'>삭제</a></div>";
+        $("#file-list").append(str);
+        $("a[name='file-delete']").on("click", function(e) {
+            e.preventDefault();
+            deleteFile($(this));
+        });
+    }
+ 
+    function deleteFile(obj) {
+        obj.parent().remove();
+    }
+</script>
 
 <meta charset="UTF-8">
 <title>캠핑장 등록</title>
+
+
 </head>
 <body>
 
-
-
-   
-    
-
-
 	<h2>캠핑장 정보 등록</h2>
 
-	<form action="campregPro.campreg" method="post" enctype="multipart/form-data">
+	<form name="campreg" action="campregPro.campreg" method="post" enctype="multipart/form-data">
 		캠핑장 이름 : <input type="text" name="campname" required><br>
 		한줄 소개 : <input type="text" name="shortintro" required><br>
 		태그 : <input type="text" name="camptag" required><br>
@@ -43,9 +61,14 @@
 		은행명 : <input type="text" name="bankname" required><br>
 		계좌번호 : <input type="text" name="bankaccount" required><br>
 		캠핑장 가격 : <input type="text" name="campprice" required><br>
-		캠핑장 사진들 : <input type="file" name="camppic" required><br>
-		
-		<input type="submit" value="submit">
+		<!-- 캠핑장 사진들 : <input type="file" name="camppic" required><br> -->
+
+<input type="button" value="사진 추가" onclick="javascript:addInputBox();">  <input type="button" value="체크한 사진 삭제" onclick="javascript:subtractInputBox();"><br>
+  <input type="hidden" name="count" >
+<table cellpadding=0 cellspacing=0 id="dynamic_table" border="1">
+</table>
+
+<input type="submit" value="등록">
 	</form>
 	
 <br>
@@ -169,6 +192,71 @@ function sample4_execDaumPostcode() {
 <input type="text" id="sigungu" placeholder="시군구"  size="60" name="sigungu" readonly><br>
 <input type="text" id="mapx" placeholder="X좌표"  name="mapx" size="60" readonly><br>
 <input type="text" id="mapy" placeholder="Y좌표"  name="mapy" size="60" readonly><br>
+
+
+<script language="javascript">
+ var count = 1;
+ var addCount;
+ 
+//행추가
+function addInputBox() {
+	if(count<=5){
+ for(var i=1; i<=count; i++) {
+  if(!document.getElementsByName("camppic"+i)) {
+   addCount = i;
+   break;
+  }
+  else addCount = count;
+ }
+ var table = document.getElementById("dynamic_table");
+ var newRow = table.insertRow();
+ var newCell = newRow.insertCell();
+ var addStr = "<tr><td width=40><input name=checkList type=checkbox  value="+addCount+" size=40 ></td><td width=140><input type=file name=camppic"+addCount+" size=40></td></tr>";
+ newCell.innerHTML = addStr;
+ count++;
+	}
+	else
+		{ alert("더 이상 추가 할 수 없습니다.");}
+	
+}
+ 
+//행삭제
+function subtractInputBox() {
+ var table = document.getElementById("dynamic_table");
+ //var max = document.gForm.checkList.length;
+ //alert(max);
+ var rows = dynamic_table.rows.length;
+ var j = 0;
+ 
+ if(rows >= 1){
+	 
+	 
+	 for (var i=0; i<=rows; i++) { 
+			j=i-1;
+		 else if (document.campreg.checkList[i].checked == true) {
+		    table.deleteRow(j);
+		    i--;
+		    count--;
+		    
+		   }		  
+		   
+		  }
+	
+	 
+	
+	 
+	
+	 
+	 
+  
+   }else{
+    alert("더 이상 삭제 할 수 없습니다.");
+   }
+}
+ 
+</script>
+
+
 
 
 

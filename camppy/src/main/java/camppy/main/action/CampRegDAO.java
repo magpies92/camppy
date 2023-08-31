@@ -145,10 +145,14 @@ public class CampRegDAO {
 			if(rs.next()) {
 				num = rs.getInt("camp_id");
 			}			
-			sql1 = "insert into camp_pic(camp_id,pic) values(?,?)";
+			sql1 = "insert into camp_pic(camp_id,pic1,pic2,pic3,pic4,pic5) values(?,?,?,?,?,?)";
 			pstmt1=con.prepareStatement(sql1);
 			pstmt1.setInt(1, num);		
-			pstmt1.setString(2, campregDTO.getCamppic());	
+			pstmt1.setString(2, campregDTO.getCamppic()[0]);
+			pstmt1.setString(3, campregDTO.getCamppic()[1]);	
+			pstmt1.setString(4, campregDTO.getCamppic()[2]);	
+			pstmt1.setString(5, campregDTO.getCamppic()[3]);	
+			pstmt1.setString(6, campregDTO.getCamppic()[4]);	
 			pstmt1.executeUpdate();			
 		
 			

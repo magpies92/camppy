@@ -11,6 +11,17 @@ import camppy.main.action.PageDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Enumeration;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletResponse;
+
+
+
 public class CampRegService {
 	CampRegDAO campregDAO = null; 
 	public List<CampRegDTO> getCampRegList(int campid) {
@@ -132,7 +143,6 @@ public class CampRegService {
 			String homepage = multi.getParameter("homepage");
 			String facility = multi.getParameter("facility");
 			String campimg = multi.getFilesystemName("campimg");
-			String camppic = multi.getFilesystemName("camppic");
 			String bankaccount = multi.getParameter("bankaccount");
 			String bankname = multi.getParameter("bankname");
 			String intro = multi.getParameter("intro");
@@ -144,7 +154,24 @@ public class CampRegService {
 			String  sigungu= multi.getParameter("sigungu");
 			String campaddr = addr1+" "+addr2+" "+addr3;
 			String mapx=multi.getParameter("mapx");
-			String mapy=multi.getParameter("mapy");
+			String mapy=multi.getParameter("mapy");		          
+		                     int i = 0;
+		                     int j =0;
+		                     String[] camppic=new String[5];
+		                   
+		                     
+		                     for(i=0; i<5; i++){
+		                    	 j = i+1;
+		                         String name = "camppic"+String.valueOf(j);
+		                         camppic[i] = multi.getFilesystemName(name); 
+		                      
+		                     }
+		                        
+		                  
+		                    	                         
+		      
+		    	
+			
 			
 			//첨부파일이름 가져오기
 			
@@ -172,7 +199,7 @@ public class CampRegService {
 			campregDTO.setHomepage(homepage);
 			campregDTO.setFacility(facility);
 			campregDTO.setCampimg(campimg);
-			campregDTO.setCamppic(camppic);
+			/* campregDTO.setCamppic(camppic); */
 			campregDTO.setBankaccount(bankaccount);
 			campregDTO.setBankname(bankname);
 			campregDTO.setIntro(intro);
@@ -181,6 +208,8 @@ public class CampRegService {
 			campregDTO.setSigungu(sigungu);
 			campregDTO.setMapx(mapx);
 			campregDTO.setMapy(mapy);
+			campregDTO.setCamppic(camppic);
+             
 			
 			//첨부파일
 			//campregDTO.setFile(file);

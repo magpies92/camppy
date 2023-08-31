@@ -15,7 +15,9 @@ public class DetailDAO {
 	
 	Connection con=null;
 	PreparedStatement pstmt=null;
+	PreparedStatement pstmt1=null;
 	ResultSet rs=null;
+	ResultSet rs1=null;
 	
 	//1,2단계 디비 연결 메서드 정의 -> 필요로 할 때 호출 사용
 	public Connection getConnection() throws Exception {
@@ -38,30 +40,34 @@ public class DetailDAO {
 	
 
 	
-	public DetailDTO getDetail(int camp_id) {
+	public DetailDTO getDetail(int campId) {
 		System.out.println("DetailDAO getDetail()");
 		
 		DetailDTO detailDTO = null;
 		
 		try {
 			con = getConnection();
-			String sql = "select * from camp where camp_id = ?; select * from camp_addr where camp_id = ?; select * from camp_like where camp_id = ?;";
-
+			String sql = "select * from camp where camp_id = ?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, camp_id);
-			pstmt.setInt(2, camp_id);
-			pstmt.setInt(3, camp_id);
+			pstmt.setInt(1, campId);
+			String sql1 = "select * from camp_addr where camp_id = ?";
+			pstmt1=con.prepareStatement(sql1);
+			pstmt1.setInt(1, campId);
+			/*
+			 * String sql2 = "select * select * from camp_like where camp_id = ?";
+			 * pstmt2=con.prepareStatement(sql2); pstmt2.setInt(1, campId);
+			 */
 			
 
 			rs=pstmt.executeQuery();
+			
 			
 			if(rs.next()) {
 				detailDTO = new DetailDTO();
 				
 				detailDTO.setCamp_id(rs.getInt("camp_id"));
 				detailDTO.setCamp_name(rs.getString("camp_name"));
-				detailDTO.setCamp_addr_id(rs.getString("camp_addr_id"));
-				detailDTO.setCamp_addr(rs.getString("camp_addr"));
+				
 				detailDTO.setShort_intro(rs.getString("short_intro"));
 				detailDTO.setTel(rs.getString("tel"));
 				detailDTO.setEnvironment(rs.getString("environment"));
@@ -70,10 +76,17 @@ public class DetailDAO {
 				detailDTO.setRuntime(rs.getString("runtime"));
 				detailDTO.setHomepage(rs.getString("homepage"));
 				detailDTO.setFacility(rs.getString("facility"));
-				detailDTO.setCamp_like_id(rs.getString("camp_like_id"));
-				detailDTO.setIntro(rs.getString("intro"));
+				/* detailDTO.setCamp_like_id(rs.getString("camp_like_id")); */
+				detailDTO.setIntro(rs.getString("intro"));				
 				
 			}
+			rs1=pstmt1.executeQuery();
+			if(rs1.next()) {
+				detailDTO.setCamp_addr_id(rs1.getString("camp_addr_id"));
+				detailDTO.setCamp_addr(rs1.getString("camp_addr"));			
+				
+			}
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
