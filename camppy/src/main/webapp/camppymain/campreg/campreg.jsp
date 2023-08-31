@@ -25,6 +25,45 @@
     function deleteFile(obj) {
         obj.parent().remove();
     }
+    
+    function selectAll(selectAll)  {
+    	  const checkboxes1 
+    	       = document.getElementsByName('camptag1');
+    	  const checkboxes2 
+    	  = document.getElementsByName('camptag2');
+    	  const checkboxes3 
+    	  = document.getElementsByName('camptag3');
+    	  const checkboxes4 
+    	  = document.getElementsByName('camptag4');
+    	  const checkboxes5
+    	  = document.getElementsByName('camptag5');
+    	  const checkboxes6
+    	  = document.getElementsByName('camptag6');
+    	  const checkboxes7
+    	  = document.getElementsByName('camptag7');
+    	  
+    	  checkboxes1.forEach((checkbox) => {
+    	    checkbox.checked = selectAll.checked;
+    	  })
+    	  checkboxes2.forEach((checkbox) => {
+    	    checkbox.checked = selectAll.checked;
+    	  })
+    	   checkboxes3.forEach((checkbox) => {
+    	    checkbox.checked = selectAll.checked;
+    	  })
+    	   checkboxes4.forEach((checkbox) => {
+    	    checkbox.checked = selectAll.checked;
+    	  })
+    	   checkboxes5.forEach((checkbox) => {
+    	    checkbox.checked = selectAll.checked;
+    	  })
+    	   checkboxes6.forEach((checkbox) => {
+    	    checkbox.checked = selectAll.checked;
+    	  })
+    	   checkboxes7.forEach((checkbox) => {
+    	    checkbox.checked = selectAll.checked;
+    	  })
+    	}
 </script>
 
 <meta charset="UTF-8">
@@ -36,14 +75,49 @@
 
 	<h2>캠핑장 정보 등록</h2>
 
-	<form name="campreg" action="campregPro.campreg" method="post" enctype="multipart/form-data">
+	<form action="campregPro.campreg" method="post" enctype="multipart/form-data">
 		캠핑장 이름 : <input type="text" name="campname" required><br>
 		한줄 소개 : <input type="text" name="shortintro" required><br>
-		태그 : <input type="text" name="camptag" required><br>
+		<h3>캠핑장 태그를 선택해주세요</h3>
+		<input type="checkbox"
+       name="camptagall" 
+       value="selectall"
+       onclick='selectAll(this)'/> <b>전체 선택</b>
+<br>
+<input type="checkbox"
+       name="camptag1" 
+       value="O"/> 전기
+
+<input type="checkbox" 
+       name="camptag2" 
+       value='O' /> 와이파이
+
+<input type="checkbox" 
+       name="camptag3" 
+       value="O" /> 장작판매
+      
+<input type="checkbox" 
+       name="camptag4" 
+       value="O" /> 온수
+      
+       <input type="checkbox" 
+       name="camptag5" 
+       value="O" /> 물놀이장
+     
+       <input type="checkbox" 
+       name="camptag6" 
+       value="O" /> 놀이터
+      
+       <input type="checkbox" 
+       name="camptag7" 
+       value="O" /> 운동시설
+       <br>
+       
+		
 		캠핑장 대표 사진 : <input type="file" name="campimg" required><br>
-		주소 : <input type="text" id="sample4_postcode" placeholder="우편번호" name="postAddr1" required>
+		주소 : <input type="text" id="sample4_postcode" placeholder="우편번호" name="postAddr1"  readonly required>
 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" required><br>
-<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="postAddr2" size="60" required><br>
+<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="postAddr2" size="60"  readonly required><br>
 <input type="hidden" id="sample4_jibunAddress" placeholder="지번주소"  size="60" required>
 <span id="guide" style="color:#999;display:none" ></span>
 <input type="text" id="sample4_detailAddress" placeholder="상세주소" name="postAddr3" size="60" required><br>
@@ -58,18 +132,17 @@
 		홈페이지 : <input type="text" name="homepage" required><br>
 		주변이용가능시설 : <input type="text" name="facility" required><br>
 		소개 : <input type="text" name="intro" required><br>
+		<h3>캠핑장 사진들(최대 5개)</h3>
+<input type="button" value="사진 추가" onclick="javascript:addInputBox();">  <input type="button" value="추가한 사진 삭제" onclick="javascript:subtractInputBox();"><br>
+<table id="dynamic_table" border="1">
+</table>
 		은행명 : <input type="text" name="bankname" required><br>
 		계좌번호 : <input type="text" name="bankaccount" required><br>
 		캠핑장 가격 : <input type="text" name="campprice" required><br>
-		<!-- 캠핑장 사진들 : <input type="file" name="camppic" required><br> -->
 
-<input type="button" value="사진 추가" onclick="javascript:addInputBox();">  <input type="button" value="체크한 사진 삭제" onclick="javascript:subtractInputBox();"><br>
-  <input type="hidden" name="count" >
-<table cellpadding=0 cellspacing=0 id="dynamic_table" border="1">
-</table>
 
-<input type="submit" value="등록">
-	</form>
+<input type="submit" value="캠핑장 정보 등록" onclick="if(!confirm('정말로 등록 하시겠습니까??')){return false;}" />
+	
 	
 <br>
 <div id="map" style="width:400px;height:400px;"></div>
@@ -192,9 +265,10 @@ function sample4_execDaumPostcode() {
 <input type="text" id="sigungu" placeholder="시군구"  size="60" name="sigungu" readonly><br>
 <input type="text" id="mapx" placeholder="X좌표"  name="mapx" size="60" readonly><br>
 <input type="text" id="mapy" placeholder="Y좌표"  name="mapy" size="60" readonly><br>
+<input type="text" id="rowscount" placeholder="rowscount"  name="rowscount" size="60" readonly><br>
+</form>
 
-
-<script language="javascript">
+<script type="text/javascript">
  var count = 1;
  var addCount;
  
@@ -211,14 +285,18 @@ function addInputBox() {
  var table = document.getElementById("dynamic_table");
  var newRow = table.insertRow();
  var newCell = newRow.insertCell();
- var addStr = "<tr><td width=40><input name=checkList type=checkbox  value="+addCount+" size=40 ></td><td width=140><input type=file name=camppic"+addCount+" size=40></td></tr>";
+ var addStr = "<td width=140><input type=file name=camppic"+addCount+" size=40></td></tr>";
+
  newCell.innerHTML = addStr;
  count++;
 	}
 	else
 		{ alert("더 이상 추가 할 수 없습니다.");}
+	document.getElementById('rowscount').value = count-1;
+	
 	
 }
+
  
 //행삭제
 function subtractInputBox() {
@@ -226,32 +304,23 @@ function subtractInputBox() {
  //var max = document.gForm.checkList.length;
  //alert(max);
  var rows = dynamic_table.rows.length;
- var j = 0;
  
- if(rows >= 1){
-	 
-	 
-	 for (var i=0; i<=rows; i++) { 
-			j=i-1;
-		 else if (document.campreg.checkList[i].checked == true) {
-		    table.deleteRow(j);
+ document.getElementById('rowscount').value = "0";
+
+ if(rows >= 1){	 	
+	 for (var i=0; i<rows; i++) {		 
+		    table.deleteRow(i);
 		    i--;
-		    count--;
-		    
-		   }		  
-		   
-		  }
+		    count--;		    	  
+		 }
 	
 	 
-	
-	 
-	
-	 
-	 
-  
-   }else{
-    alert("더 이상 삭제 할 수 없습니다.");
-   }
+}
+ else{
+	    alert("삭제 할 사진이 없습니다");
+	    
+	   }
+ 
 }
  
 </script>

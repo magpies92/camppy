@@ -3,6 +3,7 @@
 <%@ page import="camppy.main.action.CampRegDTO" %>
 <%@ page import="camppy.main.action.CampRegDAO" %>
 <%@ page import="camppy.main.action.CampRegService" %>
+<%@ page import="java.text.SimpleDateFormat"%>
 
     
 <!DOCTYPE html>
@@ -143,7 +144,11 @@
 			CampRegService campregService4 = new CampRegService();
 			// BoardDTO boardDTO = getBoard(request) 메서드 호출
 			CampRegDTO campregDTO4 = campregService2.getCampReg(4);
+			
+			
+		
 		%>
+		
           <button type="button" onclick="location.href='detail.de?campId=<%=campregDTO1.getCampid()%>'">
             
                 <img
@@ -170,7 +175,7 @@
                 />
              </button>   
                 <div class="mainpage__name-camping">
-              <div class="mainpage__7"><%=campregDTO1.getCampname() %></div>
+              <div class="mainpage__7"><%=campregDTO1.getCampname()%></div>
             </div>
             <div class="mainpage__name-glaming">
               <div class="mainpage__7"><%=campregDTO2.getCampname() %></div>
