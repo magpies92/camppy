@@ -43,7 +43,7 @@ public class DetailService {
 			//request 한글 처리
 			request.setCharacterEncoding("utf-8");
 			
-			//request 파라미터 가져오기 -> int camp_id
+			//request 파라미터 가져오기 -> int campid
 			int campId = Integer.parseInt(request.getParameter("campId"));
 			
 			
