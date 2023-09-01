@@ -17,7 +17,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	background: none;
 }
 </style>
-<title>리뷰를 작성하세요</title>
+<title>리뷰를 수정하세요</title>
 </head>
 <body>
 	<%
