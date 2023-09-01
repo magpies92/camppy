@@ -62,7 +62,7 @@ public class DetailDAO {
 			PreparedStatement pstmt1=con.prepareStatement(sql1);
 			pstmt1.setInt(1, campId);
 			
-			String sql2 = "select avg(review_rate) as review_rate, camp_id from review where camp_id = ? group by camp_id";
+			String sql2 = "select avg(rating) as rating, camp_id from review where camp_id = ? group by camp_id";
 			PreparedStatement pstmt2=con.prepareStatement(sql2);
 			pstmt2.setInt(1, campId);
 			
@@ -109,7 +109,100 @@ public class DetailDAO {
 			ResultSet rs2=pstmt2.executeQuery();
 			
 			if(rs2.next()) {
-				detailDTO.setReview_rate(rs2.getString("review_rate"));
+				detailDTO.setRating(rs2.getString("rating"));
+			}
+			
+			
+			ResultSet rs3=pstmt3.executeQuery();
+			
+			if(rs3.next()) {
+				detailDTO.setPic1(rs3.getString("pic1"));
+				detailDTO.setPic2(rs3.getString("pic2"));
+				detailDTO.setPic3(rs3.getString("pic3"));
+				detailDTO.setPic4(rs3.getString("pic4"));
+				detailDTO.setPic5(rs3.getString("pic5"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {dbClose();}
+		return detailDTO;
+	}
+
+
+
+	public DetailDTO getPosition(int campId) {
+		System.out.println("DetailDAO getPosition()");
+		
+		DetailDTO detailDTO = null;
+		
+		try {
+			con = getConnection();
+
+//			String sql = "select * from camp where camp_id = ?; select * from camp_addr where camp_id = ?; select * from camp_like where camp_id = ?;";
+
+//			pstmt=con.prepareStatement(sql);
+//			pstmt.setInt(1, camp_id);
+//			pstmt.setInt(2, camp_id);
+//			pstmt.setInt(3, camp_id);
+			
+
+			String sql = "select * from camp where camp_id = ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, campId);
+
+			String sql1 = "select * from camp_addr where camp_id = ?";
+			PreparedStatement pstmt1=con.prepareStatement(sql1);
+			pstmt1.setInt(1, campId);
+			
+			String sql2 = "select avg(rating) as rating, camp_id from review where camp_id = ? group by camp_id";
+			PreparedStatement pstmt2=con.prepareStatement(sql2);
+			pstmt2.setInt(1, campId);
+			
+			String sql3 = "select * from camp_pic where camp_id = ?";
+			PreparedStatement pstmt3=con.prepareStatement(sql3);
+			pstmt3.setInt(1, campId);
+
+
+			/*
+			 * String sql2 = "select * select * from camp_like where camp_id = ?";
+			 * pstmt2=con.prepareStatement(sql2); pstmt2.setInt(1, campId);
+			 */
+
+			detailDTO = new DetailDTO();
+			
+			rs=pstmt.executeQuery();
+
+			if(rs.next()) {
+				detailDTO.setCamp_id(rs.getInt("camp_id"));
+				detailDTO.setCamp_name(rs.getString("camp_name"));
+				detailDTO.setShort_intro(rs.getString("short_intro"));
+				detailDTO.setCamp_img(rs.getString("camp_img"));
+				detailDTO.setTel(rs.getString("tel"));
+				detailDTO.setEnvironment(rs.getString("environment"));
+				detailDTO.setCamp_type(rs.getString("camp_type"));
+				detailDTO.setSeason(rs.getString("season"));
+				detailDTO.setRuntime(rs.getString("runtime"));
+				detailDTO.setHomepage(rs.getString("homepage"));
+				detailDTO.setFacility(rs.getString("facility"));
+				detailDTO.setIntro(rs.getString("intro"));
+
+			}
+			
+			
+			ResultSet rs1=pstmt1.executeQuery();
+			
+			if(rs1.next()) {
+				detailDTO.setCamp_addr_id(rs1.getString("camp_addr_id"));
+				detailDTO.setCamp_addr(rs1.getString("camp_addr"));
+			}
+			
+			
+			
+			ResultSet rs2=pstmt2.executeQuery();
+			
+			if(rs2.next()) {
+				detailDTO.setRating(rs2.getString("rating"));
 			}
 			
 			

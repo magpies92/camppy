@@ -471,11 +471,11 @@
   color: #000000;
   text-align: left;
   font: 400 0.7293vw/1.3021vw "NanumGothic", sans-serif;
-  height: 9.3229vw;
+  height: auto;
   border-style: solid;
   border-color: #000000;
   border-width: 0.1043vw 0.0000vw 0.0521vw 0.0000vw;
-  padding-top: 0.5vw;
+  padding: 0.5vw;
   width: 63.2293vw;
   position: absolute;
   left: 18.8021vw;
@@ -500,10 +500,10 @@
   gap: 0.5207vw;
   align-items: flex-start;
   justify-content: flex-start;
-  height: 8.2293vw;
+  height: auto;
   position: absolute;
   left: 18.9585vw;
-  top: 68.4894vw;
+  top: 66vw;
   
 }
 

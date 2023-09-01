@@ -10,7 +10,7 @@
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
-  height: 133vw;
+  height: 100vw;
   position: relative;
   overflow: hidden;
 }
@@ -20,6 +20,8 @@
   width: 100.0000vw;
   height: 18.4043vw;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .bannerBg {
@@ -34,33 +36,26 @@
 .campName {
   color: #ffffff;
   text-align: left;
-  font: 400 1.8617vw/2.1277vw "Inter", sans-serif;
+  font: 400 3.5vw "Inter", sans-serif;
   position: absolute;
   top: 40%;
   display: flex;
   justify-content: center;
-  width: 30vw;
-  left: 32vw;
+  width: 90vw;
+
 
 }
 .campReport {
   color: #ffffff;
   text-align: left;
-  font: 400 1.0638vw/1.4894vw "NanumGothic", sans-serif;
+  font: 400 1.5vw "NanumGothic", sans-serif;
   position: absolute;
-  margin-top: 2.6vw;
-}
-.bannerMountainIcon {
-  width: 3.4574vw;
-  height: 3.6170vw;
-  position: absolute;
-  right: -1vw;
-  margin-top: -2vw;
+  margin-top: 4vw;
 }
 
 .bannerRsButton {
   color: #ffffff;
-  font: 700 0.6915vw "Inter", sans-serif;
+  font: 1vw "Inter", sans-serif;
   text-align: center;
   background: #4da385;
   border-radius: 0.2660vw;
@@ -68,11 +63,11 @@
   gap: 0.0000vw;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 4.9468vw;
-  height: 1.7553vw;
+  width: 7vw;
+  height: 2.4vw;
   position: absolute;
-  left: 27vw;
-  margin-top: 2.5vw
+  left: 91.5vw;
+  top: 16vw
 }
 
 .infoSectionBody {
@@ -94,17 +89,73 @@
   top: 7.3957vw;
 }
 
-.mainImg {
+.campPhotoBox {
+  overflow: hidden;  
   display: flex;
   flex-direction: row;
   gap: 0.0000vw;
   align-items: flex-start;
   justify-content: flex-start;
   flex-shrink: 0;
-  width: 37.5000vw;
+  width: 34vw;
   height: 25.2085vw;
   position: relative;
 }
+
+.campPhotoBox input[id*="slide"]{
+	display: none;
+}
+
+.campPhotoBox .slideWrap{
+	max-width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.campPhotoBox .slideList{
+	white-space: nowrap;
+	font-size: 0;
+}
+
+.campPhotoBox .slideList > li{
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	transition: all .5s;
+}
+
+.campPhotoBox .slideList > li > a{
+	display:block;
+	position: relative;
+}
+
+.campPhotoBox .slideList > li > a img{
+	width:100%;
+}
+
+.campPhotoBox .slideList label{
+	position: absolute;
+	z-index: 10;
+	top:50%;
+	transform: translateY(-50%);
+	padding: 50px;
+	cursor:pointer;
+}
+
+.campPhotoBox .slideList .left{
+	left: 30px;
+	background: url('./campInfo/left-arrow.png') center center / 100% no-repeat;
+}
+
+.campPhotoBox .slideList .right{
+	right: 30px;
+	background: url('./campInfo/right-arrow.png') center center / 100% no-repeat;
+}
+
+.campPhotoBox [id="slide1"]:checked ~ .slideWrap .slideList > li {transform: translateX(0%);}
+.campPhotoBox [id="slide2"]:checked ~ .slideWrap .slideList > li {transform: translateX(-100%);}
+.campPhotoBox [id="slide3"]:checked ~ .slideWrap .slideList > li {transform: translateX(-200%);}
+.campPhotoBox [id="slide4"]:checked ~ .slideWrap .slideList > li {transform: translateX(-300%);}
 
 .infoList {
   border-top-style: solid;
@@ -332,15 +383,13 @@
 }
 
 .star {
-  color: #FFD732;
-  text-align: left;
-  font: 2vw "NanumGothic", sans-serif;
+  bottom: 0vw;
+  left: 7vw;
   position: absolute;
-  left: 6.9vw;
-  height: 2.5521vw;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+}
+
+.starImg{
+  width: 1.75vw;
 }
 
 .likeButton {
@@ -349,10 +398,10 @@
   text-align: center;
   border-radius: 0.2660vw;
   background: #e32242;
-  height: 25.46px;
+  height: 1.8vw;
   position: absolute;
-  width: 3vw;
-  left: 17vw;
+  width: 4vw;
+  left: 19vw;
 }
 
 .infoLinkList {
@@ -367,7 +416,7 @@
   flex-wrap: wrap;
   position: absolute;
   left: calc(50% - 18.3851vw);
-  top: 35.7814vw;
+  top: 34.7814vw;
   overflow: hidden;
 }
 
@@ -386,6 +435,7 @@
   width: 12vw;
   background: #8d8d8d;
 }
+
 .campMap {
   display: flex;
   flex-direction: column;
@@ -430,11 +480,11 @@
   top: 3.0207vw;
   overflow: hidden;
 }
-.mapImg {
+/*.mapImg {
   flex-shrink: 0;
   width: 63.0729vw;
   height: 31.8750vw;
   position: absolute;
   left: 0.0000vw;
   top: 0.0000vw;
-}
+}*/

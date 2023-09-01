@@ -77,7 +77,7 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
        	<ul class="slideList" style="list-style-type: none;">
       		<li>
       			<a>
-      				<label for=slide4 class="left">
+      				<label for=slide3 class="left">
       				<img src="campInfo/left-arrow.png" 
       				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
       				<img src="campimg/<%=detailDTO.getCamp_img() %>">
@@ -91,7 +91,6 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       				<label for=slide1 class="left">
       				<img src="campInfo/left-arrow.png" 
       				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
-      				<!-- <img src="campInfo/photo2.png"/>  -->
       				<img src="campimg/<%=detailDTO.getPic1() %>">
       				<label for="slide3" class="right">
       				<img src="campInfo/right-arrow.png"
@@ -103,25 +102,11 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
       				<label for=slide2 class="left">
       				<img src="campInfo/left-arrow.png" 
       				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
-      				<!-- <img src="campInfo/photo6.png"/> -->
       				<img src="campimg/<%=detailDTO.getPic2() %>">
-      				<label for="slide4" class="right">
-      				<img src="campInfo/right-arrow.png"
-      				style="width: 50px; opacity: 50%; position: relative; left: 78px;" ></label>
-      			</a>
-      		</li>
-      		<li>
-      			<a>
-      				<label for=slide3 class="left">
-      				<img src="campInfo/left-arrow.png" 
-      				style="width: 50px; opacity: 50%; position: relative; right: 78px;" ></label>
-      				<!-- <img src="campInfo/photo7.png"/> -->
-      				<img src="campimg/<%=detailDTO.getPic3() %>">
       				<label for="slide1" class="right">
       				<img src="campInfo/right-arrow.png"
       				style="width: 50px; opacity: 50%; position: relative; left: 78px;" ></label>
       			</a>
-      		</li>
       	
       	</ul>
       
@@ -195,10 +180,10 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
 
         %> --%>
         
-       <%--  <%
-float reviewRate = Float.parseFloat(detailDTO.getReview_rate());
-int integerPart = (int) reviewRate;
-int fractionalPart = Math.round((reviewRate - integerPart) * 10);
+         <%
+float rating = Float.parseFloat(detailDTO.getRating());
+int integerPart = (int) rating;
+int fractionalPart = Math.round((rating - integerPart) * 10);
 
 for (int i = 1; i <= 5; i++) {
     if (i <= integerPart) {
@@ -218,7 +203,7 @@ for (int i = 1; i <= 5; i++) {
         }
     }
 }
-%> --%>
+%> 
   <!-- </div> -->
  </div> 
         <input type="button" value="찜하기" class="likeButton">
@@ -229,38 +214,27 @@ for (int i = 1; i <= 5; i++) {
 <!-- 카테고리 링크 -->
  <div class="infoLinkList">
    <div class="infoLink1">캠핑장소개</div>
-   <div class="infoLink2">위치/주변정보</div>
-   <div class="infoLink2">캠핑후기</div>
+   <!-- <div class="infoLink2">위치/주변정보</div> -->
+   <input type="button" value="위치/주변정보" class="infoLink2"
+           onclick="location.href='position.de?campId=<%=detailDTO.getCamp_id() %>'" >
+   <!-- <div class="infoLink2">캠핑후기</div> -->
+   <input type="button" value="캠핑후기" class="infoLink2"
+           onclick="location.href='list.bo?campId=<%=detailDTO.getCamp_id() %>'" > 
  </div>
  
 <!-- 캠핑장 중간 사진 -->
  <div class="campCenterImg">
    <img class="campCenterImg1"
-    src="campInfo/campCenterImg1.png"/>
+    src="campimg/<%=detailDTO.getPic3() %>"/>
   <img class="campCenterImg2"
-   src="campInfo/campCenterImg2.png"/>
+   src="campimg/<%=detailDTO.getPic4() %>"/>
   <img class="campCenterImg3"
-   src="campInfo/campCenterImg3.png"/>
+   src="campimg/<%=detailDTO.getPic5() %>"/>
  </div>
 
 <!-- 캠핑장 상세 소개 -->       
   <div class="campExplain">
-   솔섬오토캠핑장은 별주부전 테마파크가 있는 사천시 비토섬 인근
-   해안에 위치하고 있는 캠핑장이다. 바닥은 파쇄석으로 되어 있으며,
-   바다 사이트와 일반 사이트로 구분되어져 있다. 황토방과 펜션도
-   함께 운영하고 있어 초보 캠퍼가 이용하기 좋은 캠핑장이다. 바다
-   사이트 쪽은 카라반과 트레일러의 입장이 안된다. 그늘막이 있는
-   수영장과 항상 깨끗하게 관리되고 있는 화장실과 개수대, 샤워장은
-   24시간 온수가 나와 좋으며, 개수대에는 전자레인지와 공용 냉장고가
-   설치되어 있어, 언제나 편리하게 신선한 음식을 먹을 수 있어 좋다.
-   캠핑장 바로 앞이 바닷가라 갯벌체험을 할 수 있도록 5000원에
-   장화와 호미를 대여해 주고 있다. 아이들과 갯벌에서의 바지락, 굴,
-   고동, 낚지 등을 잡아 저녁거리도 준비하고 수다로 한편의 추억을
-   쌓아보자. 솔섬오토캠핑장은 일몰이 아름답기로 소문난 곳이다.
-   타이밍을 놓치지 말고 아름다운 노을을 감상하며 사진으로 담아보길
-   권한다. 주변 관광지로는 별주부전 테마파크,삼천포 케이블카, 사천
-   항공우주박물관, 삼천포 수산시장이 있으니 아이들과 방문해 보자.
-  <span class="reviseDay">최종 정보 수정일 : 2023-08-27</span>
+   <%=detailDTO.getIntro() %></span>
   </div>
 
 <!-- 캠핑장 시설 정보 -->

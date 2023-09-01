@@ -15,7 +15,7 @@ public class DetailDTO {
 	private String runtime; //운영일
 	private String homepage; //홈페이지
 	private String facility; //주변이용시설
-	private String review_rate; //별점
+	private String rating; //별점
 	private String intro; //상세 소개
 	private String camp_img; //캠핑장 메인 이미지
 	private String pic1; //캠핑장 이미지1
@@ -23,6 +23,7 @@ public class DetailDTO {
 	private String pic3; //캠핑장 이미지3
 	private String pic4; //캠핑장 이미지4
 	private String pic5; //캠핑장 이미지5
+
 	
 	
 	public int getCamp_id() {
@@ -121,11 +122,11 @@ public class DetailDTO {
 	}
 	
 	
-	public String getReview_rate() {
-		return review_rate;
+	public String getRating() {
+		return rating;
 	}
-	public void setReview_rate(String review_rate) {
-		this.review_rate = review_rate;
+	public void setRating(String rating) {
+		this.rating = rating;
 	}
 	
 	

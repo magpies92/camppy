@@ -58,22 +58,22 @@ public class DetailController extends HttpServlet{
 		}//detail.de
 		
 		
-		if(sPath.equals("/reserve.de")) {
-			System.out.println("가상 주소 비교: /reserve.de");
+		if(sPath.equals("/position.de")) {
+			System.out.println("가상 주소 비교: /position.de");
 			
 			//DetailService 객체 생성
 			detailService = new DetailService();
 			
 			//DetailDTO = getReserve(request) 메서드 호출
-			DetailDTO detailDTO = detailService.getReserve(request);
+			DetailDTO detailDTO = detailService.getPosition(request);
 			
 			//request에 "detailDTO", detailDTO 담아서
 			request.setAttribute("detailDTO", detailDTO);
 			
 			//campInfo/reserve.jsp 주소 변경 없이 이동
-			dispatcher = request.getRequestDispatcher("campInfo/reserve.jsp");
+			dispatcher = request.getRequestDispatcher("campPosition/infoPosition.jsp");
 			dispatcher.forward(request, response);
-		}//reserve.de
+		}//position.de
 		
 		
 		

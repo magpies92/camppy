@@ -143,7 +143,7 @@ label {
 </head>
 <body>
 	<!-- 헤더파일들어가는 곳 -->
-	<jsp:include page="../../inc/top.jsp" /> 
+	<jsp:include page="../../inc/top.jsp"/>
 	<!-- 헤더파일들어가는 곳 -->
 	<%
 	// String id=(String)session.getAttribute("id"); 
