@@ -64,7 +64,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			<textarea name="content" placeholder="후기를 입력하세요" maxlength="100"
 				class="reviewTextarea"></textarea>
 			<div class="submitButton">
-				<input type='submit' value="글쓰기" class="submitReply"
+				<input type='submit' value="수정하기" class="submitReply"
 					onclick="validateForm()">
 			</div>
 		</div>
@@ -74,7 +74,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	<script type="text/javascript">
 		function validateForm() {
 			const reviewRateInput = document
-					.querySelector(`input[name="review_rate"]`);
+					.querySelector(`input[name="rating"]`);
 
 			if (reviewRateInput.value === "" || reviewRateInput.value === null) {
 				alert("별점을 선택하세요.");

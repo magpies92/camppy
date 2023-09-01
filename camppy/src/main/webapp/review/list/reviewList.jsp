@@ -100,14 +100,14 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		}// 인서트 팝업창 불러오기 기능
 
 		function popupUpdate() {
-			var url = "reviewUpdate.jsp";
+			var url = "../update/reviewUpdate.jsp";
 			var name = "reviewUpdate";
 			var option = "width = 710, height = 730, top= 100, left= 500"
 			window.open(url, name, option);
 		}// 수정 팝업창 불러오기 기능
 
 		function popupDel() {
-			var url = "popupDel.jsp";
+			var url = "../del/popupDel.jsp";
 			var name = "reviewDel";
 			var option = "width = 400, height = 120, left=500px"
 			window.open(url, name, option);

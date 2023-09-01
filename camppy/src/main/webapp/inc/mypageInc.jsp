@@ -321,7 +321,7 @@ div.tab.active {
 
 
 <body>
-<jsp:include page="./top.jsp" />
+
 	<div class="mypageProfile">
 		<img class="mypageUserIcon" src="free-icon-user-8484069-2.png" />
 		<div class="profileNickname">발레하는 고구마</div>
@@ -348,7 +348,7 @@ div.tab.active {
 		<!-- The content from tab1 (star.html) will be displayed here by default -->
 		<jsp:include page="./top.jsp" />
 	</div>
-<jsp:include page="./bottom.jsp" />
+
 
 
 	<script type="text/javascript">

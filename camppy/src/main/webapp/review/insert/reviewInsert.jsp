@@ -101,7 +101,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				class="reviewTextarea"></textarea>
 			<div class="submitButton">
 				<input type='submit' value="글쓰기" class="submitReply"
-					onclick="validateForm()">
+					">
 			</div>
 		</div>
 	</form>
