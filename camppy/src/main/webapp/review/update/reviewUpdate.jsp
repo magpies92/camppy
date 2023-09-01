@@ -57,7 +57,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	//세션에서 로그인정보, 예약정보 가져오기
 	String id = (String) session.getAttribute("member_id");
 	%>
-	<form action="reviewInsertPro.jsp" method="post" class="writeReview"
+	<form action="reviewUpdatePro.jsp" method="post" class="writeReview"
 		id="reviewForm">
 		<div class="writeBody">
 			<div class="writeReviewLogo">

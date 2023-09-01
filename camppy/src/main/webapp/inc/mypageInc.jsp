@@ -366,7 +366,7 @@ tabs.forEach(tab => {
         } else if (tab.id === "tab2") {
             contentPath = "./test.jsp";
         } else if (tab.id === "tab3") {
-            contentPath = "../review/list/reviewList.jsp";
+            contentPath = "../review/mypagelist/listTest.jsp";
         } else if (tab.id === "tab4") {
             contentPath = "./mypageInc.jsp";
         }
