@@ -261,7 +261,32 @@ List<MemberDTO> memberList = memberService.getMemberList();
 			PrintWriter printWriter = response.getWriter();
 			printWriter.println(result);
 			printWriter.close();
-			System.out.println(result);
+		}//
+		
+		//닉네임 중복체크
+		if(sPath.equals("/nickCheck.me")) {
+			System.out.println("뽑은 가상주소 비교 : /nickCheck.me");
+			String nick = request.getParameter("nick");
+			System.out.println("받은 아이디 : " + nick);
+			// MemberService 객체생성
+			memberService = new MemberService();
+			// getMember() 메서드 호출
+			MemberDTO memberDTO = memberService.getMember(nick);
+			String result="";
+			if(memberDTO != null) {
+				//아이디 있음 => 아이디 중복
+				System.out.println("닉네임 있음 => 닉네임 중복");
+				result = "11";
+			}else {
+				//아이디 없음 => 아이디 사용가능
+				System.out.println("닉네임 없음 => 닉네임 사용가능");
+				result = "00";
+			}
+			//이동하지 않고 =>결과 웹에 출력 => 출력 결과를 가지고 되돌아감
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter printWriter = response.getWriter();
+			printWriter.println(result);
+			printWriter.close();
 		}//
 		
 		

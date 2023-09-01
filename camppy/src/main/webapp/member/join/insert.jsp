@@ -34,6 +34,7 @@
 $(document).ready(function(){
 	var clicked = false;
 	var clicked2 = false;
+	var clicked3 = false;
 	$('.phone-certify2').click(function(){
 		clicked = true;
 		$.ajax({
@@ -41,9 +42,11 @@ $(document).ready(function(){
 			data:{'id':$('.id').val()},
 			success:function(result){
 				if (result == 1) {
+					$('.member-sign__id-box').css('border-color', 'red');
 					alert("아이디 중복입니다. 다른 아이디를 입력해주세요.")
 				}
 				if (result == 0) {
+					$('.member-sign__id-box').css('border-color', '#777777');
 					alert("사용가능한 아이디입니다.")
 				}
 			}
@@ -105,15 +108,38 @@ $(document).ready(function(){
 			success:function(result){
 				if (result == 1) {
 					alert("아이디 중복입니다. 다른 아이디를 입력해주세요.")
+					$('.id').focus();
+					$('.member-sign__id-box').css('border-color', 'red');
 					clicked2 = false;
 					return false;
 				}
 				if (result == 0) {
+					$('.member-sign__id-box').css('border-color', '#777777');
 					clicked2 = true;
 				}
 			}
 		});
 		if (!clicked2) {
+	        return false;
+	    }
+		$.ajax({
+			url:'nickCheck.me',
+			data:{'nick':$('.nick').val()},
+			success:function(result){
+				if (result == 11) {
+					alert("닉네임 중복입니다. 다른 닉네임을 입력해주세요.")
+					$('.nick').focus();
+					$('.member-sign__nick-box').css('border-color', 'red');
+					clicked3 = false;
+					return false;
+				}
+				if (result == 00) {
+					$('.member-sign__nick-box').css('border-color', '#777777');
+					clicked3 = true;
+				}
+			}
+		});
+		if (!clicked3) {
 	        return false;
 	    }
 		});//submit이벤트
