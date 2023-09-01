@@ -486,6 +486,84 @@
   align-items: center;
   justify-content: flex-start;
 }
+.id {
+  border-color: red;
+  outline: none;
+  color: #777777;
+  text-align: left;
+  font: 400 1.5625rem/1.75rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 42.5rem;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.pass {
+  border-color: red;
+  outline: none;
+  color: #777777;
+  text-align: left;
+  font: 400 1.5625rem/1.75rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 42.5rem;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.name {
+  border-color: red;
+  outline: none;
+  color: #777777;
+  text-align: left;
+  font: 400 1.5625rem/1.75rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 42.5rem;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.check {
+  border-color: red;
+  outline: none;
+  color: #777777;
+  text-align: left;
+  font: 400 1.5625rem/1.75rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 42.5rem;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.nick {
+  border-color: red;
+  outline: none;
+  color: #777777;
+  text-align: left;
+  font: 400 1.5625rem/1.75rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 42.5rem;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.phone {
+  border-color: red;
+  outline: none;
+  color: #777777;
+  text-align: left;
+  font: 400 1.5625rem/1.75rem "NanumGothic", sans-serif;
+  position: relative;
+  width: 42.5rem;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 .member-sign__pass-check-box {
   background: #ffffff;
   border-radius: 0.625rem;
@@ -574,6 +652,33 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+.phone-certify {
+  background: #4da385;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 113px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.phone-certify2 {
+  color: #ffffff;
+  text-align: center;
+  font: 700 20px/28px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 14px;
+  top: 2px;
+  width: 83px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .member-sign__phone-certify {
   background: #4da385;

@@ -16,26 +16,6 @@
 <!-- <link rel="stylesheet" href="css/insert.css" type="text/css" > -->
 <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 <style>
-
- a,
-      button,
-      input,
-      select,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      * {
-        margin: 0;
-        padding: 0;
-        border: none;
-        text-decoration: none;
-        appearance: none;
-        background: none;
-      }
-      
-      
 div {
 	display: block;
 }
@@ -163,7 +143,7 @@ label {
 </head>
 <body>
 	<!-- 헤더파일들어가는 곳 -->
-	<jsp:include page="/inc/top.jsp"/> 
+	<jsp:include page="../../inc/top.jsp"/>
 	<!-- 헤더파일들어가는 곳 -->
 	<%
 	// String id=(String)session.getAttribute("id"); 
@@ -254,11 +234,19 @@ CampRegDTO campRegDTO = (CampRegDTO)request.getAttribute("campRegDTO");
 
 	</article>
 	<!-- 푸터 들어가는 곳 -->
-	<jsp:include page="/inc/bottom.jsp" />
+	<jsp:include page="../../inc/bottom.jsp" />
 	<!-- 푸터 들어가는 곳 -->
 </body>
 </html>
 <!-- <input type="submit" class="reserve-detail__27" value="예약하기" -->
 <!-- 	onclick="location.href='../mypageReserveDetail/mypage_reserve_detail.jsp'"> -->
+</div>
+</div>
+</div>
+</div>
 
 
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>별점</title>
+</head>
+<style>
+ .star {
+    position: relative;
+    font-size: 50px;
+    color: #ddd;
+  }
+  
+  .star input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .star span {
+    width: 0;
+    position: absolute; 
+    left: 0;
+    color: #FFC300;
+    overflow: hidden;
+    pointer-events: none;
+  }
+</style>
+<body>
+ 
+<span class="star">
+  ★★★★★
+  <span>★★★★★</span>
+  <input type="range" oninput="drawStar(this)" name="review_rate" value="0" step="0.5" min="0" max="5">
+</span>
+<script>
+const drawStar = (target) => {
+    const value = target.value;
+    const width = (value / 5) * 100;
+    document.querySelector(`.star span`).style.width = `${width}%`;
+}
+</script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package camppy.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -235,6 +236,33 @@ List<MemberDTO> memberList = memberService.getMemberList();
 		    = request.getRequestDispatcher("member/join/list.jsp");
 			dispatcher.forward(request, response);
 		}
+		
+		//아이디 중복체크
+		if(sPath.equals("/idCheck.me")) {
+			System.out.println("뽑은 가상주소 비교 : /idCheck.me");
+			String id = request.getParameter("id");
+			System.out.println("받은 아이디 : " + id);
+			// MemberService 객체생성
+			memberService = new MemberService();
+			// getMember() 메서드 호출
+			MemberDTO memberDTO = memberService.getMember(id);
+			String result="";
+			if(memberDTO != null) {
+				//아이디 있음 => 아이디 중복
+				System.out.println("아이디 있음 => 아이디 중복");
+				result = "1";
+			}else {
+				//아이디 없음 => 아이디 사용가능
+				System.out.println("아이디 없음 => 아이디 사용가능");
+				result = "0";
+			}
+			//이동하지 않고 =>결과 웹에 출력 => 출력 결과를 가지고 되돌아감
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter printWriter = response.getWriter();
+			printWriter.println(result);
+			printWriter.close();
+			System.out.println(result);
+		}//
 		
 		
 		

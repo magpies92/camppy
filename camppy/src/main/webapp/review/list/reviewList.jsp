@@ -13,7 +13,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="./reviewList.css" />
 
-
 <style>
 a, button, input, select, h1, h2, h3, h4, h5, * {
 	margin: 0;
@@ -81,7 +80,6 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		<button type="button" onclick="popupDel();" class="buttonDel">
 			<div class="del">삭제</div>
 		</button>
-		
 		<div class="reviewContents">
 			<div class="reviewContents1"><%=rs.getString("content")%></div>
 		</div>
@@ -100,22 +98,19 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		}// 인서트 팝업창 불러오기 기능
 
 		function popupUpdate() {
-			var url = "../update/reviewUpdate.jsp";
+			var url = "reviewUpdate.jsp";
 			var name = "reviewUpdate";
 			var option = "width = 710, height = 730, top= 100, left= 500"
 			window.open(url, name, option);
 		}// 수정 팝업창 불러오기 기능
 
 		function popupDel() {
-			var url = "../del/popupDel.jsp";
+			var url = "popupDel.jsp";
 			var name = "reviewDel";
 			var option = "width = 400, height = 120, left=500px"
 			window.open(url, name, option);
 		}// 삭제 팝업창 불러오기 기능
-		
-	
-		
-		</script>
+	</script>
 
 </body>
 

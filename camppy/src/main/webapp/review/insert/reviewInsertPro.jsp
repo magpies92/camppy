@@ -5,7 +5,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-     pageEncoding="UTF-8"%>
+     pageEncoding="UTF-8"%> --%>
  <!DOCTYPE html> 
 <html>
 <head>
@@ -17,9 +17,9 @@
 // 사용자가 입력한 정보를 http가 들고와서 서버에 request 에 저장
 // request 한글처리
 request.setCharacterEncoding("utf-8");
-//request member_id, rating,content 가져와서 -> 변수에 저장
+//request member_id, review_rate,content 가져와서 -> 변수에 저장
 String member_id = request.getParameter("member_id");
-int rating =  Integer.parseInt(request.getParameter("rating"));
+int review_rate =  Integer.parseInt(request.getParameter("review_rate"));
 String content = request.getParameter("content");
 //리뷰 글번호
 int review_id= 1;
@@ -30,7 +30,7 @@ int res_id= 1;
 //1단계 JDBC 프로그램 가져오기 
 Class.forName("com.mysql.cj.jdbc.Driver");
 //2단계 디비 연결
-String dbUrl="jdbc:mysql://itwillbs.com:3306/c1d2304t3?serverTimezone=Asia/Seoul";
+String dbUrl="jdbc:mysql://itwillbs.com:3306/c1d2304t3";
 String dbUser="c1d2304t3";
 String dbPass="1234";
 Connection con=DriverManager.getConnection(dbUrl, dbUser, dbPass);
@@ -44,11 +44,11 @@ if(rs.next()){
 	review_id=rs.getInt("max(review_id)")+1;
 }
 //3단계 문자열 -> sql구문 변경 insert into review 
-String sql = "insert into review(review_id,member_id,rating,content,created_date,res_id) values(?,?,?,?,?,?)";
+String sql = "insert into review(review_id,member_id,review_rate,content,created_date,res_id) values(?,?,?,?,?,?)";
 PreparedStatement pstmt=con.prepareStatement(sql);
 pstmt.setInt(1, review_id);      //(물음표 순서,값)
 pstmt.setString(2, member_id); 
-pstmt.setInt (3, rating);
+pstmt.setInt (3, review_rate);
 pstmt.setString(4, content);
 pstmt.setTimestamp(5, created_date);
 pstmt.setInt (6, res_id);
