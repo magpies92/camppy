@@ -6,7 +6,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="./reviewInsert.css" />
+<link rel="stylesheet" href="review/insert/reviewInsert.css" />
 
 <style>
 a, button, input, select, h1, h2, h3, h4, h5, * {
@@ -16,7 +16,40 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	text-decoration: none;
 	background: none;
 }
+
+.star-rating {
+	display: flex;
+	flex-direction: row-reverse;
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	justify-content: space-around;
+	padding: 0 0.2em;
+	text-align: center;
+	width: 5em;
+}
+
+.star-rating input {
+	display: none;
+}
+
+.star-rating label {
+	-webkit-text-fill-color: transparent;
+	/* Will override color (regardless of order) */
+	-webkit-text-stroke-width: 2.3px;
+	-webkit-text-stroke-color: #2b2a29;
+	cursor: pointer;
+}
+
+.star-rating :checked ~ label {
+	-webkit-text-fill-color: gold;
+}
+
+.star-rating label:hover, .star-rating label:hover ~ label {
+	
+}
+-we
 </style>
+
 <title>리뷰를 수정하세요</title>
 </head>
 <body>
@@ -45,45 +78,32 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 						type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
 					<label for="1-star" class="star">★</label>
 				</div>
+
+			</div>
 			<div class="nameBox">
-				닉네임 : <input type="text" name="created_by" value="ksb" class="nickname" readonly>
+				닉네임 : <input type="text" name="created_by" value="ksb"
+					class="nickname" readonly>
 			</div>
 			<div class="idBox">
-				아이디 : (주석해제로 가릴 예정) <input type="text" name="member_id"
-					value="1" readonly>
+				아이디 : (주석해제로 가릴 예정) <input type="text" name="member_id" value="1"
+					readonly>
 			</div>
 			<div class="residBox">
 				예약번호 : (주석해제로 가릴 예정) <input type="text" name="res_id" value="2"
 					readonly>
 			</div>
 			<div class="campidBox">
-				캠프장아이디 : (주석해제로 가릴 예정) <input type="text" name="camp_id"
-					value="1" readonly>
+				캠프장아이디 : (주석해제로 가릴 예정) <input type="text" name="camp_id" value="1"
+					readonly>
 			</div>
 
 			<textarea name="content" placeholder="후기를 입력하세요" maxlength="100"
 				class="reviewTextarea"></textarea>
 			<div class="submitButton">
-				<input type='submit' value="수정하기" class="submitReply"
-					onclick="validateForm()">
+				<input type='submit' value="수정하기" class="submitReply">
 			</div>
 		</div>
-
-
 	</form>
-	<script type="text/javascript">
-		function validateForm() {
-			const reviewRateInput = document
-					.querySelector(`input[name="rating"]`);
 
-			if (reviewRateInput.value === "" || reviewRateInput.value === null) {
-				alert("별점을 선택하세요.");
-				event.preventDefault(); // 폼 제출 방지
-			}
-		}
-		function closePopup() {
-			window.close(); // Close the popup window
-		}
-	</script>
 </body>
 </html>
