@@ -228,7 +228,7 @@ public class CampRegDAO {
 				campregDTO.setCampname(rs.getString("camp_name"));
 				campregDTO.setCampid(rs.getInt("camp_id"));
 				campregDTO.setDate(rs.getTimestamp("reg_time"));
-				
+				campregDTO.setCampprice(rs.getString("camp_price"));
 				
 			}
 		} catch (Exception e) {
@@ -238,5 +238,48 @@ public class CampRegDAO {
 		}
 		return campregDTO;
 	}//getCampReg
+	
+	public CampRegDTO getCampReg1(int camp_id) {
+		System.out.println("CampRegDTO getCampReg()");
+		CampRegDTO dto=null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=getConnection();
+			String sql="select * from camp where camp_id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, camp_id);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				dto = new CampRegDTO();
+				dto.setTel(rs.getString("tel"));
+				dto.setEnvironment(rs.getString("environment"));
+				dto.setCamptype(rs.getString("camptype"));
+				dto.setSeason(rs.getString("season"));
+				dto.setRuntime(rs.getString("runtime"));
+				dto.setHomepage(rs.getString("homepage"));
+				dto.setFacility(rs.getString("facility"));
+				dto.setCampimg(rs.getString("campimg"));
+				dto.setBankaccount(rs.getString("bankaccount"));
+				dto.setBankname(rs.getString("bankname"));
+				dto.setCampprice(rs.getString("campprice"));
+				dto.setDoo(rs.getString("doo"));
+				dto.setMapx(rs.getString("mapx"));
+				dto.setMapy(rs.getString("mapy"));
+				dto.setCampid(rs.getInt("campid"));
+				dto.setIntro(rs.getString("intro"));
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try { rs.close();} catch (Exception e2) {}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+		return dto;
+	}//getCampReg()
+	
 
 }//클래스

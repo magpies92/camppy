@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -72,20 +73,20 @@ height: 150px;
 //  int endPage=(Integer)request.getAttribute("endPage");
 //  int pageCount=(Integer)request.getAttribute("pageCount");
 	
-//  SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
+ SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
 	List<ReserveDetailDTO> reserveList=(List<ReserveDetailDTO>)request.getAttribute("reserveList");
 %>
 		
 
-<div id="wrap">
- <article class="art">	
-  <div class="res">  
-       <div class="col-lg-12">           
-             <h3 class="heading-section">Reservation</h3><br> 
-             <a class="count">계좌번호 : 아이티윌뱅크 72402170917<br>
-             	예금주 : (주)섬집</a>
-	   </div> 
-    </div>
+<!-- <div id="wrap"> -->
+<!--  <article class="art">	 -->
+<!--   <div class="res">   -->
+<!--        <div class="col-lg-12">            -->
+<!--              <h3 class="heading-section">Reservation</h3><br>  -->
+<!--              <a class="count">계좌번호 : 아이티윌뱅크 72402170917<br> -->
+<!--              	예금주 : (주)섬집</a> -->
+<!-- 	   </div>  -->
+<!--     </div> -->
 	<div><table class="table">
 	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
@@ -93,6 +94,7 @@ height: 150px;
  	<td> 예약일자 </td><td>총 금액</td><td> 예약취소 </td></tr> 
  	</thead>
  	<% 
+//  	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
  	for(int i=0;i<reserveList.size();i++){
  		//배열 한칸에 내용 가져오기 
  		ReserveDetailDTO rdto=reserveList.get(i);
@@ -106,7 +108,7 @@ height: 150px;
  	    }else if(rdto.getRes_status()==3){
  	    	out.print("예약완료");
   	    }%> </td>
-	    <td> <%=dateFormat.format(adto.getAdate())%> </td> 
+	    <td> <%=dateFormat.format(rdto.getRes_time())%> </td> 
 	    <td>
 	     <script type="text/javascript">
           var num = <%=rdto.getCamp_price()%>;
@@ -114,7 +116,7 @@ height: 150px;
          </script>
          /<%=rdto.getCamp_price()/rdto.getCamp_price()%>박
 	    </td>
-	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='ProductAppointManagePro.pr?ano=<%=adto.getAno()%>'">Cancel</button></td></tr>
+	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='MyReservePro.pr?ano=<%=rdto.getRes_id()%>'">Cancel</button></td></tr>
 		<%
  	}
  	%> 
@@ -153,36 +155,36 @@ height: 150px;
 
 
 
-if(startPage > pageBlock){
+// if(startPage > pageBlock){
 	%>
-	<a href="ProductAppointManage.pr?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
+<%-- 	<a href="ProductAppointManage.pr?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a> --%>
 	<%
-}
+// }
  %>
-<div class="room-pagination">
+<!-- <div class="room-pagination"> -->
 <%
- for(int i=startPage;i<=endPage;i++){
+//  for(int i=startPage;i<=endPage;i++){
 	%>
 	
-	<a href="ProductAppointManage.pr?pageNum=<%=i%>"><%=i%></a>
+<%-- 	<a href="ProductAppointManage.pr?pageNum=<%=i%>"><%=i%></a> --%>
 	<%
-}
+// }
  %> 
 </div>
 <%
 
 // //10페이지 다음
-if(endPage < pageCount){
+// if(endPage < pageCount){
 	%>
-	<a href="ProductAppointManage.pr?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
-	<%
- }
- %>
+<%-- 	<a href="ProductAppointManage.pr?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a> --%>
+<%-- 	<% --%>
+<!-- //  } -->
+<!--  %> -->
 
 </article>
 </div>
 <!-- <!-- 푸터 들어가는 곳 --> 
-<jsp:include page="../inc/footer.jsp" />
+<%-- <jsp:include page="../inc/footer.jsp" /> --%>
 <!-- <!-- 푸터 들어가는 곳 -->
 
 </body>

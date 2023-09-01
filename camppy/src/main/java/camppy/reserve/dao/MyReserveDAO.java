@@ -10,6 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import camppy.main.action.CampRegDTO;
 import camppy.reserve.dao.MyReserveDAO;
 
 public class MyReserveDAO {
@@ -20,7 +21,7 @@ public class MyReserveDAO {
 		//1,2 단계 디비 연결 메서드  정의 => 필요로 할때 호출 사용
 		public Connection getConnection() throws Exception {
 			Context init = new InitialContext();
-			DataSource ds=	(DataSource)init.lookup("java:comp/env/jdbc/Mysql");
+			DataSource ds=	(DataSource)init.lookup("java:comp/env/c1d2304t3");
 			// 디비연결
 			Connection con=ds.getConnection();
 			return con;
@@ -45,10 +46,10 @@ public class MyReserveDAO {
 				String sql="SELECT * FROM reservation(reservation_id,res_date,camp_name,checkin_date,checkout_date,res_status) values(?,?,?,?,?,?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, myReserveDTO.getRes_id());
-				pstmt.setString(2, myReserveDTO.getRes_time());
+				pstmt.setTimestamp(2, myReserveDTO.getRes_time());
 				pstmt.setString(3, myReserveDTO.getCamp_id());
-				pstmt.setString(4, myReserveDTO.getCheckin_date());
-				pstmt.setString(5, myReserveDTO.getCheckout_date());
+				pstmt.setTimestamp(4, myReserveDTO.getCheckin_date());
+				pstmt.setTimestamp(5, myReserveDTO.getCheckout_date());
 				pstmt.setInt(6, myReserveDTO.getRes_status());
 				
 				//4 실행
@@ -101,10 +102,10 @@ public class MyReserveDAO {
 					MyReserveDTO myReserveDTO = new MyReserveDTO();
 					myReserveDTO.setRes_id(rs.getInt(1));
 					System.out.println(rs.getInt(1));
-					myReserveDTO.setRes_time(rs.getString(2));
+					myReserveDTO.setRes_time(rs.getTimestamp(2));
 					myReserveDTO.setCamp_id(rs.getString(3));
-					myReserveDTO.setCheckin_date(rs.getString(4));
-					myReserveDTO.setCheckout_date(rs.getString(5));
+					myReserveDTO.setCheckin_date(rs.getTimestamp(4));
+					myReserveDTO.setCheckout_date(rs.getTimestamp(5));
 					myReserveDTO.setRes_status(rs.getInt(6));
 					list.add(myReserveDTO);	
 				}
@@ -130,7 +131,35 @@ public class MyReserveDAO {
 			return false;
 		}
 		
-		
+		public MyReserveDTO getMyReserve(int res_id) {
+			MyReserveDTO myReserveDTO = null;
+			try {
+				//1,2 디비연결
+				con = getConnection();
+				//3 sql select * from campreg where num = ?
+				String sql="select * from reservation where res_id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, res_id);
+				//4 실행 => 결과 저장
+				rs = pstmt.executeQuery();
+				//5 결과 행접근 => campregDTO 객체생성 
+				//        => set메서드 호출 => 열접근 데이터 저장
+				if(rs.next()) {
+					myReserveDTO = new MyReserveDTO();
+					myReserveDTO.setRes_id(rs.getInt("res_id"));
+					myReserveDTO.setCamp_id(rs.getString("camp_id"));
+					myReserveDTO.setRes_status(rs.getInt("res_status"));
+					myReserveDTO.setRes_time(rs.getTimestamp("res_time"));
+					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
+					
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbClose();
+			}
+			return myReserveDTO;
+		}//getCampReg
 	
 	
 }
