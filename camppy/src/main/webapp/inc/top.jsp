@@ -383,7 +383,7 @@ if(id == null){
       <div class="section-navi__link">예약조회</div>
     </div>
     <div class="section-navi__navi-list-5">
-      <button type="button" onclick="location.href='mypageInc.jsp'"  class="section-navi__link">마이페이지</button>
+      <div class="section-navi__link">마이페이지</div>
     </div>
   </div>
 </div>

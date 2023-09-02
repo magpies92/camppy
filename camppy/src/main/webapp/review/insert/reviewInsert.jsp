@@ -52,6 +52,10 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 <title>리뷰를 작성하세요</title>
 </head>
+
+
+
+
 <body>
 	<%
 	//세션에서 로그인정보, 예약정보 가져오기
@@ -101,7 +105,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				class="reviewTextarea"></textarea>
 			<div class="submitButton">
 				<input type='submit' value="글쓰기" class="submitReply"
-					">
+					onclick="validateForm()">
 			</div>
 		</div>
 	</form>

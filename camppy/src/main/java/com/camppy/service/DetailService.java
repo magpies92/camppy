@@ -24,7 +24,7 @@ public class DetailService {
 			
 			
 			//DetailDAO 객체 생성
-			//detailDTO = getDetail(campid, camp_addr_id) 메서드 호출
+			//detailDTO = getDetail(campid) 메서드 호출
 			detailDAO=new DetailDAO();
 			detailDTO=detailDAO.getDetail(campId);
 			
@@ -35,21 +35,28 @@ public class DetailService {
 		return detailDTO;
 	}//getDetail()
 
-	public DetailDTO getReserve(HttpServletRequest request) {
-		System.out.println("DetailDTO getReserve()" );
+	public DetailDTO getPosition(HttpServletRequest request) {
+		System.out.println("DetailDTO getPosition()" );
 		DetailDTO detailDTO = null;
 		
 		try {
 			//request 한글 처리
 			request.setCharacterEncoding("utf-8");
 			
-			//request 파라미터 가져오기 -> int camp_id
+			//request 파라미터 가져오기 -> int campid
+			int campId = Integer.parseInt(request.getParameter("campId"));
+			
+			
+			//DetailDAO 객체 생성
+			//detailDTO = getDetail(campid) 메서드 호출
+			detailDAO=new DetailDAO();
+			detailDTO=detailDAO.getPosition(campId);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return detailDTO;
-	}
+	}//getPosition()
 
 	
 	

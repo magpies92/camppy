@@ -19,6 +19,7 @@ import camppy.main.action.CampRegService;
 import camppy.member.MemberDTO;
 import camppy.member.MemberService;
 import camppy.reserve.dao.ReserveDetailDTO;
+import camppy.reserve.dao.MyReserveDTO;
 
 
 public class ReserveController extends HttpServlet {
@@ -49,7 +50,7 @@ public class ReserveController extends HttpServlet {
 		
 		if(sPath.equals("/reserve_detail.re")) {
 			// reserve/login.jsp 주소변경 없이 이동
-//			HttpSession session=request.getSession();
+			HttpSession session=request.getSession();
 //			String id=(String)session.getAttribute("id");
 			String id="ljy";
 			
@@ -58,11 +59,13 @@ public class ReserveController extends HttpServlet {
 			
 			
 //			int campid=Integer.parseInt(request.getParameter("campid"));
-			int campid=2;
+			int campid=3;
 			campRegService = new CampRegService();
 			CampRegDTO campRegDTO=campRegService.getCampReg(campid);
 			
-			
+			System.out.println("memberDTO.getMember_id" + memberDTO.getMember_id());
+			System.out.println("campRegDTO.getCamp_id" + campRegDTO.getCampid());
+			System.out.println("campRegDTO.getCampprice" + campRegDTO.getCampprice());
 			request.setAttribute("memberDTO", memberDTO);	
 			request.setAttribute("campRegDTO", campRegDTO);
 			
@@ -85,7 +88,7 @@ public class ReserveController extends HttpServlet {
 		}
 		if(sPath.equals("/mypage_reserve.re")) {
 			// reserve/login.jsp 주소변경 없이 이동
-//			HttpSession session=request.getSession();
+			HttpSession session=request.getSession();
 //			String id=(String)session.getAttribute("id");
 			String id="ljy";
 			
@@ -103,6 +106,37 @@ public class ReserveController extends HttpServlet {
 		    = request.getRequestDispatcher("reservepage/mypageReserve/mypage_reserve.jsp");
 		dispatcher.forward(request, response);
 		}
+		
+		if(sPath.equals("/mypage_reserve.re")) {
+			// reserve/login.jsp 주소변경 없이 이동
+			HttpSession session=request.getSession();
+//			String id=(String)session.getAttribute("id");
+			String id="ljy";
+			
+			memberService= new MemberService();
+			MemberDTO memberDTO=memberService.getMember(id);			
+			
+			
+//			int campid=Integer.parseInt(request.getParameter("campid"));
+			int campid=3;
+			campRegService = new CampRegService();
+			CampRegDTO campRegDTO=campRegService.getCampReg(campid);
+			
+			reserveService = new ReserveService();
+			MyReserveDTO myReserveDTO = reserveService.getMyReserve(res_id);
+			
+			System.out.println("ReserveDetailDTO.getRes_id" + myReserveDTO.getMember_id());
+			System.out.println("campRegDTO.getCamp_id" + campRegDTO.getCampid());
+			System.out.println("campRegDTO.getCampprice" + campRegDTO.getCampprice());
+			request.setAttribute("memberDTO", memberDTO);	
+			request.setAttribute("campRegDTO", campRegDTO);
+			request.setAttribute("MyreserveDTO", myReserveDTO);
+			
+			dispatcher 
+		    = request.getRequestDispatcher("reservepage/reserveDetail/reserve_detail.jsp");
+		dispatcher.forward(request, response);
+		}
+		
 		
 		
 		
