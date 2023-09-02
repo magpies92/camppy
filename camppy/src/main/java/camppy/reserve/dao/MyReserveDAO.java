@@ -5,10 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.sql.DataSource;
+
+import camppy.reserve.dao.MyReserveDTO;
+import camppy.reserve.dao.PageDTO;
 
 import camppy.main.action.CampRegDTO;
 import camppy.reserve.dao.MyReserveDAO;
@@ -36,6 +41,31 @@ public class MyReserveDAO {
 			if(con != null) {try {con.close();} catch (SQLException e) {	}}
 		}
 
+		public void insertReserve(MyReserveDTO myReserveDTO) {
+			try {
+				con=getConnection();
+				String sql = "insert into reservation(checkout_date, res_status, member_id, res_time, camp_id, checkin_date, camp_price) values(?,?,?,?,?,?,?)";
+				pstmt=con.prepareStatement(sql);
+				
+				pstmt.setTimestamp(1, myReserveDTO.getCheckout_date());
+				pstmt.setInt(2, myReserveDTO.getRes_status());
+				pstmt.setInt(3, myReserveDTO.getMember_id());
+				pstmt.setTimestamp(4, myReserveDTO.getRes_time());
+				pstmt.setString(5, myReserveDTO.getCamp_id());
+				pstmt.setTimestamp(6, myReserveDTO.getCheckin_date());
+				pstmt.setInt(7, myReserveDTO.getCamp_price());
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbClose();
+			}
+			
+		}
+	
+		
+		
+		
 		
 		// 리턴없음 insertMember(바구니주소)
 		public void selectReserve(MyReserveDTO myReserveDTO) {
@@ -43,7 +73,7 @@ public class MyReserveDAO {
 				//1,2 디비연결
 				con = getConnection();
 				//3 sql
-				String sql="SELECT * FROM reservation(reservation_id,res_date,camp_name,checkin_date,checkout_date,res_status) values(?,?,?,?,?,?)";
+				String sql="SELECT * FROM reservation(res_id,res_date,camp_name,checkin_date,checkout_date,res_status) values(?,?,?,?,?,?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, myReserveDTO.getRes_id());
 				pstmt.setTimestamp(2, myReserveDTO.getRes_time());
@@ -51,6 +81,7 @@ public class MyReserveDAO {
 				pstmt.setTimestamp(4, myReserveDTO.getCheckin_date());
 				pstmt.setTimestamp(5, myReserveDTO.getCheckout_date());
 				pstmt.setInt(6, myReserveDTO.getRes_status());
+				
 				
 				//4 실행
 				pstmt.executeUpdate();
@@ -115,42 +146,150 @@ public class MyReserveDAO {
 			return list;
 		}
 
-		public boolean nextPage(int pageNumber) {
-			String SQL = "SELECT * FROM MyReserveDTO WHERE memberID < ? AND reserveAvailable = 1";
+//		public boolean nextPage(int pageNumber) {
+//			String SQL = "SELECT * FROM reservation WHERE member_id < ? AND reserveAvailable = 1";
+//			try {
+//				PreparedStatement pstmt = con.prepareStatement(SQL);
+//				//pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+//				rs = pstmt.executeQuery();
+//				if(rs.next()) {
+//					return true;
+//				}
+//				
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			return false;
+//		}
+		
+		
+		
+		public List<MyReserveDTO> getMyReserveList1(int startRow, int pageSize, int res_id){
+			String SQL = "select * from reservation order by res_id desc where res_id=?";
+			List<MyReserveDTO> list = new ArrayList<MyReserveDTO>();
 			try {
+				con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(SQL);
-				//pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+				 pstmt.setInt(1, res_id);
+				 pstmt.setInt(2, startRow);
+				 pstmt.setInt(3, pageSize);
 				rs = pstmt.executeQuery();
-				if(rs.next()) {
-					return true;
+				while(rs.next()) {
+					MyReserveDTO myReserveDTO = new MyReserveDTO();
+					myReserveDTO.setRes_id(rs.getInt("res_id"));
+					myReserveDTO.setRes_status(rs.getInt("res_status"));
+					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
+					myReserveDTO.setRes_time(rs.getTimestamp("res_time"));
+					myReserveDTO.setCheckin_date(rs.getTimestamp("checkin_date"));
+					myReserveDTO.setCheckout_date(rs.getTimestamp("checkout_date"));
+					myReserveDTO.setCamp_id(rs.getString("camp_id"));
+					myReserveDTO.setCamp_price(rs.getInt("member_id"));
+					list.add(myReserveDTO);	
 				}
-				
 			} catch (Exception e) {
 				e.printStackTrace();
+			}finally {
+				dbClose();
 			}
-			return false;
+			return list;
 		}
 		
-		public MyReserveDTO getMyReserve(int res_id) {
+	
+		
+		
+		
+		
+		
+		
+		
+		public List<MyReserveDTO> getPageList(PageDTO pageDTO) {
+			System.out.println("MyReserveDAO getPageList()");
+			List<MyReserveDTO> pageList = null;
+			try {
+				//1,2 디비연결
+				con = getConnection();
+				//3 sql  => mysql 제공 => limit 시작행-1, 몇개
+//				String sql="select * from board order by num desc";
+				String sql="select * from reservation order by res_id desc limit ?, ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, pageDTO.getStartRow()-1);//시작행-1
+				pstmt.setInt(2, pageDTO.getPageSize());//몇개
+				//4 실행 => 결과 저장
+				rs = pstmt.executeQuery();
+				// boardList 객체생성
+				pageList = new ArrayList<>();
+				//5 결과 행접근 => BoardDTO객체생성 => set호출(열접근저장)
+				// => 배열 한칸에 저장
+				while(rs.next()) {
+					MyReserveDTO myReserveDTO =new MyReserveDTO();
+					myReserveDTO.setRes_id(rs.getInt("res_id"));
+					myReserveDTO.setCamp_id(rs.getString("camp_id"));
+					myReserveDTO.setRes_time(rs.getTimestamp("res_time"));
+					myReserveDTO.setCheckin_date(rs.getTimestamp("checkin_date"));
+					myReserveDTO.setCheckout_date(rs.getTimestamp("checkout_date"));
+					myReserveDTO.setRes_status(rs.getInt("res_status"));
+					myReserveDTO.setMember_id(rs.getInt("member_id"));
+					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
+					
+					// => 배열 한칸에 저장
+					pageList.add(myReserveDTO);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbClose();
+			}
+			return pageList;
+		}//getPageList()
+
+		
+		public int getReserveCount() {
+			int count = 0;
+			try {
+				//1,2 디비연결
+				con=getConnection();
+				//3 sql select count(*) from board
+				String sql = "select count(*) from reservation;";
+				pstmt=con.prepareStatement(sql);
+				//4 실행 => 결과저장
+				rs = pstmt.executeQuery();
+				//5 결과 행접근 => 열접근 => count변수 저장
+				if(rs.next()) {
+					count = rs.getInt("count(*)");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbClose();
+			}
+			return count;
+		}//getBoardCount()
+		
+		
+		public MyReserveDTO getReserve(int res_id) {
 			MyReserveDTO myReserveDTO = null;
 			try {
 				//1,2 디비연결
 				con = getConnection();
-				//3 sql select * from campreg where num = ?
+				//3 sql select * from board where num = ?
 				String sql="select * from reservation where res_id = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, res_id);
 				//4 실행 => 결과 저장
 				rs = pstmt.executeQuery();
-				//5 결과 행접근 => campregDTO 객체생성 
+				//5 결과 행접근 => boardDTO 객체생성 
 				//        => set메서드 호출 => 열접근 데이터 저장
 				if(rs.next()) {
 					myReserveDTO = new MyReserveDTO();
-					myReserveDTO.setRes_id(rs.getInt("res_id"));
-					myReserveDTO.setCamp_id(rs.getString("camp_id"));
+					myReserveDTO.setMember_id(rs.getInt("member_id"));
 					myReserveDTO.setRes_status(rs.getInt("res_status"));
+					myReserveDTO.setCheckin_date(rs.getTimestamp("checkin_date"));
+					myReserveDTO.setCheckout_date(rs.getTimestamp("checkout_date"));
 					myReserveDTO.setRes_time(rs.getTimestamp("res_time"));
+					myReserveDTO.setCamp_id(rs.getString("camp_id"));
 					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
+					//첨부파일
+					
 					
 				}
 			} catch (Exception e) {
@@ -159,7 +298,39 @@ public class MyReserveDAO {
 				dbClose();
 			}
 			return myReserveDTO;
-		}//getCampReg
-	
+		}//getBoard
+		
+		
+		
+		
+		public int getMaxNum() {
+			System.out.println("MyReserve getMaxNum()");
+			int res_id = 0;
+			try {
+				//1,2 디비연결
+				con=getConnection();
+				//3 sql select max(num) from members
+				String sql = "select max(res_id) from reservation;";
+				pstmt=con.prepareStatement(sql);
+				//4 실행 => 결과저장
+				rs =pstmt.executeQuery();
+				//5 if 다음행  => 열데이터 가져와서 => num저장
+				if(rs.next()) {
+					res_id = rs.getInt("max(res_id)");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbClose();
+			}
+			return res_id;
+		}//getMaxNum()
+		
+		
+		
+		
+		
+		
+		
 	
 }

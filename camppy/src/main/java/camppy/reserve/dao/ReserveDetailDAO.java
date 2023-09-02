@@ -70,7 +70,7 @@ public class ReserveDetailDAO {
 	
 	
 	public List<ReserveDetailDTO> getReserveList(int member_id){
-		String SQL = "select * from reservation order by res_id desc where member_id=?";
+		String SQL = "select * from reservation where member_id=? order by res_id desc";
 		List<ReserveDetailDTO> list = new ArrayList<ReserveDetailDTO>();
 		try {
 			con = getConnection();
@@ -119,7 +119,7 @@ public class ReserveDetailDAO {
 	}
 }
 	
-	
+
 //	public boolean nextPage(int pageNumber) {
 //		String SQL = "SELECT * FROM MyReserveDTO WHERE memberID < ? AND reserveAvailable = 1";
 //		try {
@@ -138,6 +138,9 @@ public class ReserveDetailDAO {
 //		return false;
 //	}
 //
+
+
+
 //	
 //	// pno로 펜션 조회
 //			public CampRegDTO getCampReg(int camp_id) {

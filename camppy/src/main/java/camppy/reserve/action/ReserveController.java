@@ -3,6 +3,7 @@ package camppy.reserve.action;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import camppy.reserve.dao.ActionReserve;
+
+import camppy.reserve.dao.PageDTO;
+import camppy.reserve.action.ReserveService;
 import com.mysql.cj.Session;
 
 import camppy.main.action.CampRegDTO;
@@ -19,6 +24,8 @@ import camppy.main.action.CampRegService;
 import camppy.member.MemberDTO;
 import camppy.member.MemberService;
 import camppy.reserve.dao.ReserveDetailDTO;
+import camppy.member.MemberDAO;
+import camppy.reserve.dao.MyReserveDAO;
 import camppy.reserve.dao.MyReserveDTO;
 
 
@@ -87,10 +94,11 @@ public class ReserveController extends HttpServlet {
 //		dispatcher.forward(request, response);
 		}
 		if(sPath.equals("/mypage_reserve.re")) {
+			System.out.println("비교 : myreserve.re");
 			// reserve/login.jsp 주소변경 없이 이동
 			HttpSession session=request.getSession();
-//			String id=(String)session.getAttribute("id");
-			String id="ljy";
+			String id=(String)session.getAttribute("id");
+//			String id="ljy";
 			
 			memberService= new MemberService();
 			MemberDTO memberDTO=memberService.getMember(id);
@@ -107,35 +115,106 @@ public class ReserveController extends HttpServlet {
 		dispatcher.forward(request, response);
 		}
 		
-		if(sPath.equals("/mypage_reserve.re")) {
-			// reserve/login.jsp 주소변경 없이 이동
-			HttpSession session=request.getSession();
-//			String id=(String)session.getAttribute("id");
-			String id="ljy";
-			
-			memberService= new MemberService();
-			MemberDTO memberDTO=memberService.getMember(id);			
-			
-			
-//			int campid=Integer.parseInt(request.getParameter("campid"));
-			int campid=3;
-			campRegService = new CampRegService();
-			CampRegDTO campRegDTO=campRegService.getCampReg(campid);
-			
-			reserveService = new ReserveService();
-			MyReserveDTO myReserveDTO = reserveService.getMyReserve(res_id);
-			
-			System.out.println("ReserveDetailDTO.getRes_id" + myReserveDTO.getMember_id());
-			System.out.println("campRegDTO.getCamp_id" + campRegDTO.getCampid());
-			System.out.println("campRegDTO.getCampprice" + campRegDTO.getCampprice());
-			request.setAttribute("memberDTO", memberDTO);	
-			request.setAttribute("campRegDTO", campRegDTO);
-			request.setAttribute("MyreserveDTO", myReserveDTO);
-			
-			dispatcher 
-		    = request.getRequestDispatcher("reservepage/reserveDetail/reserve_detail.jsp");
-		dispatcher.forward(request, response);
+	
+		
+		
+		
+		
+	if(sPath.equals("/mypage_reserveP.re")) {
+		System.out.println("뽑은 가상주소 비교 : /mypage_reservePageP.re");
+		// 한페이지에서 보여지는 글개수 설정
+		int pageSize=10;
+		// 페이지번호 
+		String pageNum=request.getParameter("pageNum");
+		// 페이지번호가 없으면 1페이지 설정
+		if(pageNum == null) {
+			pageNum = "1";
 		}
+		// 페이지 번호를 => 정수형 변경
+		int currentPage = Integer.parseInt(pageNum);
+		
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(pageSize);
+		pageDTO.setPageNum(pageNum);
+		pageDTO.setCurrentPage(currentPage);
+		
+		// BoardService 객체생성
+		reserveService = new ReserveService();
+//List<BoardDTO> boardList = getBoardList(); 메서드 호출
+		List<MyReserveDTO> PageList=reserveService.getPageList(pageDTO);
+		
+		// 게시판 전체 글 개수 구하기 
+		int count = reserveService.getBoardCount();
+		// 한화면에 보여줄 페이지개수 설정
+		int pageBlock = 10;
+		// 시작하는 페이지번호
+		// currentPage  pageBlock  => startPage
+		//   1~10(0~9)      10     =>  (0~9)/10*10+1=>0*10+1=> 0+1=> 1 
+		//   11~20(10~19)   10     =>  (10~19)/10*10+1=>1*10+1=>10+1=>11
+		//   21~30(20~29)   10     =>  (20~29)/10*10+1=>2*10+1=>20+1=>21
+		int startPage=(currentPage-1)/pageBlock*pageBlock+1;
+		// 끝나는페이지번호
+		//  startPage   pageBlock => endPage
+		//     1            10    =>   10
+		//     11           10    =>   20
+		//     21           10    =>   30
+		int endPage=startPage+pageBlock-1;
+		// 계산한값 endPage 10 => 전체페이지 2
+		// 전체페이지 구하기
+		// 글개수 50  한화면에 보여줄글개수 10 => 페이지수 5 + 0
+		// 글개수 57  한화면에 보여줄글개수 10 => 페이지수 5 + 1
+		int pageCount = count / pageSize + (count % pageSize==0?0:1);
+		if(endPage > pageCount) {
+			endPage = pageCount;
+		}
+		
+		//pageDTO 저장
+		pageDTO.setCount(count);
+		pageDTO.setPageBlock(pageBlock);
+		pageDTO.setStartPage(startPage);
+		pageDTO.setEndPage(endPage);
+		pageDTO.setPageCount(pageCount);
+		
+		// request에 "boardList",boardList 저장
+		request.setAttribute("pageList", PageList);
+		request.setAttribute("pageDTO", pageDTO);
+		
+		// 주소변경없이 이동 center/notice.jsp
+		dispatcher 
+	    = request.getRequestDispatcher("mypageReserve/mypage_reserve.jsp");
+	dispatcher.forward(request, response);
+	}//
+		
+		
+//		if(sPath.equals("/mypage_reserve.re")) {
+//			// reserve/login.jsp 주소변경 없이 이동
+//			HttpSession session=request.getSession();
+////			String id=(String)session.getAttribute("id");
+//			String id="ljy";
+//			
+//			memberService= new MemberService();
+//			MemberDTO memberDTO=memberService.getMember(id);			
+//			
+//			
+////			int campid=Integer.parseInt(request.getParameter("campid"));
+//			int campid=3;
+//			campRegService = new CampRegService();
+//			CampRegDTO campRegDTO=campRegService.getCampReg(campid);
+//			
+//			reserveService = new ReserveService();
+//			MyReserveDTO myReserveDTO = reserveService.getMyReserve(res_id);
+//			
+//			System.out.println("ReserveDetailDTO.getRes_id" + myReserveDTO.getMember_id());
+//			System.out.println("campRegDTO.getCamp_id" + campRegDTO.getCampid());
+//			System.out.println("campRegDTO.getCampprice" + campRegDTO.getCampprice());
+//			request.setAttribute("memberDTO", memberDTO);	
+//			request.setAttribute("campRegDTO", campRegDTO);
+//			request.setAttribute("MyreserveDTO", myReserveDTO);
+//			
+//			dispatcher 
+//		    = request.getRequestDispatcher("reservepage/reserveDetail/reserve_detail.jsp");
+//		dispatcher.forward(request, response);
+//		}
 		
 		
 		
