@@ -38,6 +38,17 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			class="buttonInsert" />
 
 	</div>
+<%-- 캠핑장 연동후에 잘 나오는지 확인 	<% 
+// 	String campIdParameter = request.getParameter("camp_id");
+// 	if (campIdParameter != null) {
+// 		int campId = Integer.parseInt(campIdParameter);
+// 		// campId를 사용하여 SQL 쿼리를 수정하여 해당 캠핑장의 리뷰만 검색합니다.
+// 		// 예: "SELECT * FROM review WHERE camp_id = ?"
+// 		// 나머지 코드는 이전 답변과 유사합니다.
+// 	} else {
+// 		// camp_id가 전달되지 않은 경우의 처리
+// 	}
+	%> --%>
 	<%
 	//1단계 JDBC 프로그램 가져오기 
 	Class.forName("com.mysql.cj.jdbc.Driver");
