@@ -199,4 +199,29 @@ import camppy.review.ReviewDTO;
 			}
 		}
 		
+		public boolean deleteSelectedReviews(int[] reviewIds) {
+	        try {
+	            // 1단계 JDBC 프로그램 가져오기 
+	            // 2단계 디비 연결
+	            con = getConnection();
+
+	            // 3단계 sql구문 변경
+	            String deleteQuery = "DELETE FROM review WHERE review_id = ?";
+	            pstmt = con.prepareStatement(deleteQuery);
+
+	            // 4단계 여러 개의 review_id에 대한 삭제를 처리하기 위해 PreparedStatement를 반복해서 실행
+	            for (int reviewId : reviewIds) {
+	                pstmt.setInt(1, reviewId);
+	                pstmt.executeUpdate();
+	            }
+	            return true; // 삭제 성공
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            return false; // 삭제 실패
+	        } finally {
+	            // 예외 상관 없이 마무리 작업 
+	            // => con, pstmt, rs 기억장소 해제
+	            dbClose();
+	        }
+	    }
 	}//class

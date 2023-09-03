@@ -34,9 +34,15 @@ String id = "ksb"; // 임의의 id 값 "ksb" 설정
 %>
 
 <div class="reviewTop">
-	<div class="reviewCount">이용후기</div>
+	<div class="reviewCount">리뷰</div>
 	<input type="button" value="글쓰기" onclick="popupInsert();"
 		class="buttonInsert" />
+		<button type="button" onclick="selectedDel();"><div>선택삭제</div></button>
+	<div class="reviewContents">
+		<label class="selectAll"> <input type="checkbox"
+			class="selectCheck" id="cboxAll"><b>전체선택</b>
+		</label>
+	</div>
 </div>
 
 <%
@@ -97,6 +103,10 @@ while (rs.next()) {
 		<button class="buttonCancel" style="display: none;"
 			onclick="cancelEdit(this);">취소</button>
 	</div>
+	<div class="reviewCheckbox">
+		<input type="checkbox" class="reviewCheckbox1" name="cbox" value="<%=rs.getInt("review_id")%>" />
+
+	</div>
 </div>
 
 <%
@@ -105,6 +115,8 @@ while (rs.next()) {
 
 
 <script>
+
+	//글쓰기용 팝업버튼
 	function popupInsert() {
 		var url = "../insert/reviewInsert.jsp";
 		var name = "reviewInsert";
@@ -112,6 +124,7 @@ while (rs.next()) {
 		window.open(url, name, option);
 	}
 
+	//수정버튼
 	function updateRow(button) {
 		var row = button.closest(".campinfoRow");
 		var contentsElement = row.querySelector(".reviewContents1");
@@ -144,6 +157,7 @@ while (rs.next()) {
 		});
 	}
 
+	//수정시 저장
 	function saveContent(button) {
 		var row = button.closest(".campinfoRow");
 		var reviewId = row.querySelector(".reviewNum1").textContent;
@@ -188,6 +202,7 @@ while (rs.next()) {
 		});
 	}
 
+	//수정시 취소버튼
 	function cancelEdit(button) {
 		var row = button.closest(".campinfoRow");
 		var contentsElement = row.querySelector(".reviewContents1");
@@ -208,6 +223,7 @@ while (rs.next()) {
 		}
 	}
 
+	//해당 열 삭제
 	function deleteRow(button) {
 		var row = button.closest(".campinfoRow");
 		var reviewId = row.querySelector(".reviewNum1").textContent;
@@ -234,6 +250,80 @@ while (rs.next()) {
 			});
 		}
 	}
+	
+	//체크박스
+	$(document).ready(function() {
+		$(document).on("click", "input:checkbox[name=cbox]", function(e) {
+			var chks = document.getElementsByName("cbox");
+			var chksChecked = 0;
+
+			for (var i = 0; i < chks.length; i++) {
+				var cbox = chks[i];
+
+				if (cbox.checked) {
+					chksChecked++;
+				}
+			}
+			if (chks.length == chksChecked) {
+				$("#cboxAll").prop("checked", true);
+			} else {
+				$("#cboxAll").prop("checked", false);
+			}
+		});
+
+		$("#cboxAll").on("click", function() {
+			$("input:checkbox[name=cbox]").prop("checked", this.checked);
+		});
+	});
+	
+
+	
+// 선택삭제
+// 선택삭제
+function selectedDel() {
+  var reviewIds = [];
+  var selectedRows = []; // 선택된 행의 DOM 요소를 저장하는 배열
+
+  // 선택된 체크박스와 해당 행을 찾아서 배열에 추가
+  $("input:checkbox[name='cbox']:checked").each(function () {
+    reviewIds.push($(this).val());
+    selectedRows.push($(this).closest(".campinfoRow")); // 선택된 행 추가
+  });
+
+  if (reviewIds.length === 0) {
+    alert("삭제할 리뷰를 선택하세요.");
+    return;
+  }
+
+  // 사용자에게 삭제 여부를 확인하는 대화 상자 표시
+  var confirmMessage = "선택한 리뷰를 삭제하시겠습니까?";
+  if (confirm(confirmMessage)) {
+    $.ajax({
+      type: "POST",
+      url: "deleteSelectedReviews.jsp",
+      data: {
+        reviewIds: reviewIds.join("|") // 선택된 리뷰 ID를 파이프로 구분하여 문자열로 전달
+      },
+      success: function (result) {
+        console.log(result);
+
+        // 삭제가 성공한 경우 선택된 행을 화면에서 제거
+        if (result.trim() === "success") {
+          for (var i = 0; i < selectedRows.length; i++) {
+            selectedRows[i].remove();
+          }
+        } else {
+          alert("삭제 실패");
+        }
+      },
+      error: function (xhr, status, error) {
+        alert(error);
+      }
+    });
+  }
+}
+
+
 </script>
 
 </body>
