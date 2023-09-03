@@ -11,7 +11,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="./reviewList.css" />
+<link rel="stylesheet" href="./mypageReveiwList.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
@@ -37,12 +37,11 @@ String id = "ksb"; // 임의의 id 값 "ksb" 설정
 	<div class="reviewCount">리뷰</div>
 	<input type="button" value="글쓰기" onclick="popupInsert();"
 		class="buttonInsert" />
-		<button type="button" onclick="selectedDel();"><div>선택삭제</div></button>
-	<div class="reviewContents">
-		<label class="selectAll"> <input type="checkbox"
-			class="selectCheck" id="cboxAll"><b>전체선택</b>
+		<button type="button" onclick="selectedDel();" class="selectDel"><div>선택삭제</div></button>
+		<label class="selectAll"> <b>전체선택</b>&nbsp;<input type="checkbox"
+			class="selectCheck" id="cboxAll" > 
 		</label>
-	</div>
+	
 </div>
 
 <%
