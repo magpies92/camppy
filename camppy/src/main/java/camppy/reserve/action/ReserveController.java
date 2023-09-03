@@ -166,6 +166,11 @@ public class ReserveController extends HttpServlet {
 			// request에 "boardList",boardList 저장
 			request.setAttribute("pageList", PageList);
 			request.setAttribute("pageDTO", pageDTO);
+			request.setAttribute("startPage", startPage);
+			request.setAttribute("pageBlock", pageBlock);
+			request.setAttribute("endPage", endPage);
+			request.setAttribute("pageCount", pageCount);
+			
 			dispatcher 
 		    = request.getRequestDispatcher("reservepage/mypageReserve/mypage_reserve.jsp");
 		dispatcher.forward(request, response);

@@ -74,13 +74,29 @@ height: 150px;
 
 //  ArrayList<AppointmentDTO> AppointmentList=(ArrayList<AppointmentDTO>)request.getAttribute("AppointmentList");
 
- int startPage=(Integer)request.getAttribute("startPage");
- int pageBlock=(Integer)request.getAttribute("pageBlock");
- int endPage=(Integer)request.getAttribute("endPage");
- int pageCount=(Integer)request.getAttribute("pageCount");
+//  PageDTO pageDTO = (PageDTO)request.getAttribute("pageDTO");
+//  System.out.println("pageDTO: " + request.getAttribute("pageDTO"));
+//  System.out.println("PageDTO pageSize: " + pageDTO.getPageCount());
+//  System.out.println("PageDTO startPage: " + pageDTO.getStartPage());
+ 
+// PageDTO pageDTO = (PageDTO)session.getAttribute("pageDTO");
+
+// List<PageDTO> pageList = (List<PageDTO>) request.getAttribute("pageList");
+//     int startPage = pageDTO.getStartPage();
+//     int pageBlock = pageDTO.getPageBlock();
+//     int endPage = pageDTO.getEndPage();
+//     int pageCount = pageDTO.getPageCount();
+// pageDTO=(PageDTO)session.getAttribute("PageDTO");
+
+
+
+int startPage=(Integer)request.getAttribute("startPage");
+int pageBlock=(Integer)request.getAttribute("pageBlock");
+int endPage=(Integer)request.getAttribute("endPage");
+int pageCount=(Integer)request.getAttribute("pageCount");
 	
 	List<ReserveDetailDTO> reserveList=(List<ReserveDetailDTO>)request.getAttribute("reserveList");
- SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
+  SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
 %>
 		
 
@@ -181,8 +197,19 @@ height: 150px;
 // 시작페이지 11,21,31 Prev 보임
 // if(pageDTO.getStartPage() > pageDTO.getPageBlock()){
 	
+// 	PageDTO pageDTO = (PageDTO)session.getAttribute("pageDTO");
 	
-	
+
+
+// if (pageDTO != null) {
+//     int startPage = pageDTO.getStartPage();
+//     int pageBlock = pageDTO.getPageBlock();
+//     int endPage = pageDTO.getEndPage();
+//     int pageCount = pageDTO.getPageCount();
+
+
+
+
  if(startPage > pageBlock){
 	%>
 	<a href="mypage.reserve.re?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
@@ -206,6 +233,7 @@ if(endPage < pageCount){
 	%>
 	<a href="mypage.reserve.re?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 	<%
+
  }
  %>
 	
@@ -232,7 +260,7 @@ if(endPage < pageCount){
 %>
 <%-- 	<a href="list.bo?pageNum=<%=pageDTO.getStartPage()-pageDTO.getPageBlock()%>">Prev</a> --%>
 	<%
-// }
+
 %> 
 
 
