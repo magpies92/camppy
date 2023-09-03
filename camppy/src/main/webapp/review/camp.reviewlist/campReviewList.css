@@ -217,7 +217,7 @@
 	left: 0px;
 	top: 0px;
 	width: 1000px;
-	height: 30px;
+	height: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
@@ -245,4 +245,37 @@
 	position: absolute;
 	left: 400px;
 	top: 10px;
+}
+.buttonSave{
+	display: flex;
+	flex-direction: row;
+	gap: 0.98px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-shrink: 0;
+	position: absolute;
+	left: 800px;
+	top: 10px;
+}
+.buttonCancel{
+	display: flex;
+	flex-direction: row;
+	gap: 0.98px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-shrink: 0;
+	position: absolute;
+	left: 850px;
+	top: 10px;
+	display: none;
+}
+.editContent { 
+  resize: none;
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 600px; 
+  height: 20px;
+  font: 400 13.71px/19.58px "NanumGothic", sans-serif;
+  color: #777777;
 }

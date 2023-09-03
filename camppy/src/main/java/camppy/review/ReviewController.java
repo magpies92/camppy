@@ -62,7 +62,7 @@ public class ReviewController extends HttpServlet{
 			List<ReviewDTO> reviewList=reviewService.getReviewList();
 			
 			// request 데이터(boardList) 담아서
-			request.setAttribute("boardList", reviewList);
+			request.setAttribute("reviewList", reviewList);
 			
 			dispatcher 
 		    = request.getRequestDispatcher("review/camp.reviewlist/reviewList.jsp");
