@@ -24,7 +24,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	background: none;
 }
 </style>
-<title>reviewList</title>
+<title>mypagereviewList</title>
 </head>
 
 <%
@@ -35,8 +35,8 @@ String id = "ksb"; // 임의의 id 값 "ksb" 설정
 
 <div class="reviewTop">
 	<div class="reviewCount">리뷰</div>
-	<input type="button" value="글쓰기" onclick="popupInsert();"
-		class="buttonInsert" />
+<!-- 	<input type="button" value="글쓰기" onclick="popupInsert();" -->
+<!-- 		class="buttonInsert" /> -->
 		<button type="button" onclick="selectedDel();" class="selectDel"><div>선택삭제</div></button>
 		<label class="selectAll"> <b>전체선택</b>&nbsp;<input type="checkbox"
 			class="selectCheck" id="cboxAll" > 
@@ -115,13 +115,17 @@ while (rs.next()) {
 
 <script>
 
-	//글쓰기용 팝업버튼
-	function popupInsert() {
-		var url = "../insert/reviewInsert.jsp";
-		var name = "reviewInsert";
-		var option = "width = 710, height = 730, top= 100, left= 500";
-		window.open(url, name, option);
-	}
+// 	//글쓰기용 팝업버튼
+// 	function popupInsert() {
+// 		var url = "../insert/reviewInsert.jsp";
+// 		var name = "reviewInsert";
+// 		var option = "width = 710, height = 730, top= 100, left= 500";
+// 		window.open(url, name, option);
+		
+// 		newWindow.addEventListener("unload", function () {
+// 		    location.reload(); // 새로고침
+// 		  });
+// 	}
 
 	//수정버튼
 	function updateRow(button) {
