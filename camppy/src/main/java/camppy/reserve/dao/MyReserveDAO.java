@@ -163,15 +163,47 @@ public class MyReserveDAO {
 //		}
 		
 		
+		public List<MyReserveDTO> getMyReserveList2(int res_id, int startRow, int pageSize){
+			String SQL = "select * from Reservation where res_id=? order by res_id desc limit ?, ?";
+			List<MyReserveDTO> list = new ArrayList<MyReserveDTO>();
+			try {
+				con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(SQL);
+				 pstmt.setInt(1, res_id);
+				 pstmt.setInt(2, startRow-1);
+				 pstmt.setInt(3, pageSize);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					MyReserveDTO myReserveDTO = new MyReserveDTO();
+					myReserveDTO.setRes_id(rs.getInt("res_id"));
+					myReserveDTO.setRes_status(rs.getInt("res_status"));
+					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
+					myReserveDTO.setRes_time(rs.getTimestamp("res_time"));
+					myReserveDTO.setCheckin_date(rs.getTimestamp("checkin_date"));
+					myReserveDTO.setCheckout_date(rs.getTimestamp("checkout_date"));
+					myReserveDTO.setCamp_id(rs.getString("camp_id"));
+					myReserveDTO.setCamp_price(rs.getInt("member_id"));
+					list.add(myReserveDTO);	
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbClose();
+			}
+			return list;
+		}
 		
-		public List<MyReserveDTO> getMyReserveList1(int startRow, int pageSize, int res_id){
+		
+		
+		
+		public List<MyReserveDTO> getMyReserveList1(int res_id, int startRow, int pageSize){
 			String SQL = "select * from reservation order by res_id desc where res_id=?";
 			List<MyReserveDTO> list = new ArrayList<MyReserveDTO>();
 			try {
 				con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(SQL);
 				 pstmt.setInt(1, res_id);
-				 pstmt.setInt(2, startRow);
+				 pstmt.setInt(2, startRow-1);
 				 pstmt.setInt(3, pageSize);
 				rs = pstmt.executeQuery();
 				while(rs.next()) {
@@ -328,7 +360,22 @@ public class MyReserveDAO {
 		
 		
 		
-		
+		public void deleteReserve(int res_id) {
+			Connection con =null;
+			PreparedStatement pstmt2=null;
+			try {
+				con=getConnection();
+				String sql2="delete from reservation where res_id=?";
+				pstmt2=con.prepareStatement(sql2);
+				pstmt2.setInt(1, res_id);  //set 문자열 (1번째 물음표, 값 id)
+				pstmt2.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if(pstmt2!=null) try { pstmt2.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+		}//deleteAppointment()
 		
 		
 		

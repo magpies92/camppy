@@ -79,8 +79,8 @@ height: 150px;
  int endPage=(Integer)request.getAttribute("endPage");
  int pageCount=(Integer)request.getAttribute("pageCount");
 	
- SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
 	List<ReserveDetailDTO> reserveList=(List<ReserveDetailDTO>)request.getAttribute("reserveList");
+ SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
 %>
 		
 
@@ -128,9 +128,18 @@ height: 150px;
           var num = <%=rdto.getCamp_price()%>;
           document.write(num.toLocaleString()+"원");
          </script>
-         /<%=rdto.getCamp_price()/rdto.getCamp_price()%>박
+         <%
+ 	
+%>
+<!-- int campPrice = rdto.getCamp_price(); -->
+<!-- // if (campPrice != 0) { -->
+<!-- //     out.print(campPrice + "박"); -->
+<!-- // } else { -->
+<!-- //     out.print("박"); -->
+<!-- // } -->
+         <%=rdto.getCamp_price()/rdto.getCamp_price()%>박
 	    </td>
-	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='MyReservePro.pr?ano=<%=rdto.getRes_id()%>'">Cancel</button></td></tr>
+	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='MyReservePro.pr?res_id=<%=rdto.getRes_id()%>'">Cancel</button></td></tr>
 		<%
  	}
  	%> 
@@ -167,9 +176,14 @@ height: 150px;
 // }
 //10페이지 이전
 
-
-
-if(startPage > pageBlock){
+// PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
+// 시작페이지 1페이지 Prev 없음
+// 시작페이지 11,21,31 Prev 보임
+// if(pageDTO.getStartPage() > pageDTO.getPageBlock()){
+	
+	
+	
+ if(startPage > pageBlock){
 	%>
 	<a href="mypage.reserve.re?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
 	<%
@@ -187,13 +201,45 @@ if(startPage > pageBlock){
 </div>
 <%
 
-// //10페이지 다음
+// 10페이지 다음
 if(endPage < pageCount){
 	%>
 	<a href="mypage.reserve.re?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 	<%
  }
  %>
+	
+
+
+
+
+
+<%
+// for(int i=pageDTO.getStartPage();i<=pageDTO.getEndPage();i++){
+	%>
+<%-- 	<a href="list.bo?pageNum=<%=i%>"><%=i %></a>  --%>
+	<%
+// }
+%>
+
+<%
+//끝페이지번호  전체페이지수 비교 => 전체페이지수 크면 => Next보임
+// if(pageDTO.getEndPage() < pageDTO.getPageCount()){
+	%>
+<%-- 	<a href="list.bo?pageNum=<%=pageDTO.getStartPage()+pageDTO.getPageBlock()%>">Next</a> --%>
+	<%
+// }
+%>
+<%-- 	<a href="list.bo?pageNum=<%=pageDTO.getStartPage()-pageDTO.getPageBlock()%>">Prev</a> --%>
+	<%
+// }
+%> 
+
+
+
+
+
+
 </article>
 </div>
 <!-- <!-- 푸터 들어가는 곳  -->

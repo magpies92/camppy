@@ -41,7 +41,7 @@ public class ReserveService {
 			
 			ReserveDetailDTO reserveDetailDTO = new ReserveDetailDTO();
 			reserveDetailDTO.setMember_id(member_id);
-			reserveDetailDTO.setRes_status(0);
+			reserveDetailDTO.setRes_status(res_status);
 			reserveDetailDTO.setCheckin_date(checkin_date);
 			reserveDetailDTO.setCheckout_date(checkout_date);
 			reserveDetailDTO.setRes_time(res_time);
@@ -175,6 +175,7 @@ public class ReserveService {
 			// request 한글처리
 			request.setCharacterEncoding("utf-8");
 			// request 파라미터 값 가져오기
+			
 			int member_id =Integer.parseInt(request.getParameter("member_id"));  
 			int res_status = Integer.parseInt(request.getParameter("res_status")); 
 			Timestamp checkin_date = new Timestamp(System.currentTimeMillis());
@@ -188,6 +189,7 @@ public class ReserveService {
 			// BoardDTO 객체생성
 			MyReserveDTO myreserveDTO = new MyReserveDTO();
 			// set메서드 호출 파라미터값 저장
+			myreserveDTO.setRes_id(res_id);
 			myreserveDTO.setMember_id(member_id);
 			myreserveDTO.setRes_status(0);
 			myreserveDTO.setCheckout_date(checkout_date);
@@ -202,8 +204,9 @@ public class ReserveService {
 		}
 	}// insertBoard()
 
-	public int getBoardCount() {
-		System.out.println("BoardService getBoardCount()");
+	
+	public int getReserveCount() {
+		System.out.println("ReserveService getReserveCount()");
 		int count = 0;
 		try {
 			// BoardDAO 객체생성
