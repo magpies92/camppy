@@ -39,7 +39,7 @@ public class ReviewController extends HttpServlet{
 		String sPath = request.getServletPath();
 		System.out.println("가상주소 뽑아오기 : " +  sPath);
 		
-//		http://localhost:8080/MVCProject/write.bo
+//		http://localhost:8080/Camppy/reviewInsert.rv
 		if(sPath.equals("/reviewInsert.rv")) {
 			// 주소변경 없이 => board/write.jsp 이동
 			dispatcher 
@@ -52,10 +52,12 @@ public class ReviewController extends HttpServlet{
 			reviewService = new ReviewService();
 			// insertBoard(request) 메서드 호출
 			reviewService.insertReview(request);
-			// 주소 변경되면서 list.bo 이동 
-			response.sendRedirect("reviewInsert.rv");
+			// 주소 변경없이 list.bo 이동 
+			dispatcher 
+		    = request.getRequestDispatcher("review/camp.reveiwlist/campReviewList.jsp");
+			dispatcher.forward(request, response);
 		}//if
-		if(sPath.equals("/reviewList.rv")) {
+		if(sPath.equals("/campReviewList.rv")) {
 			// BoardService 객체생성
 			reviewService =new ReviewService();
 			// List<BoardDTO> boardList  = getBoardList()
@@ -65,7 +67,20 @@ public class ReviewController extends HttpServlet{
 			request.setAttribute("reviewList", reviewList);
 			
 			dispatcher 
-		    = request.getRequestDispatcher("review/camp.reviewlist/reviewList.jsp");
+		    = request.getRequestDispatcher("review/camp.reviewlist/campReviewList.jsp");
+			dispatcher.forward(request, response);
+		}
+		if(sPath.equals("/mypageReviewList.rv")) {
+			// BoardService 객체생성
+			reviewService =new ReviewService();
+			// List<BoardDTO> boardList  = getBoardList()
+			List<ReviewDTO> reviewList=reviewService.getReviewList();
+			
+			// request 데이터(boardList) 담아서
+			request.setAttribute("reviewList", reviewList);
+			
+			dispatcher 
+		    = request.getRequestDispatcher("review/mypagelist/mypageReveiwList.jsp");
 			dispatcher.forward(request, response);
 		}//
 //		// http://localhost:8080/MVCProject/content.bo?num=1
