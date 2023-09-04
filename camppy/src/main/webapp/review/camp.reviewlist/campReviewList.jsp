@@ -11,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./reviewList.css" />
+    <link rel="stylesheet" href="./campReviewList.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
@@ -38,23 +38,34 @@
         <div class="reviewCount">이용후기</div>
         <input type="button" value="글쓰기" onclick="popupInsert();" class="buttonInsert" />
     </div>
-    <%
-        //1단계 JDBC 프로그램 가져오기 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        // 2단계 디비 연결
-        String dbUrl = "jdbc:mysql://itwillbs.com:3306/c1d2304t3?serverTimezone=Asia/Seoul";
-        String dbUser = "c1d2304t3";
-        String dbPass = "1234";
-        Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+  <%
+int pageSize = 5; // 한 페이지에 표시될 레코드 수
+int currentPage = (request.getParameter("page") != null) ? Integer.parseInt(request.getParameter("page")) : 1;
 
-        // 3단계 문자열 -> sql구문 변경
-        //  select * from board 
-        String sql = "select * from review where camp_id =?";
-        PreparedStatement pstmt = con.prepareStatement(sql);
-        pstmt.setInt(1, camp_id);
-        //4단계 sql구문 실행 => 실행결과 ResultSet 내장객체에 저장
-        ResultSet rs = pstmt.executeQuery();
-    %>
+Class.forName("com.mysql.cj.jdbc.Driver");
+String dbUrl = "jdbc:mysql://itwillbs.com:3306/c1d2304t3?serverTimezone=Asia/Seoul";
+String dbUser = "c1d2304t3";
+String dbPass = "1234";
+Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+
+String countSql = "SELECT COUNT(*) AS total FROM review WHERE camp_id = ?";
+PreparedStatement countStmt = con.prepareStatement(countSql);
+countStmt.setInt(1, camp_id);
+ResultSet countRs = countStmt.executeQuery();
+countRs.next();
+int totalRecords = countRs.getInt("total");
+int totalPages = (int) Math.ceil((double) totalRecords / pageSize);
+
+String sql = "SELECT * FROM review WHERE camp_id = ? ORDER BY review_id DESC LIMIT ?, ?";
+int startRecord = (currentPage - 1) * pageSize;
+
+PreparedStatement pstmt = con.prepareStatement(sql);
+pstmt.setInt(1, camp_id);
+pstmt.setInt(2, startRecord);
+pstmt.setInt(3, pageSize);
+
+ResultSet rs = pstmt.executeQuery();
+%>
 
     <%
         //5단계 : while  행 접근 -> 데이터 있으면 true 
@@ -97,6 +108,29 @@
     <%
         }
     %>
+
+<!-- 페이징 링크 출력 부분 -->
+<div class="pagination">
+<%
+if (currentPage > 1) {
+%>
+    <a href="?page=<%=currentPage - 1%>">이전</a>
+<%
+}
+
+for (int i = 1; i <= totalPages; i++) {
+%>
+    <a href="?page=<%=i%>" class="<%= (i == currentPage) ? "active" : "" %>"><%=i%></a>
+<%
+}
+
+if (currentPage < totalPages) {
+%>
+    <a href="?page=<%=currentPage + 1%>">다음</a>
+<%
+}
+%>
+</div>
 
     <script>
         function popupInsert() {
