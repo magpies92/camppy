@@ -180,7 +180,7 @@
 			// request에 "boardDTO",boardDTO 담아서
 			CampRegService campregService2 = new CampRegService();
 			// BoardDTO boardDTO = getBoard(request) 메서드 호출
-			CampRegDTO campregDTO2 = campregService2.getCampReg(2);
+			CampRegDTO campregDTO2 = campregService2.getCampReg(25);
 			CampRegService campregService3 = new CampRegService();
 			// BoardDTO boardDTO = getBoard(request) 메서드 호출 
 			CampRegDTO campregDTO3 = campregService3.getCampReg(3);
