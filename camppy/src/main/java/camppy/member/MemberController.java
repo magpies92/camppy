@@ -98,7 +98,7 @@ public class MemberController extends HttpServlet{
 				HttpSession session = request.getSession();
 				session.setAttribute("id", memberDTO.getId());
 				// 주소 변경하면서 이동 -> 가상주소 main.me 이동 
-				response.sendRedirect("main.camp");
+				response.sendRedirect("update.me");
 			}else {
 			// 아이디 비밀번호 틀림 -> 아이디 , 비밀번호 틀림 , 뒤로이동
 				System.out.println(memberDTO);
@@ -174,14 +174,14 @@ public class MemberController extends HttpServlet{
 			// MemberService 객체생성
 			memberService = new MemberService();
 			// MemberDTO memberDTO = userCheck(request) 메서드 호출
-			MemberDTO memberDTO = memberService.userCheck(request);
+			MemberDTO memberDTO = memberService.userCheck2(request);
 			if(memberDTO != null) {
 				// memberDTO != null
 				// 아이디 비밀번호 일치 -> 수정 -> main.me 이동
 				//     수정  updateMember(request) 메서드 호출
 				memberService.updateMember(request);
 				//     main.me 이동
-				response.sendRedirect("main.me");
+				response.sendRedirect("main.camp");
 			}else {
 				// else => memberDTO == null
 				//     아이디 비밀번호 틀림 -> member/msg.jsp 이동
@@ -267,7 +267,7 @@ List<MemberDTO> memberList = memberService.getMemberList();
 		if(sPath.equals("/nickCheck.me")) {
 			System.out.println("뽑은 가상주소 비교 : /nickCheck.me");
 			String nick = request.getParameter("nick");
-			System.out.println("받은 아이디 : " + nick);
+			System.out.println("받은 닉네임 : " + nick);
 			// MemberService 객체생성
 			memberService = new MemberService();
 			// getMember() 메서드 호출

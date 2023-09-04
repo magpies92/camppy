@@ -120,7 +120,7 @@
   align-items: center;
   justify-content: flex-start;
 }
-.edit-profile__input-passcheck {
+.check {
   background: #efefef;
   border-radius: 0.306875rem;
   flex-shrink: 0;
@@ -138,7 +138,7 @@
   left: calc(50% - 19.860625rem);
   top: 13.9975rem;
 }
-.edit-profile__input-pass {
+.pass {
   background: #efefef;
   border-radius: 0.306875rem;
   flex-shrink: 0;
@@ -174,7 +174,7 @@
   left: calc(50% - 19.799375rem);
   top: 3.68375rem;
 }
-.edit-profile__input-nickname {
+.nick {
   background: #efefef;
   border-radius: 0.306875rem;
   flex-shrink: 0;

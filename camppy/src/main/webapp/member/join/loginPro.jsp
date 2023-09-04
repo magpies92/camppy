@@ -51,7 +51,7 @@ if(rs.next()){
 	// 세션 내장객체 저장 : 페이지 상관없이 값이 유지
 	//                   로그인 했다는 표시 값으로 사용
 	session.setAttribute("id", id);
-	response.sendRedirect("main.jsp");
+	response.sendRedirect("update.jsp");
 	
 	%>
 <%-- 	<%="아이디 비밀번호 일치"%> --%>

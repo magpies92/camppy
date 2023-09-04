@@ -145,6 +145,52 @@ public class MemberDAO {
 		
 	}// userCheck()
 	
+	public MemberDTO userCheck2(String id) {
+		System.out.println("MemberDAO userCheck()");
+		// MemberDTO 선언 => 초기값 null
+		MemberDTO memberDTO = null;
+		try {
+			// 1단계 JDBC 프로그램 가져오기 
+			// 2단계 디비 연결
+			con = getConnection();
+
+			// 3단계 문자열 -> sql구문 변경
+			//  select * from members where id=폼입력id and pass=폼입력pass
+			String sql = "select * from members where id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+
+			//4단계 sql구문 실행 => 실행결과 ResultSet 내장객체에 저장
+			rs =pstmt.executeQuery();
+			// out.println(pstmt);
+
+			//5단계 : if  행 접근 -> 데이터 있으면 true -> 아이디 비밀번호 일치 출력
+//			       else              없으면 false -> 아이디 비밀번호 틀림 출력
+			if(rs.next()){
+				//true 아이디 비밀번호 일치 => 세션값 => main.jsp 이동
+				// 열접근 id,pass,name,date => MemberDTO 담아서 리턴
+// MemberDTO 객체생성=> 기억장소 할당=> id,pass,name,date 값 저장
+				memberDTO = new MemberDTO();
+				memberDTO.setId(rs.getString("id"));
+				memberDTO.setPass(rs.getString("pass"));
+				memberDTO.setName(rs.getString("name"));
+			}else{
+				//false 아이디 비밀번호 틀림, 뒤로이동
+				// 열접근 못함 => MemberDTO null 담아서 리턴
+				memberDTO=null;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		// 아이디 비밀번호 일치하면  MemberDTO 주소값 리턴;
+		// 아이디 비밀번호 틀리면 MemberDTO null 리턴
+		return memberDTO;
+		
+	}// userCheck2()
+	
 	// MemberDTO memberDTO = getMember(id) 메서드 호출
 	public MemberDTO getMember(String id) {
 		MemberDTO memberDTO = null;
@@ -192,10 +238,11 @@ public class MemberDAO {
 			con=getConnection();
 			
 			// 3단계 문자열 -> sql구문 변경
-			String sql = "update members set nick = ? where id = ?";
+			String sql = "update members set nickname = ?, pass = ? where id = ?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, memberDTO.getNick());
-			pstmt.setString(2, memberDTO.getId());      //(물음표 순서,값)
+			pstmt.setString(2, memberDTO.getPass());
+			pstmt.setString(3, memberDTO.getId());      //(물음표 순서,값)
 			
 			// 4단계 sql구문 실행
 			pstmt.executeUpdate();
