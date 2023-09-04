@@ -120,7 +120,7 @@
 <input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="postAddr2" size="60"  readonly required><br>
 <input type="hidden" id="sample4_jibunAddress" placeholder="지번주소"  size="60" required>
 <span id="guide" style="color:#999;display:none" ></span>
-<input type="text" id="sample4_detailAddress" placeholder="상세주소" name="postAddr3" size="60" required><br>
+<input type="text" id="sample4_detailAddress" placeholder="상세주소" name="postAddr3" size="60"><br>
 <input type="hidden" id="sample4_extraAddress" placeholder="참고항목"  size="60" required>
 <input type="hidden" id="sample4_engAddress" placeholder="영문주소"  size="60" required><br>
 

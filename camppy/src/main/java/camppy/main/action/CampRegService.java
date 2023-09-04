@@ -152,7 +152,15 @@ public class CampRegService {
 			String  addr3= multi.getParameter("postAddr3");
 			String  doo= multi.getParameter("doo");
 			String  sigungu= multi.getParameter("sigungu");
-			String campaddr = addr1+" "+addr2+" "+addr3;
+			String campaddr;
+			if (addr3.equalsIgnoreCase("")){
+			campaddr = addr2;
+			}
+			else
+			{
+				campaddr = addr2+" "+addr3;
+				
+			}
 			String mapx=multi.getParameter("mapx");
 			String mapy=multi.getParameter("mapy");	    		
 		                     int i = 0;

@@ -32,10 +32,22 @@
         src="script/jquery-3.7.0.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	$('.phone').attr('maxlength', 11);
+	$('.phone').keypress(function (e) {
+	    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+	        return false;
+	    }
+	});
 	var clicked = false;
 	var clicked2 = false;
 	var clicked3 = false;
+	var clicked4 = false;
 	$('.phone-certify2').click(function(){
+		if ($('.id').val().length < 5 || $('.id').val().length > 20) {
+		    alert("아이디는 5~20자 사이여야 합니다.");
+		    $('.id').focus();
+		    return false;
+		}
 		clicked = true;
 		$.ajax({
 			url:'idCheck.me',
@@ -52,7 +64,25 @@ $(document).ready(function(){
 			}
 		});//ajax()
 	});//click()
-	$('#join').submit(function(){
+	$('.phone-certify3').click(function(){
+		clicked4 = true;
+		$.ajax({
+			url:'nickCheck.me',
+			data:{'nick':$('.nick').val()},
+			success:function(result){
+				if (result == 11) {
+					$('.member-sign__nick-box').css('border-color', 'red');
+					alert("닉네임 중복입니다. 다른 닉네임을 입력해주세요.")
+				}
+				if (result == 00) {
+					$('.member-sign__nick-box').css('border-color', '#777777');
+					alert("사용가능한 닉네임입니다.")
+				}
+			}
+		});//ajax()
+	});//click()
+	$('#join').submit(function(event){
+		event.preventDefault();
 		if($('.id').val()==""){
 			alert("아이디 입력하세요");
 			$('.id').focus();
@@ -64,7 +94,7 @@ $(document).ready(function(){
 		    return false;
 		}
 		if (!clicked) {
-			alert("중복확인 눌러주세요");
+			alert("아이디 중복확인 눌러주세요");
 	        return false;
 	    }
 		if($('.pass').val()==""){
@@ -87,6 +117,10 @@ $(document).ready(function(){
 			$('.nick').focus();
 			return false;
 		}
+		if (!clicked4) {
+			alert("닉네임 중복확인 눌러주세요");
+	        return false;
+	    }
 		if($('.name').val()==""){
 			alert("이름을 입력하세요");
 			$('.name').focus();
@@ -102,48 +136,43 @@ $(document).ready(function(){
 		    $('#large-checkbox').focus();
 		    return false;
 		}
-		$.ajax({
-			url:'idCheck.me',
-			data:{'id':$('.id').val()},
-			success:function(result){
-				if (result == 1) {
-					alert("아이디 중복입니다. 다른 아이디를 입력해주세요.")
-					$('.id').focus();
-					$('.member-sign__id-box').css('border-color', 'red');
-					clicked2 = false;
-					return false;
-				}
-				if (result == 0) {
-					$('.member-sign__id-box').css('border-color', '#777777');
-					clicked2 = true;
-				}
-			}
+		    $.ajax({
+		        url:'idCheck.me',
+		        data:{'id':$('.id').val()},
+		        success:function(result){
+		            if (result == 1) {
+		                alert("아이디 중복입니다. 다른 아이디를 입력해주세요.")
+		                $('.id').focus();
+		                $('.member-sign__id-box').css('border-color', 'red');
+		                return false;
+		            }
+		            if (result == 0) {
+		                $('.member-sign__id-box').css('border-color', '#777777');
+		            }
+
+		            // 첫 번째 $.ajax() 함수가 완료된 후에 두 번째 $.ajax() 함수를 실행합니다.
+		            $.ajax({
+		                url:'nickCheck.me',
+		                data:{'nick':$('.nick').val()},
+		                success:function(result){
+		                    if (result == 11) {
+		                        alert("닉네임 중복입니다. 다른 닉네임을 입력해주세요.")
+		                        $('.nick').focus();
+		                        $('.member-sign__nick-box').css('border-color', 'red');
+		                        return false;
+		                    }
+		                    if (result == 00) {
+		                        $('.member-sign__nick-box').css('border-color', '#777777');
+		                    }
+
+		                    // 두 번째 $.ajax() 함수가 완료된 후에 폼을 제출합니다.
+		                    $('#join')[0].submit();
+		                }
+		            });
+		        }
+		    });
 		});
-		if (!clicked2) {
-	        return false;
-	    }
-		$.ajax({
-			url:'nickCheck.me',
-			data:{'nick':$('.nick').val()},
-			success:function(result){
-				if (result == 11) {
-					alert("닉네임 중복입니다. 다른 닉네임을 입력해주세요.")
-					$('.nick').focus();
-					$('.member-sign__nick-box').css('border-color', 'red');
-					clicked3 = false;
-					return false;
-				}
-				if (result == 00) {
-					$('.member-sign__nick-box').css('border-color', '#777777');
-					clicked3 = true;
-				}
-			}
-		});
-		if (!clicked3) {
-	        return false;
-	    }
-		});//submit이벤트
-});
+	});
 </script>
    
     
@@ -157,8 +186,7 @@ $(document).ready(function(){
           <div class="member-sign__id-box">
    <input type="text" id="id" class="id" name="id" placeholder="아이디">
    <div class="phone-certify">
-<input type="button" value="중복확인" class="phone-certify2">
-<div class="divdup"></div>  
+<input type="button" value="중복확인" class="phone-certify2">  
 </div>
           </div>
           <div class="member-sign__pass-box">
@@ -169,6 +197,9 @@ $(document).ready(function(){
           </div>
           <div class="member-sign__nick-box">
    <input type="text" id="nick" class="nick" name="nick" placeholder="닉네임">
+<div class="phone-certify">
+<input type="button" value="중복확인" class="phone-certify3">  
+</div>         
           </div>
           <div class="member-sign__name-box">
    <input type="text" id="name" class="name" name="name" placeholder="이름">
