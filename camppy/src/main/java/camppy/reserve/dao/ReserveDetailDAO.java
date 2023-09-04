@@ -86,6 +86,7 @@ public class ReserveDetailDAO {
 				reserveDetailDTO.setCheckin_date(rs.getString("checkin_date"));
 				reserveDetailDTO.setCheckout_date(rs.getString("checkout_date"));
 				reserveDetailDTO.setCamp_id(rs.getInt("camp_id"));
+				reserveDetailDTO.setSprice(rs.getInt("sprice"));
 				list.add(reserveDetailDTO);	
 			}
 		} catch (Exception e) {
@@ -95,6 +96,101 @@ public class ReserveDetailDAO {
 		}
 		return list;
 	}
+	
+	public ReserveDetailDTO getDetailList(int camp_id){
+		System.out.println("ReserveDetailDTO getReserveList2");
+		ReserveDetailDTO dto=null;
+//		List<ReserveDetailDTO> list = new ArrayList<ReserveDetailDTO>();
+		try {
+			con = getConnection();
+			String SQL = "select * from reservation where camp_id=? order by res_id desc";
+			PreparedStatement pstmt = con.prepareStatement(SQL);
+			 pstmt.setInt(1, camp_id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+//				ReserveDetailDTO reserveDetailDTO = new ReserveDetailDTO();
+				dto.setMember_id(rs.getInt("member_id"));
+				dto.setRes_id(rs.getInt("res_id"));
+				dto.setRes_status(rs.getInt("res_status"));
+				dto.setCamp_price(rs.getInt("camp_price"));
+				dto.setCheckin_date(rs.getString("checkin_date"));
+				dto.setCheckout_date(rs.getString("checkout_date"));
+				dto.setCamp_id(rs.getInt("camp_id"));
+				dto.setSprice(rs.getInt("sprice"));
+//				list.add(reserveDetailDTO);	
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return dto;
+	}
+	
+	public boolean checkCamp(int camp_id, String checkin_date, String checkout_date) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean checksCamp = true;
+		try {
+			con = getConnection();
+			String sql = "select * from reserveation where camp_id=? && ? >= ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, camp_id);
+			pstmt.setString(2, checkin_date);
+			pstmt.setString(3, checkout_date);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				checksCamp = true;
+			} else {
+				checksCamp = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			if(con != null) try {con.close();} catch (Exception e2) {}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+			if(rs != null) try {rs.close();} catch (SQLException e) {}
+		}
+		return checksCamp;
+	}
+	
+	public boolean checkCamp2(int camp_id, String checkin_date, String checkout_date) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean checkCamp2 = true;
+		try {
+			con = getConnection();
+			String sql = "select * from reservation where camp_id=? && res_id in (select res_id from reservation where (checkin_date >= ? && checkin_date < ?)|| (checkout_date > ? && checkout_date <= ?))";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, camp_id);
+			pstmt.setString(2, checkin_date);
+			pstmt.setString(3, checkout_date);
+			pstmt.setString(4, checkin_date);
+			pstmt.setString(5, checkout_date);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				checkCamp2 = true;
+			} else {
+				checkCamp2 = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			if(con != null) try {con.close();} catch (Exception e2) {}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+			if(rs != null) try {rs.close();} catch (SQLException e) {}
+		}
+		return checkCamp2;
+	}
+	
+	
+	
+	
+	
 
 	public void insertReserve(ReserveDetailDTO reserveDetailDTO) {
 		try {

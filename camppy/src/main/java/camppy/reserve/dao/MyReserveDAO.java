@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 
 import camppy.reserve.dao.MyReserveDTO;
 import camppy.reserve.dao.PageDTO;
-
+//import products.AppointmentDTO;
 import camppy.main.action.CampRegDTO;
 import camppy.reserve.dao.MyReserveDAO;
 
@@ -41,30 +41,58 @@ public class MyReserveDAO {
 			if(con != null) {try {con.close();} catch (SQLException e) {	}}
 		}
 
-		public void insertReserve(MyReserveDTO myReserveDTO) {
+//		public void insertReserve(MyReserveDTO myReserveDTO) {
+//			try {
+//				con=getConnection();
+//				String sql = "insert into reservation(checkout_date, res_status, member_id, res_time, camp_id, checkin_date, camp_price) values(?,?,?,?,?,?,?)";
+//				pstmt=con.prepareStatement(sql);
+//				
+//				pstmt.setTimestamp(1, myReserveDTO.getCheckout_date());
+//				pstmt.setInt(2, myReserveDTO.getRes_status());
+//				pstmt.setInt(3, myReserveDTO.getMember_id());
+//				pstmt.setTimestamp(4, myReserveDTO.getRes_time());
+//				pstmt.setString(5, myReserveDTO.getCamp_id());
+//				pstmt.setTimestamp(6, myReserveDTO.getCheckin_date());
+//				pstmt.setInt(7, myReserveDTO.getCamp_price());
+//				pstmt.executeUpdate();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}finally {
+//				dbClose();
+//			}
+//			
+//		}
+	
+		
+		public void insertReserve(MyReserveDTO dto) {
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
 			try {
 				con=getConnection();
-				String sql = "insert into reservation(checkout_date, res_status, member_id, res_time, camp_id, checkin_date, camp_price) values(?,?,?,?,?,?,?)";
+				int res_id=1;
+				String sql="select max(res_id) from reservation";
 				pstmt=con.prepareStatement(sql);
-				
-				pstmt.setTimestamp(1, myReserveDTO.getCheckout_date());
-				pstmt.setInt(2, myReserveDTO.getRes_status());
-				pstmt.setInt(3, myReserveDTO.getMember_id());
-				pstmt.setTimestamp(4, myReserveDTO.getRes_time());
-				pstmt.setString(5, myReserveDTO.getCamp_id());
-				pstmt.setTimestamp(6, myReserveDTO.getCheckin_date());
-				pstmt.setInt(7, myReserveDTO.getCamp_price());
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					res_id=rs.getInt("max(res_id)")+1;
+				}
+
+				sql="insert into reservation(res_id,camp_id,member_id,res_status,res_time) values(?,?,?,1,?)";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, res_id);  
+				pstmt.setInt(2, dto.getCamp_id()); 
+				pstmt.setInt(3, dto.getMember_id());
+				pstmt.setTimestamp(4, dto.getRes_time());
 				pstmt.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally {
-				dbClose();
+				if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
 			}
-			
-		}
-	
-		
-		
+			return;
+		}//insertReserve() 메서드
 		
 		
 		// 리턴없음 insertMember(바구니주소)
@@ -73,15 +101,16 @@ public class MyReserveDAO {
 				//1,2 디비연결
 				con = getConnection();
 				//3 sql
-				String sql="SELECT * FROM reservation(res_id,res_date,camp_name,checkin_date,checkout_date,res_status) values(?,?,?,?,?,?)";
+				String sql="SELECT * FROM reservation(res_id,res_date,camp_name,checkin_date,checkout_date,res_status,camp_price) values(?,?,?,?,?,?,?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, myReserveDTO.getRes_id());
 				pstmt.setTimestamp(2, myReserveDTO.getRes_time());
-				pstmt.setString(3, myReserveDTO.getCamp_id());
-				pstmt.setTimestamp(4, myReserveDTO.getCheckin_date());
-				pstmt.setTimestamp(5, myReserveDTO.getCheckout_date());
+				pstmt.setInt(3, myReserveDTO.getCamp_id());
+				pstmt.setString(4, myReserveDTO.getCheckin_date());
+				pstmt.setString(5, myReserveDTO.getCheckout_date());
 				pstmt.setInt(6, myReserveDTO.getRes_status());
-				
+				pstmt.setInt(7, myReserveDTO.getCamp_price());
+				pstmt.setInt(8, myReserveDTO.getSprice());
 				
 				//4 실행
 				pstmt.executeUpdate();
@@ -122,7 +151,7 @@ public class MyReserveDAO {
 		
 		
 		public ArrayList<MyReserveDTO> getList(int pageNumber){
-			String SQL = "select res_id, res_time, camp_id, checkin_date, checkout_date, res_status from reservation ORDER BY res_id;";
+			String SQL = "select res_id, res_time, camp_id, checkin_date, checkout_date, res_status, camp_price from reservation ORDER BY res_id;";
 			ArrayList<MyReserveDTO> list = new ArrayList<MyReserveDTO>();
 			try {
 				con = getConnection();
@@ -134,10 +163,11 @@ public class MyReserveDAO {
 					myReserveDTO.setRes_id(rs.getInt(1));
 					System.out.println(rs.getInt(1));
 					myReserveDTO.setRes_time(rs.getTimestamp(2));
-					myReserveDTO.setCamp_id(rs.getString(3));
-					myReserveDTO.setCheckin_date(rs.getTimestamp(4));
-					myReserveDTO.setCheckout_date(rs.getTimestamp(5));
+					myReserveDTO.setCamp_id(rs.getInt(3));
+					myReserveDTO.setCheckin_date(rs.getString(4));
+					myReserveDTO.setCheckout_date(rs.getString(5));
 					myReserveDTO.setRes_status(rs.getInt(6));
+					myReserveDTO.setCamp_price(rs.getInt(7));
 					list.add(myReserveDTO);	
 				}
 			} catch (Exception e) {
@@ -179,10 +209,10 @@ public class MyReserveDAO {
 					myReserveDTO.setRes_status(rs.getInt("res_status"));
 					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
 					myReserveDTO.setRes_time(rs.getTimestamp("res_time"));
-					myReserveDTO.setCheckin_date(rs.getTimestamp("checkin_date"));
-					myReserveDTO.setCheckout_date(rs.getTimestamp("checkout_date"));
-					myReserveDTO.setCamp_id(rs.getString("camp_id"));
-					myReserveDTO.setCamp_price(rs.getInt("member_id"));
+					myReserveDTO.setCheckin_date(rs.getString("checkin_date"));
+					myReserveDTO.setCheckout_date(rs.getString("checkout_date"));
+					myReserveDTO.setCamp_id(rs.getInt("camp_id"));
+					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
 					list.add(myReserveDTO);	
 				}
 			} catch (Exception e) {
@@ -212,10 +242,10 @@ public class MyReserveDAO {
 					myReserveDTO.setRes_status(rs.getInt("res_status"));
 					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
 					myReserveDTO.setRes_time(rs.getTimestamp("res_time"));
-					myReserveDTO.setCheckin_date(rs.getTimestamp("checkin_date"));
-					myReserveDTO.setCheckout_date(rs.getTimestamp("checkout_date"));
-					myReserveDTO.setCamp_id(rs.getString("camp_id"));
-					myReserveDTO.setCamp_price(rs.getInt("member_id"));
+					myReserveDTO.setCheckin_date(rs.getString("checkin_date"));
+					myReserveDTO.setCheckout_date(rs.getString("checkout_date"));
+					myReserveDTO.setCamp_id(rs.getInt("camp_id"));
+					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
 					list.add(myReserveDTO);	
 				}
 			} catch (Exception e) {
@@ -255,10 +285,10 @@ public class MyReserveDAO {
 				while(rs.next()) {
 					MyReserveDTO myReserveDTO =new MyReserveDTO();
 					myReserveDTO.setRes_id(rs.getInt("res_id"));
-					myReserveDTO.setCamp_id(rs.getString("camp_id"));
+					myReserveDTO.setCamp_id(rs.getInt("camp_id"));
 					myReserveDTO.setRes_time(rs.getTimestamp("res_time"));
-					myReserveDTO.setCheckin_date(rs.getTimestamp("checkin_date"));
-					myReserveDTO.setCheckout_date(rs.getTimestamp("checkout_date"));
+					myReserveDTO.setCheckin_date(rs.getString("checkin_date"));
+					myReserveDTO.setCheckout_date(rs.getString("checkout_date"));
 					myReserveDTO.setRes_status(rs.getInt("res_status"));
 					myReserveDTO.setMember_id(rs.getInt("member_id"));
 					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
@@ -315,10 +345,10 @@ public class MyReserveDAO {
 					myReserveDTO = new MyReserveDTO();
 					myReserveDTO.setMember_id(rs.getInt("member_id"));
 					myReserveDTO.setRes_status(rs.getInt("res_status"));
-					myReserveDTO.setCheckin_date(rs.getTimestamp("checkin_date"));
-					myReserveDTO.setCheckout_date(rs.getTimestamp("checkout_date"));
+					myReserveDTO.setCheckin_date(rs.getString("checkin_date"));
+					myReserveDTO.setCheckout_date(rs.getString("checkout_date"));
 					myReserveDTO.setRes_time(rs.getTimestamp("res_time"));
-					myReserveDTO.setCamp_id(rs.getString("camp_id"));
+					myReserveDTO.setCamp_id(rs.getInt("camp_id"));
 					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
 					//첨부파일
 					
@@ -331,6 +361,68 @@ public class MyReserveDAO {
 			}
 			return myReserveDTO;
 		}//getBoard
+		
+		public boolean checkCamp(int camp_id, String checkin_date, String checkout_date) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			boolean checksCamp = true;
+			try {
+				con = getConnection();
+				String sql = "select * from reserveation where camp_id=? && ? >= ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, camp_id);
+				pstmt.setString(2, checkin_date);
+				pstmt.setString(3, checkout_date);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					checksCamp = true;
+				} else {
+					checksCamp = false;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			} finally {
+				if(con != null) try {con.close();} catch (Exception e2) {}
+				if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+				if(rs != null) try {rs.close();} catch (SQLException e) {}
+			}
+			return checksCamp;
+		}
+		
+		public boolean checkCamp2(int camp_id, String checkin_date, String checkout_date) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			boolean checkCamp2 = true;
+			try {
+				con = getConnection();
+				String sql = "select * from reservation where camp_id=? && res_id in (select res_id from reservation where (checkin_date >= ? && checkin_date < ?)|| (checkout_date > ? && checkout_date <= ?))";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, camp_id);
+				pstmt.setString(2, checkin_date);
+				pstmt.setString(3, checkout_date);
+				pstmt.setString(4, checkin_date);
+				pstmt.setString(5, checkout_date);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					checkCamp2 = true;
+				} else {
+					checkCamp2 = false;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			} finally {
+				if(con != null) try {con.close();} catch (Exception e2) {}
+				if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+				if(rs != null) try {rs.close();} catch (SQLException e) {}
+			}
+			return checkCamp2;
+		}
+		
+		
 		
 		
 		

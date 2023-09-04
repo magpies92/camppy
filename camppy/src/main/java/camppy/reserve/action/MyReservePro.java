@@ -21,8 +21,8 @@ public class MyReservePro implements Action {
 		int res_id=Integer.parseInt(request.getParameter("res_id"));
 	
 		
-		MyReserveDAO adao = new MyReserveDAO();
-		adao.deleteReserve(res_id);
+		MyReserveDAO mdao = new MyReserveDAO();
+		mdao.deleteReserve(res_id);
 		
 //		SalesDAO sdao = new SalesDAO();
 //		sdao.deleteSales(ano);
@@ -32,7 +32,7 @@ public class MyReservePro implements Action {
 		PrintWriter out=response.getWriter();
 		out.println("<script type='text/javascript'>");
 		out.println("alert('숙소 예약이 취소됩니다.');");
-		out.println("location.href='MyReserve.re'");
+		out.println("location.href='mypage_reserve.re'");
 		out.println("</script>");
 		out.close();
 			

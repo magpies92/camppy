@@ -12,9 +12,16 @@ public class ReserveDetailDTO {
 	private Timestamp res_time; //예약한 시간
 	private int camp_id; //캠프 아이디
 	private int camp_price; // 캠프 가격
+	private int sprice; // 총가격
 	
 	
 	
+	public int getSprice() {
+		return sprice;
+	}
+	public void setSprice(int sprice) {
+		this.sprice = sprice;
+	}
 	public int getCamp_price() {
 		return camp_price;
 	}

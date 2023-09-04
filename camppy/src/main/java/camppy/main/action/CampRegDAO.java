@@ -119,7 +119,7 @@ public class CampRegDAO {
 			pstmt.setString(10, campregDTO.getCampname());
 			pstmt.setString(11, campregDTO.getShortintro());
 			pstmt.setString(12, campregDTO.getCampimg()); 
-			pstmt.setString(13, campregDTO.getCampprice());
+			pstmt.setInt(13, campregDTO.getCampprice());
 			pstmt.setString(14, campregDTO.getBankname()); 
 			pstmt.executeUpdate();
 			
@@ -228,7 +228,7 @@ public class CampRegDAO {
 				campregDTO.setCampname(rs.getString("camp_name"));
 				campregDTO.setCampid(rs.getInt("camp_id"));
 				campregDTO.setDate(rs.getTimestamp("reg_time"));
-				campregDTO.setCampprice(rs.getString("camp_price"));
+				campregDTO.setCampprice(rs.getInt("camp_price"));
 				
 			}
 		} catch (Exception e) {
@@ -263,7 +263,7 @@ public class CampRegDAO {
 				dto.setCampimg(rs.getString("campimg"));
 				dto.setBankaccount(rs.getString("bankaccount"));
 				dto.setBankname(rs.getString("bankname"));
-				dto.setCampprice(rs.getString("campprice"));
+				dto.setCampprice(rs.getInt("campprice"));
 				dto.setDoo(rs.getString("doo"));
 				dto.setMapx(rs.getString("mapx"));
 				dto.setMapy(rs.getString("mapy"));

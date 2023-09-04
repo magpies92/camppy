@@ -5,12 +5,16 @@
     pageEncoding="UTF-8"%>
 <%@ page import="camppy.reserve.dao.ReserveDetailDTO" %>
 <%@ page import="camppy.reserve.dao.ReserveDetailDAO" %>
+<%@ page import="camppy.main.action.CampRegDAO" %>
+<%@ page import="camppy.main.action.CampRegDTO" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="camppy.reserve.dao.MyReserveDTO" %>
 <%@ page import="camppy.reserve.dao.PageDTO" %>
 <%@ page import="camppy.reserve.dao.MyReserveDAO" %>
 <%@ page import="camppy.reserve.action.ReserveService" %>
 <%@ page import="camppy.reserve.action.ReserveController" %>
+<%-- <%@ page import="camppy.main.action.CampRegDTO" %> --%>
+<%-- <%@ page import="camppy.main.action.CampRegDAO" %> --%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -114,7 +118,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
   <div class="res">  
        <div class="col-lg-12">  
        </div>
-       </div>>
+       </div>
 	<div><table class="table">
 	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
@@ -127,6 +131,8 @@ int pageCount=(Integer)request.getAttribute("pageCount");
  		//배열 한칸에 내용 가져오기 
  		ReserveDetailDTO rdto=reserveList.get(i);
  		
+ 		CampRegDAO cdao = new CampRegDAO();
+ 		CampRegDTO cdto = new CampRegDTO();
  		%> 
  	<tr><td> <%=rdto.getRes_id()%> </td> 
 	    <td> <%=rdto.getCamp_id()%> </td> 
@@ -141,21 +147,34 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 	    
 	     
 	     <script type="text/javascript">
-          var num = <%=rdto.getCamp_price()%>;
+          var num = <%=rdto.getSprice()%>;
           document.write(num.toLocaleString()+"원");
          </script>
          <%
  	
 %>
-<!-- int campPrice = rdto.getCamp_price(); -->
-<!-- // if (campPrice != 0) { -->
-<!-- //     out.print(campPrice + "박"); -->
-<!-- // } else { -->
-<!-- //     out.print("박"); -->
-<!-- // } -->
-         <%=rdto.getCamp_price()/rdto.getCamp_price()%>박
+<% 
+
+// int campPrice = rdto.getCamp_price();
+%>
+<%-- <%= campPrice %>박 --%>
+<!--  int campPrice = rdto.getCamp_price()/rdto.getCamp_price(); -->
+<!--   if (campPrice != 0) { -->
+<!--       out.print(campPrice + "박"); -->
+<!--   } else { -->
+<!--       out.print("박"); -->
+<!--   } -->
+<%
+// int campPrice = rdto.getCamp_price();
+// int sprice = rdto.getSprice();
+// String result = campPrice == 0 ? "박" : (sprice / campPrice) + "박";
+%>
+<%-- <%= result %> --%>
+         <%=rdto.getSprice()/rdto.getCamp_price()%>박
+<%-- 			  <%=rdto.getCamp_price()%>박 --%>
+				
 	    </td>
-	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='MyReservePro.pr?res_id=<%=rdto.getRes_id()%>'">Cancel</button></td></tr>
+	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='MyReservePro.re?res_id=<%=rdto.getRes_id()%>'">Cancel</button></td></tr>
 		<%
  	}
  	%> 

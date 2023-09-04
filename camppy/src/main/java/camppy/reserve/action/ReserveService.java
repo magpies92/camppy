@@ -36,6 +36,7 @@ public class ReserveService {
 			Timestamp res_time = new Timestamp(System.currentTimeMillis()); 
 			int camp_id = Integer.parseInt(request.getParameter("camp_id"));
 			int camp_price = Integer.parseInt(request.getParameter("camp_price"));
+			int sprice = Integer.parseInt(request.getParameter("sprice"));
 			
 			
 			
@@ -47,7 +48,7 @@ public class ReserveService {
 			reserveDetailDTO.setRes_time(res_time);
 			reserveDetailDTO.setCamp_id(camp_id);
 			reserveDetailDTO.setCamp_price(camp_price);
-			
+			reserveDetailDTO.setSprice(sprice);
 			// ReserveDetailDAO 객체생성
 			reserveDetailDAO = new ReserveDetailDAO();
 			// reserveDetailDTO = reserveDetailDTO() 메서드 호출
@@ -178,11 +179,12 @@ public class ReserveService {
 			
 			int member_id =Integer.parseInt(request.getParameter("member_id"));  
 			int res_status = Integer.parseInt(request.getParameter("res_status")); 
-			Timestamp checkin_date = new Timestamp(System.currentTimeMillis());
-			Timestamp checkout_date = new Timestamp(System.currentTimeMillis()); 
+			String checkin_date = request.getParameter("checkin_date");
+			String checkout_date = request.getParameter("checkout_date"); 
 			Timestamp res_time = new Timestamp(System.currentTimeMillis()); 
-			String camp_id = request.getParameter("camp_id");
+			int camp_id = Integer.parseInt(request.getParameter("camp_id"));
 			int camp_price = Integer.parseInt(request.getParameter("camp_price"));
+			int sprice = Integer.parseInt(request.getParameter("sprice"));
 			// BoardDAO 객체생성
 			myreserveDAO = new MyReserveDAO();
 			int res_id = myreserveDAO.getMaxNum() + 1;
@@ -197,6 +199,7 @@ public class ReserveService {
 			myreserveDTO.setRes_time(res_time);
 			myreserveDTO.setCamp_id(camp_id);
 			myreserveDTO.setCamp_price(camp_price);
+			myreserveDTO.setSprice(sprice);
 			// 리턴할형없음 insertBoard(boardDTO) 호출
 			myreserveDAO.insertReserve(myreserveDTO);
 		} catch (Exception e) {
