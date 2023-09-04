@@ -325,8 +325,6 @@ div.tab.active {
             <div class="updateProfile" >프로필수정</div>
           </button>
           <div class="mypageProfileNum">
-            <div class="myVisit">방문횟수</div>
-            <div class="visitNum">29</div>
             <div class="myArticle">작성글</div>
             <div class="myArticleNum">3</div>
             <div class="myReply">댓글</div>
