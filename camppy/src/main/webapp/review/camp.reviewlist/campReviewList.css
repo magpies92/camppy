@@ -37,7 +37,7 @@
 	text-align: left;
 	font: 400 19.58px/26.44px "NanumGothic", sans-serif;
 	position: absolute;
-	left: 30px;
+	left: 10px;
 	top: 30px;
 	width: 117.5px;
 	display: flex;
@@ -279,3 +279,29 @@
   font: 400 13.71px/19.58px "NanumGothic", sans-serif;
   color: #777777;
 }
+  .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+.pagination a {
+        text-decoration: none;
+        padding: 8px 16px;
+        margin: 0 4px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        color: #333;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .pagination a.active {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .pagination a:hover {
+        background-color: #333;
+        color: #fff;
+          }

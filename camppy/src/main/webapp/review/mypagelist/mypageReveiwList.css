@@ -37,7 +37,7 @@
 	text-align: left;
 	font: 400 19.58px/26.44px "NanumGothic", sans-serif;
 	position: absolute;
-	left: 30px;
+	left: 10px;
 	top: 30px;
 	width: 117.5px;
 	display: flex;
@@ -52,7 +52,29 @@
   width: 75px;
   height: 25px;
   position: absolute;
-  left: 1075px;
+  left: 905px;
+  top: 30px;
+  color: #ffffff;
+  text-align: center;
+  font: "NanumGothic", sans-serif;
+}
+.selectAll {
+  width: 90px;
+  height: 25px;
+  position: absolute;
+  left: 1066px;
+  top: 32px;
+ 
+}
+
+.selectDel {
+  background: #4da285;
+  border-radius: 5.97px;
+  flex-shrink: 0;
+  width: 75px;
+  height: 25px;
+  position: absolute;
+  left: 985px;
   top: 30px;
   color: #ffffff;
   text-align: center;
@@ -279,3 +301,52 @@
   font: 400 13.71px/19.58px "NanumGothic", sans-serif;
   color: #777777;
 }
+.reviewCheckbox {
+	display: flex;
+	flex-direction: row;
+	gap: 0.98px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-shrink: 0;
+	position: absolute;
+	left: 1135px;
+	top: 35px;
+}
+.moreList {
+	top: auto;
+    background: #4da285;
+    border-radius: 5.97px;
+    flex-shrink: 0;
+    position: absolute;
+    color: #ffffff;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    left: 50%;
+}
+  .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .pagination a {
+        text-decoration: none;
+        padding: 8px 16px;
+        margin: 0 4px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        color: #333;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .pagination a.active {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .pagination a:hover {
+        background-color: #333;
+        color: #fff;
+          }
