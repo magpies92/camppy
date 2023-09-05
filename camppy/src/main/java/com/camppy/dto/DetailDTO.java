@@ -23,6 +23,13 @@ public class DetailDTO {
 	private String pic3; //캠핑장 이미지3
 	private String pic4; //캠핑장 이미지4
 	private String pic5; //캠핑장 이미지5
+	private String elec; //캠핑장 전기
+	private String wifi; //캠핑장 와이파이
+	private String wood; //캠핑장 장작
+	private String hot; //캠핑장 온수
+	private String pool; //캠핑장 물놀이
+	private String play; //캠핑장 놀이터
+	private String gym; //캠핑장 운동시설
 
 	
 	
@@ -186,7 +193,62 @@ public class DetailDTO {
 	}
 	
 	
+	public String getElec() {
+		return elec;
+	}
+	public void setElec(String elec) {
+		this.elec = elec;
+	}
 	
+	
+	public String getWifi() {
+		return wifi;
+	}
+	public void setWifi(String wifi) {
+		this.wifi = wifi;
+	}
+	
+	
+	public String getWood() {
+		return wood;
+	}
+	public void setWood(String wood) {
+		this.wood = wood;
+	}
+	
+	
+	public String getHot() {
+		return hot;
+	}
+	public void setHot(String hot) {
+		this.hot = hot;
+	}
+	
+	
+	public String getPool() {
+		return pool;
+	}
+	public void setPool(String pool) {
+		this.pool = pool;
+	}
+	
+	
+	public String getPlay() {
+		return play;
+	}
+	public void setPlay(String play) {
+		this.play = play;
+	}
+	
+	
+	public String getGym() {
+		return gym;
+	}
+	public void setGym(String gym) {
+		this.gym = gym;
+	}
+	
+
 	
 	
 	

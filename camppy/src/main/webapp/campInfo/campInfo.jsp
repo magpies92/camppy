@@ -43,6 +43,10 @@
 
 <%
 DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
+String id=null;
+if(session.getAttribute("id") != null){
+	id = (String)session.getAttribute("id");
+}
 %>
 
 <!-- 페이지 전체 -->
@@ -137,11 +141,11 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
      </div>
 <!--운영일-->
       <div class="runDay">운영일
-        <div class="week"><%=detailDTO.getCamp_addr() %></div>
+        <div class="week"><%=detailDTO.getRuntime() %></div>
       </div>
 <!--홈페이지 연결-->
       <div class="homePage">홈페이지
-        <div class="pageLink"><%=detailDTO.getHomepage() %></div>
+        <a href="<%=detailDTO.getHomepage() %>" class="pageLink">바로 가기</a>
       </div>
 <!--주변이용시설-->
      <div class="useSpace">주변이용시설
@@ -206,8 +210,12 @@ for (int i = 1; i <= 5; i++) {
 %> 
   <!-- </div> -->
  </div> 
-        <input type="button" value="찜하기" class="likeButton">
+       <span class="unLikeButton" style="display: inline;" onclick="likeButton(this)">찜하기</span>
+        <span class="likeButton" style="display: none;" onclick="unLikeButton(this)">찜하기</span>
      </div>
+     
+
+     
  </div> <!--캠핑장 메인 정보 닫기-->
 </div> <!-- 캠핑장 정보 상단 전체 닫기-->
 
@@ -234,7 +242,7 @@ for (int i = 1; i <= 5; i++) {
 
 <!-- 캠핑장 상세 소개 -->       
   <div class="campExplain">
-   <%=detailDTO.getIntro() %></span>
+   <%=detailDTO.getIntro() %>
   </div>
 
 <!-- 캠핑장 시설 정보 -->
@@ -258,6 +266,40 @@ for (int i = 1; i <= 5; i++) {
  </div> <!-- 캠핑장 정보 닫기-->
 
  </div> <!-- 페이지 전체 닫기 -->
+ 
+ 
+ <script type="text/javascript" src="script/jquery-3.7.0.js"></script>
+ <script type="text/javascript">
+
+ function likeButton(e){
+    var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+    var id = "<%=id%>";
+    if(id==null){
+    	alert("로그인 후 사용할 수 있습니다");
+    	
+    	document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
+		
+    	
+ 		}else{
+ 			document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
+ 			alert("찜하기 목록으로 가시겠습니까?");
+ 		}
+ 
+    }
+ 
+ // 즐겨찾기 해제!!
+ function unLikeButton(e){
+    var i = $(".likeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+    document.getElementsByClassName('unLikeButton')[i].style.display = "inline"; // 즐겨찾기 취소 버튼 비활성화
+    document.getElementsByClassName('likeButton')[i].style.display = "none"; // 즐겨찾기 추가 버튼 활성화
+ 
+
+ }
+ 
+ 
+ 
+ </script>
+ 
 <!-- 푸터들어가는 곳 -->
 <jsp:include page="/inc/bottom.jsp"></jsp:include>
 <!-- 푸터들어가는 곳 -->    

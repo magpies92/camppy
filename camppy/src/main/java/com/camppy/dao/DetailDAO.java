@@ -110,8 +110,10 @@ public class DetailDAO {
 			
 			if(rs2.next()) {
 				detailDTO.setRating(rs2.getString("rating"));
+			}else {
+				detailDTO.setRating("0");
 			}
-			
+		
 			
 			ResultSet rs3=pstmt3.executeQuery();
 			
@@ -203,6 +205,8 @@ public class DetailDAO {
 			
 			if(rs2.next()) {
 				detailDTO.setRating(rs2.getString("rating"));
+			}else {
+				detailDTO.setRating("0");
 			}
 			
 			

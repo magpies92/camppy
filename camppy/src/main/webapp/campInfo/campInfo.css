@@ -394,10 +394,23 @@
 
 .likeButton {
   color: #ffffff;
-  font: 700 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.8vw "NanumGothic", sans-serif;
   text-align: center;
   border-radius: 0.2660vw;
   background: #e32242;
+  height: 1.8vw;
+  position: absolute;
+  width: 4vw;
+  left: 19vw;
+}
+
+.unLikeButton {
+  color: #e32242;
+  font: 700 0.7293vw/1.6vw "NanumGothic", sans-serif;
+  text-align: center;
+  border-radius: 0.2660vw;
+  border-style: solid;
+  border-color:  #e32242;
   height: 1.8vw;
   position: absolute;
   width: 4vw;
