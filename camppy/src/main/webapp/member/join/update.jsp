@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/update.css" />
+    <link rel="stylesheet" href="member/join/update.css" />
 
     <style>
       a,
@@ -18,7 +18,7 @@
       h2,
       h3,
       h4,
-      h5,
+      h5, 
       * {
         margin: 0;
         padding: 0;
@@ -28,11 +28,79 @@
         background: none;
       }
     </style>
+    <script type="text/javascript" 
+        src="script/jquery-3.7.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var originalNick = $('.nick').val();
+    $('#join').submit(function(event){
+    	event.preventDefault();
+        if ($('.nick').val() === originalNick) {
+            // 닉네임이 기존과 같으면 중복 검사를 하지 않습니다.
+            // 비밀번호 검사를 진행합니다.
+            if($('.pass').val()==""){
+                alert("비밀번호 입력하세요");
+                $('.pass').focus();
+                return false;
+            }
+            if ($('.pass').val().length < 5 || $('.pass').val().length > 20) {
+                alert("비밀번호는 5~20자 사이여야 합니다.");
+                $('.pass').focus();
+                return false;
+            }
+            if ($('.pass').val() != $('.check').val()) {
+                alert("비밀번호가 일치하지 않습니다.");
+                $('.check').focus();
+                return false;
+            }
+            
+            // 모든 검사가 성공하면 양식을 제출합니다.
+            $('#join')[0].submit();
+        } else {
+        	$.ajax({
+                url:'nickCheck.me',
+                data:{'nick':$('.nick').val()},
+                success:function(result){
+                    if (result == 11) {
+                        alert("닉네임 중복입니다. 다른 닉네임을 입력해주세요.")
+                        $('.nick').focus();
+                        $('.edit-profile__nickname').css('border-color', 'red');
+                        return false;
+                    }
+                    if (result == 00) {
+                        $('.edit-profile__nickname').css('border-color', '#777777');
+                        
+                        // 닉네임 중복 검사가 성공한 후 비밀번호 검사를 진행합니다.
+                        if($('.pass').val()==""){
+                            alert("비밀번호 입력하세요");
+                            $('.pass').focus();
+                            return false;
+                        }
+                        if ($('.pass').val().length < 5 || $('.pass').val().length > 20) {
+                            alert("비밀번호는 5~20자 사이여야 합니다.");
+                            $('.pass').focus();
+                            return false;
+                        }
+                        if ($('.pass').val() != $('.check').val()) {
+                            alert("비밀번호가 일치하지 않습니다.");
+                            $('.check').focus();
+                            return false;
+                        }
+                        
+                        // 모든 검사가 성공하면 양식을 제출합니다.
+                        $('#join')[0].submit();
+                    }
+                }
+            });
+        }
+    });
+});
+</script>
     <title>Document</title>
   </head>
   <body>
 <%MemberDTO memberDTO=(MemberDTO)request.getAttribute("memberDTO");%>
-<form action="updatePro.me" method="post">
+<form action="updatePro.me" id="join" method="post">
     <div class="edit-profile">
       <div class="edit-profile__edit-header">
         <div class="edit-profile__">프로필 편집</div>
@@ -47,11 +115,11 @@
         </div>
         <div class="edit-profile__pass-check">
           <div class="edit-profile__4">비밀번호 확인</div>
-          <div class="edit-profile__input-passcheck"></div>
+<input type="password" class="check" name="check">
         </div>
         <div class="edit-profile__pass">
           <div class="edit-profile__4">비밀번호</div>
-<input type="password" class="edit-profile__input-pass" name="pass">
+<input type="password" id="pass" class="pass" name="pass">
         </div>
         <div class="edit-profile__id">
           <div class="edit-profile__4">아이디</div>
@@ -59,12 +127,12 @@
         </div>
         <div class="edit-profile__nickname">
           <div class="edit-profile__4">닉네임</div>
-<input type="text" class="edit-profile__input-nickname" name="nick">
+<input type="text" id="nick" class="nick" name="nick" value="<%=memberDTO.getNick() %>">
         </div>
         <div class="edit-profile__picture">
           <img
             class="edit-profile__free-icon-user-8484069-2"
-            src="./images/free-icon-user-8484069-2.png"
+            src="member/join/images/free-icon-user-8484069-2.png"
           />
           <div class="edit-profile__input-button">
             <div class="edit-profile__5">사진 등록</div>

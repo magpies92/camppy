@@ -65,7 +65,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		id="reviewForm">
 		<div class="writeBody">
 			<div class="writeReviewLogo">
-				<img class="camppyLogo" src="logoCamppy.png" />
+				<img class="camppyLogo" src="images/camppy-2.png" />
 			</div>
 			<div class="writeStar">
 
@@ -97,7 +97,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					readonly>
 			</div>
 			<div class="campidBox">
-				캠프장아이디 : (주석해제로 가릴 예정) <input type="text" name="camp_id" value="1"
+				캠프장아이디 : (주석해제로 가릴 예정) <input type="text" name="camp_id" value="2"
 					readonly>
 			</div>
 

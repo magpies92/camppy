@@ -1,0 +1,174 @@
+.questionInsert,
+.questionInsert * {
+  box-sizing: border-box;
+}
+.questionInsert {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 9.79px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 1880px;
+  position: relative;
+  overflow: hidden;
+}
+
+.questionInsertSectionBody {
+  flex-shrink: 0;
+  width: 1880px;
+  height: 1300px;
+  position: relative;
+  overflow: hidden;
+}
+.questionInsertInputBox {
+  padding: 9.79px;
+  display: flex;
+  flex-direction: column;
+  gap: 9.79px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 1199.48px;
+  height: 830.33px;
+  position: absolute;
+  left: 331.94px;
+  top: 199.75px;
+}
+
+.questionInsertLine1 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.98px 0 0 0;
+  flex-shrink: 0;
+  width: 1121.15px;
+  height: 0px;
+  position: absolute;
+  left: 34.27px;
+  top: 141px;
+}
+.questionInsertLine2 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.98px 0 0 0;
+  flex-shrink: 0;
+  width: 1121.15px;
+  height: 0px;
+  position: absolute;
+  left: 34.27px;
+  top: 658.98px;
+}
+.questionInsertPictureIcon {
+  opacity: 0.30000001192092896;
+  flex-shrink: 0;
+  width: 104.77px;
+  height: 82.25px;
+  position: absolute;
+  left: 35.25px;
+  top: 704.02px;
+}
+.questionInsertBox {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.98px;
+  flex-shrink: 0;
+  width: 1199.48px;
+  height: 830.33px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.questionInsertTitle {
+  display: flex;
+  flex-direction: row;
+  gap: 9.79px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 331.94px;
+  top: 126.31px;
+}
+.questionInsert3 {
+  color: #000000;
+  text-align: center;
+  font: 700 31.33px "Inter", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.questionInsert1 {
+  border-color: #000000;
+  text-align: left;
+  font: 700 31.33px "Inter", sans-serif;
+  position: absolute;
+  left: 40.04px;
+  top: 126.71px;
+  width: 1100.73px;
+  height: 51.19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  resize: none;
+}
+.questionInsert2 {
+   border-color: #000000;
+  text-align: left;
+  font: 500 31.33px "Inter", sans-serif;
+  position: absolute;
+  left: 45.04px;
+  top: 223.29px;
+  width: 1100.73px;
+  height: 500.71px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+   resize: none;
+ }
+.questionInsertButton {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 1199.48px;
+  height: 96.94px;
+  position: absolute;
+  left: 331.94px;
+  top: 1059.46px;
+  overflow: hidden;
+}
+.questionInsertLeaveButton {
+  border-radius: 4.9px;
+  border-style: solid;
+  border-color: #4da385;
+  border-width: 1.96px;
+  flex-shrink: 0;
+  width: 182.12px;
+  height: 82.25px;
+  position: absolute;
+  left: 0px;
+  top: 7.83px;
+  overflow: hidden;
+  color: #4da385;
+  text-align: center;
+  font: 700 31.33px "Inter", sans-serif;
+}
+
+.questionInsertRegisterButton {
+  background: #4da385;
+  border-radius: 4.9px;
+  flex-shrink: 0;
+  width: 182.12px;
+  height: 82.25px;
+  position: absolute;
+  left: 1017.35px;
+  top: 7.83px;
+  overflow: hidden;
+  color: #ffffff;
+  text-align: center;
+  font: 700 31.33px "Inter", sans-serif;
+}
+

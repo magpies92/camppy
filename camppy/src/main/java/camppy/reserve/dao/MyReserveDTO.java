@@ -6,32 +6,52 @@ public class MyReserveDTO {
 	
 	private int res_id;
 	private Timestamp res_time;
-	private String camp_id;
-	private Timestamp checkin_date;
-	private Timestamp checkout_date;
+	private int camp_id;
+	private String checkin_date;
+	private String checkout_date;
 	private int res_status;
 	private int member_id;
+	private int camp_price;
+	private int sprice;
 	
 	
 	
 	
 	
+	public int getSprice() {
+		return sprice;
+	}
+	public void setSprice(int sprice) {
+		this.sprice = sprice;
+	}
+	public int getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+	public int getCamp_price() {
+		return camp_price;
+	}
+	public void setCamp_price(int camp_price) {
+		this.camp_price = camp_price;
+	}
 	public int getRes_id() {
 		return res_id;
 	}
 	public void setRes_id(int res_id) {
 		this.res_id = res_id;
 	}
-	public String getRes_time() {
+	public Timestamp getRes_time() {
 		return res_time;
 	}
-	public void setRes_time(String res_time) {
+	public void setRes_time(Timestamp res_time) {
 		this.res_time = res_time;
 	}
-	public String getCamp_id() {
+	public int getCamp_id() {
 		return camp_id;
 	}
-	public void setCamp_id(String camp_id) {
+	public void setCamp_id(int camp_id) {
 		this.camp_id = camp_id;
 	}
 	public String getCheckin_date() {

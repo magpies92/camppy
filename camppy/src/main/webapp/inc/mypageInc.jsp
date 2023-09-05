@@ -1,3 +1,5 @@
+<%@page import="camppy.member.MemberDTO"%>
+<%@page import="camppy.member.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!DOCTYPE html>
@@ -309,19 +311,20 @@ div.tab.active {
 
 
 <body>
-
+<%
+	//세션에서 로그인정보, 예약정보 가져오기
+	String id = (String) session.getAttribute("member_id");
+	%>
         <div class="mypageProfile">
           <img
             class="mypageUserIcon"
             src="free-icon-user-8484069-2.png"
           />
-          <div class="profileNickname">발레하는 고구마</div>
+          <div class="profileNickname"><%=nickName %></div>
           <button type="button" onclick="location.href = 'abc.jsp'" class="updateButton">
-            <div class="updateProfile">프로필수정</div>
+            <div class="updateProfile" >프로필수정</div>
           </button>
           <div class="mypageProfileNum">
-            <div class="myVisit">방문횟수</div>
-            <div class="visitNum">29</div>
             <div class="myArticle">작성글</div>
             <div class="myArticleNum">3</div>
             <div class="myReply">댓글</div>

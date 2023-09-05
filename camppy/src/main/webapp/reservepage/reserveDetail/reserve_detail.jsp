@@ -192,8 +192,8 @@ CampRegDTO campRegDTO = (CampRegDTO)request.getAttribute("campRegDTO");
 
 
 		<div id="wrap">
-			<form action="reserve_detailPro.re" name="appointmentform"
-				id="appointment" method="post">
+			<form action="reserve_detailPro.re" name="reserve_detailform"
+				id="reserve_detail" method="post">
 				<fieldset>
 					<h3 class="menu-section">예약자 정보확인</h3>
 					<div class="ap-services">

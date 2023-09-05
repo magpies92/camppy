@@ -77,6 +77,29 @@ public class MemberService {
 		
 	}// userCheck(request)
 	
+	public MemberDTO userCheck2(HttpServletRequest request) {
+		System.out.println("MemberService userCheck()");
+		//MemberDTO memberDTO 변수 선언 => 초기값 null
+		MemberDTO memberDTO = null;
+		try {
+			//http://localhost:8080/webProject/jsp3/loginPro.jsp?id=kim&pass=123
+			//사용자가 입력한 정보(폼)를 http가 들고와서 서버에 request 에 저장
+			//request에 저장된 id, pass 가져와서 -> 변수에 저장
+			String id = request.getParameter("id");
+			
+			// MemberDAO 객체생성
+			memberDAO = new MemberDAO();
+	        // MemberDTO memberDTO = userCheck() 메서드 호출
+			memberDTO = memberDAO.userCheck2(id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return memberDTO;
+		
+	}// userCheck(request)
+	
 	// MemberDTO memberDTO = getMember(id) 메서드 호출
 	public MemberDTO getMember(String id) {
 		MemberDTO memberDTO = null;

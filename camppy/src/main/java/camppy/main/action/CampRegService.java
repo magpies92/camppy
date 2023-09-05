@@ -146,13 +146,21 @@ public class CampRegService {
 			String bankaccount = multi.getParameter("bankaccount");
 			String bankname = multi.getParameter("bankname");
 			String intro = multi.getParameter("intro");
-			String campprice = multi.getParameter("campprice");
+			int campprice = Integer.parseInt(multi.getParameter("campprice"));
 			String  addr1= multi.getParameter("postAddr1");
 			String  addr2= multi.getParameter("postAddr2");
 			String  addr3= multi.getParameter("postAddr3");
 			String  doo= multi.getParameter("doo");
 			String  sigungu= multi.getParameter("sigungu");
-			String campaddr = addr1+" "+addr2+" "+addr3;
+			String campaddr;
+			if (addr3.equalsIgnoreCase("")){
+			campaddr = addr2;
+			}
+			else
+			{
+				campaddr = addr2+" "+addr3;
+				
+			}
 			String mapx=multi.getParameter("mapx");
 			String mapy=multi.getParameter("mapy");	    		
 		                     int i = 0;

@@ -26,7 +26,7 @@ public class CampRegDTO {
 	private String campimg;
 	private String bankaccount;
 	private String bankname;
-	private String campprice;
+	private int campprice;
 	private String doo;
 	private String mapx;
 	private String mapy;
@@ -87,10 +87,10 @@ public class CampRegDTO {
 		this.sigungu = sigungu;
 	}
 	private String sigungu;
-	public String getCampprice() {
+	public int getCampprice() {
 		return campprice;
 	}
-	public void setCampprice(String campprice) {
+	public void setCampprice(int campprice) {
 		this.campprice = campprice;
 	}
 	public String getHomepage() {

@@ -4,17 +4,24 @@ import java.sql.Timestamp;
 
 public class ReserveDetailDTO {
 	
-	private int res_id;	
-	private int member_id;
-	private int res_status;
-	private String checkin_date;
-	private String checkout_date;
-	private Timestamp res_time;
-	private int camp_id;
-	private int camp_price;
+	private int res_id;	// 예약번호
+	private int member_id; // 회원아이디
+	private int res_status; // 예약상태
+	private String checkin_date; // 체크인
+	private String checkout_date; // 체크아웃
+	private Timestamp res_time; //예약한 시간
+	private int camp_id; //캠프 아이디
+	private int camp_price; // 캠프 가격
+	private int sprice; // 총가격
 	
 	
 	
+	public int getSprice() {
+		return sprice;
+	}
+	public void setSprice(int sprice) {
+		this.sprice = sprice;
+	}
 	public int getCamp_price() {
 		return camp_price;
 	}
