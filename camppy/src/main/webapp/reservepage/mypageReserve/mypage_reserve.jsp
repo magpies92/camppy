@@ -69,7 +69,7 @@ height: 150px;
 <body>
 
 <!-- 헤더들어가는 곳 -->
-<%-- <jsp:include page="../inc/my_header.jsp" /> --%>
+	<jsp:include page="../../inc/top.jsp"/>
 <!-- 헤더들어가는 곳 -->
 		
 
@@ -99,6 +99,8 @@ int pageBlock=(Integer)request.getAttribute("pageBlock");
 int endPage=(Integer)request.getAttribute("endPage");
 int pageCount=(Integer)request.getAttribute("pageCount");
 	
+PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
+
 	List<ReserveDetailDTO> reserveList=(List<ReserveDetailDTO>)request.getAttribute("reserveList");
   SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
 %>
@@ -117,6 +119,11 @@ int pageCount=(Integer)request.getAttribute("pageCount");
  <article class="art">	
   <div class="res">  
        <div class="col-lg-12">  
+       startPage<%=startPage %>
+       pageBlock<%=pageBlock %>
+       endPage<%=endPage %>
+       pageCount<%=pageCount %>
+       
        </div>
        </div>
 	<div><table class="table">
@@ -130,12 +137,14 @@ int pageCount=(Integer)request.getAttribute("pageCount");
  	for(int i=0;i<reserveList.size();i++){
  		//배열 한칸에 내용 가져오기 
  		ReserveDetailDTO rdto=reserveList.get(i);
- 		
- 		CampRegDAO cdao = new CampRegDAO();
- 		CampRegDTO cdto = new CampRegDTO();
+//  		MyReserveDTO mdto = new MyReserveDTO();
+ 
+//  		CampRegDAO cdao = new CampRegDAO();
+//  		CampRegDTO cdto = new CampRegDTO();
  		%> 
  	<tr><td> <%=rdto.getRes_id()%> </td> 
-	    <td> <%=rdto.getCamp_id()%> </td> 
+ 	
+	    <td> <%=rdto.getCamp_name()%> </td> 
 	        <td class="a"> <% 
 	    if(rdto.getRes_status()==0){
  	    	out.print("입금대기"); 	    
@@ -180,7 +189,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
  	%> 
 	</table>
 	</div>
-
+<h1>page</h1>
 <%
 // 한 화면에 보여줄 페이지 개수 설정
 // int pageBlock=10;
@@ -231,7 +240,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 
  if(startPage > pageBlock){
 	%>
-	<a href="mypage.reserve.re?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
+	<a href="mypage_reserve.re?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
 	<%
 }
  %>
@@ -240,7 +249,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
  for(int i=startPage;i<=endPage;i++){
 	%>
 	
-	<a href="mypage.reserve.re?pageNum=<%=i%>"><%=i%></a>
+	<a href="mypage_reserve.re?pageNum=<%=i%>"><%=i%></a>
 	<%
 }
  %> 
@@ -250,7 +259,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 // 10페이지 다음
 if(endPage < pageCount){
 	%>
-	<a href="mypage.reserve.re?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
+	<a href="mypage_reserve.re?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 	<%
 
  }
@@ -290,7 +299,7 @@ if(endPage < pageCount){
 </article>
 </div>
 <!-- <!-- 푸터 들어가는 곳  -->
-<%-- <jsp:include page="../inc/.jsp" /> --%>
+	<jsp:include page="../../inc/bottom.jsp" />
 <!-- <!-- 푸터 들어가는 곳 -->
 
 </body>

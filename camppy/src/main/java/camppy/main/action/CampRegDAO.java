@@ -281,5 +281,37 @@ public class CampRegDAO {
 		return dto;
 	}//getCampReg()
 	
-
+	
+	public CampRegDTO getCampReg2(String campname) {
+		CampRegDTO campregDTO = null;
+		try {
+			//1,2 디비연결
+			con = getConnection();
+			//3 sql select * from campreg where num = ?
+			String sql="select * from camp where camp_name = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, campname);
+			//4 실행 => 결과 저장
+			rs = pstmt.executeQuery();
+			//5 결과 행접근 => campregDTO 객체생성 
+			//        => set메서드 호출 => 열접근 데이터 저장
+			if(rs.next()) {
+				campregDTO = new CampRegDTO();
+				campregDTO.setCampimg(rs.getString("camp_img"));
+				campregDTO.setCampname(rs.getString("camp_name"));
+				campregDTO.setCampid(rs.getInt("camp_id"));
+				campregDTO.setDate(rs.getTimestamp("reg_time"));
+				campregDTO.setCampprice(rs.getInt("camp_price"));
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return campregDTO;
+	}//getCampReg
+	
+	
+	
 }//클래스

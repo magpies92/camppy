@@ -82,8 +82,8 @@ public class ReserveDetailPro implements Action {
 //						out.println("</script>");
 //						out.close();
 //					}
-				ReserveDetailDAO rdao = new ReserveDetailDAO();
-//		        MyReserveDAO sdao = new MyReserveDAO();
+//				ReserveDetailDAO rdao = new ReserveDetailDAO();
+		        MyReserveDAO sdao = new MyReserveDAO();
 //		        	if(boolean check1=sdao.checksSales1(pno, indate, outdate);) { // 입실 가능한 인원 수 입력되어 있으면
 						MyReserveDAO mdao = new MyReserveDAO();
 						// 퇴실일이 입실일보다 이전이거나 같은경우 경고창 띄우고 history.back
