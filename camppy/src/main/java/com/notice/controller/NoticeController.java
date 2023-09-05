@@ -123,22 +123,6 @@ public class NoticeController extends HttpServlet {
 			
 			
 			
-//			if(sPath.equals("/fwrite.no")) {
-//				// 주소변경없이 이동 notice/noticeInsert/noticeInsert.jsp
-//				dispatcher = request.getRequestDispatcher("notice/noticeInsert/noticeInsert.jsp");
-//				dispatcher.forward(request, response);
-//			}
-//			if(sPath.equals("/fwritePro.no")) {
-//				System.out.println("뽑은 가상주소 비교 : /fwritePro.no");
-//				// noticeService 객체생성
-//				noticeService = new NoticeService();
-//				noticeService.finsertNotice(request);
-//				response.sendRedirect("list.no");
-//			}
-			
-			
-			
-			
 			if(sPath.equals("/update.no")) {
 				System.out.println("뽑은 가상주소 비교 : /update.no");
 				
@@ -153,10 +137,10 @@ public class NoticeController extends HttpServlet {
 				
 			}
 			if(sPath.equals("/updatePro.no")) {
-				System.out.println("뽑은 가상주소 비교 : /fupdatePro.no");
+				System.out.println("뽑은 가상주소 비교 : /updatePro.no");
 				// noticeService 객체생성
 				noticeService = new NoticeService();
-				noticeService.fupdateNotice(request);
+				noticeService.updateNotice(request);
 				response.sendRedirect("list.no");
 			}
 			

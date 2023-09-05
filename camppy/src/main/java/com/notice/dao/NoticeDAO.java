@@ -191,6 +191,30 @@ public class NoticeDAO {
 		return noticeDTO;
 	} // getNotice(int notice_id)
 
+	
+	
+	public void updateNotice(NoticeDTO noticeDTO) {
+		try {
+			con = getConnection();
+			
+			String sql = "update notice set create_by=?, post_type=?, title=? where notice_id = ?";
+			
+			pstmt=con.prepareStatement(sql);
+			
+			pstmt.setString(1, noticeDTO.getCreated_by());
+			pstmt.setString(2, noticeDTO.getPost_type());
+			pstmt.setString(3,  noticeDTO.getTitle());
+			pstmt.setInt(4, noticeDTO.getNotice_id());
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		
+	} // updateNotice
+
 
 	
 
