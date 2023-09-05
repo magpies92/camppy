@@ -1,3 +1,4 @@
+<%@page import="org.apache.catalina.mbeans.DataSourceUserDatabaseMBean"%>
 <%@page import="com.camppy.dto.DetailDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -44,6 +45,7 @@
 <%
 DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
 String camp_addr = detailDTO.getCamp_addr();
+
 %>
 
 <!-- 페이지 전체 -->
@@ -138,11 +140,11 @@ String camp_addr = detailDTO.getCamp_addr();
      </div>
 <!--운영일-->
       <div class="runDay">운영일
-        <div class="week"><%=detailDTO.getCamp_addr() %></div>
+        <div class="week"><%=detailDTO.getRuntime() %></div>
       </div>
 <!--홈페이지 연결-->
       <div class="homePage">홈페이지
-        <div class="pageLink"><%=detailDTO.getHomepage() %></div>
+        <a href="<%=detailDTO.getHomepage() %>" class="pageLink">바로 가기</a>
       </div>
 <!--주변이용시설-->
      <div class="useSpace">주변이용시설
@@ -207,7 +209,8 @@ for (int i = 1; i <= 5; i++) {
 %> 
   <!-- </div> -->
  </div> 
-        <input type="button" value="찜하기" class="likeButton">
+	    <span class="unLikeButton" style="display: inline;" onclick="likeButton(this)">찜하기</span>
+        <span class="likeButton" style="display: none;" onclick="unLikeButton(this)">찜하기</span>
      </div>
  </div> <!--캠핑장 메인 정보 닫기-->
 </div> <!-- 캠핑장 정보 상단 전체 닫기-->
@@ -216,7 +219,7 @@ for (int i = 1; i <= 5; i++) {
  <div class="infoLinkList">
    <!-- <div class="infoLink1">캠핑장소개</div> -->
    <input type="button" value="캠핑장소개" class="infoLink2"
-           onclick="location.href='position.de?campId=<%=detailDTO.getCamp_id() %>'" >
+           onclick="location.href='detail.de?campId=<%=detailDTO.getCamp_id() %>'" >
            
    <div class="infoLink1">위치/주변정보</div>
    
@@ -285,6 +288,20 @@ geocoder.addressSearch(addr, function(result, status) {
     map.setCenter(coords);
 } 
 });     
+
+function likeButton(e){
+    var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+    document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
+    document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
+ }
+ // 즐겨찾기 해제
+ function unLikeButton(e){
+    var i = $(".likeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+    document.getElementsByClassName('unLikeButton')[i].style.display = "inline"; // 즐겨찾기 취소 버튼 비활성화
+    document.getElementsByClassName('likeButton')[i].style.display = "none"; // 즐겨찾기 추가 버튼 활성화
+ }
+
+  
 
 </script>
 
