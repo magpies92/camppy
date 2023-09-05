@@ -65,7 +65,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		id="reviewForm">
 		<div class="writeBody">
 			<div class="writeReviewLogo">
-				<img class="camppyLogo" src="logoCamppy.png" />
+				<img class="camppyLogo" src="images/camppy-2.png" />
 			</div>
 			<div class="writeStar">
 

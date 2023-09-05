@@ -1,0 +1,376 @@
+.questionList,
+.questionList * {
+  box-sizing: border-box;
+}
+.questionList {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 9.81px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 1880px;
+  position: relative;
+  overflow: hidden;
+}
+.questionListSectionQna {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 1880px;
+  height: 1260px;
+  position: relative;
+  overflow: hidden;
+}
+.questionListAdminQuestion {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 1449.25px;
+  height: 650.54px;
+  position: absolute;
+  left: 215.87px;
+  top: 44.16px;
+}
+.questionListHeading {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 213.9px;
+  height: 47.1px;
+  position: absolute;
+  left: 52.99px;
+  top: 17.66px;
+}
+.questionListA {
+  color: #000000;
+  text-align: left;
+  font: 700 31.4px "Inter", sans-serif;
+  position: absolute;
+  left: -0.59px;
+  top: 5.08px;
+  width: 214.29px;
+  transform-origin: 0 0;
+  transform: rotate(-0.633deg) scale(1, 1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.questionListHeader {
+  border-style: solid;
+  border-color: #a39a9a;
+  border-width: 0.98px 0px 0.98px 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 1338.37px;
+  height: 66.72px;
+  position: absolute;
+  left: 52.99px;
+  top: 78.5px;
+}
+.questionList2 {
+  color: #333333;
+  text-align: center;
+  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 51.02px;
+  top: calc(50% - 8.83px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionList3 {
+  color: #333333;
+  text-align: center;
+  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: calc(50% - 18.64px);
+  top: calc(50% - 8.83px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionList4 {
+  color: #333333;
+  text-align: center;
+  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 1250.06px;
+  top: calc(50% - 8.83px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionListQuestionList2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.49px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 1338.37px;
+  height: 460.19px;
+  position: absolute;
+  left: 52.99px;
+  top: 145.22px;
+}
+.questionListLine1 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0px 0px 0.98px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 1338.37px;
+  height: 87.33px;
+  position: relative;
+}
+.questionList5 {
+  color: #000000;
+  text-align: center;
+  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: calc(50% - 653.49px);
+  top: 18.64px;
+  width: 103.03px;
+  height: 51.02px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionList6 {
+  color: #000000;
+  text-align: center;
+  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: calc(50% - 142.28px);
+  top: 18.64px;
+  width: 284.55px;
+  height: 51.02px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionList7 {
+  color: #000000;
+  text-align: center;
+  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: calc(50% - -566.16px);
+  top: 18.64px;
+  width: 83.4px;
+  height: 51.02px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionListLine2 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0px 0px 0.98px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 1338.37px;
+  height: 87.33px;
+  position: relative;
+}
+
+.questionListLine3 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0px 0px 0.98px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 1338.37px;
+  height: 87.33px;
+  position: relative;
+}
+.questionListLine4 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0px 0px 0.98px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 1338.37px;
+  height: 87.33px;
+  position: relative;
+}
+.questionListLine5 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0px 0px 0.98px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 1338.37px;
+  height: 87.33px;
+  position: relative;
+}
+.questionListMemberQuestion {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 1449.25px;
+  height: 476.87px;
+  position: absolute;
+  left: 215.87px;
+  top: 732.96px;
+}
+.questionList10 {
+  color: #333333;
+  text-align: center;
+  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: calc(50% - 203.11px);
+  top: calc(50% - 8.83px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionList11 {
+  color: #333333;
+  text-align: center;
+  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 880.15px;
+  top: calc(50% - 8.83px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionList12 {
+  color: #333333;
+  text-align: center;
+  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 1036.16px;
+  top: calc(50% - 8.83px);
+  width: 78.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionList13 {
+  color: #333333;
+  text-align: center;
+  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 1218.66px;
+  top: calc(50% - 8.83px);
+  width: 77.52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionListQuestionList3 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.49px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 1338.37px;
+  height: 309.08px;
+  position: absolute;
+  left: 52.99px;
+  top: 145.22px;
+}
+.questionList1 {
+  color: #000000;
+  text-align: center;
+  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 64.76px;
+  top: calc(50% - 8.34px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionList14 {
+  color: #000000;
+  text-align: center;
+  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 376.78px;
+  top: calc(50% - 8.34px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionList15 {
+  color: #000000;
+  text-align: center;
+  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 856.6px;
+  top: calc(50% - 8.34px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionList2023 {
+  color: #000000;
+  text-align: center;
+  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 1034.2px;
+  top: calc(50% - 8.34px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionListB {
+  color: #000000;
+  text-align: center;
+  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 1235.19px;
+  top: calc(50% - 8.34px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
