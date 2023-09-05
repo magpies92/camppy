@@ -198,7 +198,7 @@ public class NoticeService {
 				
 				noticeDAO = new NoticeDAO();
 				
-				noticeDAO.fupdateNotice(noticeDTO);
+
 						
 						
 			} catch (Exception e) {
