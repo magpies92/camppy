@@ -85,6 +85,27 @@
 </servlet>
 
 
+ <servlet-mapping>
+	<servlet-name>NoticeController</servlet-name>
+	<url-pattern>*.no</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>NoticeController</servlet-name>
+	<servlet-class>com.notice.controller.NoticeController</servlet-class>
+</servlet>
+
+
+ <servlet-mapping>
+	<servlet-name>QuestionController</servlet-name>
+	<url-pattern>*.qu</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>QuestionController</servlet-name>
+	<servlet-class>com.notice.controller.QuestionController</servlet-class>
+</servlet>
+
 
   <!--   가상주소에 해당하는 처리담당자(서블릿파일)=> 주소매핑 -->
 <!-- http://localhost:8080/FunWeb/list.bo -->
