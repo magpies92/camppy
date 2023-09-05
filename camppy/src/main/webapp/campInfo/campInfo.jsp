@@ -287,7 +287,7 @@ for (int i = 1; i <= 5; i++) {
  
     }
  
- // 즐겨찾기 해제
+ // 즐겨찾기 해제!!
  function unLikeButton(e){
     var i = $(".likeButton").index(e); // 같은 클래스 내 index 값을 가져옴
     document.getElementsByClassName('unLikeButton')[i].style.display = "inline"; // 즐겨찾기 취소 버튼 비활성화
