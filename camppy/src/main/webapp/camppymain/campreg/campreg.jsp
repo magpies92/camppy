@@ -2,31 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
+<%@page import="java.text.Normalizer"%>
 <!DOCTYPE html>
 <html>
 <head>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("a[name='file-delete']").on("click", function(e) {
-            e.preventDefault();
-            deleteFile($(this));
-        });
-    })
- 
-    function addFile() {
-        var str = "<div class='file-group'><input type='file' name='file'><a href='#this' name='file-delete'>삭제</a></div>";
-        $("#file-list").append(str);
-        $("a[name='file-delete']").on("click", function(e) {
-            e.preventDefault();
-            deleteFile($(this));
-        });
-    }
- 
-    function deleteFile(obj) {
-        obj.parent().remove();
-    }
-    
-    function selectAll(selectAll)  {
+       function selectAll(selectAll)  {
     	  const checkboxes1 
     	       = document.getElementsByName('camptag1');
     	  const checkboxes2 

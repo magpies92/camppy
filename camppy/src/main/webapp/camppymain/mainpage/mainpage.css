@@ -474,7 +474,6 @@
   border-radius: 150px;
 }
 .mainpage__icon-1:hover { /* a태그에 마우스를 올렸을 때 */
-
   cursor: pointer; 
 }
 .mainpage__icon-2 {
@@ -691,6 +690,10 @@
   left: calc(50% - 117.5px);
   top: 53.85px;
 }
+.mainpage__best-num-1-img:hover {
+
+  cursor: pointer; 
+}
 .mainpage__best-num-1-name {
   color: #000000;
   text-align: center;
@@ -727,6 +730,10 @@
   position: absolute;
   left: calc(50% - 117.5px);
   top: 53.85px;
+}
+.mainpage__best-num-2-img:hover {
+
+  cursor: pointer; 
 }
 .mainpage__best-num-2-name {
   color: #000000;
@@ -765,6 +772,10 @@
   left: calc(50% - 117.5px);
   top: 53.85px;
 }
+.mainpage__best-num-3-img:hover {
+
+  cursor: pointer; 
+}
 .mainpage__best-num-3-name {
   color: #000000;
   text-align: center;
@@ -802,6 +813,10 @@
   left: calc(50% - 117.5px);
   top: 53.85px;
 }
+.mainpage__best-num-4-img:hover {
+
+  cursor: pointer; 
+}
 .mainpage__best-num-4-name {
   color: #000000;
   text-align: center;
@@ -838,6 +853,10 @@
   position: absolute;
   left: calc(50% - 117.5px);
   top: 53.85px;
+}
+.mainpage__best-num-5-img:hover {
+
+  cursor: pointer; 
 }
 .mainpage__best-num-5-name {
   color: #000000;

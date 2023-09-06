@@ -206,13 +206,13 @@
   justify-content: flex-start;
   flex-shrink: 0;
   position: absolute;
-  left: 1299.35px;
-  top: 909.65px;
+  /* left: 1299.35px;
+  top: 909.65px; */
 }
 .mainpage__forest-7 {
   flex-shrink: 0;
-  width: 440.62px;
-  height: 440.62px;
+  width: 600px;
+  height: 600px;
   position: relative;
 }
 .mainpage__4 {
@@ -220,11 +220,11 @@
   text-align: center;
   font: 400 23.5px/27.42px "NanumGothic", sans-serif;
   position: relative;
-  width: 440.62px;
-  height: 44.06px;
-  display: flex;
+ /*  width: 440.62px; */
+/*   height: 44.06px; */
+ /*  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 .mainpage__info-5 {
   display: flex;
