@@ -22,8 +22,8 @@ public class MyReservePro implements Action {
 		int res_id=Integer.parseInt(request.getParameter("res_id"));
 	
 		
-		ReserveDetailDAO rdao = new ReserveDetailDAO();
-		rdao.deleteReserveDetail(res_id);
+//		ReserveDetailDAO rdao = new ReserveDetailDAO();
+//		rdao.deleteReserveDetail(res_id);
 		
 		
 		MyReserveDAO mdao = new MyReserveDAO();

@@ -119,11 +119,11 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
  <article class="art">	
   <div class="res">  
        <div class="col-lg-12">  
-       startPage<%=startPage %>
-       pageBlock<%=pageBlock %>
-       endPage<%=endPage %>
-       pageCount<%=pageCount %>
-       
+<%--        startPage<%=startPage %> --%>
+<%--        pageBlock<%=pageBlock %> --%>
+<%--        endPage<%=endPage %> --%>
+<%--        pageCount<%=pageCount %> --%>
+      	 <h3 class="heading-section">Reservation</h3><br> 
        </div>
        </div>
 	<div><table class="table">
@@ -144,14 +144,14 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
  		%> 
  	<tr><td> <%=rdto.getRes_id()%> </td> 
  	
-	    <td> <%=rdto.getCamp_name()%> </td> 
+	    <td> <%=rdto.getCamp_name()%> </td>
 	        <td class="a"> <% 
 	    if(rdto.getRes_status()==0){
  	    	out.print("입금대기"); 	    
  	    }else if(rdto.getRes_status()==1){
  	    	out.print("예약완료");
   	    }%> </td>
-	    <td> <%=rdto.getRes_time()%> </td>
+	    <td> <%=dateFormat.format(rdto.getRes_time()) %> </td>
 	    <td>
 	    
 	     
@@ -189,7 +189,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
  	%> 
 	</table>
 	</div>
-<h1>page</h1>
+<!-- <h1>page</h1> -->
 <%
 // 한 화면에 보여줄 페이지 개수 설정
 // int pageBlock=10;

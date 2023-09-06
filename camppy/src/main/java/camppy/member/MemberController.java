@@ -98,7 +98,7 @@ public class MemberController extends HttpServlet{
 				HttpSession session = request.getSession();
 				session.setAttribute("id", memberDTO.getId());
 				// 주소 변경하면서 이동 -> 가상주소 main.me 이동 
-				response.sendRedirect("update.me");
+				response.sendRedirect("main.camp");
 			}else {
 			// 아이디 비밀번호 틀림 -> 아이디 , 비밀번호 틀림 , 뒤로이동
 				System.out.println(memberDTO);

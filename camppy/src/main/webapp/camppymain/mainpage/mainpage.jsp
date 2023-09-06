@@ -111,7 +111,7 @@
             </div>
             
             
-            <form action="search.camp" method="post" class="mainpage__div-search-box">
+            <form action="list.camp" method="post" class="mainpage__div-search-box">
               <div class="mainpage__div-searchbox-form">
                 <div class="mainpage__div-form-1-2">             
  <select name="sido" class="mainpage__options-1">
@@ -173,20 +173,11 @@
             </div>
           <div class="mainpage__category-icon">
           <%
-			// BoardService 객체생성
-			CampRegService campregService1 = new CampRegService();
-			// BoardDTO boardDTO = getBoard(request) 메서드 호출
-			CampRegDTO campregDTO1 = campregService1.getCampReg(1);
-			// request에 "boardDTO",boardDTO 담아서
-			CampRegService campregService2 = new CampRegService();
-			// BoardDTO boardDTO = getBoard(request) 메서드 호출
-			CampRegDTO campregDTO2 = campregService2.getCampReg(25);
-			CampRegService campregService3 = new CampRegService();
-			// BoardDTO boardDTO = getBoard(request) 메서드 호출 
-			CampRegDTO campregDTO3 = campregService3.getCampReg(3);
-			CampRegService campregService4 = new CampRegService();
-			// BoardDTO boardDTO = getBoard(request) 메서드 호출
-			CampRegDTO campregDTO4 = campregService2.getCampReg(4);
+			CampRegService campregService = new CampRegService();
+			CampRegDTO campregDTO1 = campregService.getCampReg(1);
+			CampRegDTO campregDTO2 = campregService.getCampReg(25);	
+			CampRegDTO campregDTO3 = campregService.getCampReg(3);			
+			CampRegDTO campregDTO4 = campregService.getCampReg(4);
 			
 			
 		
@@ -235,72 +226,86 @@
         
           
         </div>
+         <%
+			CampRegDTO camprankDTO1 = campregService.getCampRank(1);
+			CampRegDTO camprankDTO2 = campregService.getCampRank(2);
+			CampRegDTO camprankDTO3 = campregService.getCampRank(3);
+			CampRegDTO camprankDTO4 = campregService.getCampRank(4);
+			CampRegDTO camprankDTO5 = campregService.getCampRank(5);
+	
+		%>
         <div class="mainpage__section-best">
           <div class="mainpage__best">
             <div class="mainpage__best-contents">
               <div class="mainpage__div-best-num-1">
                 <div class="mainpage__best-num-1-contents">
-                  부산광역시 부산진구 부전동 동천로 109 삼한골든게이트 아이티윌
-                  부산교육센터 7층
+                  <%=camprankDTO1.getShortintro()%>
                 </div>
+                <button type="button" onclick="location.href='detail.de?campId=<%=camprankDTO1.getCampid()%>'">
                 <img
                   class="mainpage__best-num-1-img"
-                  src="camppymain/mainpage/best-num-1-img.png"
+                  src="campimg/<%=camprankDTO1.getCampimg()%>"
                 />
+                </button>
+                
                 <div class="mainpage__best-num-1-name">
-                  1위 기장 베스트 카라반
+                  1위 <%=camprankDTO1.getCampname()%>
                 </div>
               </div>
               <div class="mainpage__div-best-num-2">
                 <div class="mainpage__best-num-2-contents">
-                  부산광역시 부산진구 부전동 동천로 109 삼한골든게이트 아이티윌
-                  부산교육센터 7층
+                  <%=camprankDTO2.getShortintro()%>
                 </div>
+                <button type="button" onclick="location.href='detail.de?campId=<%=camprankDTO2.getCampid()%>'">
                 <img
                   class="mainpage__best-num-2-img"
-                  src="camppymain/mainpage/best-num-2-img.png"
+                  src="campimg/<%=camprankDTO2.getCampimg()%>"
                 />
+                </button>
                 <div class="mainpage__best-num-2-name">
-                  2위 양산 산마루 펜션
+                  2위 <%=camprankDTO2.getCampname()%>
                 </div>
               </div>
               <div class="mainpage__div-best-num-3">
                 <div class="mainpage__best-num-3-contents">
-                  부산광역시 부산진구 부전동 동천로 109 삼한골든게이트 아이티윌
-                  부산교육센터 7층
+                  <%=camprankDTO3.getShortintro()%>
                 </div>
+                <button type="button" onclick="location.href='detail.de?campId=<%=camprankDTO3.getCampid()%>'">
                 <img
                   class="mainpage__best-num-3-img"
-                  src="camppymain/mainpage/best-num-3-img.png"
+                  src="campimg/<%=camprankDTO3.getCampimg()%>"
                 />
+                </button>
                 <div class="mainpage__best-num-3-name">
-                  3위 김해 가야 글램핑
+                  3위 <%=camprankDTO3.getCampname()%>
                 </div>
               </div>
               <div class="mainpage__div-best-num-4">
                 <div class="mainpage__best-num-4-contents">
-                  부산광역시 부산진구 부전동 동천로 109 삼한골든게이트 아이티윌
-                  부산교육센터 7층
+                  <%=camprankDTO4.getShortintro()%>
                 </div>
+                <button type="button" onclick="location.href='detail.de?campId=<%=camprankDTO4.getCampid()%>'">
                 <img
                   class="mainpage__best-num-4-img"
-                  src="camppymain/mainpage/best-num-4-img.png"
+                  src="campimg/<%=camprankDTO4.getCampimg()%>"
                 />
+                </button>
                 <div class="mainpage__best-num-4-name">
-                  4위 창원 산마루 캠핑장
+                  4위 <%=camprankDTO4.getCampname()%>
                 </div>
               </div>
               <div class="mainpage__div-best-num-5">
                 <div class="mainpage__best-num-5-contents">
-                  부산광역시 부산진구 부전동 동천로 109 삼한골든게이트 아이티윌
-                  부산교육센터 7층
+                  <%=camprankDTO5.getShortintro()%>
                 </div>
+                <button type="button" onclick="location.href='detail.de?campId=<%=camprankDTO5.getCampid()%>'">
                 <img
                   class="mainpage__best-num-5-img"
-                  src="camppymain/mainpage/best-num-5-img.png"
+                  src="campimg/<%=camprankDTO5.getCampimg()%>"
                 />
+                </button>
                 <div class="mainpage__best-num-5-name">
-                  5위 울산 갯바위 펜션
+                  5위 <%=camprankDTO5.getCampname()%>
                 </div>
               </div>
             </div>

@@ -50,19 +50,19 @@ public class CampRegController extends HttpServlet {
 //		http://localhost:8080/FunWeb/list.bo?pageNum=2
 
 		
-		 if(sPath.equals("/camp.campreg")) {
-		System.out.println("뽑은 가상주소 비교 : /list.bo");
-		
-		// List<BoardDTO> boardList = getBoardList(); 메서드 호출
-		campregService = new CampRegService();
-		int campid=0;
-
-		List<CampRegDTO> campregList=campregService.getCampRegList(campid);
-
-		 // 주소변경없이 이동 center/notice.jsp dispatcher =
-		  request.getRequestDispatcher("center/notice.jsp");
-		  dispatcher.forward(request, response); }//
-		
+		/*
+		 * if(sPath.equals("/camp.campreg")) {
+		 * System.out.println("뽑은 가상주소 비교 : /list.bo");
+		 * 
+		 * // List<BoardDTO> boardList = getBoardList(); 메서드 호출 campregService = new
+		 * CampRegService(); int campid=0;
+		 * 
+		 * List<CampRegDTO> campregList=campregService.getCampRegList(campid);
+		 * 
+		 * // 주소변경없이 이동 center/notice.jsp dispatcher =
+		 * request.getRequestDispatcher("center/notice.jsp");
+		 * dispatcher.forward(request, response); }//
+		 */		
 		
 
 		// 첨부파일
