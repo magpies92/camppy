@@ -54,7 +54,7 @@ public class ReviewController extends HttpServlet{
 			reviewService.insertReview(request);
 			// 주소 변경없이 list.bo 이동 
 			dispatcher 
-		    = request.getRequestDispatcher("review/camp.reveiwlist/campReviewList.jsp");
+		    = request.getRequestDispatcher("review/camp.reviewlist/campReviewList.jsp");
 			dispatcher.forward(request, response);
 		}//if
 		if(sPath.equals("/campReviewList.rv")) {
@@ -80,7 +80,7 @@ public class ReviewController extends HttpServlet{
 			request.setAttribute("reviewList", reviewList);
 			
 			dispatcher 
-		    = request.getRequestDispatcher("review/mypagelist/mypageReveiwList.jsp");
+		    = request.getRequestDispatcher("review/mypagelist/mypageReviewList.jsp");
 			dispatcher.forward(request, response);
 		}//
 //		// http://localhost:8080/MVCProject/content.bo?num=1
