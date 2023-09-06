@@ -225,7 +225,7 @@ for (int i = 1; i <= 5; i++) {
            onclick="location.href='position.de?campId=<%=detailDTO.getCamp_id() %>'" >
    <!-- <div class="infoLink2">캠핑후기</div> -->
    <input type="button" value="캠핑후기" class="infoLink2"
-           onclick="location.href='list.bo?campId=<%=detailDTO.getCamp_id() %>'" > 
+           onclick="location.href='review.de?campId=<%=detailDTO.getCamp_id() %>'" > 
  </div>
  
 <!-- 캠핑장 중간 사진 -->
