@@ -456,7 +456,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   position: absolute;
-  left: 9vw;
+  left: 18.5vw;
   top: 41vw;
 }
 
@@ -788,7 +788,7 @@
         align-items: center;
         margin-top: 20px;
         position:relative;
-        left: 33vw;
+        left: 24vw;
     }
 
 .pagination a {
