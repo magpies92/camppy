@@ -52,12 +52,12 @@ public class ReserveDetailPro implements Action {
 				CampRegDTO cdto = cdao.getCampReg(camp_id);
 				int sprice = cdto.getCampprice()*daycount;
 			   	
-			   	
-			   	
+
 //			   	// 총 숙박료 계산
 //				ReserveDetailDAO rdao = new ReserveDetailDAO();
 //				ReserveDetailDTO rdto = rdao.getDetailList(camp_id);
 //				int sprice = rdto.getCamp_price()*daycount;
+				
 				
 				 // 입실일이 과거면 안되게 하는 기능
 				String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
@@ -82,13 +82,13 @@ public class ReserveDetailPro implements Action {
 //						out.println("</script>");
 //						out.close();
 //					}
-//				ReserveDetailDAO rdao = new ReserveDetailDAO();
-		        MyReserveDAO sdao = new MyReserveDAO();
+				ReserveDetailDAO rdao = new ReserveDetailDAO();
+//		        MyReserveDAO sdao = new MyReserveDAO();
 //		        	if(boolean check1=sdao.checksSales1(pno, indate, outdate);) { // 입실 가능한 인원 수 입력되어 있으면
 						MyReserveDAO mdao = new MyReserveDAO();
-						// 퇴실일이 입실일보다 이전이거나 같은경우 경고창 띄우고 history.back
-						boolean check1=mdao.checkCamp(camp_id, checkin_date, checkout_date);
 					
+						// 퇴실일이 입실일보다 이전이거나 같은경우 경고창 띄우고 history.back
+						boolean check1=rdao.checkCamp(camp_id, checkin_date, checkout_date);					
 						if(check1==true){
 						response.setContentType("text/html; charset=UTF-8");
 						PrintWriter out = response.getWriter();
@@ -115,9 +115,9 @@ public class ReserveDetailPro implements Action {
 			
 								//Appointment dto에 값 저장
 								MyReserveDTO mdto=new MyReserveDTO();
-								mdto.setRes_id(res_id);
-								mdto.setCamp_id(camp_id);
-								mdto.setRes_time(res_time);
+//								mdto.setRes_id(res_id);
+//								mdto.setCamp_id(camp_id);
+//								mdto.setRes_time(res_time);
 
 								MyReserveDAO dao=new MyReserveDAO();
 								// DB에 예약정보 저장

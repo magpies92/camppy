@@ -298,7 +298,7 @@ public class CampRegDAO {
 			if(rs.next()) {
 				campregDTO = new CampRegDTO();
 				campregDTO.setCampimg(rs.getString("camp_img"));
-				campregDTO.setCampname(rs.getString("camp_name"));
+				campregDTO.setCampname(rs.getString("campname"));
 				campregDTO.setCampid(rs.getInt("camp_id"));
 				campregDTO.setDate(rs.getTimestamp("reg_time"));
 				campregDTO.setCampprice(rs.getInt("camp_price"));
