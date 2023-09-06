@@ -102,7 +102,7 @@ public class ReviewService {
 		try {
 		//  BoardService => int num = request 파라미터값 가져오기
 		int review_id=Integer.parseInt(request.getParameter("review_id"));
-//			 => ReviewdDAO 객체생성 , deleteReview(reveiw_id) 호출
+//			 => ReviewdDAO 객체생성 , deleteReview(review_id) 호출
 		reviewDAO =new ReviewDAO();
 		reviewDAO.deleteReview(review_id);
 		} catch (Exception e) {
