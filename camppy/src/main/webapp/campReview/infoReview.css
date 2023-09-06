@@ -532,6 +532,7 @@
 	top: 15px;
 	border-bottom: solid;
 	border-width: 1px;
+	margin-bottom: -6px;
 	
 }
 
@@ -594,7 +595,7 @@
 	width: 1150px;
 	height: 87.15px;
 	position: relative;
-	margin-top: 10px;
+	margin-bottom: -20px;
 }
 
 .campinfoStar {
@@ -668,7 +669,7 @@
 	left: auto;
 	top: 0px;
 	width: 145px;
-	height: 30px;
+	height: 20px;
 	display: flex;
 	align-items: center;
 }
