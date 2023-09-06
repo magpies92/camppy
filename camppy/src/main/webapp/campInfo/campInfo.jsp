@@ -43,10 +43,8 @@
 
 <%
 DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
-String id=null;
-if(session.getAttribute("id") != null){
-	id = (String)session.getAttribute("id");
-}
+String id=(String)session.getAttribute("id");
+
 %>
 
 <!-- 페이지 전체 -->
@@ -211,7 +209,7 @@ for (int i = 1; i <= 5; i++) {
   <!-- </div> -->
  </div> 
        <span class="unLikeButton" style="display: inline;" onclick="likeButton(this)">찜하기</span>
-        <span class="likeButton" style="display: none;" onclick="unLikeButton(this)">찜하기</span>
+       <span class="likeButton" style="display: none;" onclick="unLikeButton(this)">찜하기</span> 
      </div>
      
 
@@ -271,18 +269,17 @@ for (int i = 1; i <= 5; i++) {
  <script type="text/javascript" src="script/jquery-3.7.0.js"></script>
  <script type="text/javascript">
 
- function likeButton(e){
-    var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
-    var id = "<%=id%>";
-    if(id==null){
+ function likeButton(e){ // e -> (this)의 정보를 여기로 전달하겠다
+ 	var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+ 	var id = "<%=id%>"; <%-- String으로 들고 와서 "" 붙여야 됨 --%>
+	    if(id=="null"){ <%-- String으로 들고 와서 "" 붙여야 됨 --%>
     	alert("로그인 후 사용할 수 있습니다");
-    	
-    	document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
-		
+    	location.href="${sPath}/camppy/login.me";
     	
  		}else{
- 			document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
  			alert("찜하기 목록으로 가시겠습니까?");
+ 			//document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
+ 			document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
  		}
  
     }

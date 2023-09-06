@@ -1,6 +1,7 @@
 package camppy.mypage;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import camppy.main.action.PageDTO;
 import camppy.mypage.MypageService;
 
 public class MypageController extends HttpServlet {
@@ -58,5 +60,69 @@ public class MypageController extends HttpServlet {
 //			    = request.getRequestDispatcher("review/camp.reveiwlist/campReviewList.jsp");
 //				dispatcher.forward(request, response);
 //			}
-	}
-}
+		
+		if(sPath.equals("/likeList.my")) {
+			System.out.println("가상주소 비교: /likeList.my");
+			
+			//한 페이지에서 보여지는 글 개수 설정
+			int pageSize = 10;
+			
+			//페이지 번호
+			String pageNum = request.getParameter("pageNum");
+			
+			//페이지 번호가 없으면 1페이지 설정
+			if(pageNum == null) {
+				pageNum = "1";
+			}
+			
+			//페이지 번호 -> 정수형 변경
+			int currentPage = Integer.parseInt(pageNum);
+			
+			PageDTO pageDTO = new PageDTO();
+			pageDTO.setPageSize(pageSize);
+			pageDTO.setPageNum(pageNum);
+			pageDTO.setCurrentPage(currentPage);
+			
+			//BoardService 객체 생성
+			mypageService = new MypageService();
+			//List<LikeDTO> likeList = getLikeList(); 메서드 호출
+			List<LikeDTO> likeList = mypageService.getLikeList(pageDTO);
+			
+			//게시판 전체 글 개수 구하기
+			int count=mypageService.getLikeCount();
+			
+			//한 화면에 보여 줄 페이지 개수 설정
+			int pageBlock=10;
+			
+			//시작하는 페이지 번호
+			int startPage=(currentPage-1)/pageBlock*pageBlock+1;
+			
+			//끝나는 페이지 번호
+			int endPage=startPage+pageBlock-1;
+			
+			//계산한 값
+			int pageCount=count/pageSize+(count%pageSize==0?0:1);
+			if(endPage > pageCount) { //endPage > 전체 페이지
+				endPage = pageCount; // endPage = 전체 페이지;
+			}
+			
+			//pageDTO 저장
+			pageDTO.setCount(count);
+			pageDTO.setPageBlock(pageBlock);
+			pageDTO.setStartPage(startPage);
+			pageDTO.setEndPage(endPage);
+			
+			//request에 "likeList", likeList 저장
+			request.setAttribute("likeList", likeList);
+			request.setAttribute("pageDTO", pageDTO);
+			//주소 변경 없이 이동 (myLikeList/myLikeList.jsp)
+			dispatcher = request.getRequestDispatcher("myLikeList/myLikeList.jsp");
+			dispatcher.forward(request, response);	
+		}//likeList.my
+		
+		
+		
+		
+		
+	}//doProcess
+}//MypageController
