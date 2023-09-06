@@ -40,6 +40,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	<%
 	DetailDTO detailDTO = (DetailDTO) request.getAttribute("detailDTO");
 	String camp_addr = detailDTO.getCamp_addr();
+	String id=(String)session.getAttribute("id");
 	%>
 
 	<!-- 페이지 전체 -->
@@ -223,7 +224,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				<input type="button" value="위치/주변정보" class="infoLink2"
 					onclick="location.href='position.de?campId=<%=detailDTO.getCamp_id()%>'">
 					
-				<div class="infoLink1">캠핑후기</div>
+				<div class="infoLink2">캠핑후기</div>
 				<!--    <input type="button" value="캠핑후기" class="infoLink2" -->
 				<%--            onclick="location.href='list.bo?campId=<%=detailDTO.getCamp_id() %>'" >  --%>
 			</div>
@@ -233,10 +234,10 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				<!-- 타이틀 -->
 				<%
 				//세션에서 로그인 정보 및 캠프 아이디를 가져오기
-				//         String id = (String) session.getAttribute("id");
-				//   	   int camp_id = (int)session.getAttribute("camp_id");
-				String id = "ksb"; //임의의 id 설정중
-				int camp_id = 2; // 임의의 camp_id 설정중
+				
+				
+				
+				
 				%>
 				<div class="reviewTop">
 					<div class="reviewCount">이용후기</div>
@@ -352,15 +353,22 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					<!-- 푸터들어가는 곳 -->
 					<jsp:include page="/inc/bottom.jsp"></jsp:include>
 					<!-- 푸터들어가는 곳 -->
-					<script type="text/javascript"
-						src="//dapi.kakao.com/v2/maps/sdk.js?appkey=
-0f4aea8ae72f25c6618d8ef10e96afac&libraries=services"></script>
+					
 					<script type="text/javascript">
-						function likeButton(e) {
-							var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
-							document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
-							document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
-						}
+					function likeButton(e){ // e -> (this)의 정보를 여기로 전달하겠다
+					 	var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+					 	var id = "<%=id%>"; <%-- String으로 들고 와서 "" 붙여야 됨 --%>
+						    if(id=="null"){ <%-- String으로 들고 와서 "" 붙여야 됨 --%>
+					    	alert("로그인 후 사용할 수 있습니다");
+					    	location.href="${sPath}/camppy/login.me";
+					    	
+					 		}else{
+					 			alert("찜하기 목록으로 가시겠습니까?");
+					 			//document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
+					 			document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
+					 		}
+					 
+					    }
 						// 즐겨찾기 해제
 						function unLikeButton(e) {
 							var i = $(".likeButton").index(e); // 같은 클래스 내 index 값을 가져옴

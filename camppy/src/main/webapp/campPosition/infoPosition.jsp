@@ -45,7 +45,7 @@
 <%
 DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
 String camp_addr = detailDTO.getCamp_addr();
-
+String id=(String)session.getAttribute("id");
 %>
 
 <!-- 페이지 전체 -->
@@ -289,11 +289,20 @@ geocoder.addressSearch(addr, function(result, status) {
 } 
 });     
 
-function likeButton(e){
-    var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
-    document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
-    document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
- }
+function likeButton(e){ // e -> (this)의 정보를 여기로 전달하겠다
+ 	var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+ 	var id = "<%=id%>"; <%-- String으로 들고 와서 "" 붙여야 됨 --%>
+	    if(id=="null"){ <%-- String으로 들고 와서 "" 붙여야 됨 --%>
+    	alert("로그인 후 사용할 수 있습니다");
+    	location.href="${sPath}/camppy/login.me";
+    	
+ 		}else{
+ 			alert("찜하기 목록으로 가시겠습니까?");
+ 			//document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
+ 			document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
+ 		}
+ 
+    }
  // 즐겨찾기 해제
  function unLikeButton(e){
     var i = $(".likeButton").index(e); // 같은 클래스 내 index 값을 가져옴
