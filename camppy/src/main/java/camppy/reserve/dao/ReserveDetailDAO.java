@@ -69,23 +69,27 @@ public class ReserveDetailDAO {
 	
 	
 	
-	public List<ReserveDetailDTO> getReserveList(int member_id){
-		String SQL = "select * from reservation where member_id=? order by res_id desc";
+	public List<ReserveDetailDTO> getReserveList(PageDTO pageDTO){
+		String SQL = "select * from reservation where member_id=? order by res_id desc limit ?,?";
 		List<ReserveDetailDTO> list = new ArrayList<ReserveDetailDTO>();
 		try {
 			con = getConnection();
 			PreparedStatement pstmt = con.prepareStatement(SQL);
-			 pstmt.setInt(1, member_id);
+			 pstmt.setInt(1, pageDTO.getMember_id());
+			 pstmt.setInt(2, pageDTO.getStartRow()-1);
+			 pstmt.setInt(3, pageDTO.getPageSize());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ReserveDetailDTO reserveDetailDTO = new ReserveDetailDTO();
 				reserveDetailDTO.setMember_id(rs.getInt("member_id"));
 				reserveDetailDTO.setRes_id(rs.getInt("res_id"));
 				reserveDetailDTO.setRes_status(rs.getInt("res_status"));
+				reserveDetailDTO.setRes_time(rs.getTimestamp("res_time"));
 				reserveDetailDTO.setCamp_price(rs.getInt("camp_price"));
 				reserveDetailDTO.setCheckin_date(rs.getString("checkin_date"));
 				reserveDetailDTO.setCheckout_date(rs.getString("checkout_date"));
 				reserveDetailDTO.setCamp_id(rs.getInt("camp_id"));
+				reserveDetailDTO.setCamp_name(rs.getString("camp_name"));
 				reserveDetailDTO.setSprice(rs.getInt("sprice"));
 				list.add(reserveDetailDTO);	
 			}
@@ -116,6 +120,7 @@ public class ReserveDetailDAO {
 				dto.setCheckin_date(rs.getString("checkin_date"));
 				dto.setCheckout_date(rs.getString("checkout_date"));
 				dto.setCamp_id(rs.getInt("camp_id"));
+				dto.setCamp_name(rs.getString("camp_name"));
 				dto.setSprice(rs.getInt("sprice"));
 //				list.add(reserveDetailDTO);	
 			}
@@ -126,6 +131,50 @@ public class ReserveDetailDAO {
 		}
 		return dto;
 	}
+	
+	
+	public int getReserveCount(PageDTO pageDTO) {
+		int count = 0;
+		try {
+			//1,2 디비연결
+			con=getConnection();
+			//3 sql select count(*) from board
+			String sql = "select count(*) from reservation where member_id = ?;";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, pageDTO.getMember_id());
+			//4 실행 => 결과저장
+			rs = pstmt.executeQuery();
+			//5 결과 행접근 => 열접근 => count변수 저장
+			if(rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return count;
+	}//getBoardCount()
+	
+	// 예약취소
+		public void deleteReserveDetail(int res_id) {
+			Connection con =null;
+			PreparedStatement pstmt=null;
+			try {
+				con=getConnection();
+				String sql2="delete from reservation where res_id=?";
+				pstmt=con.prepareStatement(sql2);
+				pstmt.setInt(1, res_id);  //set 문자열 (1번째 물음표, 값 id)
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+		}//deleteReserveDetail()
+	
+	
 	
 	public boolean checkCamp(int camp_id, String checkin_date, String checkout_date) {
 		Connection con = null;
@@ -195,7 +244,7 @@ public class ReserveDetailDAO {
 	public void insertReserve(ReserveDetailDTO reserveDetailDTO) {
 		try {
 			con=getConnection();
-			String sql = "insert into reservation(checkout_date, res_status, member_id, res_time, camp_id, checkin_date, camp_price) values(?,?,?,?,?,?,?)";
+			String sql = "insert into reservation(checkout_date, res_status, member_id, res_time, camp_id, checkin_date, camp_price, sprice, camp_name) values(?,?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			
 			pstmt.setString(1, reserveDetailDTO.getCheckout_date());
@@ -205,6 +254,8 @@ public class ReserveDetailDAO {
 			pstmt.setInt(5, reserveDetailDTO.getCamp_id());
 			pstmt.setString(6, reserveDetailDTO.getCheckin_date());
 			pstmt.setInt(7, reserveDetailDTO.getCamp_price());
+			pstmt.setInt(8, reserveDetailDTO.getSprice());
+			pstmt.setString(9, reserveDetailDTO.getCamp_name());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

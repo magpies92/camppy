@@ -19,6 +19,7 @@ import camppy.reserve.dao.PageDTO;
 import camppy.reserve.action.ReserveService;
 import com.mysql.cj.Session;
 
+import camppy.main.action.CampRegDAO;
 import camppy.main.action.CampRegDTO;
 import camppy.main.action.CampRegService;
 import camppy.member.MemberDTO;
@@ -66,12 +67,17 @@ public class ReserveController extends HttpServlet {
 			
 			
 //			int campid=Integer.parseInt(request.getParameter("campid"));
-			int campid=3;
+//			int campid=3;
+			
+//			campRegService = new CampRegService();
+//			CampRegDTO campRegDTO=campRegService.getCampReg(campid);
+			String campname="사천솔섬캠핑장";
 			campRegService = new CampRegService();
-			CampRegDTO campRegDTO=campRegService.getCampReg(campid);
+			CampRegDTO campRegDTO=campRegService.getCampReg2(campname);
 			
 			System.out.println("memberDTO.getMember_id" + memberDTO.getMember_id());
-			System.out.println("campRegDTO.getCamp_id" + campRegDTO.getCampid());
+//			System.out.println("campRegDTO.getCamp_id" + campRegDTO.getCampid());
+			System.out.println("campRegDTO.getCamp_id" + campRegDTO.getCampname());
 			System.out.println("campRegDTO.getCampprice" + campRegDTO.getCampprice());
 			request.setAttribute("memberDTO", memberDTO);	
 			request.setAttribute("campRegDTO", campRegDTO);
@@ -106,9 +112,9 @@ public class ReserveController extends HttpServlet {
 			int member_id=memberDTO.getMember_id();
 			
 			reserveService = new ReserveService();
-			List<ReserveDetailDTO> reserveList =reserveService.getReserveList(member_id);
-		
-			request.setAttribute("reserveList", reserveList);
+//			List<ReserveDetailDTO> reserveList =reserveService.getReserveList(member_id);
+//		
+//			request.setAttribute("reserveList", reserveList);
 			
 			
 			int pageSize=10;
@@ -129,10 +135,15 @@ public class ReserveController extends HttpServlet {
 			// BoardService 객체생성
 			reserveService = new ReserveService();
 //List<BoardDTO> boardList = getBoardList(); 메서드 호출
-			List<MyReserveDTO> PageList=reserveService.getPageList(pageDTO);
+//			List<MyReserveDTO> PageList=reserveService.getPageList(pageDTO);
+			pageDTO.setMember_id(member_id);
+			
+			List<ReserveDetailDTO> reserveList =reserveService.getReserveList(pageDTO);
+			
+			
 			
 			// 게시판 전체 글 개수 구하기 
-			int count = reserveService.getReserveCount();
+			int count = reserveService.getReserveCount(pageDTO);
 			// 한화면에 보여줄 페이지개수 설정
 			int pageBlock = 10;
 			// 시작하는 페이지번호
@@ -155,7 +166,7 @@ public class ReserveController extends HttpServlet {
 			if(endPage > pageCount) {
 				endPage = pageCount;
 			}
-			
+			System.out.println("count " + count) ;
 			//pageDTO 저장
 			pageDTO.setCount(count);
 			pageDTO.setPageBlock(pageBlock);
@@ -164,12 +175,18 @@ public class ReserveController extends HttpServlet {
 			pageDTO.setPageCount(pageCount);
 			
 			// request에 "boardList",boardList 저장
-			request.setAttribute("pageList", PageList);
+			
+			request.setAttribute("reserveList", reserveList);
+			
+//			request.setAttribute("pageList", PageList);
 			request.setAttribute("pageDTO", pageDTO);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("pageBlock", pageBlock);
 			request.setAttribute("endPage", endPage);
 			request.setAttribute("pageCount", pageCount);
+			
+			
+			
 			
 			dispatcher 
 		    = request.getRequestDispatcher("reservepage/mypageReserve/mypage_reserve.jsp");

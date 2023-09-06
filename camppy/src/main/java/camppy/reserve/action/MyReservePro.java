@@ -10,6 +10,7 @@ import camppy.reserve.dao.ActionReserve;
 
 import camppy.reserve.dao.MyReserveDAO;
 import camppy.reserve.dao.ReserveDetailDAO;
+import camppy.reserve.dao.ReserveDetailDTO;
 
 public class MyReservePro implements Action {
 
@@ -20,6 +21,10 @@ public class MyReservePro implements Action {
 
 		int res_id=Integer.parseInt(request.getParameter("res_id"));
 	
+		
+		ReserveDetailDAO rdao = new ReserveDetailDAO();
+		rdao.deleteReserveDetail(res_id);
+		
 		
 		MyReserveDAO mdao = new MyReserveDAO();
 		mdao.deleteReserve(res_id);

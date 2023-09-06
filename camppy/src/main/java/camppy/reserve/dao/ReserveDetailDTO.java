@@ -13,9 +13,19 @@ public class ReserveDetailDTO {
 	private int camp_id; //캠프 아이디
 	private int camp_price; // 캠프 가격
 	private int sprice; // 총가격
+	private String camp_name;
 	
 	
 	
+	
+	
+	
+	public String getCamp_name() {
+		return camp_name;
+	}
+	public void setCamp_name(String camp_name) {
+		this.camp_name = camp_name;
+	}
 	public int getSprice() {
 		return sprice;
 	}

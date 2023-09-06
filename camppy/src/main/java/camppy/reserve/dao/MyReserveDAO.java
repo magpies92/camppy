@@ -246,6 +246,7 @@ public class MyReserveDAO {
 					myReserveDTO.setCheckout_date(rs.getString("checkout_date"));
 					myReserveDTO.setCamp_id(rs.getInt("camp_id"));
 					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
+					myReserveDTO.setSprice(rs.getInt("sprice"));
 					list.add(myReserveDTO);	
 				}
 			} catch (Exception e) {
@@ -293,6 +294,7 @@ public class MyReserveDAO {
 					myReserveDTO.setMember_id(rs.getInt("member_id"));
 					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
 					
+					
 					// => 배열 한칸에 저장
 					pageList.add(myReserveDTO);
 				}
@@ -327,6 +329,30 @@ public class MyReserveDAO {
 			return count;
 		}//getBoardCount()
 		
+		public int getReserveCount(PageDTO pageDTO) {
+			int count = 0;
+			try {
+				//1,2 디비연결
+				con=getConnection();
+				//3 sql select count(*) from board
+				String sql = "select count(*) from reservation where member_id = ?;";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, pageDTO.getMember_id());
+				//4 실행 => 결과저장
+				rs = pstmt.executeQuery();
+				//5 결과 행접근 => 열접근 => count변수 저장
+				if(rs.next()) {
+					count = rs.getInt("count(*)");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbClose();
+			}
+			return count;
+		}//getBoardCount()
+		
+		
 		
 		public MyReserveDTO getReserve(int res_id) {
 			MyReserveDTO myReserveDTO = null;
@@ -350,6 +376,7 @@ public class MyReserveDAO {
 					myReserveDTO.setRes_time(rs.getTimestamp("res_time"));
 					myReserveDTO.setCamp_id(rs.getInt("camp_id"));
 					myReserveDTO.setCamp_price(rs.getInt("camp_price"));
+					myReserveDTO.setSprice(rs.getInt("sprice"));
 					//첨부파일
 					
 					
@@ -467,7 +494,7 @@ public class MyReserveDAO {
 				if(pstmt2!=null) try { pstmt2.close();} catch (Exception e2) {}
 				if(con!=null) try { con.close();} catch (Exception e2) {}
 			}
-		}//deleteAppointment()
+		}//deleteReserve()
 		
 		
 		

@@ -1,6 +1,8 @@
 package camppy.reserve.action;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import camppy.reserve.dao.PageDTO;
 
 import camppy.main.action.CampRegDAO;
+import camppy.main.action.CampRegDTO;
 import camppy.reserve.dao.MyReserveDAO;
 import camppy.reserve.dao.MyReserveDTO;
 import camppy.reserve.dao.ReserveDetailDAO;
@@ -36,7 +39,22 @@ public class ReserveService {
 			Timestamp res_time = new Timestamp(System.currentTimeMillis()); 
 			int camp_id = Integer.parseInt(request.getParameter("camp_id"));
 			int camp_price = Integer.parseInt(request.getParameter("camp_price"));
-			int sprice = Integer.parseInt(request.getParameter("sprice"));
+			String camp_name = request.getParameter("camp_name");
+			
+			
+			// 총 숙박일 계산
+			LocalDate startDate = LocalDate.parse(checkin_date);
+			LocalDate endDate = LocalDate.parse(checkout_date);
+		   	int daycount = (int)startDate.until(endDate, ChronoUnit.DAYS);
+			
+			
+//			총 숙박료 계산
+//			CampRegDAO cdao = new CampRegDAO();
+//			CampRegDTO cdto = cdao.getCampReg(camp_id);
+			int sprice = camp_price*daycount;
+			
+			
+//			int sprice = Integer.parseInt(request.getParameter("sprice"));
 			
 			
 			
@@ -49,6 +67,7 @@ public class ReserveService {
 			reserveDetailDTO.setCamp_id(camp_id);
 			reserveDetailDTO.setCamp_price(camp_price);
 			reserveDetailDTO.setSprice(sprice);
+			reserveDetailDTO.setCamp_name(camp_name);
 			// ReserveDetailDAO 객체생성
 			reserveDetailDAO = new ReserveDetailDAO();
 			// reserveDetailDTO = reserveDetailDTO() 메서드 호출
@@ -102,12 +121,25 @@ public class ReserveService {
 //		
 //	}
 
-	public List<ReserveDetailDTO> getReserveList(int member_id) {
+	public List<ReserveDetailDTO> getReserveList(PageDTO pageDTO) {
 		List<ReserveDetailDTO> reserveList = null;
 		System.out.println("ReserveService getReserveList()");
 		try {
+			
+			int startRow = (pageDTO.getCurrentPage() - 1) * pageDTO.getPageSize() + 1;
+			// 시작하는 행부터 끝나는 행까지 뽑아오기
+//			startRow  pageSize => endRow
+//			    1         10   =>   1+10-1 =>10
+//			    11        10   =>   11+10-1 =>20
+//		        21        10   =>   21+10-1 =>30
+
+			int endRow = startRow + pageDTO.getPageSize() - 1;
+			// pageDTO 저장 <= startRow, endRow
+			pageDTO.setStartRow(startRow);
+			pageDTO.setEndRow(endRow);
+			
 			reserveDetailDAO = new ReserveDetailDAO();
-			reserveList =reserveDetailDAO.getReserveList(member_id);
+			reserveList =reserveDetailDAO.getReserveList(pageDTO);
 			
 			
 		} catch (Exception e) {
@@ -185,6 +217,7 @@ public class ReserveService {
 			int camp_id = Integer.parseInt(request.getParameter("camp_id"));
 			int camp_price = Integer.parseInt(request.getParameter("camp_price"));
 			int sprice = Integer.parseInt(request.getParameter("sprice"));
+			String camp_name = request.getParameter("camp_name");
 			// BoardDAO 객체생성
 			myreserveDAO = new MyReserveDAO();
 			int res_id = myreserveDAO.getMaxNum() + 1;
@@ -208,14 +241,14 @@ public class ReserveService {
 	}// insertBoard()
 
 	
-	public int getReserveCount() {
+	public int getReserveCount(PageDTO pageDTO) {
 		System.out.println("ReserveService getReserveCount()");
 		int count = 0;
 		try {
 			// BoardDAO 객체생성
 			myreserveDAO = new MyReserveDAO();
 			// count = getBoardCount() 호출
-			count = myreserveDAO.getReserveCount();
+			count = myreserveDAO.getReserveCount(pageDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
