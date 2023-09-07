@@ -70,15 +70,15 @@ public class ReserveController extends HttpServlet {
 		if(sPath.equals("/reserve_detail.re")) {
 			// reserve/login.jsp 주소변경 없이 이동
 			HttpSession session=request.getSession();
-//			String id=(String)session.getAttribute("id");
-			String id="ljy";
+			String id=(String)session.getAttribute("id");
+//			String id="ljy";
 			
 			memberService= new MemberService();
 			MemberDTO memberDTO=memberService.getMember(id);			
 			
 			
-//			int campid=Integer.parseInt(request.getParameter("campid"));
-			int campid=3;
+			int campid=Integer.parseInt(request.getParameter("campId"));
+//			int campid=3;
 			
 			campRegService = new CampRegService();
 			CampRegDTO campRegDTO=campRegService.getCampReg(campid);
@@ -221,6 +221,10 @@ public class ReserveController extends HttpServlet {
 								  
 								  //dao.insertReserve(mdto);
 								  
+								  System.out.println("비교 : reserve_detailPro.re"); 
+								  reserveService = new ReserveService();
+								  reserveService.insertReserve(request);
+								  
 								  response.setContentType("text/html; charset=UTF-8"); PrintWriter out =
 								  response.getWriter(); out.println("<script type='text/javascript'>");
 								  out.println("alert('총 "+daycount+"박 숙박료 "+sprice+"원 입니다')");
@@ -237,10 +241,8 @@ public class ReserveController extends HttpServlet {
 			
 			
 					
-					    System.out.println("비교 : reserve_detailPro.re"); reserveService = new ReserveService();
-					    reserveService.insertReserve(request);
 
-			response.sendRedirect("mypage_reserve.re");
+//			response.sendRedirect("mypage_reserve.re");
 			
 			
 			
@@ -260,8 +262,8 @@ public class ReserveController extends HttpServlet {
 			System.out.println("비교 : myreserve.re");
 			// reserve/login.jsp 주소변경 없이 이동
 			HttpSession session=request.getSession();
-//			String id=(String)session.getAttribute("id");
-			String id="ljy";
+			String id=(String)session.getAttribute("id");
+//			String id="ljy";
 			
 			memberService= new MemberService();
 			MemberDTO memberDTO=memberService.getMember(id);
