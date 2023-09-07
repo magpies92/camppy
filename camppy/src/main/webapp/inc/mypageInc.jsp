@@ -89,7 +89,7 @@
   width: 1040px;
   height: 70px;
   position: absolute;
-  left: 515px;
+  left: 135px;
   top: 160px;
 }
 .myVisit {
@@ -320,7 +320,7 @@ div.tab.active {
             class="mypageUserIcon"
             src="free-icon-user-8484069-2.png"
           />
-          <div class="profileNickname"><%=nickName %></div>
+          <div class="profileNickname">발레하는 감자</div>
           <button type="button" onclick="location.href = 'abc.jsp'" class="updateButton">
             <div class="updateProfile" >프로필수정</div>
           </button>
