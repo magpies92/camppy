@@ -183,7 +183,7 @@ public class ReserveDetailDAO {
 		boolean checksCamp = true;
 		try {
 			con = getConnection();
-			String sql = "select * from reserveation where camp_id=? && ? >= ?";
+			String sql = "select * from reservation where camp_id=? && ? >= ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, camp_id);
 			pstmt.setString(2, checkin_date);
