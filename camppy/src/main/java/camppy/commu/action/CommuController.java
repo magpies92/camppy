@@ -41,11 +41,12 @@ public class CommuController extends HttpServlet {
 		String sPath = request.getServletPath();
 		System.out.println("뽑은 가상주소 :  " + sPath);
 
+		//글쓰기 
 		if (sPath.equals("/commuInsert.commu")) {
 			dispatcher = request.getRequestDispatcher("commuInsert/commuInsert.jsp");
 			dispatcher.forward(request, response);
 		}
-
+        //글쓰기
 		if (sPath.equals("/commuInsertPro.commu")) {
 			System.out.println("/commuInsertPro.commu");
 
@@ -55,7 +56,9 @@ public class CommuController extends HttpServlet {
 
 			response.sendRedirect("commuContentsList.commu");
 		}
+		
 
+		
 		if (sPath.equals("/commuContentsList.commu")) {
 			System.out.println("뽑은 가상주소 비교:/commuList.commu");
 			// 한페이지에서 보여지는 글개수 설정
