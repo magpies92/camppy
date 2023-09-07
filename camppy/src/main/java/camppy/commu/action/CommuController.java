@@ -117,6 +117,7 @@ public class CommuController extends HttpServlet {
 		    
 		    //request 검색어 뽑아오기 
 		    String search = request.getParameter("search");
+		    String searchType = request.getParameter("searchtype");
 		    System.out.println(search);
 		    //현재 보이는 페이지 설정 
 		    int pageSize = 3;
@@ -139,6 +140,8 @@ public class CommuController extends HttpServlet {
 		    
 		    //검색어 저장
 		    pageDTO.setSearch(search);
+		    pageDTO.setSearchType(searchType);
+		    
 		    
 		    commuService = new CommuService();
 		    

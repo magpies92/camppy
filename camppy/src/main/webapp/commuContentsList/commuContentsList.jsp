@@ -162,10 +162,12 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				<!-- 						<div class="commuwrite1">글쓰기</div> -->
 				<!-- 					</button> -->
 				<!-- 				</div> -->
-
+                <% if(id != null){ %>
 				<input type="button" value="글쓰기" class="button-insert" 
 				onclick="location.href='commuInsert.commu'">
-
+				<%
+}
+%>
 
 				<!-- 				제목+내용 검색 -->
 
@@ -173,8 +175,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					class="commu-contents-list__search">
 					<div class="commu-contents-list__div-myp-02">
 						<select name="searchtype" class="commu-contents-list__options">
-							<option class="commu-contents-list__3">제목</option>
-							<option class="commu-contents-list__3">내용</option>
+							<option class="commu-contents-list__3">제목+내용</option>
 							<option class="commu-contents-list__3">아이디</option>
 						</select> <input type="text" class="commu-contents-list__div-sc-camp"
 							name="search" placeholder="검색어를 입력하세요"> <img
