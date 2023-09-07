@@ -172,15 +172,13 @@
               <div class="mainpage__best-5">캠피 추천 캠핑장</div>
             </div>
           <div class="mainpage__category-icon">
+          
           <%
 			CampRegService campregService = new CampRegService();
 			CampRegDTO campregDTO1 = campregService.getCampReg(1);
 			CampRegDTO campregDTO2 = campregService.getCampReg(25);	
 			CampRegDTO campregDTO3 = campregService.getCampReg(3);			
 			CampRegDTO campregDTO4 = campregService.getCampReg(4);
-			
-			
-		
 		%>
 		
           <button type="button" onclick="location.href='detail.de?campId=<%=campregDTO1.getCampid()%>'">
