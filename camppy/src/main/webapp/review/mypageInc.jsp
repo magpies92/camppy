@@ -10,6 +10,25 @@
    	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
+
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+      }
+    
 .mypageProfile {
   padding: 10px 100px 10px 100px;
   display: flex;
