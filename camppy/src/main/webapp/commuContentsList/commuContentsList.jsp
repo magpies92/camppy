@@ -107,7 +107,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				</div>
 
 			<%
-			List<CommuDTO> commuList = (List<CommuDTO>)request.getAttribute("commuList");
+			List<CommuDTO> commuList = (List<CommuDTO>) request.getAttribute("commuList");
 			PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");
 			%>
 			
@@ -118,7 +118,9 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			<%
 		    commuDTO = commuList.get(i);
 			%>
-				<form action="submit" method="post">
+			
+	
+				<form action="submit" method="post" class="commu-contents-list__contents-<1">
 
 					<div class="commu-contents-list__contents-1">
 
@@ -179,8 +181,9 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 				</form>
 				<%
-			}
-			%>
+		    }
+				%>
+			
 
 
 				<div class="commu-contents-list__page-list">

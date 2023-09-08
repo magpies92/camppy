@@ -5,11 +5,11 @@
 .commu-contents-list {
 	background: #ffffff;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	gap: 9.79px;
 	align-items: flex-start;
 	justify-content: center;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	width: 1880px;
 	height: 3231.25px;
 	position: relative;
@@ -19,11 +19,11 @@
 .commu-contents-list__section-total {
 	background: #ffffff;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	gap: 9.96px;
 	align-items: flex-start;
 	justify-content: flex-start;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	flex-shrink: 0;
 	width: 1880px;
 	height: 3231.25px;
@@ -35,7 +35,6 @@
 
 .commu-contents-list__section-body {
 	background: #ffffff;
-	flex-shrink: 0;
 	width: 1880px;
 	height: 3231.25px;
 	position: relative;
@@ -573,9 +572,8 @@
 	background: #ededed;
 	width: 1410px;
 	height: 600.44px;
-	position: absolute;
+	position: relative;
 	left: calc(50% - 705px);
-	top: 881.25px;
 	overflow: hidden;
 }
 
@@ -583,7 +581,7 @@
 	color: #000000;
 	text-align: center;
 	font: 800 31.86px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
+	position: relative;
 	left: 13.94px;
 	top: 0px;
 	width: 266.86px;
@@ -596,7 +594,7 @@
 .commu-contents-list__free-icon-user-8484069-12 {
 	width: 29.87px;
 	height: 29.87px;
-	position: absolute;
+	position: relative;
 	left: 41.82px;
 	top: 95.59px;
 }
@@ -605,7 +603,7 @@
 	color: #000000;
 	text-align: left;
 	font: 400 29.87px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
+	position: relative;
 	left: 67.71px;
 	top: 97.58px;
 	width: 86.63px;
@@ -620,7 +618,7 @@
 	color: #000000;
 	text-align: left;
 	font: 400 19.92px/21.91px "NanumGothic", sans-serif;
-	position: absolute;
+	position: relative;
 	left: 45.81px;
 	top: 142.39px;
 	width: 1298.47px;
@@ -632,7 +630,7 @@
 .commu-contents-list___002 {
 	width: 1314.41px;
 	height: 306.69px;
-	position: absolute;
+	position: relative;
 	left: 56.76px;
 	top: 208.11px;
 }
@@ -640,7 +638,7 @@
 .commu-contents-list__like-1 {
 	width: 23.62px;
 	height: 24.89px;
-	position: absolute;
+	position: relative;
 	left: 56.76px;
 	top: 531.74px;
 }
@@ -649,7 +647,7 @@
 	color: #000000;
 	text-align: center;
 	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
+	position: relative;
 	left: 56.76px;
 	top: 533.73px;
 	width: 86.63px;
@@ -663,7 +661,7 @@
 	color: #000000;
 	text-align: center;
 	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
+	position: relative;
 	left: 1208.86px;
 	top: 530.74px;
 	width: 86.63px;
@@ -677,7 +675,7 @@
 	color: #000000;
 	text-align: center;
 	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
+	position: relative;
 	left: 1275.57px;
 	top: 530.74px;
 	width: 86.63px;
@@ -691,7 +689,7 @@
 	color: #000000;
 	text-align: center;
 	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
+	position: relative;
 	left: 143.39px;
 	top: 535.72px;
 	width: 54.77px;
@@ -704,7 +702,7 @@
 .commu-contents-list__text-box-1 {
 	width: 24.89px;
 	height: 24.89px;
-	position: absolute;
+	position: relative;
 	left: 129.45px;
 	top: 533.73px;
 }
@@ -713,7 +711,7 @@
 	background: #ededed;
 	width: 1410px;
 	height: 600.44px;
-	position: absolute;
+	position: relative;
 	left: calc(50% - 706px);
 	top: 1579.62px;
 	overflow: hidden;
