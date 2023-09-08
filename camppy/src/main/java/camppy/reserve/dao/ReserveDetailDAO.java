@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import camppy.reserve.dao.ReserveDetailDTO;
+//import products.SalesDTO;
 
 public class ReserveDetailDAO {
 	Connection con=null;
@@ -264,7 +265,42 @@ public class ReserveDetailDAO {
 		}
 		
 	}
+
+
+
+public ReserveDetailDTO getDetailres(int res_id) {
+	ReserveDetailDTO dto=null;
+	Connection con=null;
+	PreparedStatement pstmt=null;
+	ResultSet rs=null;
+	try {
+		con=getConnection();
+		String sql="select * from reservation where res_id=?";
+		pstmt=con.prepareStatement(sql);
+		pstmt.setInt(1, res_id);
+		rs=pstmt.executeQuery();
+		if(rs.next()){
+			dto=new ReserveDetailDTO();
+			dto.setRes_id(rs.getInt("res_id"));
+			dto.setCamp_id(rs.getInt("camp_id"));
+			dto.setRes_time(rs.getTimestamp("res_time"));
+			dto.setCheckin_date(rs.getString("checkin_date"));
+			dto.setCheckout_date(rs.getString("checkout_date"));
+			dto.setSprice(rs.getInt("sprice"));
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}finally {
+		if(rs!=null) try { rs.close();} catch (Exception e2) {}
+		if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+		if(con!=null) try { con.close();} catch (Exception e2) {}
+	}
+	return dto;
+}//getDetailres()
+
 }
+
+
 	
 
 //	public boolean nextPage(int pageNumber) {
