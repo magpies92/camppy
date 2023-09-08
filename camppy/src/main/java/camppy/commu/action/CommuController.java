@@ -82,7 +82,6 @@ public class CommuController extends HttpServlet {
 			
 			commuService = new CommuService();
 			List<CommuDTO> commuRankList = commuService.getCommuRank();
-			
 			List<CommuDTO> commuList = commuService.getCommuList(pageDTO);
 			
 			//게시판 전체 글 개수 구하기
@@ -107,7 +106,6 @@ public class CommuController extends HttpServlet {
 			pageDTO.setPageCount(pageCount);
 			
 			request.setAttribute("commuList", commuList);
-			System.out.println("문제"+commuList);
 			request.setAttribute("pageDTO", pageDTO);
 			request.setAttribute("commuRankList", commuRankList);
 			

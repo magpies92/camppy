@@ -82,7 +82,7 @@ public class CommuService {
 			commuDTO.setLast_modified_by(last_modified_by);
 			commuDTO.setImg_url(img_url);
 
-//			commuDAO.commuInsertPostImage(commuDTO);
+
 
 		} catch (Exception e) {
 			e.printStackTrace();

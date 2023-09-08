@@ -314,9 +314,9 @@ public class CommuDAO {
 		try {
 			con = getConnection();
 
-			String sql = " select p.like_cnt,p.member_id,i.img_url,m.nickname " + " from post p join post_image i"
+			String sql = " select p.title,p.like_cnt,p.member_id,i.img_url,m.nickname " + " from post p join post_image i"
 					+ " on (p.post_id = i.post_id)" + " join members m " + " on (m.member_id = i.member_id)"
-					+ " order by like_cnt"
+					+ " order by like_cnt desc"
 			        + " limit 0,4";
 			pstmt = con.prepareStatement(sql);
 
@@ -326,7 +326,7 @@ public class CommuDAO {
 			
 			while(rs.next()) {
 				CommuDTO commuDTO = new CommuDTO();
-				
+				commuDTO.setTitle(rs.getString("title"));
 				commuDTO.setLike_cnt(rs.getInt("like_cnt"));
 				commuDTO.setMember_id(rs.getInt("member_id"));
 				commuDTO.setImg_url(rs.getString("img_url"));
