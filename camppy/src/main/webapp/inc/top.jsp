@@ -380,7 +380,7 @@ if(id == null){
       <div class="section-navi__link">문의하기</div>
     </div>
     <div class="section-navi__navi-list-4">
-      <div class="section-navi__link">예약조회</div>
+      <button type="button" onclick="location.href='DetailList.re'" class="section-navi__link">예약조회</button>
     </div>
     <div class="section-navi__navi-list-5">
      <button type="button" onclick="location.href='mypage.my'" class="section-navi__link">마이페이지</button>
