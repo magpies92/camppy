@@ -1,0 +1,203 @@
+.noticeInsert,
+.noticeInsert * {
+  box-sizing: border-box;
+}
+.noticeInsert {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 9.79px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 1880px;
+  position: relative;
+  overflow: hidden;
+}
+.noticeInsertSectionTotal {
+  display: flex;
+  flex-direction: row;
+  gap: 11.75px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 1880px;
+  height: 1300px;
+  position: relative;
+  overflow: hidden;
+}
+.noticeInsertSectionBody {
+  flex-shrink: 0;
+  width: 1880px;
+  height: 1300px;
+  position: relative;
+  overflow: hidden;
+}
+.noticeInsertBodyContents {
+  width: 1392.38px;
+  height: 983.08px;
+  position: absolute;
+  left: 234.02px;
+  top: 72.46px;
+  overflow: hidden;
+}
+.noticeInsertLine2 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.98px 0 0 0;
+  width: 1198.5px;
+  height: 0px;
+  position: absolute;
+  left: 53.85px;
+  top: 797.04px;
+}
+
+.noticeInsertRectangle2 {
+  border-radius: 4.9px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1.96px;
+  width: 327.04px;
+  height: 64.62px;
+  position: absolute;
+  left: 49.94px;
+  top: 39.17px;
+  color: #000000;
+  font: 500 31.33px "Inter", sans-serif;
+}
+
+.noticeInsert23{
+	font: 30px "Inter", sans-serif;
+	 text-align: center;
+	 width: 152.12px;
+	 height: 59.25px;
+}
+
+.noticInsert {
+  color: #000000;
+  text-align: center;
+  font: 500 31.33px "Inter", sans-serif;
+  position: absolute;
+  left: calc(50% - 681.5px);
+  top: calc(50% - 475.88px);
+  width: 200.73px;
+  height: 111.62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noticeInsertFreeIconImage1 {
+  opacity: 0.30000001192092896;
+  width: 104.77px;
+  height: 82.25px;
+  position: absolute;
+  left: 89.1px;
+  top: 836.21px;
+}
+.noticeInsertImage1 {
+  width: 42.1px;
+  height: 42.1px;
+  position: absolute;
+  left: 319.21px;
+  top: 49.94px;
+}
+.noticeInsertRectangle1 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.98px;
+  width: 1199.48px;
+  height: 830.33px;
+  position: absolute;
+  left: 52.88px;
+  top: 127.29px;
+}
+.noticeInsertLine1 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.98px 0 0 0;
+  width: 1121.15px;
+  height: 0px;
+  position: absolute;
+  left: 92.04px;
+  top: 268.29px;
+}
+.noticeInsert2 {
+  border-color: #000000;
+  text-align: left;
+  font: 700 31.33px "Inter", sans-serif;
+  position: absolute;
+  left: 93.04px;
+  top: 174.71px;
+  width: 1100.73px;
+  height: 51.19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  resize: none;
+}
+.noticeInsert3 {
+   border-color: #000000;
+  text-align: left;
+  font: 500 31.33px "Inter", sans-serif;
+  position: absolute;
+  left: 94.04px;
+  top: 283.29px;
+  width: 1100.73px;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+   resize: none;
+}
+
+.noticeInsertButton {
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 1199.48px;
+    height: 96.94px;
+    position: absolute;
+    left: 289.02px;
+    top: 1059.46px;
+    overflow: hidden;
+
+}
+.noticeInsertLeaveButton {
+  border-radius: 4.9px;
+  border-style: solid;
+  border-color: #4da385;
+  border-width: 1.96px;
+  flex-shrink: 0;
+  width: 182.12px;
+  height: 82.25px;
+  position: absolute;
+  left: 0px;
+  top: 7.83px;
+  overflow: hidden;
+  color: #4da385;
+  font: 700 31.33px "Inter", sans-serif;
+   text-align: center;
+}
+
+.noticeInsertRegisterButton {
+  background: #4da385;
+  border-radius: 4.9px;
+  flex-shrink: 0;
+  width: 182.12px;
+  height: 82.25px;
+  position: absolute;
+  left: 1017.35px;
+  top: 7.83px;
+  overflow: hidden;
+  color: #ffffff;
+  font: 700 31.33px "Inter", sans-serif;
+    text-align: center;
+}
+
+.name {
+	display: none;
+}
