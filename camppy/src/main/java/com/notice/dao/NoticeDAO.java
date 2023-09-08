@@ -31,8 +31,8 @@ public class NoticeDAO {
 	public void dbClose() {
 		// 예외 상관없이 마무리 작업 => con, pstmt, rs 기억장소 해제 
 		if(pstmt != null) {try { pstmt.close();} catch (SQLException e) {e.printStackTrace();}} //if pstmt
-		if(con != null) {try { pstmt.close();} catch (SQLException e) {e.printStackTrace();}} //if con
-		if(rs != null) {try { pstmt.close();} catch (SQLException e) {e.printStackTrace();}} //if rs
+		if(con != null) {try { con.close();} catch (SQLException e) {e.printStackTrace();}} //if con
+		if(rs != null) {try { rs.close();} catch (SQLException e) {e.printStackTrace();}} //if rs
 }
 	
 	public List<NoticeDTO> getNoticeList(NoticePageDTO noticePageDTO) {
@@ -63,8 +63,8 @@ public class NoticeDAO {
 				noticeDTO.setPost_type(rs.getInt("post_type")); //게시글 종류
 				noticeDTO.setTitle(rs.getString("title")); //제목
 				noticeDTO.setMember_id(rs.getInt("member_id")); //회원 아이디
-				 noticeDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
-				 noticeDTO.setImage_url(rs.getString("image_url")); //공지사진주소
+				noticeDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
+				noticeDTO.setImage_url(rs.getString("image_url")); //공지사진주소
 				// 배열 한 칸에 저장
 				noticeList.add(noticeDTO);
 				
@@ -265,6 +265,26 @@ public class NoticeDAO {
 		}
 		
 	} // deleteNotice
+
+	public void notice_cnt(int notice_id) {
+		try {
+			con = getConnection();
+			
+			String sql = "update notice set notice_cnt =notice_cnt+1 where notice_id = ?" ;
+		
+			pstmt=con.prepareStatement(sql);
+
+
+			pstmt.setInt(1, notice_id);
+			  
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		
+	}
 
 
 	

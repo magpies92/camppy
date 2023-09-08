@@ -377,7 +377,7 @@ if(id == null){
       <button type="button" onclick="location.href='commuContentsList.commu'" class="section-navi__link">커뮤니티</button>
     </div>
     <div class="section-navi__navi-list-3">
-      <div class="section-navi__link">문의하기</div>
+       <button type="button" onclick="location.href='list.qu'" class="section-navi__link">문의하기</button>
     </div>
     <div class="section-navi__navi-list-4">
       <button type="button" onclick="popupInsert()" class="section-navi__link">예약조회</button>

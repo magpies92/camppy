@@ -373,6 +373,13 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 							document.getElementsByClassName('likeButton')[i].style.display = "none"; // 즐겨찾기 추가 버튼 활성화
 						}
 						
+						 function popupInsert() {
+					            var url = "review/insert/reviewInsert.jsp";
+					            var name = "reviewInsert";
+					            var option = "width = 710, height = 730, top= 100, left= 500";
+					            window.open(url, name, option);
+					        }
+
 						 function updateRow(button) {
 					            var row = button.closest(".campinfoRow");
 					            var contentsElement = row.querySelector(".reviewContents1");

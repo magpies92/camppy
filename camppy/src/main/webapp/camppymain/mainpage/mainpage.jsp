@@ -141,7 +141,7 @@
             
           </div>
         </div>
-        <div class="mainpage__section-notice">
+        <div class="mainpage__section-notice" onclick="location.href='list.no'">
           <div class="mainpage__notice-left">
             <div class="mainpage__div-notice-head">
               <div class="mainpage__5">공지사항</div>
