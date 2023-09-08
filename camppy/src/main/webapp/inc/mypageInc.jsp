@@ -16,7 +16,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	padding: 0;
 	border: none;
 	text-decoration: none;
-	appearance: none;
+	
 	background: none;
 }
 
@@ -263,20 +263,20 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	justify-content: center;
 }
 
-.buttonDel {
-	display: flex;
-	flex-direction: column;
-	gap: 0px;
-	align-items: flex-start;
-	justify-content: flex-start;
-	width: 138px;
-	height: 61px;
-	position: relative;
-	left: 1555px;
-	background: #4da385;
-	border-radius: 5px;
-	border: none;
-}
+/* .buttonDel { */
+/* 	display: flex; */
+/* 	flex-direction: column; */
+/* 	gap: 0px; */
+/* 	align-items: flex-start; */
+/* 	justify-content: flex-start; */
+/* 	width: 138px; */
+/* 	height: 61px; */
+/* 	position: relative; */
+/* 	left: 1555px; */
+/* 	background: #4da385; */
+/* 	border-radius: 5px; */
+/* 	border: none; */
+/* } */
 
 .del {
 	color: #ffffff;
@@ -385,7 +385,7 @@ div.tab.active {
     var addresses = {
         "찜 리스트": "http://aaa.me",
         "작성한 글": "http://aaa.me",
-        "작성 리뷰": "campReviewList.rv",
+        "작성 리뷰": "mypageReviewList.rv",
         "예약 내역": "mypage_reserve.re"
     };
 
