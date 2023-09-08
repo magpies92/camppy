@@ -87,7 +87,7 @@ public class NoticeController extends HttpServlet {
 				noticePageDTO.setEndPage(endPage);
 				noticePageDTO.setPageCount(pageCount);
 				
-				// request에 "boardList",boardList 저장
+				// request에 "noticeList",noticeList 저장
 				request.setAttribute("noticeList", noticeList);
 				request.setAttribute("noticePageDTO", noticePageDTO);
 				
@@ -124,6 +124,8 @@ public class NoticeController extends HttpServlet {
 				System.out.println("뽑은 가상주소 비교 : /content.no");
 				
 				noticeService = new NoticeService();
+				
+				noticeService.notice_cnt(request);
 				
 				NoticeDTO noticeDTO = noticeService.getNotice(request);
 				

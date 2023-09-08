@@ -39,16 +39,16 @@ public class NoticeService {
 
 		public int getNoticeCount() {
 			System.out.println("NoticeService getNoticeCount()");
-			int count = 0;
+			int notice_cnt = 0;
 			try {
 				// NoticeDAO 객체생성
 				noticeDAO = new NoticeDAO();
-				// count = getNoticeCount() 호출
-				 count = noticeDAO.getNoticeCount();
+				// notice_cnt = getNoticeCount() 호출
+				notice_cnt = noticeDAO.getNoticeCount();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return count;
+			return notice_cnt;
 		} // getNoticeCount
 
 		
@@ -99,7 +99,6 @@ public class NoticeService {
 				request.setCharacterEncoding("utf-8");
 				
 				int notice_id = Integer.parseInt(request.getParameter("notice_id"));
-				
 					 
 				noticeDAO = new NoticeDAO();
 				
@@ -159,6 +158,22 @@ public class NoticeService {
 				e.printStackTrace();
 			}
 		} //  deleteNotice
+
+		public void notice_cnt(HttpServletRequest request) {
+			System.out.println("NoticeService notice_cnt");
+			try {
+				request.setCharacterEncoding("utf-8");
+				
+				int notice_id = Integer.parseInt(request.getParameter("notice_id"));
+	 
+				noticeDAO = new NoticeDAO();
+				
+				noticeDAO.notice_cnt(notice_id);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
 		
 		
 		
