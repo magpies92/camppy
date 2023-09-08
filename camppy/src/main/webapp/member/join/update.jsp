@@ -32,31 +32,64 @@
         src="script/jquery-3.7.0.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	$('.edit-profile__7').click(function(){
+		event.preventDefault();
+	    // 회원 탈퇴 기능 구현
+	    $.ajax({
+	        url: '/delete.me', // 회원 탈퇴 요청 URL
+	        type: 'POST',
+	        data: {id: '회원아이디'}, // 탈퇴할 회원의 아이디 전달
+	        success: function(data) {
+	            // 회원 탈퇴 요청 성공
+	            alert('회원 탈퇴가 완료되었습니다.');
+	        },
+	        error: function() {
+	            // 회원 탈퇴 요청 실패
+	            alert('회원 탈퇴에 실패하였습니다. 다시 시도해주세요.');
+	        }
+	    });
+	});
     var originalNick = $('.nick').val();
     $('#join').submit(function(event){
     	event.preventDefault();
         if ($('.nick').val() === originalNick) {
             // 닉네임이 기존과 같으면 중복 검사를 하지 않습니다.
             // 비밀번호 검사를 진행합니다.
-            if($('.pass').val()==""){
-                alert("비밀번호 입력하세요");
-                $('.pass').focus();
-                return false;
-            }
-            if ($('.pass').val().length < 5 || $('.pass').val().length > 20) {
-                alert("비밀번호는 5~20자 사이여야 합니다.");
-                $('.pass').focus();
-                return false;
-            }
-            if ($('.pass').val() != $('.check').val()) {
-                alert("비밀번호가 일치하지 않습니다.");
-                $('.check').focus();
-                return false;
-            }
-            
+        	if($('.nick').val()==""){
+    			alert("닉네임을 입력하세요");
+    			$('.nick').focus();
+    			return false;
+    		}
+        	if($('.pass').val()==""){
+    			alert("비밀번호 입력하세요");
+    			$('.pass').focus();
+    			return false;
+    		}
+    		var password = $('.pass').val();
+    		var regex1 = /^[a-zA-Z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,16}$/;
+    		var regex2 = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/;
+    		if (!regex1.test(password)) {
+    		    alert("비밀번호는 8~16자의 영문 대/소문자, 숫자, 특수문자만 사용해 주세요.");
+    		    $('.pass').focus();
+    		    return false;
+    		} else if (!regex2.test(password)) {
+    		    alert("비밀번호는 영문 대/소문자, 숫자, 특수문자를 모두 포함해야 합니다.");
+    		    $('.pass').focus();
+    		    return false;
+    		}
+    		if ($('.pass').val() != $('.check').val()) {
+    		    alert("비밀번호가 일치하지 않습니다.");
+    		    $('.check').focus();
+    		    return false;
+    		}
             // 모든 검사가 성공하면 양식을 제출합니다.
             $('#join')[0].submit();
         } else {
+        	if($('.nick').val()==""){
+    			alert("닉네임을 입력하세요");
+    			$('.nick').focus();
+    			return false;
+    		}
         	$.ajax({
                 url:'nickCheck.me',
                 data:{'nick':$('.nick').val()},
@@ -72,20 +105,27 @@ $(document).ready(function(){
                         
                         // 닉네임 중복 검사가 성공한 후 비밀번호 검사를 진행합니다.
                         if($('.pass').val()==""){
-                            alert("비밀번호 입력하세요");
-                            $('.pass').focus();
-                            return false;
-                        }
-                        if ($('.pass').val().length < 5 || $('.pass').val().length > 20) {
-                            alert("비밀번호는 5~20자 사이여야 합니다.");
-                            $('.pass').focus();
-                            return false;
-                        }
-                        if ($('.pass').val() != $('.check').val()) {
-                            alert("비밀번호가 일치하지 않습니다.");
-                            $('.check').focus();
-                            return false;
-                        }
+                			alert("비밀번호 입력하세요");
+                			$('.pass').focus();
+                			return false;
+                		}
+                		var password = $('.pass').val();
+                		var regex1 = /^[a-zA-Z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,16}$/;
+                		var regex2 = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/;
+                		if (!regex1.test(password)) {
+                		    alert("비밀번호는 8~16자의 영문 대/소문자, 숫자, 특수문자만 사용해 주세요.");
+                		    $('.pass').focus();
+                		    return false;
+                		} else if (!regex2.test(password)) {
+                		    alert("비밀번호는 영문 대/소문자, 숫자, 특수문자를 모두 포함해야 합니다.");
+                		    $('.pass').focus();
+                		    return false;
+                		}
+                		if ($('.pass').val() != $('.check').val()) {
+                		    alert("비밀번호가 일치하지 않습니다.");
+                		    $('.check').focus();
+                		    return false;
+                		}
                         
                         // 모든 검사가 성공하면 양식을 제출합니다.
                         $('#join')[0].submit();
@@ -141,10 +181,11 @@ $(document).ready(function(){
       </div>
       <div class="edit-profile__button">
         <div class="edit-profile__button-update">
-          <button class="edit-profile__6">수정</button>
-        </div>
-        <div class="edit-profile__button-withdraw">
-          <div class="edit-profile__7">회원 탈퇴</div>
+    <input type="submit" class="edit-profile__6" value="수정">
+</div>
+
+        <div class="edit-profile__button-withdraw">        
+          <button class="edit-profile__7">회원 탈퇴</button>
         </div>
       </div>
     </div>
