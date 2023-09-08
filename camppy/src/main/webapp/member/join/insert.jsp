@@ -38,6 +38,11 @@ $(document).ready(function(){
 	        return false;
 	    }
 	});
+	$('.phone').on('input', function () {
+	    var phone = $(this).val();
+	    phone = phone.replace(/[^0-9]/g, '');
+	    $(this).val(phone);
+	});
 	var clicked = false;
 	var clicked2 = false;
 	var clicked3 = false;
@@ -102,8 +107,15 @@ $(document).ready(function(){
 			$('.pass').focus();
 			return false;
 		}
-		if ($('.pass').val().length < 5 || $('.pass').val().length > 20) {
-		    alert("비밀번호는 5~20자 사이여야 합니다.");
+		var password = $('.pass').val();
+		var regex1 = /^[a-zA-Z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,16}$/;
+		var regex2 = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/;
+		if (!regex1.test(password)) {
+		    alert("비밀번호는 8~16자의 영문 대/소문자, 숫자, 특수문자만 사용해 주세요.");
+		    $('.pass').focus();
+		    return false;
+		} else if (!regex2.test(password)) {
+		    alert("비밀번호는 영문 대/소문자, 숫자, 특수문자를 모두 포함해야 합니다.");
 		    $('.pass').focus();
 		    return false;
 		}

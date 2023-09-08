@@ -49,7 +49,7 @@ public class CommuController extends HttpServlet {
         //글쓰기
 		if (sPath.equals("/commuInsertPro.commu")) {
 			System.out.println("/commuInsertPro.commu");
-
+            
 			commuService = new CommuService();
 
 			commuService.commuInsert(request);
@@ -81,7 +81,7 @@ public class CommuController extends HttpServlet {
 			pageDTO.setCurrentPage(currentPage);
 			
 			commuService = new CommuService();
-			
+			List<CommuDTO> commuRankList = commuService.getCommuRank();
 			List<CommuDTO> commuList = commuService.getCommuList(pageDTO);
 			
 			//게시판 전체 글 개수 구하기
@@ -107,6 +107,7 @@ public class CommuController extends HttpServlet {
 			
 			request.setAttribute("commuList", commuList);
 			request.setAttribute("pageDTO", pageDTO);
+			request.setAttribute("commuRankList", commuRankList);
 			
 			dispatcher = request.getRequestDispatcher("commuContentsList/commuContentsList.jsp");
 			dispatcher.forward(request, response);
@@ -181,7 +182,7 @@ public class CommuController extends HttpServlet {
 			dispatcher.forward(request, response);
 		}//listSearch
 		
-		if(sPath.equals("/commudelet.commu")) {
+		if(sPath.equals("/commudelete.commu")) {
 			System.out.println("/commudelet.commu");
 			
 			commuService = new CommuService();

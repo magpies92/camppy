@@ -245,15 +245,17 @@ public class DetailDAO {
 			while(rs.next()) {
 				dto = new DetailDTO();
 				dto.setCamp_id(rs.getInt("camp_id"));
-				dto.setCamp_name(rs.getString("no"));
-				dto.setCamp_addr(rs.getString("camp_addr"));
+				dto.setCamp_name(rs.getString("camp_name"));
+				//dto.setCamp_addr(rs.getString("camp_addr"));
 				dto.setTel(rs.getString("tel"));
-				dto.setPic1(rs.getString("pic1"));
-				dto.setPic2(rs.getString("pic2"));
-				dto.setPic3(rs.getString("pic3"));
-				dto.setPic4(rs.getString("pic4"));
-				dto.setPic5(rs.getString("pic5"));
+				/*
+				 * dto.setPic1(rs.getString("pic1")); dto.setPic2(rs.getString("pic2"));
+				 * dto.setPic3(rs.getString("pic3")); dto.setPic4(rs.getString("pic4"));
+				 * dto.setPic5(rs.getString("pic5"));
+				 */
 				dto.setShort_intro(rs.getString("short_intro"));
+				dto.setCamp_img(rs.getString("camp_img"));
+				dto.setCamp_addr(rs.getString("camp_addr"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
