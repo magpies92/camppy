@@ -20,7 +20,8 @@ import camppy.member.MemberService;
 public class CommuService {
 	CommuDAO commuDAO = null;
 	MemberService memberService = null;
-
+  
+    
 	public void commuInsert(HttpServletRequest request) {
 		try {
 			HttpSession session = request.getSession();
@@ -136,7 +137,7 @@ public class CommuService {
 		System.out.println("commuService getCommuListSearch()");
 		List<CommuDTO> commuList = null;
 		try {
-			int startRow = (pageDTO.getCurrentPage() - 1) * pageDTO.getPageSize();
+			int startRow = (pageDTO.getCurrentPage() - 1) * pageDTO.getPageSize()+1;
 
 			int endRow = startRow + pageDTO.getPageSize() - 1;
 
@@ -184,7 +185,7 @@ public class CommuService {
 		return commuRankList;
 	}
 
-	public void commudelete(HttpServletRequest request) {
+	public void commuDelete(HttpServletRequest request) {
       System.out.println("commuService commudelete()");
       try {
 		request.setCharacterEncoding("utf-8");
@@ -193,7 +194,7 @@ public class CommuService {
 		
 		commuDAO = new CommuDAO();
 		
-		commuDAO.commudelete(post_id);
+		commuDAO.commuDelete(post_id);
 	} catch (Exception e) {
 		e.printStackTrace();
 	}   

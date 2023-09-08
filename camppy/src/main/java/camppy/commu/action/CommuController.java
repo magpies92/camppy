@@ -14,12 +14,14 @@ import javax.servlet.http.HttpSession;
 
 import camppy.commu.db.CommuDTO;
 import camppy.commu.db.PageDTO;
+import camppy.member.MemberDTO;
+import camppy.member.MemberService;
 
 public class CommuController extends HttpServlet {
-
+    MemberService memberService = null;
 	CommuService commuService = null;
 	RequestDispatcher dispatcher = null;
-
+    
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -61,6 +63,16 @@ public class CommuController extends HttpServlet {
 		
 		if (sPath.equals("/commuContentsList.commu")) {
 			System.out.println("뽑은 가상주소 비교:/commuList.commu");
+		
+			HttpSession session=request.getSession();
+			String id=(String)session.getAttribute("id");
+//			int memder_id=(int)session.getAttribute("member_id");   
+		
+			memberService = new MemberService();
+//			MemberDTO memberDTO2 = memberService.getMember3(memder_id);
+			MemberDTO memberDTO = memberService.getMember(id);
+			
+			
 			// 한페이지에서 보여지는 글개수 설정
 			int pageSize = 3;
 
@@ -79,7 +91,7 @@ public class CommuController extends HttpServlet {
 			pageDTO.setPageSize(pageSize);
 			pageDTO.setPageNum(pageNum);
 			pageDTO.setCurrentPage(currentPage);
-			
+		    
 			commuService = new CommuService();
 			List<CommuDTO> commuRankList = commuService.getCommuRank();
 			List<CommuDTO> commuList = commuService.getCommuList(pageDTO);
@@ -99,15 +111,17 @@ public class CommuController extends HttpServlet {
 				endPage = pageCount;
 			}
 			
-			pageDTO.setCount(count);
-			pageDTO.setPageBlock(pageBlock);
-			pageDTO.setStartPage(startPage);
-			pageDTO.setEndpage(endPage);
-			pageDTO.setPageCount(pageCount);
+			pageDTO.setCount(count);//게시판 전체
+			pageDTO.setPageBlock(pageBlock);//한화면에 보여줄 페이지 개
+			pageDTO.setStartPage(startPage);//시작페이
+			pageDTO.setEndpage(endPage);//종료페이
+			pageDTO.setPageCount(pageCount);//마지막 페이지 계산 
 			
 			request.setAttribute("commuList", commuList);
 			request.setAttribute("pageDTO", pageDTO);
 			request.setAttribute("commuRankList", commuRankList);
+			request.setAttribute("memberDTO", memberDTO);	
+//			request.setAttribute("memberDTO2", memberDTO2);	
 			
 			dispatcher = request.getRequestDispatcher("commuContentsList/commuContentsList.jsp");
 			dispatcher.forward(request, response);
@@ -182,12 +196,12 @@ public class CommuController extends HttpServlet {
 			dispatcher.forward(request, response);
 		}//listSearch
 		
-		if(sPath.equals("/commudelete.commu")) {
-			System.out.println("/commudelet.commu");
+		if(sPath.equals("/commuDelete.commu")) {
+			System.out.println("/commuDelet.commu");
 			
 			commuService = new CommuService();
 			
-			commuService.commudelete(request);
+			commuService.commuDelete(request);
 			
 			response.sendRedirect("commuContentsList.commu");
 			

@@ -2,6 +2,7 @@
 <%@page import="camppy.commu.db.PageDTO"%>
 <%@page import="camppy.commu.db.CommuDTO"%>
 <%@page import="camppy.member.MemberDTO"%>
+<%@page import="camppy.member.MemberDAO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -33,11 +34,15 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	<!-- 	베스트 게시글  -->
 	<%
 	String id = (String) session.getAttribute("id");
-	MemberDTO memberDTO = new MemberDTO();
-	CommuDTO commuDTO = new CommuDTO();
+	MemberDTO memberDTO = (MemberDTO) request.getAttribute("memberDTO");
 
+	CommuDTO commuDTO = new CommuDTO();
 	List<CommuDTO> commuRankList = (List<CommuDTO>) request.getAttribute("commuRankList");
+	
+	List<CommuDTO> commuList = (List<CommuDTO>) request.getAttribute("commuList");
+	PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");
 	%>
+
 	<div class="commu-contents-list">
 		<div class="commu-contents-list__section-body">
 			<div class="commu-contents-list__best-contents">
@@ -105,11 +110,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				</div>
 			</form>
 
-			<%
-			List<CommuDTO> commuList = (List<CommuDTO>) request.getAttribute("commuList");
-			PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");
-			%>
-
+		
 			<%
 			for (int i = 0; i < commuList.size(); i++) {
 			%>
@@ -154,20 +155,20 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 					<!--              좋아요 수  -->
 					<div class="commu-contents-list___25" id="bodyLikeCount"><%=commuDTO.getLike_cnt()%></div>
-
+				   
 					<%
-// 					if (id != null) {
-// 						if (id.equals(memberDTO.getId())) {
+					if (id != null) {
+						if (id.equals(memberDTO.getId())) {
+// 							if (commuDTO.getMember_id() == memberDTO.getMember_id()) {
 					%>
-
 					<input type="button" value="수정" class="commu-contents-list___12"
-						onclick="location.href='commuUpdate.commu?id=<%=memberDTO.getId()%>'">
+						onclick="location.href='commuUpdate.commu?post_id=<%=commuDTO.getPost_id()%>'">
 
 					<input type="button" value="삭제" class="commu-contents-list___13"
-						onclick="location.href='commuDelete.commu?id=<%=memberDTO.getId()%>'">
+						onclick="location.href='commuDelete.commu?post_id=<%=commuDTO.getPost_id()%>'">
 					<%
-// 					}
-// 					}
+					}
+					}
 					%>
 					<!--             댓글 -->
 					<div id="commentNum" class="commu-contents-list___3"><%=commuDTO.getComment_cnt()%></div>
@@ -185,15 +186,16 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			%>
 
 		</div>
+		
+		
 		<div class="commu-contents-list__page-list">
 			<div id="page_control" class="commu-contents-list__list">
 				<%
-				// 시작페이지 1페이지 Prev 없음
-				// 시작페이지 11,21,31 Prev 보임
+				 
 				if (pageDTO.getStartPage() > pageDTO.getPageBlock()) {
 				%>
 				<a
-					href="commuContentsList?pageNum=<%=pageDTO.getStartPage() - pageDTO.getPageBlock()%>">Prev</a>
+					href="commuContentsList.commu?pageNum=<%=pageDTO.getStartPage() - pageDTO.getPageBlock()%>">Prev</a>
 				<%
 }
 %>
@@ -202,7 +204,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				for (int i = pageDTO.getStartPage(); i <= pageDTO.getEndPage(); i++) {
 				%>
 				<div class="commu-contents-list__item your-button-class">
-					<a href="commuContentsList?pageNum=<%=i%>"
+					<a href="commuContentsList.commu?pageNum=<%=i%>"
 						class="commu-contents-list__item your-button-class"><%=i%></a>
 				</div>
 				<%
@@ -214,7 +216,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				if (pageDTO.getEndPage() < pageDTO.getPageCount()) {
 				%>
 				<a
-					href="commuContentsList?pageNum=<%=pageDTO.getStartPage() + pageDTO.getPageBlock()%>">Next</a>
+					href="commuContentsList.commu?pageNum=<%=pageDTO.getStartPage() + pageDTO.getPageBlock()%>">Next</a>
 				<%
 }
 %>

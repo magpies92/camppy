@@ -20,6 +20,7 @@ public class CommuDAO {
 	ResultSet rs = null;// 결과 값 받아오기
 	ResultSet rs2 = null;// 결과 값 받아오기
 
+
 	public Connection getConnection() throws Exception {
 		// context.xml 불러오기 위해 context 객체생
 		Context init = new InitialContext();
@@ -184,7 +185,7 @@ public class CommuDAO {
 		try {
 			con = getConnection();
 
-			String sql = "select p.create_date, p.last_modified_date, p.created_by, p.last_modified_by, p.comment_cnt, p.content, p.like_cnt, p.post_type, p.title, p.member_id, i.post_image_id, i.created_date, i.post_id, i.member_id, i.last_modified_date, i.created_by, i.last_modified_by, i.img_url from post p join post_image i on (p.post_id = i.post_id) order by post_id limit ?,?";
+			String sql = "select p.create_date, p.last_modified_date, p.created_by, p.last_modified_by, p.comment_cnt, p.content, p.like_cnt, p.post_type, p.title, p.member_id, i.post_image_id, i.created_date, i.post_id, i.member_id, i.last_modified_date, i.created_by, i.last_modified_by, i.img_url from post p join post_image i on (p.post_id = i.post_id) order by post_id desc limit ?,?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, pageDTO.getStartRow() - 1);
 			pstmt.setInt(2, pageDTO.getPageSize());
@@ -237,7 +238,7 @@ public class CommuDAO {
 					+ "order by post_id " + "desc limit ?,?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%" + pageDTO.getSearch() + "%");
-			pstmt.setInt(2, pageDTO.getStartRow());// 시작행-1
+			pstmt.setInt(2, pageDTO.getStartRow()-1);// 시작행-1
 			pstmt.setInt(3, pageDTO.getPageSize());// 몇개
 			System.out.println(pstmt);
 			rs = pstmt.executeQuery();
@@ -343,11 +344,14 @@ public class CommuDAO {
 		return commuRankList;
 	}
 
-	public void commudelete(int post_id) {
+	public void commuDelete(int post_id) {
 		try {
 			con = getConnection();
 
-			String sql = "delete from post p join post_image i on (p.post_id = i.post_id) where post_id=?";
+			String sql = "DELETE p, i "
+					+ "FROM post p "
+					+ "JOIN post_image i ON p.post_id = i.post_id"
+					+ "WHERE p.post_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, post_id);
 
