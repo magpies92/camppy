@@ -18,7 +18,7 @@ public class CommuDTO {
   
   //post_image:커뮤니티 사진 
   private int post_image_id;//커뮤니티 사진 아이디 
-  private String created_date;//작성날짜 
+  private Timestamp created_date;//작성날짜 
 //  private int post_id;//게시글 아이디 
 //  private String member_id; //회원아이디 
 //  private Timestamp last_modified_date;//수정날짜
@@ -147,13 +147,7 @@ public class CommuDTO {
 		this.post_image_id = post_image_id;
 	}
 
-	public String getCreated_date() {
-		return created_date;
-	}
 
-	public void setCreated_date(String created_date) {
-		this.created_date = created_date;
-	}
 
 	public String getLast_modified_id() {
 		return last_modified_id;
@@ -201,6 +195,14 @@ public class CommuDTO {
 
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+
+	public Timestamp getCreated_date() {
+		return created_date;
+	}
+
+	public void setCreated_date(Timestamp created_date) {
+		this.created_date = created_date;
 	}
 
 	

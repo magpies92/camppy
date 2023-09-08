@@ -23,13 +23,15 @@ public class CommuService {
 
 	public void commuInsert(HttpServletRequest request) {
 		try {
+			HttpSession session = request.getSession();
+			String id =(String)session.getAttribute("id");
+			
+		    memberService= new MemberService();
+			MemberDTO memberDTO =memberService.getMember(id);
+			
 	        System.out.println("commuService commuInsert");
 			request.setCharacterEncoding("utf-8");
 
-//			HttpSession session= request.getSession();
-//			String id =(String)session.getAttribute("id");
-
-//			MemberDTO memberDTO = memberService.getMember(id);
 			String uploadPath = request.getRealPath("/upload");
 
 			System.out.println(uploadPath);
@@ -45,12 +47,12 @@ public class CommuService {
 			Timestamp last_modified_date = new Timestamp(System.currentTimeMillis());
 			String created_by = multi.getParameter("created_by");
 			String last_modified_by = multi.getParameter("last_modified_by");
-			int comment_cnt = multi.getParameter("comment_cnt");
-			int like_cnt = multi.getParameter(like_cnt);
-			String post_type = multi.getParameter(post_type);
-			int member_id = multi.getParameter(member_id);
+//			int comment_cnt = Integer.parseInt(multi.getParameter("comment_cnt"));
+//			int like_cnt = Integer.parseInt(multi.getParameter("like_cnt"));
+			String post_type = multi.getParameter("post_type");
+			int member_id = memberDTO.getMember_id();
 
-			String img_url = multi.getFilesystemName("img_url");
+			String img_url = multi.getFilesystemName("uploadFile");
 
 			CommuDTO commuDTO = new CommuDTO();
 			commuDTO.setTitle(title);
@@ -59,26 +61,28 @@ public class CommuService {
 			commuDTO.setLast_modified_date(last_modified_date);
 			commuDTO.setCreated_by(created_by);
 			commuDTO.setLast_modified_by(last_modified_by);
-			commuDTO.setComment_cnt(comment_cnt);
-			commuDTO.setLike_cnt(like_cnt);
+//			commuDTO.setComment_cnt(comment_cnt);
+//			commuDTO.setLike_cnt(like_cnt);
 			commuDTO.setPost_type(post_type);
 			commuDTO.setMember_id(member_id);
 			commuDTO.setImg_url(img_url); 
-
+			System.out.println(img_url);
+			
 			commuDAO = new CommuDAO();
 
 			commuDAO.commuInsert(commuDTO);
 			int post_id = commuDAO.getMaxNum()+1;
+			System.out.println(post_id); 
 
 			commuDTO.setCreate_date(last_modified_date);
 			commuDTO.setPost_id(post_id);
-			commuDTO.setMember_id(member_id);
+//			commuDTO.setMember_id(member_id);
 			commuDTO.setLast_modified_date(last_modified_date);
 			commuDTO.setCreated_by(created_by);
 			commuDTO.setLast_modified_by(last_modified_by);
 			commuDTO.setImg_url(img_url);
 
-			commuDAO.commuInsertPostImage(commuDTO);
+//			commuDAO.commuInsertPostImage(commuDTO);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -165,18 +169,19 @@ public class CommuService {
 		return count;
 	}
 	
-	public CommuDTO getCommuRank(int commuRank) {
+	public List<CommuDTO> getCommuRank() {
 		System.out.println("CampRegService getCampReg()");
-		CommuDTO commuDTO = null;
+		List<CommuDTO> commuList = null;
+		
 		try {	
 			
 			commuDAO = new CommuDAO();
 			
-			commuDTO = commuDAO.getCommuRank(commuRank);
+			commuList= commuDAO.getCommuRank();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return commuDTO;
+		return commuList;
 	}
 
 	public void commudelete(HttpServletRequest request) {
