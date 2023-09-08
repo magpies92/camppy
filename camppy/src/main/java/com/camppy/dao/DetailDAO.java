@@ -11,6 +11,8 @@ import javax.sql.DataSource;
 
 import com.camppy.dto.DetailDTO;
 
+import com.camppy.dto.DetailDTO;
+
 public class DetailDAO {
 	
 	Connection con=null;
@@ -225,6 +227,45 @@ public class DetailDAO {
 		}finally {dbClose();}
 		return detailDTO;
 	}
+	
+	
+	
+	public DetailDTO getDetailList(int camp_id) {
+		System.out.println("DetailDAO getDetailList()");
+		DetailDTO dto=null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=getConnection();
+			String sql="select * from camp where camp_id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, camp_id);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				dto = new DetailDTO();
+				dto.setCamp_id(rs.getInt("camp_id"));
+				dto.setCamp_name(rs.getString("no"));
+				dto.setCamp_addr(rs.getString("camp_addr"));
+				dto.setTel(rs.getString("tel"));
+				dto.setPic1(rs.getString("pic1"));
+				dto.setPic2(rs.getString("pic2"));
+				dto.setPic3(rs.getString("pic3"));
+				dto.setPic4(rs.getString("pic4"));
+				dto.setPic5(rs.getString("pic5"));
+				dto.setShort_intro(rs.getString("short_intro"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try { rs.close();} catch (Exception e2) {}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+		return dto;
+	}//getDetailList()
+	
+	
 	
 	
 	

@@ -58,28 +58,27 @@ public class NoticeService {
 				
 				request.setCharacterEncoding("utf-8");
 				
-				String create_by = request.getParameter("create_by");
-				String post_type = request.getParameter("post_type");
+				String created_by = request.getParameter("created_by");
+				int post_type = Integer.parseInt(request.getParameter("post_type"));
 				String title = request.getParameter("title");
-				String member_id = request.getParameter("member_id");
+				int member_id = Integer.parseInt(request.getParameter("member_id"));
 				String content = request.getParameter("content");
-				String image_url = request.getParameter("image_url");
 				int notice_cnt = 0;
 				Timestamp create_date = new Timestamp(System.currentTimeMillis());
 				Timestamp last_modified_date = new Timestamp(System.currentTimeMillis());
 				
 				noticeDAO = new NoticeDAO();
-				int notice_id = noticeDAO.getMaxNotice_id() +1;
-				
+//				int notice_id = noticeDAO.getMaxNotice_id() +1;
+				System.out.println("member_id" + member_id);
 				NoticeDTO noticeDTO = new NoticeDTO();
 				
-				noticeDTO.setNotice_id(notice_id);
-				noticeDTO.setCreated_by(create_by);
+//				noticeDTO.setNotice_id(notice_id);
+				noticeDTO.setCreated_by(created_by);
 				noticeDTO.setPost_type(post_type);
 				noticeDTO.setTitle(title);
 				noticeDTO.setMember_id(member_id);
 				noticeDTO.setContent(content);
-				noticeDTO.setImage_url(image_url);
+//				noticeDTO.setImage_url(image_url);
 				noticeDTO.setNotice_cnt(notice_cnt);
 				noticeDTO.setCreate_date(create_date);
 				noticeDTO.setLast_modified_date(last_modified_date);
@@ -101,111 +100,20 @@ public class NoticeService {
 				
 				int notice_id = Integer.parseInt(request.getParameter("notice_id"));
 				
+					 
 				noticeDAO = new NoticeDAO();
 				
 				noticeDTO = noticeDAO.getNotice(notice_id);
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			
 			return noticeDTO;
-		}
+		} // getNotice
 
 
-//		public void finsertNotice(HttpServletRequest request) {
-//			System.out.println("NoticeService finsertNotice()");
-//			try {
-//				String uploadPath = request.getRealPath("/upload");
-//				
-//				System.out.println(uploadPath);
-//				
-//				int maxSize=10*1024*1024; 
-//				MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize,"utf-8", new DefaultFileRenamePolicy()); 
-//				
-//				
-//				request.setCharacterEncoding("utf-8");
-//				
-//				String create_by = multi.getParameter("create_by");
-//				String post_type = multi.getParameter("post_type");
-//				String title = multi.getParameter("title");
-//				String member_id = multi.getParameter("member_id");
-//				String content = multi.getParameter("content");
-//				String image_url = multi.getParameter("image_url");
-////				String file = multi.getFilesystemName("file");
-//				int notice_cnt = 0;
-//				Timestamp create_date = new Timestamp(System.currentTimeMillis());
-//				Timestamp last_modified_date = new Timestamp(System.currentTimeMillis());
-//				
-//				noticeDAO = new NoticeDAO();
-//				int notice_id = noticeDAO.getMaxNotice_id() +1;
-//				
-//				NoticeDTO noticeDTO = new NoticeDTO();
-//				
-//				noticeDTO.setNotice_id(notice_id);
-//				noticeDTO.setCreated_by(create_by);
-//				noticeDTO.setPost_type(post_type);
-//				noticeDTO.setTitle(title);
-//				noticeDTO.setMember_id(member_id);
-//				noticeDTO.setContent(content);
-//				noticeDTO.setImage_url(image_url);
-//				noticeDTO.setNotice_cnt(notice_cnt);
-//				noticeDTO.setCreate_date(create_date);
-//				noticeDTO.setLast_modified_date(last_modified_date);
-//				
-////				// 첨부파일
-////				noticeDTO.setFile(file);
-//
-//				noticeDAO.insertBoard(noticeDTO);
-//
-//				
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//			
-//		}
-//
-//		public void fupdateNotice(HttpServletRequest request) {
-//			System.out.println("NoticeService fupdateNotice()");
-//			try {
-//				String uploadPath = request.getRealPath("/upload");
-//				
-//				int maxSize=10*1024*1024;
-//				MultipartRequest multi = new MultipartRequest(request, uploadPath,maxSize,"utf-8",new DefaultFileRenamePolicy());
-//				int notice_id = Integer.parseInt(multi.getParameter("notice_id"));
-//				String create_by = multi.getParameter("create_by");
-//				String post_type = multi.getParameter("post_type");
-//				String title = multi.getParameter("title");
-//				String member_id = multi.getParameter("member_id");
-//				String content = multi.getParameter("content");
-//				String image_url = multi.getParameter("image_url");
-////				String file = multi.getFilesystemName("file");
-////				String file = multi.getFilesystemName("file");
-////				if(file == null) {
-////					file = multi.getParameter("oldfile");
-////				}
-//				
-//				NoticeDTO noticeDTO = new NoticeDTO(); 
-//				
-//				noticeDTO.setNotice_id(notice_id);
-//				noticeDTO.setCreated_by(create_by);
-//				noticeDTO.setPost_type(post_type);
-//				noticeDTO.setTitle(title);
-//				noticeDTO.setMember_id(member_id);
-//				noticeDTO.setContent(content);
-//				noticeDTO.setImage_url(image_url);
-////				// 첨부파일
-////				noticeDTO.setFile(file);
-//				
-//				noticeDAO = new NoticeDAO();
-//				
-//
-//						
-//						
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//			
-//		} // fupdateNotice
+
 		
 		
 		public void updateNotice(HttpServletRequest request) {
@@ -215,9 +123,10 @@ public class NoticeService {
 				request.setCharacterEncoding("utf-8");
 				
 				int notice_id = Integer.parseInt(request.getParameter("notice_id"));
-				String created_by = request.getParameter("create_by");
-				String post_type = request.getParameter("post_type");
+				String created_by = request.getParameter("created_by");
+				int post_type = Integer.parseInt(request.getParameter("post_type"));
 				String title= request.getParameter("title");
+				String content= request.getParameter("content");
 				
 				NoticeDTO noticeDTO = new NoticeDTO();
 				
@@ -225,6 +134,8 @@ public class NoticeService {
 				noticeDTO.setCreated_by(created_by);
 				noticeDTO.setPost_type(post_type);
 				noticeDTO.setTitle(title);
+				noticeDTO.setContent(content);
+				
 				
 				noticeDAO = new NoticeDAO();
 				
@@ -234,7 +145,20 @@ public class NoticeService {
 				e.printStackTrace();
 			}
 			
-		}
+		} // updateNotice
+
+		public void deleteNotice(HttpServletRequest request) {
+			System.out.println("NoticeService deleteNotice()");
+			try {
+				request.setCharacterEncoding("utf-8");
+				
+				int notice_id = Integer.parseInt(request.getParameter("notice_id"));
+				noticeDAO = new NoticeDAO();
+				noticeDAO.deleteNotice(notice_id);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} //  deleteNotice
 		
 		
 		

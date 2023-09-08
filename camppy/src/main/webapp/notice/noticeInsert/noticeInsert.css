@@ -145,7 +145,7 @@
   left: 94.04px;
   top: 283.29px;
   width: 1100.73px;
-  height: 500.71px;
+  height: 650px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -196,4 +196,8 @@
   color: #ffffff;
   font: 700 31.33px "Inter", sans-serif;
     text-align: center;
+}
+
+.name {
+	display: none;
 }
