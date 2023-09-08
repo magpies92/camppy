@@ -8,15 +8,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.notice.dto.NoticeDTO;
 import com.notice.dto.NoticePageDTO;
 import com.notice.service.NoticeService;
 
+import camppy.member.MemberDTO;
+import camppy.member.MemberService;
+
 
 public class NoticeController extends HttpServlet {
 		NoticeService noticeService = null;
 		RequestDispatcher dispatcher = null;
+		MemberService memberService = null;
 		
 		@Override
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -94,6 +99,13 @@ public class NoticeController extends HttpServlet {
 			
 			
 			if(sPath.equals("/write.no")) {
+				HttpSession session = request.getSession();
+				String id = (String)session.getAttribute("id");
+				
+				memberService = new MemberService();
+				MemberDTO  memberDTO =memberService.getMember(id);
+				request.setAttribute("memberDTO", memberDTO);
+				
 				// 주소변경없이 이동 notice/noticeInsert/noticeInsert.jsp
 				dispatcher = request.getRequestDispatcher("notice/noticeInsert/noticeInsert.jsp");
 				dispatcher.forward(request, response);
@@ -144,6 +156,15 @@ public class NoticeController extends HttpServlet {
 				response.sendRedirect("list.no");
 			}
 			
+			
+			
+			if(sPath.equals("/delete.no")) {
+				System.out.println("뽑은 가상주소 비교 : /delete.no");
+				// noticeService 객체생성
+				noticeService = new NoticeService();
+				noticeService.deleteNotice(request);
+				response.sendRedirect("list.no");
+			}
 			
 			
 			

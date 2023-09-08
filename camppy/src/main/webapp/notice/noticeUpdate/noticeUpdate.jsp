@@ -1,3 +1,5 @@
+<%@page import="camppy.member.MemberDTO"%>
+<%@page import="com.notice.dto.NoticeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -11,65 +13,66 @@
     <link rel="stylesheet" href="notice/noticeUpdate/noticeUpdate.css" />
 
     <style>
-      a,
-      button,
-      input,
-/*       select, */
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      * {
+        a, button, input, h1, h2, h3, h4, h5, * {
         margin: 0;
         padding: 0;
         border: none;
         text-decoration: none;
-/*         appearance: none; */
         background: none;
       }
     </style>
     <title>Document</title>
   </head>
   <body>
-    <div class="noticeupdate">
+<%
+String id = (String)session.getAttribute("id");
 
+MemberDTO  memberDTO =(MemberDTO)request.getAttribute("memberDTO");
+
+NoticeDTO noticeDTO = (NoticeDTO)request.getAttribute("noticeDTO");
+%>
+<%--  	<%=memberDTO.getMember_id() %>  --%>
+  <form action="updatePro.no" method="post">
+  
+    <div class="noticeupdate">
         <div class="noticeupdateSectionBody">
           <div class="noticeupdateBodyContents">
-            <div class="noticeupdateLine2"></div>
-            <div class="noticeupdateGroup2">
             
+            <div class="noticeupdateGroup2">
               <div class="noticeupdateRectangle2">
-                 <select class="noticeUpdate23" >
+                 <select class="noticeUpdate23" name="post_type">
                 <option value="1">말머리</option>
              	<option value="2">로그인</option>
              	<option value="3">결제</option>
              </select>
-              
-              
-              </div>
+  			 </div>
+		 </div>
 
-            </div>
-            <img class="noticeupdateFreeIconImage1" src="free-icon-image-8191595-1.png" />
-<!--             <img class="noticeupdateImage1" src="image-1.png" /> -->
+<%-- <tr><td><input type="text" name="created_by" readonly="readonly" value="<%=id%>" class="name"></td></tr> --%>
+		
+<%-- 		<input type = "hidden" name = "member_id" value = "<%=memberDTO.getMember_id()%>"> --%>
 
             <div class="noticeupdateRectangle1"></div>
             <div class="noticeupdateLine1">            </div>
 
             <!--            제목을 입력해 주세요 -->
-            <textarea class="noticeupdate2"></textarea>
+            <textarea class="noticeupdate2"><%=noticeDTO.getTitle() %></textarea>
 			<!--            문의 내용을 입력해 주세요 -->
-            <textarea class="noticeupdate3"></textarea>
+            <textarea class="noticeupdate3"><%=noticeDTO.getContent() %></textarea>
 	</div>
 
-
           <div class="noticeupdateBodyButton">
-              <input type="button" class="noticeupdateButtonExit" value="나가기">
-              <input type="button" class="noticeupdateButtonupdate" value="수정">
+         <input type="button" class="noticeupdateButtonExit" value="나가기" onclick="location.href='list.no'">
+              <input type="submit" class="noticeupdateButtonupdate" value="수정">
+
+
+
 		</div>
        
        
         </div>
-    </div>
+        </div>
+    </form>
+    
   </body>
 </html>

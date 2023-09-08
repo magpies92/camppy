@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-
+//import com.itwillbs.dao.BoardDAO;
 
 import camppy.reserve.dao.PageDTO;
 
@@ -274,7 +274,22 @@ public class ReserveService {
 	}// getBoard
 	
 	
-	
+	public void deleteReserve(HttpServletRequest request) {
+		System.out.println("ReserveService deleteReserve()");
+		try {
+			// 한글처리
+			request.setCharacterEncoding("utf-8");
+			// num 파라미터 값 가져오기
+			int res_id = Integer.parseInt(request.getParameter("res_id"));
+			// BoardDAO 객체생성
+			MyReserveDAO myResreveDAO = new MyReserveDAO();
+			// deleteBoard(num) 메서드 호출
+			myResreveDAO.deleteReserve(res_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 	
 	
 	

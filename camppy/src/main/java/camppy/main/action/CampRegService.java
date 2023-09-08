@@ -171,6 +171,24 @@ public class CampRegService {
 		return campregDTO;
 	}//getCampReg
 	
+	public CampRegDTO getCampReg2(String campname) {
+		System.out.println("CampRegService getCampReg()");
+		CampRegDTO campregDTO = null;
+		try {
+			// request 한글처리
+
+			// request 파라미터 가져오기 => int num 저장
+
+			// CampRegDAO 객체생성
+			campregDAO = new CampRegDAO();
+			// campregDTO = getCampReg(num) 메서드 호출
+			campregDTO = campregDAO.getCampReg2(campname);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return campregDTO;
+	}//getCampReg
+	
 	public CampRegDTO getCampRank(int camprank) {
 		System.out.println("CampRegService getCampReg()");
 		CampRegDTO campregDTO = null;
