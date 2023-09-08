@@ -69,7 +69,7 @@ height: 150px;
 <body>
 
 <!-- 헤더들어가는 곳 -->
-	<jsp:include page="../../inc/top.jsp"/>
+<%-- 	<jsp:include page="../../inc/top.jsp"/> --%>
 <!-- 헤더들어가는 곳 -->
 		
 
@@ -299,7 +299,7 @@ if(endPage < pageCount){
 </article>
 </div>
 <!-- <!-- 푸터 들어가는 곳  -->
-	<jsp:include page="../../inc/bottom.jsp" />
+<%-- 	<jsp:include page="../../inc/bottom.jsp" /> --%>
 <!-- <!-- 푸터 들어가는 곳 -->
 
 </body>
