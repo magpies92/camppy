@@ -1,0 +1,400 @@
+.noticeContents,
+.noticeContents * {
+  box-sizing: border-box;
+}
+.noticeContents {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 1600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.noticeContentsSectionBody {
+  background: #ffffff;
+  flex-shrink: 0;
+  width: 1920px;
+  height: 1600px;
+  position: relative;
+  overflow: hidden;
+}
+.noticeContentsQuestionContents {
+  background: #efefef;
+  padding: 21px 13px 21px 13px;
+  display: flex;
+  flex-direction: row;
+  gap: 444px;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 1591px;
+  height: 594px;
+  position: absolute;
+  left: calc(50% - 795px);
+  top: 128px;
+  overflow: hidden;
+}
+.noticeContentsA {
+  color: #000000;
+  text-align: left;
+  font: 800 32px/18px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 60px;
+  top: 22px;
+  width: 183px;
+  height: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.noticeContentsCommentButton {
+  background: #4da385;
+  border-radius: 5px;
+  padding: 3px 15px 3px 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 163px;
+  height: 70px;
+  position: absolute;
+  left: 1342px;
+  top: 482px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+      font: 700 30px/18px "NanumGothic", sans-serif; 
+   color: #ffffff;
+   text-align: center;
+}
+
+.noticeContentsTitleNcontent {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 1419px;
+  height: 157px;
+  position: absolute;
+  left: 64px;
+  top: 181px;
+}
+.noticeContentsC {
+  color: #000000;
+  text-align: left;
+  font: 400 30px/18px "NanumGothic", sans-serif;
+  position: relative;
+  width: 1419px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.noticeContentsD {
+  color: #000000;
+  text-align: left;
+  font: 400 25px/50px "NanumGothic", sans-serif;
+  position: relative;
+  width: 1419px;
+  height: 101px;
+}
+.noticeContentsName {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: absolute;
+  left: 64px;
+  top: 117px;
+}
+.noticeContentsE {
+  color: #000000;
+  text-align: left;
+  font: 400 30px/18px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 195px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.noticeContentsIconBox {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  height: 21px;
+  position: absolute;
+  left: 64px;
+  top: 431px;
+}
+.noticeContentsLike {
+  flex-shrink: 0;
+  width: 23.72px;
+  height: 25px;
+  position: relative;
+}
+.noticeContentsF {
+  color: #000000;
+  text-align: center;
+  font: 400 25px/18px "NanumGothic", sans-serif;
+  position: relative;
+  width: 55px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noticeContentsCommentIcon {
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  position: relative;
+}
+.noticeContentsG {
+  color: #000000;
+  text-align: center;
+  font: 400 25px/18px "NanumGothic", sans-serif;
+  position: relative;
+  width: 87px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noticeContentsDateNbutton {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 462px;
+  position: absolute;
+  left: 1057px;
+  top: 415px;
+}
+.noticeContents2023 {
+  color: #000000;
+  text-align: center;
+  font: 400 24px/18px "NanumGothic", sans-serif;
+  position: relative;
+  width: 332px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noticeContentsH {
+  color: #000000;
+  text-align: center;
+  font: 400 25px/18px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 288px;
+  top: 16px;
+  width: 87px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noticeContentsI {
+  color: #000000;
+  text-align: center;
+  font: 400 25px/18px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 375px;
+  top: 16px;
+  width: 87px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noticeContentsCommentBox {
+  background: #ffffff;
+  flex-shrink: 0;
+  width: 1252px;
+  height: 70px;
+  position: absolute;
+  left: 64px;
+  top: 482px;
+  font: 400 25px/50px "NanumGothic", sans-serif;
+  resize: none;
+
+}
+.noticeContentsComment {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 1591px;
+  height: 562px;
+  position: absolute;
+  left: 165px;
+  top: 790px;
+  overflow: hidden;
+}
+.noticeContentsJ {
+  color: #000000;
+  text-align: center;
+  font: 800 32px/18px "NanumGothic", sans-serif;
+  position: relative;
+  width: 125px;
+  height: 93px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noticeContentsComment1 {
+  border-style: solid;
+  border-color: #c8c8c8;
+  border-width: 0px 0px 2px 0px;
+  flex-shrink: 0;
+  width: 1593px;
+  height: 129px;
+  position: absolute;
+  left: 0px;
+  top: 93px;
+  overflow: hidden;
+}
+.noticeContentsK7 {
+  color: #5a5a5a;
+  text-align: center;
+  font: 400 27px/18px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 1483px;
+  top: 64px;
+  width: 90px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noticeContentsL {
+  color: #000000;
+  text-align: center;
+  font: 400 25px/18px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 1512px;
+  top: 17px;
+  width: 61px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noticeContentsM {
+  color: #000000;
+  text-align: center;
+  font: 400 25px/18px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 1446px;
+  top: 17px;
+  width: 63px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noticeContentsN {
+  color: #000000;
+  text-align: left;
+  font: 400 27px/18px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 32px;
+  top: 68px;
+  width: 867px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.noticeContentsUser {
+  color: #000000;
+  text-align: left;
+  font: 400 30px/18px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 72px;
+  top: 24px;
+  width: 78px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.noticeContentsProfileIcon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 32px;
+  top: 21px;
+}
+.noticeContentsComment2 {
+  border-style: solid;
+  border-color: #c8c8c8;
+  border-width: 0px 0px 2px 0px;
+  flex-shrink: 0;
+  width: 1593px;
+  height: 129px;
+  position: absolute;
+  left: 0px;
+  top: 222px;
+  overflow: hidden;
+}
+.noticeContentsO5 {
+  color: #5a5a5a;
+  text-align: center;
+  font: 400 27px/18px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 1483px;
+  top: 64px;
+  width: 90px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noticeContentsComment3 {
+  border-style: solid;
+  border-color: #c8c8c8;
+  border-width: 0px 0px 2px 0px;
+  flex-shrink: 0;
+  width: 1593px;
+  height: 129px;
+  position: absolute;
+  left: 0px;
+  top: 351px;
+  overflow: hidden;
+}
+.noticeContentsO3 {
+  color: #5a5a5a;
+  text-align: center;
+  font: 400 27px/18px "NanumGothic", sans-serif;
+  position: absolute;
+  left: 1483px;
+  top: 64px;
+  width: 90px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
