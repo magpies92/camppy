@@ -90,7 +90,6 @@
 	align-items: flex-end;
 	justify-content: flex-start;
 	flex-shrink: 0;
-	position: absolute;
 	left: 767.73px;
 	top: 91.61px;
 }
@@ -108,22 +107,22 @@
 }
 
 .commu-contents-list__frame-189 {
-	display: flex;
-	flex-direction: row;
-	gap: 9.96px;
-	align-items: flex-start;
-	justify-content: flex-start;
-	flex-shrink: 0;
-	width: 248.94px;
-	height: 298.73px;
-	position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 9.96px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    width: 249.94px;
+    height: 406.73px;
+    position: relative;
 }
 
 .commu-contents-list__rectangle-7 {
 	background: #ffffff;
 	flex-shrink: 0;
 	width: 248.94px;
-	height: 298.73px;
+	height: 261px;
 	position: relative;
 }
 

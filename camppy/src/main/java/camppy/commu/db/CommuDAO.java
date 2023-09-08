@@ -230,30 +230,7 @@ public class CommuDAO {
 		try {
 			con = getConnection();
 			System.out.println(pageDTO.getSearch());
-//			String sql = "select p.create_date,"
-//					+ " p.last_modified_date,"
-//					+ " p.created_by,"
-//					+ " p.last_modified_by,"
-//					+ " p.comment_cnt,"
-//					+ " p.content,"
-//					+ " p.like_cnt,"
-//					+ " p.post_type,"
-//					+ " p.title,"
-//					+ " p.member_id," 
-//					+ " i.post_image_id,"
-//					+ " i.created_date,"
-//					+ " i.post_id,"
-//					+ " i.member_id,"
-//					+ " i.last_modified_date,"
-//					+ " i.created_by,"
-//					+ " i.last_modified_by,"
-//					+ " i.img_url "
-//					+ "from post p join post_image i "
-//					+ "on (p.post_id = i.post_id) "
-//					+ "where title like ? "
-//					+ "order by post_id "
-//					+ "desc limit ?,?";
-//		String sql = "select p.create_date, p.last_modified_date, p.created_by, p.last_modified_by, p.comment_cnt,p.content,p.like_cnt,p.post_type,p.title,p.member_id,i.post_image_id,i.created_date,i.post_id,i.member_id,i.last_modified_date,i.created_by,i.last_modified_by,i.img_url from post p join post_image i on (p.post_id = i.post_id) where title like ? order by post_id desc limit ?,?";
+			
 			String sql = "select p.create_date,p.last_modified_date,p.created_by,p.last_modified_by,p.comment_cnt,p.content,p.like_cnt,p.post_type,p.title,p.member_id,"
 					+ "	   i.post_image_id,i.created_date,i.post_id,i.member_id,i.last_modified_date,i.created_by,i.last_modified_by,i.img_url "
 					+ "from post p join post_image i " + "on (p.post_id = i.post_id) " + "where title like ? "
@@ -261,7 +238,6 @@ public class CommuDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%" + pageDTO.getSearch() + "%");
 			pstmt.setInt(2, pageDTO.getStartRow());// 시작행-1
-//			pstmt.setInt(2, 0);//시작행-1
 			pstmt.setInt(3, pageDTO.getPageSize());// 몇개
 			System.out.println(pstmt);
 			rs = pstmt.executeQuery();
@@ -334,7 +310,7 @@ public class CommuDAO {
 	}
 
 	public List<CommuDTO> getCommuRank() {
-		List<CommuDTO> commuList =null; 
+		List<CommuDTO> commuRankList =null; 
 		try {
 			con = getConnection();
 
@@ -346,7 +322,7 @@ public class CommuDAO {
 
 			rs = pstmt.executeQuery();
 			
-			commuList=new ArrayList<>(); 
+			commuRankList=new ArrayList<>(); 
 			
 			while(rs.next()) {
 				CommuDTO commuDTO = new CommuDTO();
@@ -356,26 +332,15 @@ public class CommuDAO {
 				commuDTO.setImg_url(rs.getString("img_url"));
 				commuDTO.setNickname(rs.getString("nickname"));
 				
-				commuList.add(commuDTO);
+				commuRankList.add(commuDTO);
 			}
-
-//			int i = 0;
-//			commuDTO = new CommuDTO();
-//		
-//			for (i = 1; i <= commuRank; i++) {
-//				rs.next();
-//			}
-//			commuDTO.setLike_cnt(rs.getInt("like_cnt"));
-//			commuDTO.setMember_id(rs.getInt("member_id"));
-//			commuDTO.setImg_url(rs.getString("img_url"));
-//			commuDTO.setNickname(rs.getString("nickname"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			dbclose();
 		}
-		return commuList;
+		return commuRankList;
 	}
 
 	public void commudelete(int post_id) {

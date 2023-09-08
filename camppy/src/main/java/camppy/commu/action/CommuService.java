@@ -171,17 +171,17 @@ public class CommuService {
 	
 	public List<CommuDTO> getCommuRank() {
 		System.out.println("CampRegService getCampReg()");
-		List<CommuDTO> commuList = null;
+		List<CommuDTO> commuRankList = null;
 		
 		try {	
 			
 			commuDAO = new CommuDAO();
 			
-			commuList= commuDAO.getCommuRank();
+			commuRankList= commuDAO.getCommuRank();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return commuList;
+		return commuRankList;
 	}
 
 	public void commudelete(HttpServletRequest request) {
