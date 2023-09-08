@@ -41,7 +41,7 @@ public class QuestionDAO {
 			List<QuestionDTO> questionList = null;
 			try {
 				con = getConnection();
-				String sql = "select * from question order by inquriy_id desc limit ?, ?";
+				String sql = "select * from question order by inquiry_id desc limit ?, ?";
 				
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, questionPageDTO.getStartRow()-1);//시작행-1
@@ -53,7 +53,7 @@ public class QuestionDAO {
 				
 				while(rs.next()) {
 					QuestionDTO questionDTO = new QuestionDTO();
-					questionDTO.setInquriy_id(rs.getInt("inquriy_id"));
+					questionDTO.setInquiry_id(rs.getInt("inquiry_id"));
 					questionDTO.setComment_cnt(rs.getInt("comment_cnt"));
 					questionDTO.setCreate_date(rs.getTimestamp("create_date")); // 작성날짜
 					questionDTO.setLast_modified_date(rs.getTimestamp("last_modified_date")); //수정날짜
@@ -102,25 +102,25 @@ public class QuestionDAO {
 			return count;
 		} // getQuestionCount
 
-		public int getMaxInquriy_id() {
-			System.out.println("QuestionDAO getMaxInquriy_id()");
-			int inquriy_id = 0;
+		public int getMaxInquiry_id() {
+			System.out.println("QuestionDAO getMaxInquiry_id()");
+			int inquiry_id = 0;
 			try {
 				con = getConnection();
 				
-				String sql = "select max(inquriy_id) from question";
+				String sql = "select max(inquiry_id) from question";
 				
 				rs = pstmt.executeQuery();
 				if(rs.next()) {
-					inquriy_id = rs.getInt("max(inquriy_id)");
+					inquiry_id = rs.getInt("max(inquiry_id)");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally {
 				dbClose();
 			}
-			return inquriy_id;
-		} // getMaxinquriy_id
+			return inquiry_id;
+		} // getMaxInquiry_id
 		
 		
 		public void insertQuestion(QuestionDTO questionDTO) {
@@ -151,22 +151,22 @@ public class QuestionDAO {
 
 		
 		
-		public QuestionDTO getQuestion(int inquriy_id) {
+		public QuestionDTO getQuestion(int inquiry_id) {
 			QuestionDTO questionDTO = null;
 			try {
 				con = getConnection();
 				
-				String sql = "select * from question where inquriy_id = ?";
+				String sql = "select * from question where inquiry_id = ?";
 				
 				pstmt = con.prepareStatement(sql);
 				
-				pstmt.setInt(1, inquriy_id);
+				pstmt.setInt(1, inquiry_id);
 				
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()) {
 					questionDTO = new QuestionDTO();			
-					questionDTO.setInquriy_id(rs.getInt("inquriy_id"));
+					questionDTO.setInquiry_id(rs.getInt("inquiry_id"));
 					questionDTO.setCreated_by(rs.getString("created_by")); // 생성자
 					questionDTO.setPost_type(rs.getInt("post_type")); //게시글 종류
 					questionDTO.setTitle(rs.getString("title")); //제목
@@ -202,7 +202,7 @@ public class QuestionDAO {
 				questionList = new ArrayList<>();
 				while(rs.next()) {
 					QuestionDTO questionDTO = new QuestionDTO();
-					questionDTO.setInquriy_id(rs.getInt("inquriy_id"));
+					questionDTO.setInquiry_id(rs.getInt("inquiry_id"));
 					questionDTO.setCreated_by(rs.getString("created_by")); // 생성자
 					questionDTO.setPost_type(rs.getInt("post_type")); //게시글 종류
 					questionDTO.setTitle(rs.getString("title")); //제목
@@ -228,14 +228,14 @@ public class QuestionDAO {
 			try {
 				con = getConnection();
 				
-				String sql = "update question set post_type = ?, title = ?, content =? where inquriy_id = ?" ;
+				String sql = "update question set post_type = ?, title = ?, content =? where inquiry_id = ?" ;
 			
 				pstmt=con.prepareStatement(sql);
 				
 				pstmt.setInt(1, questionDTO.getPost_type());
 				pstmt.setString(2, questionDTO.getTitle());
 				pstmt.setString(3, questionDTO.getContent());
-				pstmt.setInt(4, questionDTO.getInquriy_id());
+				pstmt.setInt(4, questionDTO.getInquiry_id());
 				  
 				pstmt.executeUpdate();
 			} catch (Exception e) {
@@ -246,12 +246,12 @@ public class QuestionDAO {
 			
 		} // updateQuestion
 		
-		public void deleteQuestion(int inquriy_id) {
+		public void deleteQuestion(int inquiry_id) {
 			try {
 				con = getConnection();
-				String sql = "delete from question where inquriy_id = ?";
+				String sql = "delete from question where inquiry_id = ?";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, inquriy_id);
+				pstmt.setInt(1, inquiry_id);
 				pstmt.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -261,15 +261,15 @@ public class QuestionDAO {
 			
 		} // deleteQuestion
 
-		public void notice_cnt(int inquriy_id) {
+		public void notice_cnt(int inquiry_id) {
 			try {
 				con = getConnection();
 				
-				String sql = "update question set notice_cnt =notice_cnt+1 where inquriy_id = ?" ;
+				String sql = "update question set notice_cnt =notice_cnt+1 where inquiry_id = ?" ;
 			
 				pstmt=con.prepareStatement(sql);
 
-				pstmt.setInt(1, inquriy_id);
+				pstmt.setInt(1, inquiry_id);
 				  
 				pstmt.executeUpdate();
 			} catch (Exception e) {

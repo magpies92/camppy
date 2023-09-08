@@ -47,26 +47,7 @@
   left: 34.27px;
   top: 141px;
 }
-.questionInsertLine2 {
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0.98px 0 0 0;
-  flex-shrink: 0;
-  width: 1121.15px;
-  height: 0px;
-  position: absolute;
-  left: 34.27px;
-  top: 658.98px;
-}
-.questionInsertPictureIcon {
-  opacity: 0.30000001192092896;
-  flex-shrink: 0;
-  width: 104.77px;
-  height: 82.25px;
-  position: absolute;
-  left: 35.25px;
-  top: 704.02px;
-}
+
 .questionInsertBox {
   border-style: solid;
   border-color: #000000;
@@ -119,9 +100,9 @@
   font: 500 31.33px "Inter", sans-serif;
   position: absolute;
   left: 45.04px;
-  top: 223.29px;
+  top: 240.29px;
   width: 1100.73px;
-  height: 500.71px;
+  height: 630.71px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -171,4 +152,6 @@
   text-align: center;
   font: 700 31.33px "Inter", sans-serif;
 }
-
+.name {
+  display: none;
+}

@@ -57,10 +57,10 @@ List<QuestionDTO> questionList = (List<QuestionDTO>)request.getAttribute("questi
 %>		  
 	
 
-<div class="questionListQuestionList3" onclick = "location.href='content.qu?inquriy_id=<%=questionDTO.getInquriy_id()%>'">	
+<div class="questionListQuestionList3" onclick = "location.href='content.qu?inquriy_id=<%=questionDTO.getInquiry_id()%>'">	
 		<div class="questionListQuestionList3">
 			<div class="questionListLine1">
-				<div class="questionList1"><%=questionDTO.getInquriy_id() %></div>
+				<div class="questionList1"><%=questionDTO.getInquiry_id() %></div>
 				<div class="questionList14"><%=questionDTO.getTitle()%></div>
 				<div class="questionList15"><%=questionDTO.getCreated_by()%></div>
 				<div class="questionList2023"><%=questionDTO.getCreate_date()%></div>
