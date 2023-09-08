@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class NoticeDTO {
 
 		private int notice_id; //게시글아이디
-		private Timestamp created_date; //작성날짜
+		private Timestamp create_date; //작성날짜
 		private Timestamp last_modified_date; //수정날짜
 		private String created_by; //생성자
 		private String last_modified_by; //마지막 수정자
@@ -25,18 +25,7 @@ public class NoticeDTO {
 		public void setNotice_id(int notice_id) {
 			this.notice_id = notice_id;
 		}
-//		public String getCreate_date() {
-//			return create_date;
-//		}
-//		public void setCreate_date(String create_date) {
-//			this.create_date = create_date;
-//		}
-//		public String getLast_modified_date() {
-//			return last_modified_date;
-//		}
-//		public void setLast_modified_date(String last_modified_date) {
-//			this.last_modified_date = last_modified_date;
-//		}
+
 		public String getCreated_by() {
 			return created_by;
 		}
@@ -97,11 +86,11 @@ public class NoticeDTO {
 		public void setImage_url(String image_url) {
 			this.image_url = image_url;
 		}
-		public Timestamp getCreated_date() {
-			return created_date;
+		public Timestamp getCreate_date() {
+			return create_date;
 		}
-		public void setCreated_date(Timestamp created_date) {
-			this.created_date = created_date;
+		public void setCreate_date(Timestamp create_date) {
+			this.create_date = create_date;
 		}
 		public Timestamp getLast_modified_date() {
 			return last_modified_date;

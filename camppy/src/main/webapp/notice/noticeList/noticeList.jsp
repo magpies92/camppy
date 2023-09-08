@@ -1,100 +1,95 @@
-<%@page import="com.notice.dto.NoticeDTO"%>
-<%@page import="com.notice.dao.NoticeDAO"%>
-<%@page import="java.util.List"%>
-<%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="com.notice.dto.NoticeDTO"%>
+<%@page import="com.notice.dto.NoticePageDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="notice/noticeList/noticeList.css" />
-
     <style>
-      a,
-      button,
-      input,
-      select,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      * {
-        margin: 0;
-        padding: 0;
-        border: none;
-        text-decoration: none;
-        appearance: none;
-        background: none;
-      }
+        a, button, input, select, h1, h2, h3, h4, h5, * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            text-decoration: none;
+            appearance: none;
+            background: none;
+        }
     </style>
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="noticeList">
-      <div class="noticeListSectionTotal">
-        <div class="noticeListSectionBody">
-          <div class="noticeListBodyTitle">
-            <div class="noticeListA">공지사항</div>
-          </div>
-          <div class="noticeListListBody">
-            <div class="noticeListList">
-              <%
-                NoticeDAO noticeDAO = new NoticeDAO();
-                List<NoticeDTO> noticeListFromDAO = noticeDAO.getNoticeList(NoticeDTO); // 변수 이름 변경
+    <title>공지사항</title>
+</head>
+<body>
+ <jsp:include page="../../inc/top.jsp"/> 
 
-                for(NoticeDTO noticeDTO : noticeListFromDAO) {
-              %>
-              <div class="noticeListList1">
-                <div class="noticeListNum">
-                  <div class="noticeListB"><%=noticeDTO.getNotice_id()%></div>
+
+
+<%
+List<NoticeDTO> noticeList = (List<NoticeDTO>)request.getAttribute("noticeList");
+
+// NoticePageDTO noticepageDTO = (NoticePageDTO)request.getAttribute("noticePageDTO");
+%>
+
+    <div class="noticeList">
+        <div class="noticeListSectionTotal">
+                    <div class="noticeListA">공지사항</div>
                 </div>
-                <div class="noticeListTitle">
-                  <div class="noticeList2023Event">
-                    <%= noticeDTO.getTitle()%>
-                  </div>
                 </div>
-                <div class="noticeListAdmin">
-                  <div class="noticeListC"><%=noticeDTO.getCreated_by() %></div>
-                </div>
-                <div class="noticeListDate">
-                  <div class="noticeList2023"><%=noticeDTO.getCreated_date() %></div>
-                </div>
-                <div class="noticeListNum2">
-                  <div class="noticeListD"><%=noticeDTO.getNotice_cnt() %></div>
-                </div>
+                            <div class="noticeListBoardList">
+              <div class="noticListCell1">
+                <div class="noticeList4">번호</div>
               </div>
-              <% } %>
-              <!-- 두번째 -->
-              <div class="noticeListList2">
-                <div class="noticeListNum">
-                  <div class="noticeListB">67</div>
-                </div>
-                <div class="noticeListTitle">
-                  <div class="noticeList2023Event2">
-                    [조기종료][2023 만만한캠핑 EVENT] 캠핑도 하고 네이버페이포인트 리워드(1만원) 받기!
-                  </div>
-                </div>
-                <div class="noticeListAdmin2">
-                  <div class="noticeListC">관리자</div>
-                </div>
-                <div class="noticeListDate2">
-                  <div class="noticeList202301">2023-05-25</div>
-                </div>
-                <div class="noticeListNum2">
-                  <div class="noticeListD">1764</div>
-                </div>
+              <div class="noticListCell2">
+                <div class="noticeList5">제목</div>
+              </div>
+              <div class="noticListCell3">
+                <div class="noticeList6">작성자</div>
+              </div>
+              <div class="noticListCell4">
+                <div class="noticeList7">등록일</div>
+              </div>
+              <div class="noticListCell5">
+                <div class="noticeList8">조회</div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+            
+            
+    <%
+    for(int i=0; i<noticeList.size(); i++){
+    	NoticeDTO noticeDTO=noticeList.get(i);
+    	%>
+    	
+                  
+             			<div class="noticeListList2" onclick = "location.href='content.no?notice_id=<%=noticeDTO.getNotice_id()%>'">
+             			
+    					<div class="noticeListNum">
+        					<div class="noticeListB"><%=noticeDTO.getNotice_id() %></div>
+    					</div> 
+    						<div class="noticeListTitle">
+        					<div class="noticeList2023Event"><%=noticeDTO.getTitle()%></div>
+    						</div>
+    						 <div class="noticeListAdmin2"> 
+        					<div class="noticeListC"><%=noticeDTO.getCreated_by()%></div>
+    						</div>
+    						<div class="noticeListDate2">
+        					<div class="noticeList2023"><%=noticeDTO.getCreate_date()%></div>
+    						</div>
+    						<div class="noticeListNum2">
+        					<div class="noticeListD"><%=noticeDTO.getNotice_cnt()%></div>
+    						</div>
+       			 		</div>
+    				
+<%} %>
+
+<input type="button" value="글쓰기" class="writebtn" onclick="location.href='write.no'">
+
+</body>
 </html>
+   

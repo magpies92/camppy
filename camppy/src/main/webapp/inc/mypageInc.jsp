@@ -11,6 +11,25 @@
    	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
+ 
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+      }
+    
 .mypageProfile {
   padding: 10px 100px 10px 100px;
   display: flex;
@@ -89,7 +108,7 @@
   width: 1040px;
   height: 70px;
   position: absolute;
-  left: 515px;
+  left: 135px;
   top: 160px;
 }
 .myVisit {
@@ -315,12 +334,15 @@ div.tab.active {
 	//세션에서 로그인정보, 예약정보 가져오기
 	String id = (String) session.getAttribute("member_id");
 	%>
+	
+	<jsp:include page="/inc/top.jsp"/>
+	
         <div class="mypageProfile">
           <img
             class="mypageUserIcon"
             src="free-icon-user-8484069-2.png"
           />
-          <div class="profileNickname"><%=nickName %></div>
+          <div class="profileNickname">발레하는 감자</div>
           <button type="button" onclick="location.href = 'abc.jsp'" class="updateButton">
             <div class="updateProfile" >프로필수정</div>
           </button>

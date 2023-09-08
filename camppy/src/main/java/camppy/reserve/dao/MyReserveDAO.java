@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+//import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.sql.DataSource;
 
 import camppy.reserve.dao.MyReserveDTO;
@@ -396,7 +396,7 @@ public class MyReserveDAO {
 			boolean checksCamp = true;
 			try {
 				con = getConnection();
-				String sql = "select * from reserveation where camp_id=? && ? >= ?";
+				String sql = "select * from reservation where camp_id=? && ? >= ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, camp_id);
 				pstmt.setString(2, checkin_date);

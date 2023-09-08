@@ -142,6 +142,9 @@ label {
 </style>
 </head>
 <body>
+
+
+
 	<!-- 헤더파일들어가는 곳 -->
 	<jsp:include page="../../inc/top.jsp"/>
 	<!-- 헤더파일들어가는 곳 -->
@@ -192,7 +195,7 @@ CampRegDTO campRegDTO = (CampRegDTO)request.getAttribute("campRegDTO");
 
 
 		<div id="wrap">
-			<form action="reserve_detailPro.re" name="reserve_detailform"
+			<form action="reserve_detailPro.re" name="reservedetailform"
 				id="reserve_detail" method="post">
 				<fieldset>
 					<h3 class="menu-section">예약자 정보확인</h3>
@@ -208,7 +211,7 @@ CampRegDTO campRegDTO = (CampRegDTO)request.getAttribute("campRegDTO");
 					<div class="ap-services">
 					<input type="hidden" name="camp_id" value="<%=campRegDTO.getCampid() %>"><br>
 					<input type="hidden" name="camp_price" value="<%=campRegDTO.getCampprice() %>"><br>
-						펜션이름 : <input type="text" name="name" value="<%=campRegDTO.getCampname()%>"><br>
+						펜션이름 : <input type="text" name="camp_name" value="<%=campRegDTO.getCampname()%>"><br>
 						숙박료 : <input type="text" name="price" value="<%=campRegDTO.getCampprice() %>원 /1박"><br>
 						입실일 : <input type="date" name="checkin_date"><br>
 						퇴실일 : <input type="date" name="checkout_date"><br> 인원수 : <select

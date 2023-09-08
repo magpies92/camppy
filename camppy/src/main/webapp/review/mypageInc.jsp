@@ -10,6 +10,25 @@
    	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
+
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+      }
+    
 .mypageProfile {
   padding: 10px 100px 10px 100px;
   display: flex;
@@ -321,7 +340,6 @@ div.tab.active {
             class="mypageUserIcon"
             src="free-icon-user-8484069-2.png"
           />
-          <div class="profileNickname"><%= nickName %></div>
           <button type="button" onclick="location.href = 'abc.jsp'" class="updateButton">
             <div class="updateProfile">프로필수정</div>
           </button>
@@ -342,7 +360,7 @@ div.tab.active {
 	</div>
 	<div class="tabContents">
 		<!-- The content from tab1 (star.html) will be displayed here by default -->
-		<jsp:include page="top.jsp" />
+<%-- 		<jsp:include page= /> --%>
 	</div>
 		
 
@@ -377,12 +395,12 @@ tabs.forEach(tab => {
 // Simulate a click on the first tab to show its content by default
 tabs[0].click();
 
-function popupDel(){
-    var url = "popupDel.jsp";
-    var name = "popup test";
-    var option = "width = 330, height = 110, location = center "
-    window.open(url, name, option);
-}// 삭제 팝업창 불러오기 기능
+// function popupDel(){
+//     var url = "popupDel.jsp";
+//     var name = "popup test";
+//     var option = "width = 330, height = 110, location = center "
+//     window.open(url, name, option);
+// }// 삭제 팝업창 불러오기 기능
 
 </script>
 </body>

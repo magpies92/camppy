@@ -44,13 +44,13 @@ public class MypageController extends HttpServlet {
 		String sPath = request.getServletPath();
 		System.out.println("가상주소 뽑아오기 : " + sPath);
 
-////			http://localhost:8080/Camppy/reviewInsert.rv
-//			if(sPath.equals("/reviewInsert.rv")) {
-//				// 주소변경 없이 => board/write.jsp 이동
-//				dispatcher 
-//			    = request.getRequestDispatcher("review/insert/reviewInsert.jsp");
-//				dispatcher.forward(request, response);
-//			}//if
+//			http://localhost:8080/Camppy/mypage.my
+			if(sPath.equals("/mypage.my")) {
+				// 주소변경 없이 => board/write.jsp 이동
+				dispatcher 
+			    = request.getRequestDispatcher("/inc/mypageInc.jsp");
+				dispatcher.forward(request, response);
+			}//if
 //			if(sPath.equals("/reviewInsertPro.rv")) {
 //				request.setCharacterEncoding("utf-8");
 //				// BoardService 객체생성
@@ -94,7 +94,7 @@ public class MypageController extends HttpServlet {
 			mypageService.getHeartsCount(request);
 			
 			//게시판 전체 글 개수 구하기
-			int count=mypageService.getLikeCount();
+//			int count=mypageService.getLikeCount();
 			
 			//한 화면에 보여 줄 페이지 개수 설정
 			int pageBlock=10;
@@ -105,18 +105,18 @@ public class MypageController extends HttpServlet {
 			//끝나는 페이지 번호
 			int endPage=startPage+pageBlock-1;
 			
-			//계산한 값
-			int pageCount=count/pageSize+(count%pageSize==0?0:1);
-			if(endPage > pageCount) { //endPage > 전체 페이지
-				endPage = pageCount; // endPage = 전체 페이지;
-			}
-			
-			//pageDTO 저장
-			pageDTO.setCount(count);
-			pageDTO.setPageBlock(pageBlock);
-			pageDTO.setStartPage(startPage);
-			pageDTO.setEndPage(endPage);
-			
+//			//계산한 값
+//			int pageCount=count/pageSize+(count%pageSize==0?0:1);
+//			if(endPage > pageCount) { //endPage > 전체 페이지
+//				endPage = pageCount; // endPage = 전체 페이지;
+//			}
+//			
+//			//pageDTO 저장
+//			pageDTO.setCount(count);
+//			pageDTO.setPageBlock(pageBlock);
+//			pageDTO.setStartPage(startPage);
+//			pageDTO.setEndPage(endPage);
+//			
 			//request에 "likeList", likeList 저장
 			request.setAttribute("likeList", likeList);
 			request.setAttribute("pageDTO", pageDTO);

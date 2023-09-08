@@ -54,7 +54,7 @@ public class NoticeDAO {
 				NoticeDTO noticeDTO = new NoticeDTO();
 				noticeDTO.setNotice_id(rs.getInt("notice_id"));
 				noticeDTO.setComment_cnt(rs.getInt("comment_cnt"));
-				noticeDTO.setCreated_date(rs.getTimestamp("created_date")); // 작성날짜
+				noticeDTO.setCreate_date(rs.getTimestamp("create_date")); // 작성날짜
 				noticeDTO.setLast_modified_date(rs.getTimestamp("last_modified_date")); //수정날짜
 				noticeDTO.setCreated_by(rs.getString("created_by")); // 생성자
 				noticeDTO.setLast_modified_by(rs.getString("last_modified_by")); // 마지막 수정자
@@ -63,8 +63,8 @@ public class NoticeDAO {
 				noticeDTO.setPost_type(rs.getString("post_type")); //게시글 종류
 				noticeDTO.setTitle(rs.getString("title")); //제목
 				noticeDTO.setMember_id(rs.getString("member_id")); //회원 아이디
-				noticeDTO.setNotice_cnt(rs.getInt("noitce_cnt")); //조회수
-				noticeDTO.setImage_url(rs.getString("image_url")); //공지사진주소
+				 noticeDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
+				 noticeDTO.setImage_url(rs.getString("image_url")); //공지사진주소
 				// 배열 한 칸에 저장
 				noticeList.add(noticeDTO);
 				
@@ -131,19 +131,18 @@ public class NoticeDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "insert into notice(notice_id, create_by post_type, title, member_id, content, image_url, notice_cnt, create_date, last_modified_date) "
-					+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "insert into notice( post_type, title, member_id, content, create_date, last_modified_date, notice_cnt, created_by ) values( ?, ?, ?, ?, ?, ?, ?,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, noticeDTO.getNotice_id());
-			pstmt.setString(2,  noticeDTO.getCreated_by());
-			pstmt.setString(3, noticeDTO.getPost_type());
-			pstmt.setString(4, noticeDTO.getTitle());
-			pstmt.setString(5,noticeDTO.getMember_id());
-			pstmt.setString(6, noticeDTO.getContent());
-			pstmt.setString(7, noticeDTO.getImage_url());
-			pstmt.setInt(8, noticeDTO.getNotice_cnt());
-			pstmt.setTimestamp(9, noticeDTO.getCreated_date());
-			pstmt.setTimestamp(10, noticeDTO.getLast_modified_date());
+//			pstmt.setInt(1, noticeDTO.getNotice_id());
+			pstmt.setString(1, noticeDTO.getPost_type());
+			pstmt.setString(2, noticeDTO.getTitle());
+			pstmt.setString(3,noticeDTO.getMember_id());
+			pstmt.setString(4, noticeDTO.getContent());
+			pstmt.setTimestamp(5, noticeDTO.getCreate_date());
+			pstmt.setTimestamp(6,  noticeDTO.getLast_modified_date());
+			pstmt.setInt(7, noticeDTO.getNotice_cnt());
+			pstmt.setString(8,  noticeDTO.getCreated_by());
+
 			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -160,7 +159,7 @@ public class NoticeDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "select * from notice where noitce_id = ?";
+			String sql = "select * from notice where notice_id = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -169,8 +168,7 @@ public class NoticeDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				noticeDTO = new NoticeDTO();
-				
+				noticeDTO = new NoticeDTO();			
 				noticeDTO.setNotice_id(rs.getInt("notice_id"));
 				noticeDTO.setCreated_by(rs.getString("created_by")); // 생성자
 				noticeDTO.setPost_type(rs.getString("post_type")); //게시글 종류
@@ -178,8 +176,8 @@ public class NoticeDAO {
 				noticeDTO.setMember_id(rs.getString("member_id")); //회원 아이디
 				noticeDTO.setContent(rs.getString("content")); //댓글
 				noticeDTO.setImage_url(rs.getString("image_url")); //공지사진주소
-				noticeDTO.setNotice_cnt(rs.getInt("noitce_cnt")); //조회수
-				noticeDTO.setCreated_date(rs.getTimestamp("created_date")); // 작성날짜
+				noticeDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
+				noticeDTO.setCreate_date(rs.getTimestamp("create_date")); // 작성날짜
 				noticeDTO.setLast_modified_date(rs.getTimestamp("last_modified_date")); //수정날짜
 				
 			}
@@ -197,15 +195,16 @@ public class NoticeDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "update notice set create_by=?, post_type=?, title=? where notice_id = ?";
+			String sql = "update notice set created_by=?, post_type=?, title=?,  content=? where notice_id = ?";
 			
 			pstmt=con.prepareStatement(sql);
 			
 			pstmt.setString(1, noticeDTO.getCreated_by());
 			pstmt.setString(2, noticeDTO.getPost_type());
 			pstmt.setString(3,  noticeDTO.getTitle());
-			pstmt.setInt(4, noticeDTO.getNotice_id());
-			
+			pstmt.setString(4, noticeDTO.getContent());
+			pstmt.setInt(5, noticeDTO.getNotice_id());
+			  
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -239,8 +238,8 @@ public class NoticeDAO {
 				noticeDTO.setMember_id(rs.getString("member_id")); //회원 아이디
 				noticeDTO.setContent(rs.getString("content")); //댓글
 				noticeDTO.setImage_url(rs.getString("image_url")); //공지사진주소
-				noticeDTO.setNotice_cnt(rs.getInt("noitce_cnt")); //조회수
-				noticeDTO.setCreated_date(rs.getTimestamp("created_date")); // 작성날짜
+				noticeDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
+				noticeDTO.setCreate_date(rs.getTimestamp("create_date")); // 작성날짜
 				noticeDTO.setLast_modified_date(rs.getTimestamp("last_modified_date")); //수정날짜
 				//배열 한칸 저장
 				noticeList.add(noticeDTO);
@@ -252,6 +251,23 @@ public class NoticeDAO {
 		} //finally
 		return noticeList;
 	}  // getBoardList()
+
+	
+	
+	public void deleteNotice(int notice_id) {
+		try {
+			con = getConnection();
+			String sql = "delete from notice where notice_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, notice_id);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		
+	} // deleteNotice
 
 
 	

@@ -2,7 +2,10 @@ package camppy.reserve.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +20,14 @@ import camppy.reserve.dao.ActionReserve;
 
 import camppy.reserve.dao.PageDTO;
 import camppy.reserve.action.ReserveService;
+
+import camppy.reserve.dao.Action;
+import camppy.reserve.dao.MyReserveDAO;
+import camppy.reserve.dao.MyReserveDTO;
+import camppy.reserve.dao.ReserveDetailDAO;
+import camppy.reserve.dao.ReserveDetailDTO;
+import camppy.reserve.dao.ReserveDetailPro;
+import camppy.reserve.action.MyReservePro;
 import com.mysql.cj.Session;
 
 import camppy.main.action.CampRegDAO;
@@ -59,24 +70,24 @@ public class ReserveController extends HttpServlet {
 		if(sPath.equals("/reserve_detail.re")) {
 			// reserve/login.jsp 주소변경 없이 이동
 			HttpSession session=request.getSession();
-//			String id=(String)session.getAttribute("id");
-			String id="ljy";
+			String id=(String)session.getAttribute("id");
+//			String id="ljy";
 			
 			memberService= new MemberService();
 			MemberDTO memberDTO=memberService.getMember(id);			
 			
 			
-//			int campid=Integer.parseInt(request.getParameter("campid"));
+			int campid=Integer.parseInt(request.getParameter("campId"));
 //			int campid=3;
 			
-//			campRegService = new CampRegService();
-//			CampRegDTO campRegDTO=campRegService.getCampReg(campid);
-			String campname="사천솔섬캠핑장";
 			campRegService = new CampRegService();
-			CampRegDTO campRegDTO=campRegService.getCampReg2(campname);
+			CampRegDTO campRegDTO=campRegService.getCampReg(campid);
+//			String campname="사천솔섬캠핑장";
+//			campRegService = new CampRegService();
+//			CampRegDTO campRegDTO=campRegService.getCampReg2(campname);
 			
 			System.out.println("memberDTO.getMember_id" + memberDTO.getMember_id());
-//			System.out.println("campRegDTO.getCamp_id" + campRegDTO.getCampid());
+			System.out.println("campRegDTO.getCamp_id" + campRegDTO.getCampid());
 			System.out.println("campRegDTO.getCamp_id" + campRegDTO.getCampname());
 			System.out.println("campRegDTO.getCampprice" + campRegDTO.getCampprice());
 			request.setAttribute("memberDTO", memberDTO);	
@@ -89,22 +100,170 @@ public class ReserveController extends HttpServlet {
 		}
 		
 		if(sPath.equals("/reserve_detailPro.re")) {
-			System.out.println("비교 : reserve_detailPro.re");
-			reserveService = new ReserveService();
-			reserveService.insertReserve(request);
+			request.setCharacterEncoding("utf-8");
+			int camp_id=Integer.parseInt(request.getParameter("camp_id")); // 펜션 번호
+			int member_id=Integer.parseInt(request.getParameter("member_id")); // 예약 회원 번호
+//			int res_id=Integer.parseInt(request.getParameter("res_id")); // 예약 회원 번호
+			Timestamp res_time =new Timestamp(System.currentTimeMillis()); // 예약 날짜시간
+			String camp_name = request.getParameter("camp_name");
+//			Timestamp res_time=new Timestamp(System.currentTimeMillis()); // 판매 날짜시간
+//			int guest=Integer.parseInt(request.getParameter("guest")); // 인원수
 			
-			response.sendRedirect("mypage_reserve.re");
+			String checkin_date = request.getParameter("checkin_date"); // 입실일
+			String checkout_date = request.getParameter("checkout_date"); // 퇴실일
+				
+			if(checkin_date.equals("") || checkout_date.equals("")) { // 입실일 퇴실일 입력 안한 경우 경고창
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script type='text/javascript'>");
+				out.println("alert('입실일 또는 퇴실일을 입력해주세요')");
+				out.println("history.back();");
+				out.println("</script>");
+				out.close();
+			} else { // 입실일 퇴실일 입력 되어 있는 경우
+				// 총 숙박일 계산
+				LocalDate startDate = LocalDate.parse(checkin_date);
+				LocalDate endDate = LocalDate.parse(checkout_date);
+			   	int daycount = (int)startDate.until(endDate, ChronoUnit.DAYS);
+					
+//			   	총 숙박료 계산
+				CampRegDAO cdao = new CampRegDAO();
+				CampRegDTO cdto = cdao.getCampReg(camp_id);
+				int sprice = cdto.getCampprice()*daycount;
+			   	
+
+//			   	// 총 숙박료 계산
+//				ReserveDetailDAO rdao = new ReserveDetailDAO();
+//				ReserveDetailDTO rdto = rdao.getDetailList(camp_id);
+//				int sprice = rdto.getCamp_price()*daycount;
+				
+				
+				 // 입실일이 과거면 안되게 하는 기능
+				String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+		        LocalDate nowDate = LocalDate.parse(Date);
+		        if(startDate.isBefore(nowDate)) {
+		        	response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<script type='text/javascript'>");
+					out.println("alert('입실일이 과거입니다.')");
+					out.println("history.back();");
+					out.println("</script>");
+					out.close();
+		        }
+				
+//					if(guest>pdto.getMax_men()) { // 입실 가능 인원 초과인 경우 
+//						response.setContentType("text/html; charset=UTF-8");
+//						PrintWriter out = response.getWriter();
+//						out.println("<script type='text/javascript'>");
+//						out.println("alert('입실 가능 인원 초과입니다.')");
+//						out.println("alert('현재 펜션은 "+pdto.getMax_men()+"명 이하만 입실 가능합니다.')");
+//						out.println("history.back();");
+//						out.println("</script>");
+//						out.close();
+//					}
+				ReserveDetailDAO rdao = new ReserveDetailDAO();
+//		        MyReserveDAO sdao = new MyReserveDAO();
+//		        	if(boolean check1=sdao.checksSales1(pno, indate, outdate);) { // 입실 가능한 인원 수 입력되어 있으면
+						MyReserveDAO mdao = new MyReserveDAO();
+					
+						// 퇴실일이 입실일보다 이전이거나 같은경우 경고창 띄우고 history.back
+						boolean check1=mdao.checkCamp(camp_id, checkin_date, checkout_date);			
+						if(check1==true){
+						response.setContentType("text/html; charset=UTF-8");
+						PrintWriter out = response.getWriter();
+						out.println("<script type='text/javascript'>");
+						out.println("alert('퇴실일이 입실일 이전이거나 입실일과 같습니다.')");
+						out.println("history.back();");
+						out.println("</script>");
+						out.close();
+						} else {
+						// 이미 예약된 경우 경고창 띄우고 history.back
+							
+							boolean check2=mdao.checkCamp2(camp_id, checkin_date, checkout_date);
+							if(check2==true) {
+								response.setContentType("text/html; charset=UTF-8");
+								PrintWriter out = response.getWriter();
+								out.println("<script type='text/javascript'>");
+								out.println("alert('이미 예약된 날짜입니다.')");
+								out.println("history.back();");
+								out.println("</script>");
+								out.close();
+			
+							// 예약 가능한 날짜일 경우 진행
+							}else if(check2!=true) {
+			
+								//Appointment dto에 값 저장
+								
+								  ReserveDetailDTO mdto=new ReserveDetailDTO(); 
+								  // mdto.setRes_id(res_id); 
+							      // mdto.setCamp_id(camp_id); 
+								  // mdto.setRes_time(res_time);
+								  
+//								  MyReserveDAO dao=new MyReserveDAO(); 
+								  ReserveDetailDAO dao = new ReserveDetailDAO();
+								  // DB에 예약정보 저장 
+								  
+								  // 저장된 예약정보 ano 가져오기 // 
+//								  Timestamp checkin_date = new Timestamp(System.currentTimeMillis()); 입실일 
+							   // Timestamp checkout_date = new Timestamp(System.currentTimeMillis()); // 퇴실일 mdto =
+								  dao.getDetailList(member_id); 
+								  member_id = mdto.getRes_id();
+								  
+								  // Sales dto에 값 저장 
+								  // MyReserveDTO mrdto = new MyReserveDTO();
+//								  mdto.setMember_id(member_id); 
+//								  mdto.setCamp_id(camp_id); 
+//								  mdto.setRes_time(res_time);
+//								  mdto.setCamp_name(camp_name);
+//								  mdto.setCheckin_date(checkin_date); 
+//								  mdto.setCheckout_date(checkout_date);
+//								  mdto.setSprice(sprice);
+								  
+								  //dao.insertReserve(mdto);
+								  
+								  System.out.println("비교 : reserve_detailPro.re"); 
+								  reserveService = new ReserveService();
+								  reserveService.insertReserve(request);
+								  
+								  response.setContentType("text/html; charset=UTF-8"); PrintWriter out =
+								  response.getWriter(); out.println("<script type='text/javascript'>");
+								  out.println("alert('총 "+daycount+"박 숙박료 "+sprice+"원 입니다')");
+								  out.println("alert('예약 입금 대기 되었습니다.')");
+								  out.println("alert('입금 확인 후 예약 완료 됩니다.')");
+								  out.println("location.href='mypage_reserve.re';"); out.println("</script>");
+								  out.close();
+								 
+							}
+						}
+					}
+			
+			
+			
+			
+					
+
+//			response.sendRedirect("mypage_reserve.re");
+			
+			
+			
+			
+			
+			
+			
 			
 //			dispatcher 
 //		    = request.getRequestDispatcher("reservepage/mypageReserve/mypage_reserve.jsp");
 //		dispatcher.forward(request, response);
 		}
+		
+		
+		
 		if(sPath.equals("/mypage_reserve.re")) {
 			System.out.println("비교 : myreserve.re");
 			// reserve/login.jsp 주소변경 없이 이동
 			HttpSession session=request.getSession();
-//			String id=(String)session.getAttribute("id");
-			String id="ljy";
+			String id=(String)session.getAttribute("id");
+//			String id="ljy";
 			
 			memberService= new MemberService();
 			MemberDTO memberDTO=memberService.getMember(id);
@@ -196,6 +355,52 @@ public class ReserveController extends HttpServlet {
 		
 		System.out.println("비교 : myreserve.reP");
 	
+//		------------------------------------------------------
+		
+		
+		// 이동정보를 저장하는 자바파일 선언
+					ActionReserve forward=null;
+					//부모 인터페이스 틀 선언
+					Action action=null;
+				
+//					if(sPath.equals("/ProductWriteForm.pr")) {
+//					
+					if(sPath.equals("/ReserveDetailPro.re")) {
+				forward=new ActionReserve();
+				forward.setPath("reservepage/mypageReserve/mypage_reserve.jsp");
+				forward.setRedirect(false);
+				
+						action=new ReserveDetailPro();
+						try {
+							forward=action.execute(request, response);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					
+					}else if(sPath.equals("/MyReservePro.re")) {
+						action=new MyReservePro();
+						try {
+							forward=action.execute(request, response);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						
+						
+					
+			
+//			------------------------------------------------------------------------		
+					if(forward != null) {
+						//이동방식비교
+						if(forward.isRedirect()==true) {
+							response.sendRedirect(forward.getPath());
+						}else {
+					
+							RequestDispatcher dispatcher=
+							request.getRequestDispatcher(forward.getPath());
+					        dispatcher.forward(request, response);
+						}
+					}
+		
 		
 		
 		
@@ -446,4 +651,5 @@ public class ReserveController extends HttpServlet {
 		
 	}//doProcess()
 
+}
 }
