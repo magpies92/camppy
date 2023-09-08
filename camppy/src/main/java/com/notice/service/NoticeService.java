@@ -59,9 +59,9 @@ public class NoticeService {
 				request.setCharacterEncoding("utf-8");
 				
 				String created_by = request.getParameter("created_by");
-				String post_type = request.getParameter("post_type");
+				int post_type = Integer.parseInt(request.getParameter("post_type"));
 				String title = request.getParameter("title");
-				String member_id = request.getParameter("member_id");
+				int member_id = Integer.parseInt(request.getParameter("member_id"));
 				String content = request.getParameter("content");
 				int notice_cnt = 0;
 				Timestamp create_date = new Timestamp(System.currentTimeMillis());
@@ -124,7 +124,7 @@ public class NoticeService {
 				
 				int notice_id = Integer.parseInt(request.getParameter("notice_id"));
 				String created_by = request.getParameter("created_by");
-				String post_type = request.getParameter("post_type");
+				int post_type = Integer.parseInt(request.getParameter("post_type"));
 				String title= request.getParameter("title");
 				String content= request.getParameter("content");
 				

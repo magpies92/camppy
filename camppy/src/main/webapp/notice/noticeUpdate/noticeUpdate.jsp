@@ -40,7 +40,7 @@ NoticeDTO noticeDTO = (NoticeDTO)request.getAttribute("noticeDTO");
             
             <div class="noticeupdateGroup2">
               <div class="noticeupdateRectangle2">
-                 <select class="noticeUpdate23" >
+                 <select class="noticeUpdate23" name="post_type">
                 <option value="1">말머리</option>
              	<option value="2">로그인</option>
              	<option value="3">결제</option>
@@ -48,7 +48,7 @@ NoticeDTO noticeDTO = (NoticeDTO)request.getAttribute("noticeDTO");
   			 </div>
 		 </div>
 
-<tr><td><input type="text" name="created_by" readonly="readonly" value="<%=id%>" class="name"></td></tr>
+<%-- <tr><td><input type="text" name="created_by" readonly="readonly" value="<%=id%>" class="name"></td></tr> --%>
 		
 <%-- 		<input type = "hidden" name = "member_id" value = "<%=memberDTO.getMember_id()%>"> --%>
 

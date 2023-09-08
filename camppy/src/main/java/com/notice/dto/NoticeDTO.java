@@ -12,9 +12,9 @@ public class NoticeDTO {
 		private int comment_cnt; //댓글 개수
 		private String content; //댓글
 		private int like_cnt; //좋아요 개수
-		private String post_type; //게시글 종류
+		private int post_type; //게시글 종류
 		private String title; //제목
-		private String member_id; //회원 아이디
+		private int member_id; //회원 아이디
 		private int notice_cnt; //조회수
 		private String image_url; //공지사진주소
 		
@@ -56,10 +56,10 @@ public class NoticeDTO {
 		public void setLike_cnt(int like_cnt) {
 			this.like_cnt = like_cnt;
 		}
-		public String getPost_type() {
+		public int getPost_type() {
 			return post_type;
 		}
-		public void setPost_type(String post_type) {
+		public void setPost_type(int post_type) {
 			this.post_type = post_type;
 		}
 		public String getTitle() {
@@ -68,10 +68,10 @@ public class NoticeDTO {
 		public void setTitle(String title) {
 			this.title = title;
 		}
-		public String getMember_id() {
+		public int getMember_id() {
 			return member_id;
 		}
-		public void setMember_id(String member_id) {
+		public void setMember_id(int member_id) {
 			this.member_id = member_id;
 		}
 		public int getNotice_cnt() {
