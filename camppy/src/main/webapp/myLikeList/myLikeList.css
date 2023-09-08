@@ -110,6 +110,12 @@
   top: 9.9vw;
 }
 
+.hearts {
+  width: 2vw;
+  padding-top: 0.2vw;
+}
+
+
 .likeNum {
   color: #000000;
   font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
@@ -118,21 +124,6 @@
   top: 0vw;
 }
 
-.readCount {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-  position: absolute;
-  left: 22vw;
-  top: 9.9vw;
-}
-
-.count {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-  position: absolute;
-  left: 5.5vw;
-  top: 0vw;
-}
 
 .each {
   border-radius: 0.0000vw;
@@ -174,7 +165,7 @@
   top: 14vw;
 }
 
-.mypage-like-list__contents-2 {
+/*.mypage-like-list__contents-2 {
   border-style: solid;
   border-color: #000000;
   border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
@@ -518,4 +509,4 @@
   width: 1.6665vw;
   height: 1.6665vw;
   position: relative;
-}
+}*/

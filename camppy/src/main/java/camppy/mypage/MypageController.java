@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.camppy.dto.DetailDTO;
+
 import camppy.main.action.PageDTO;
 import camppy.mypage.MypageService;
 
@@ -88,6 +90,9 @@ public class MypageController extends HttpServlet {
 			//List<LikeDTO> likeList = getLikeList(); 메서드 호출
 			List<LikeDTO> likeList = mypageService.getLikeList(pageDTO);
 			
+			//DetailDTO = getDetail(request) 메서드 호출
+			mypageService.getHeartsCount(request);
+			
 			//게시판 전체 글 개수 구하기
 			int count=mypageService.getLikeCount();
 			
@@ -115,6 +120,7 @@ public class MypageController extends HttpServlet {
 			//request에 "likeList", likeList 저장
 			request.setAttribute("likeList", likeList);
 			request.setAttribute("pageDTO", pageDTO);
+			
 			//주소 변경 없이 이동 (myLikeList/myLikeList.jsp)
 			dispatcher = request.getRequestDispatcher("myLikeList/myLikeList.jsp");
 			dispatcher.forward(request, response);	

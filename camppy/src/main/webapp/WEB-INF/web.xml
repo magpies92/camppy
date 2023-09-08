@@ -106,6 +106,16 @@
 	<servlet-class>com.notice.controller.QuestionController</servlet-class>
 </servlet>
 
+ <servlet-mapping>
+	<servlet-name>MypageController</servlet-name>
+	<url-pattern>*.my</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>MypageController</servlet-name>
+	<servlet-class>camppy.mypage.MypageController</servlet-class>
+</servlet>
+
 
   <!--   가상주소에 해당하는 처리담당자(서블릿파일)=> 주소매핑 -->
 <!-- http://localhost:8080/FunWeb/list.bo -->
