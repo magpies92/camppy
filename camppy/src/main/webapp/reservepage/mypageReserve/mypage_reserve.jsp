@@ -61,15 +61,18 @@ float: right;
 }
 .res{
 height: 150px;
-
+position: relative; 
+left: 400px;
 }
+
+
 
 </style>
 </head>
 <body>
 
 <!-- 헤더들어가는 곳 -->
-<%-- 	<jsp:include page="../../inc/top.jsp"/> --%>
+	<jsp:include page="../../inc/top.jsp"/>
 <!-- 헤더들어가는 곳 -->
 		
 
@@ -118,7 +121,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 <div id="wrap">
  <article class="art">	
   <div class="res">  
-       <div class="col-lg-12">  
+       <div class="col-lg-12" >  
 <%--        startPage<%=startPage %> --%>
 <%--        pageBlock<%=pageBlock %> --%>
 <%--        endPage<%=endPage %> --%>
@@ -128,7 +131,11 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
              	예금주 : (주)Camppy</a>
        </div>
        </div>
-	<div><table class="table">
+	<div><table class="table" style="
+    position: relative;
+    left: 550px; transform: scale(1.3,1.3);
+    top: 80px;
+">
 	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
  	<tr><td> 예약번호 </td><td> 펜션명 </td><td> 예약상태 </td> 
@@ -144,7 +151,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 //  		CampRegDAO cdao = new CampRegDAO();
 //  		CampRegDTO cdto = new CampRegDTO();
  		%> 
- 	<tr><td> <%=rdto.getRes_id()%> </td> 
+ 	<tr><td onclick="location.href='DetailList.re?res_id=<%=rdto.getRes_id()%>'"><%=rdto.getRes_id()%> </td>
  	
 	    <td> <%=rdto.getCamp_name()%> </td>
 	        <td class="a"> <% 
@@ -161,8 +168,9 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
           var num = <%=rdto.getSprice()%>;
           document.write(num.toLocaleString()+"원");
          </script>
-         <%
  	
+
+         <%
 %>
 <% 
 
@@ -189,6 +197,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 		<%
  	}
  	%> 
+ 	
 	</table>
 	</div>
 <!-- <h1>page</h1> -->
@@ -246,7 +255,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 	<%
 }
  %>
-<div class="room-pagination">
+<div class="room-pagination" style=" position: relative; left: 800px; top: 150px">
 <%
  for(int i=startPage;i<=endPage;i++){
 	%>
@@ -301,7 +310,7 @@ if(endPage < pageCount){
 </article>
 </div>
 <!-- <!-- 푸터 들어가는 곳  -->
-<%-- 	<jsp:include page="../../inc/bottom.jsp" /> --%>
+	<jsp:include page="../../inc/bottom.jsp" />
 <!-- <!-- 푸터 들어가는 곳 -->
 
 </body>

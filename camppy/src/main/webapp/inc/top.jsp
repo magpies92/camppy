@@ -380,13 +380,21 @@ if(id == null){
       <div class="section-navi__link">문의하기</div>
     </div>
     <div class="section-navi__navi-list-4">
-      <button type="button" onclick="location.href='DetailList.re'" class="section-navi__link">예약조회</button>
+      <button type="button" onclick="popupInsert()" class="section-navi__link">예약조회</button>
     </div>
     <div class="section-navi__navi-list-5">
      <button type="button" onclick="location.href='mypage.my'" class="section-navi__link">마이페이지</button>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+function popupInsert() {
+    var url = "reservapage/popupReserve/popupReserve.jsp";
+    var name = "popupInsert";
+    var option = "width = 710, height = 730, top= 100, left= 500";
+    window.open(url, name, option);
+}
 
+</script>
 </body>
 </html>

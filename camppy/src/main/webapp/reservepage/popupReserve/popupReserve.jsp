@@ -23,7 +23,7 @@
         padding: 0;
         border: none;
         text-decoration: none;
-        appearance: none;
+/*         appearance: none; */
         background: none;
       }
     </style>
@@ -37,7 +37,7 @@
         </div>
         <div class="mypage-popup-reserve__tel-search">
           <div class="mypage-popup-reserve__button">
-            <div class="mypage-popup-reserve__2">조회</div>
+            <button type="button" class="mypage-popup-reserve__2">조회</button>
           </div>
           <div class="mypage-popup-reserve__rectangle-20"></div>
           <div class="mypage-popup-reserve__3">전화번호조회</div>
@@ -46,7 +46,7 @@
           <div class="mypage-popup-reserve__4">예약번호조회</div>
           <div class="mypage-popup-reserve__rectangle-18"></div>
           <div class="mypage-popup-reserve__button2">
-            <div class="mypage-popup-reserve__2">조회</div>
+            <button class="mypage-popup-reserve__2">조회</button>
           </div>
         </div>
       </div>
