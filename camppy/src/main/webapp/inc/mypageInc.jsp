@@ -385,7 +385,7 @@ div.tab.active {
     var addresses = {
         "찜 리스트": "http://aaa.me",
         "작성한 글": "http://aaa.me",
-        "작성 리뷰": "reviewInsert.rv",
+        "작성 리뷰": "campReviewList.rv",
         "예약 내역": "mypage_reserve.re"
     };
 
