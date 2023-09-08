@@ -232,15 +232,15 @@ public class NoticeDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "update notice set (created_by, post_type, title, content ) values (?,?,?,?) where notice_id = ?" ;
+			String sql = "update notice set post_type = ?, title = ?, content =? where notice_id = ?" ;
 		
 			pstmt=con.prepareStatement(sql);
 			
-			pstmt.setString(1, noticeDTO.getCreated_by());
-			pstmt.setInt(2, noticeDTO.getPost_type());
-			pstmt.setString(3, noticeDTO.getTitle());
-			pstmt.setString(4, noticeDTO.getContent());
-			pstmt.setInt(5, noticeDTO.getNotice_id());
+//			pstmt.setString(1, noticeDTO.getCreated_by());
+			pstmt.setInt(1, noticeDTO.getPost_type());
+			pstmt.setString(2, noticeDTO.getTitle());
+			pstmt.setString(3, noticeDTO.getContent());
+			pstmt.setInt(4, noticeDTO.getNotice_id());
 			  
 			pstmt.executeUpdate();
 		} catch (Exception e) {

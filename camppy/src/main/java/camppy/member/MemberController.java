@@ -111,6 +111,9 @@ public class MemberController extends HttpServlet{
 			
 
 		}
+		
+		
+		
 		if(sPath.equals("/main.me")) {
 			// 주소 변경없이 이동 => member/main.jsp 이동
 			dispatcher 
@@ -199,29 +202,6 @@ public class MemberController extends HttpServlet{
 			dispatcher.forward(request, response);
 		}
 		
-		if(sPath.equals("/deletePro.me")) {
-			System.out.println("주소 비교 : /deletePro.me");
-			// MemberService 객체생성
-			memberService = new MemberService();
-			// MemberDTO memberDTO = userCheck(request) 메서드 호출
-			MemberDTO memberDTO = memberService.userCheck(request);
-			if(memberDTO != null) {
-				// memberDTO != null
-				// 아이디 비밀번호 일치 -> 삭제 -> 세션전체삭제 ->main.me 이동
-				//     삭제  deleteMember(request) 메서드 호출
-				memberService.deleteMember(request);
-				HttpSession session = request.getSession();
-				session.invalidate();
-				response.sendRedirect("main.me");
-			}else {
-				// else => memberDTO == null
-				//     아이디 비밀번호 틀림 -> member/msg.jsp 이동	
-				dispatcher 
-			    = request.getRequestDispatcher("member/join/msg.jsp");
-				dispatcher.forward(request, response);
-			}
-
-		}//if
 		
 		if(sPath.equals("/list.me")) {
 			System.out.println("주소 비교 : /list.me");
@@ -271,7 +251,7 @@ List<MemberDTO> memberList = memberService.getMemberList();
 			// MemberService 객체생성
 			memberService = new MemberService();
 			// getMember() 메서드 호출
-			MemberDTO memberDTO = memberService.getMember(nick);
+			MemberDTO memberDTO = memberService.getMember2(nick);
 			String result="";
 			if(memberDTO != null) {
 				//아이디 있음 => 아이디 중복
@@ -289,7 +269,22 @@ List<MemberDTO> memberList = memberService.getMemberList();
 			printWriter.close();
 		}//
 		
-		
+		//회원 탈퇴
+		if(sPath.equals("/delete.me")) {
+			memberService = new MemberService();
+			MemberDTO memberDTO = memberService.userCheck2(request);
+			if(memberDTO != null) {
+				memberService.deleteMember(request);
+				HttpSession session = request.getSession();
+				session.invalidate();
+				response.sendRedirect("main.camp");
+			}else {
+				// memberDTO == null 아이디 비밀번호 틀림=> member/msg.jsp
+				dispatcher 
+			    = request.getRequestDispatcher("member/msg.jsp");
+			dispatcher.forward(request, response);
+			}
+		}//		
 		
 	}//doProcess() 메서드
 

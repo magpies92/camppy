@@ -58,6 +58,7 @@ public class MemberService {
 		//MemberDTO memberDTO 변수 선언 => 초기값 null
 		MemberDTO memberDTO = null;
 		try {
+			request.setCharacterEncoding("utf-8");
 			//http://localhost:8080/webProject/jsp3/loginPro.jsp?id=kim&pass=123
 			//사용자가 입력한 정보(폼)를 http가 들고와서 서버에 request 에 저장
 			//request에 저장된 id, pass 가져와서 -> 변수에 저장
@@ -113,6 +114,19 @@ public class MemberService {
 		}
 		return memberDTO;
 	}//getMember()
+	
+	public MemberDTO getMember2(String nick) {
+		MemberDTO memberDTO = null;
+		try {
+			// MemberDAO 객체생성
+			memberDAO = new MemberDAO();
+			// MemberDTO memberDTO = getMember(id) 메서드 호출
+			memberDTO=memberDAO.getMember2(nick);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return memberDTO;
+	}//getMember()
 
 //	memberService.updateMember(request);
 	public void updateMember(HttpServletRequest request) {
@@ -145,13 +159,11 @@ public class MemberService {
 		try {
 			// request id, pass 가져와서 => 변수 저장
 			String id = request.getParameter("id");
-			String pass = request.getParameter("pass");
 						
 			// MemberDTO memberDTO 객체생성
 			MemberDTO memberDTO = new MemberDTO();
 			// set메서드 호출 id, pass,name 저장
 			memberDTO.setId(id);
-			memberDTO.setPass(pass);
 						
 			// MemberDAO memberDAO 객체생성
 			memberDAO = new MemberDAO(); 
