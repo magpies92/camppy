@@ -124,6 +124,8 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 <%--        endPage<%=endPage %> --%>
 <%--        pageCount<%=pageCount %> --%>
       	 <h3 class="heading-section">Reservation</h3><br> 
+      	  <a class="count">계좌번호 : 아이티윌뱅크 202304201023<br>
+             	예금주 : (주)Camppy</a>
        </div>
        </div>
 	<div><table class="table">
@@ -259,7 +261,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 // 10페이지 다음
 if(endPage < pageCount){
 	%>
-	<a href="mypage_reserve.re?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
+	<a href="mypage_DetailList?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 	<%
 
  }
