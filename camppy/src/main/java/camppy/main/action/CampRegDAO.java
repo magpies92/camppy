@@ -100,7 +100,7 @@ public class CampRegDAO {
 			con = getConnection();
 			//3 sql  => mysql 제공 => limit 시작행-1, 몇개
 //			String sql="select * from campreg order by num desc";
-			String sql="select * from camp where subject like ? order by num desc limit ?, ?";
+			String sql="select * from camp where camp_name or  like ? order by num desc limit ?, ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+pageDTO.getSearch()+"%");
 			pstmt.setInt(2, pageDTO.getStartRow()-1);//시작행-1

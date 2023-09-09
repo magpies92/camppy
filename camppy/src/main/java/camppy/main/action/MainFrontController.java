@@ -54,15 +54,13 @@ public class MainFrontController extends HttpServlet {
 		    = request.getRequestDispatcher("camppymain/mainpage/mainpage.jsp");
 		dispatcher.forward(request, response);
 		}
-		if(sPath.equals("/search.camp")) {
-			HttpSession session = request.getSession();
-			// "id" 세션값 가져오기=> String id 변수 저장
-			String id = (String)session.getAttribute("id");
-			// member/login.jsp 주소변경 없이 이동
-			dispatcher 
-		    = request.getRequestDispatcher("camppymain/searchpage/searchpage.jsp");
-		dispatcher.forward(request, response);
-		}
+		/*
+		 * if(sPath.equals("/search.camp")) { HttpSession session =
+		 * request.getSession(); // "id" 세션값 가져오기=> String id 변수 저장 String id =
+		 * (String)session.getAttribute("id"); // member/login.jsp 주소변경 없이 이동 dispatcher
+		 * = request.getRequestDispatcher("camppymain/searchpage/searchpage.jsp");
+		 * dispatcher.forward(request, response); }
+		 */
 		
 		if(sPath.equals("/list.camp")) {
 			System.out.println("뽑은 가상주소 비교 : /list.bo");
@@ -136,7 +134,10 @@ public class MainFrontController extends HttpServlet {
 			// request 한글처리
 			request.setCharacterEncoding("utf-8");
 			//request 검색어 뽑아오기
-			String search = request.getParameter("search");
+			String sido = request.getParameter("sido");
+			String gungu = request.getParameter("gungu");
+			String keywordsearch = request.getParameter("keywordsearch");
+			
 			
 			// 한페이지에서 보여지는 글개수 설정
 			int pageSize=10;
@@ -154,7 +155,7 @@ public class MainFrontController extends HttpServlet {
 			pageDTO.setPageNum(pageNum);
 			pageDTO.setCurrentPage(currentPage);
 			//검색어 저장
-			pageDTO.setSearch(search);
+			pageDTO.setSearch(keywordsearch);
 			
 			// CampRegService 객체생성
 			campregService = new CampRegService();
@@ -199,7 +200,7 @@ public class MainFrontController extends HttpServlet {
 			
 			// 주소변경없이 이동 center/noticeSearch.jsp
 			dispatcher 
-		    = request.getRequestDispatcher("center/noticeSearch.jsp");
+		    = request.getRequestDispatcher("camppymain/searchpage/searchpage.jsp");
 		dispatcher.forward(request, response);
 		}//
 	
