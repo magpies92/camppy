@@ -41,10 +41,10 @@
 		</div>
 	</div>
 	<div class="mypageNavi">
-		<div class="tab" id="tab1" >찜 리스트</div>
+		<div class="tab" id="tab1" onclick="location.href='likeList.my'" >찜 리스트</div>
 		<div class="tab" id="tab2">작성한 글</div>
 		<div class="tab" id="tab3">작성 리뷰</div>
-		<div class="tab" id="tab4">예약 내역</div>
+		<div class="tab" id="tab4" onclick="location.href='mypage_reserve.re'">예약 내역</div>
 	</div>
 	<div class="tabContents" id="contentContainer">
 		<!-- The content from tab1 (star.html) will be displayed here by default -->
@@ -61,7 +61,7 @@
   %>
   <label class="allCheck"> <b>전체선택</b>&nbsp;
   <input type="checkbox" name="all" class="allCheckbox" id="cboxAll"
-         style="margin-left: 1vw;"></label>> 
+         style="margin-left: 1vw;"></label>
 <div class="allbody">
 	<%
 	for(int i=0; i<likeList.size(); i++){
@@ -85,7 +85,7 @@
             
               <div class="likeTitle">
               <img src="myLikeList/hearts.png" class=hearts>
-			  <div class="likeNum"><%=likeDTO.getCamp_like_id()%></div>
+			  <div class="likeNum"><%=likeDTO.getMember_id()%></div>
 			  </div>
 			  </div>
 			  <div class="eachCheck">
@@ -135,9 +135,7 @@
 
                     
 
-          
-
-            <input type="button" value="삭제" class="bannerRsButton" >  
+             <input type="button" value="삭제" class="bannerRsButton" onclick="selectedDel()" > 
           </div>
           
     </div>
@@ -180,28 +178,28 @@
 	});
 	//선택삭제
 	function selectedDel() {
-		var campLikeIds = [];
+		var reviewIds = [];
 		var selectedRows = []; // 선택된 행의 DOM 요소를 저장하는 배열
 
 		// 선택된 체크박스와 해당 행을 찾아서 배열에 추가
 		$("input:checkbox[name='cbox']:checked").each(function() {
-			campLikeIds.push($(this).val());
-			selectedRows.push($(this).closest(".likeList")); // 선택된 행 추가
+			reviewIds.push($(this).val());
+			selectedRows.push($(this).closest(".campinfoRow")); // 선택된 행 추가
 		});
 
-		if (campLikeIds.length === 0) {
-			alert("삭제할 리뷰를 선택하세요.");
+		if (reviewIds.length === 0) {
+			alert("삭제할 캠핑장을 선택하세요.");
 			return;
 		}
 
 		// 사용자에게 삭제 여부를 확인하는 대화 상자 표시
-		var confirmMessage = "선택한 리뷰를 삭제하시겠습니까?";
+		var confirmMessage = "선택한 캠핑장을 삭제하시겠습니까?";
 		if (confirm(confirmMessage)) {
 			$.ajax({
 				type : "POST",
-				url : "myLikeList/deleteSelectedLike.jsp",
+				url : "review/del/deleteSelectedReviews.jsp",
 				data : {
-					campLikeIds : campLikeIds.join("|")
+					reviewIds : reviewIds.join("|")
 				// 선택된 리뷰 ID를 파이프로 구분하여 문자열로 전달
 				},
 				success : function(result) {
