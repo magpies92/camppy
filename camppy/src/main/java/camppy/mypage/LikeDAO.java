@@ -58,8 +58,8 @@ public class LikeDAO {
 					+ "					limit ?, ?";
 			pstmt=con.prepareStatement(sql);
 			//pstmt.setInt(1, likeDTO.getMember_id());
-			pstmt.setInt(2, pageDTO.getStartRow()-1);//시작행-1
-			pstmt.setInt(3, pageDTO.getPageSize());//몇 개
+			pstmt.setInt(1, pageDTO.getStartRow()-1);//시작행-1
+			pstmt.setInt(2, pageDTO.getPageSize());//몇 개
 			rs=pstmt.executeQuery();
 			System.out.println("rs1"+rs);
 			likeList=new ArrayList<>();
@@ -85,7 +85,7 @@ public class LikeDAO {
 	}//getLikeList()
 
 	
-	public int getLikeCount() {
+	public int getLikeCount(PageDTO pageDTO) {
 		System.out.println("LikeDAO getLikeCount()");
 		int count=0;
 		try {

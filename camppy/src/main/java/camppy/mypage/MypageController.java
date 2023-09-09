@@ -67,7 +67,7 @@ public class MypageController extends HttpServlet {
 			System.out.println("가상주소 비교: /likeList.my");
 			
 			//한 페이지에서 보여지는 글 개수 설정
-			int pageSize = 5;
+			int pageSize = 10;
 			
 			//페이지 번호
 			String pageNum = request.getParameter("pageNum");
@@ -91,10 +91,10 @@ public class MypageController extends HttpServlet {
 			List<LikeDTO> likeList = mypageService.getLikeList(pageDTO);
 			
 			//DetailDTO = getDetail(request) 메서드 호출
-			mypageService.getHeartsCount(request);
+			//mypageService.getHeartsCount(request);
 			
 			//게시판 전체 글 개수 구하기
-			int count=mypageService.getLikeCount();
+			int count=mypageService.getLikeCount(pageDTO);
 			
 			//한 화면에 보여 줄 페이지 개수 설정
 			int pageBlock=10;
@@ -116,10 +116,15 @@ public class MypageController extends HttpServlet {
 			pageDTO.setPageBlock(pageBlock);
 			pageDTO.setStartPage(startPage);
 			pageDTO.setEndPage(endPage);
+			pageDTO.setPageCount(pageCount);
 			
 			//request에 "likeList", likeList 저장
 			request.setAttribute("likeList", likeList);
 			request.setAttribute("pageDTO", pageDTO);
+			request.setAttribute("startPage", startPage);
+			request.setAttribute("pageBlock", pageBlock);
+			request.setAttribute("endPage", endPage);
+			request.setAttribute("pageCount", pageCount);
 			
 			//주소 변경 없이 이동 (myLikeList/myLikeList.jsp)
 			dispatcher = request.getRequestDispatcher("myLikeList/myLikeList.jsp");

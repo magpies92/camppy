@@ -39,14 +39,14 @@ public class MypageService {
 	}//getLikeList
 
 	
-	public int getLikeCount() {
+	public int getLikeCount(PageDTO pageDTO) {
 		System.out.println("MypageService getLikeCount()");
 		int count=0;
 		try {
 			//LikeDAO 객체 생성
 			likeDAO = new LikeDAO();
 			//count=getLikeCount() 호출
-			count=likeDAO.getLikeCount();
+			count=likeDAO.getLikeCount(pageDTO);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
