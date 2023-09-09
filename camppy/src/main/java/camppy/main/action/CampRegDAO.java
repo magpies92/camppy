@@ -100,11 +100,17 @@ public class CampRegDAO {
 			con = getConnection();
 			//3 sql  => mysql 제공 => limit 시작행-1, 몇개
 //			String sql="select * from campreg order by num desc";
-			String sql="select * from camp where camp_name or  like ? order by num desc limit ?, ?";
+			String sql="select camp.*, camp_addr.*\r\n"
+					+ "from camp join camp_addr\r\n"
+					+ "on camp.camp_id = camp_addr.camp_id\r\n"
+					+ "where  concat(camp.camp_type,camp.camp_type,camp.intro,camp.runtime,camp.season,camp.facility,camp.tel,camp.environment,camp.short_intro) like ? \r\n"
+					+ "and camp_addr.do_nm like ? and camp_addr.sigungu_nm like ?  order by camp.camp_id desc limit ?, ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+pageDTO.getSearch()+"%");
-			pstmt.setInt(2, pageDTO.getStartRow()-1);//시작행-1
-			pstmt.setInt(3, pageDTO.getPageSize());//몇개
+			pstmt.setString(2, "%"+pageDTO.getSido()+"%");//시작행-1
+			pstmt.setString(3, "%"+pageDTO.getGungu()+"%");//몇개
+			pstmt.setInt(4, pageDTO.getStartRow()-1);//시작행-1
+			pstmt.setInt(5, pageDTO.getPageSize());
 			//4 실행 => 결과 저장
 			rs = pstmt.executeQuery();
 			// campregList 객체생성
@@ -124,7 +130,8 @@ public class CampRegDAO {
 				campregDTO.setBankaccount(rs.getString("bank_account"));
 				campregDTO.setBankname(rs.getString("bank_name"));
 				campregDTO.setCampprice(rs.getInt("camp_price"));
-				campregDTO.setDoo(rs.getString("doo"));
+				campregDTO.setSido(rs.getString("do_nm"));
+				campregDTO.setGungu(rs.getString("sigungu_nm"));
 				campregDTO.setMapx(rs.getString("mapx"));
 				campregDTO.setMapy(rs.getString("mapy"));
 				campregDTO.setCampid(rs.getInt("camp_id"));
@@ -142,30 +149,7 @@ public class CampRegDAO {
 		return campregList;
 	}//getCampRegListSearch()
 	
-	
-//	public int getMaxNum() {
-//		System.out.println("CampRegDAO getMaxNum()");
-//		int num = 0;
-//		try {
-//			//1,2 디비연결
-//			con=getConnection();
-//			//3 sql select max(num) from members
-//			String sql = "select max(num) from campreg;";
-//			pstmt=con.prepareStatement(sql);
-//			//4 실행 => 결과저장
-//			rs =pstmt.executeQuery();
-//			//5 if 다음행  => 열데이터 가져와서 => num저장
-//			if(rs.next()) {
-//				num = rs.getInt("max(num)");
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}finally {
-//			dbClose();
-//		}
-//		return num;
-//	}//getMaxNum()
-	
+
 	public void insertCampReg(CampRegDTO campregDTO) {
 		System.out.println("CampRegDAO insertCampReg()");
 		// campreg테이블 file 열추가
@@ -248,7 +232,7 @@ public class CampRegDAO {
 			pstmt3=con.prepareStatement(sql3);
 			pstmt3.setInt(1, num);	
 			pstmt3.setString(2, campregDTO.getCampaddr());
-			pstmt3.setString(3, campregDTO.getDoo());
+			pstmt3.setString(3, campregDTO.getSido());
 			pstmt3.setString(4, campregDTO.getSigungu());
 			pstmt3.setString(5, campregDTO.getMapx());
 			pstmt3.setString(6, campregDTO.getMapy());
@@ -320,9 +304,17 @@ public class CampRegDAO {
 			con=getConnection();
 			//3 sql select count(*) from campreg
 //String sql = "select count(*) from campreg where subject like '%검색어%';";
-String sql = "select count(*) from campreg where subject like ?;";
-			pstmt=con.prepareStatement(sql);
+			String sql="select count(*)\r\n"
+					+ "from camp join camp_addr\r\n"
+					+ "on camp.camp_id = camp_addr.camp_id\r\n"
+					+ "where  concat(camp.camp_type,camp.camp_type,camp.intro,camp.runtime,camp.season,camp.facility,camp.tel,camp.environment,camp.short_intro) like ? \r\n"
+					+ "and camp_addr.do_nm like ? and camp_addr.sigungu_nm like ?";
+			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+pageDTO.getSearch()+"%");
+			pstmt.setString(2, "%"+pageDTO.getSido()+"%");//시작행-1
+			pstmt.setString(3, "%"+pageDTO.getGungu()+"%");//몇개
+			
+			
 			//4 실행 => 결과저장
 			rs = pstmt.executeQuery();
 			//5 결과 행접근 => 열접근 => count변수 저장
@@ -394,7 +386,8 @@ String sql = "select count(*) from campreg where subject like ?;";
 				dto.setBankaccount(rs.getString("bankaccount"));
 				dto.setBankname(rs.getString("bankname"));
 				dto.setCampprice(rs.getInt("campprice"));
-				dto.setDoo(rs.getString("doo"));
+				dto.setSido(rs.getString("do_nm"));
+				dto.setSigungu(rs.getString("sigungu_nm"));
 				dto.setMapx(rs.getString("mapx"));
 				dto.setMapy(rs.getString("mapy"));
 				dto.setCampid(rs.getInt("campid"));
@@ -449,8 +442,6 @@ String sql = "select count(*) from campreg where subject like ?;";
 		return campregDTO;
 	}//getCampReg
 	
-	
-	
 	public boolean checkResId(int res_id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -469,7 +460,7 @@ String sql = "select count(*) from campreg where subject like ?;";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			
+
 		} finally {
 			if(con != null) try {con.close();} catch (Exception e2) {}
 			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
@@ -477,13 +468,7 @@ String sql = "select count(*) from campreg where subject like ?;";
 		}
 		return checksResID;
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	
 
 }//클래스

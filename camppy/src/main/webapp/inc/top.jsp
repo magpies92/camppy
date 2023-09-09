@@ -371,7 +371,7 @@ if(id == null){
 <div class="section-navi">
   <div class="section-navi__navi-list">
     <div class="section-navi__navi-list-1">
-      <button type="button" onclick="location.href='campreg.campreg'" class="section-navi__link">캠핑장 등록</button>
+      <button type="button" onclick="location.href='list.camp'" class="section-navi__link">캠핑장</button>
     </div>
     <div class="section-navi__navi-list-2">
       <button type="button" onclick="location.href='commuContentsList.commu'" class="section-navi__link">커뮤니티</button>
@@ -380,7 +380,7 @@ if(id == null){
        <button type="button" onclick="location.href='list.qu'" class="section-navi__link">문의하기</button>
     </div>
     <div class="section-navi__navi-list-4">
-      <button type="button" onclick="popupInsert()" class="section-navi__link">예약조회</button>
+      <button type="button" onclick="location.href='campreg.campreg'" class="section-navi__link">예약조회</button>
     </div>
     <div class="section-navi__navi-list-5">
      <button type="button" onclick="location.href='mypage.my'" class="section-navi__link">마이페이지</button>

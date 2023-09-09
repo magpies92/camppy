@@ -93,38 +93,7 @@ public class CampRegService {
 		}
 		return campregList;
 	}//getCampRegListSearch()
-	
-//	
-//	public void insertCampReg(HttpServletRequest request) {
-//		try {
-//			System.out.println("CampRegService insertCampReg()");
-//			// request 한글처리
-//			request.setCharacterEncoding("utf-8");
-//			// request 파라미터 값 가져오기
-//			String name = request.getParameter("name");
-//			String subject = request.getParameter("subject");
-//			String content = request.getParameter("content");
-//			// num, readcount, date => 변수저장
-//			int readcount = 0; //조회수
-//			Timestamp date = new Timestamp(System.currentTimeMillis());
-//			// CampRegDAO 객체생성
-//			campregDAO = new CampRegDAO();
-//			int num = campregDAO.getMaxNum() + 1;
-//			// CampRegDTO 객체생성
-//			CampRegDTO campregDTO = new CampRegDTO();
-//			// set메서드 호출 파라미터값 저장
-//			/*
-//			 * campregDTO.setNum(num); campregDTO.setName(name);
-//			 * campregDTO.setSubject(subject); campregDTO.setContent(content);
-//			 * campregDTO.setReadcount(readcount); campregDTO.setDate(date);
-//			 */
-//			// 리턴할형없음 insertCampReg(campregDTO) 호출
-//			campregDAO.insertCampReg(campregDTO);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}//insertCampReg()
-//
+
 	public int getCampRegCount() {
 		System.out.println("CampRegService getCampRegCount()");
 		int count=0;
@@ -325,7 +294,7 @@ public class CampRegService {
 			campregDTO.setBankname(bankname);
 			campregDTO.setIntro(intro);
 			campregDTO.setCampprice(campprice);
-			campregDTO.setDoo(doo);
+			campregDTO.setSido(doo);
 			campregDTO.setSigungu(sigungu);
 			campregDTO.setMapx(mapx);
 			campregDTO.setMapy(mapy);
