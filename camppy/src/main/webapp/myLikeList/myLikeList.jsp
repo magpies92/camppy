@@ -89,7 +89,7 @@
 			  </div>
 			  </div>
 			  <div class="eachCheck">
-             <input type="checkbox" name="each" class="eachCheckbox"></div> 
+             <input type="checkbox" name="cbox" class="eachCheckbox"></div> 
           
           
           <%
@@ -180,16 +180,16 @@
 	});
 	//선택삭제
 	function selectedDel() {
-		var reviewIds = [];
+		var campLikeIds = [];
 		var selectedRows = []; // 선택된 행의 DOM 요소를 저장하는 배열
 
 		// 선택된 체크박스와 해당 행을 찾아서 배열에 추가
 		$("input:checkbox[name='cbox']:checked").each(function() {
-			reviewIds.push($(this).val());
-			selectedRows.push($(this).closest(".campinfoRow")); // 선택된 행 추가
+			campLikeIds.push($(this).val());
+			selectedRows.push($(this).closest(".likeList")); // 선택된 행 추가
 		});
 
-		if (reviewIds.length === 0) {
+		if (campLikeIds.length === 0) {
 			alert("삭제할 리뷰를 선택하세요.");
 			return;
 		}
@@ -199,9 +199,9 @@
 		if (confirm(confirmMessage)) {
 			$.ajax({
 				type : "POST",
-				url : "review/del/deleteSelectedReviews.jsp",
+				url : "myLikeList/deleteSelectedLike.jsp",
 				data : {
-					reviewIds : reviewIds.join("|")
+					campLikeIds : campLikeIds.join("|")
 				// 선택된 리뷰 ID를 파이프로 구분하여 문자열로 전달
 				},
 				success : function(result) {
