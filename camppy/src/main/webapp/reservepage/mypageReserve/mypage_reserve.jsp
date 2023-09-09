@@ -310,7 +310,7 @@ if(endPage < pageCount){
 </article>
 </div>
 <!-- <!-- 푸터 들어가는 곳  -->
-	<jsp:include page="../../inc/bottom.jsp" />
+<%-- 	<jsp:include page="../../inc/bottom.jsp" /> --%>
 <!-- <!-- 푸터 들어가는 곳 -->
 
 </body>

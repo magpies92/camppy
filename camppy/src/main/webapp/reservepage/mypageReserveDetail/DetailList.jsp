@@ -154,7 +154,7 @@
 			<li><img src="campimg/<%=camp_img%>" width="450px" height="450px"></li>
 		<li>예약일자 : <%=reservedate %></li>
 		<h5><%=camp_name %></h5>
-<%-- 		<li>주소 : <%=camp_addr %><li> --%>
+		<li>주소 : <%=camp_addr %><li>
 		<li id="timecheck">체크인 <%=dateFormat.format(reserveIndate) %> </li>
 		<li id="timecheck">체크아웃 <%=dateFormat.format(reserveOutdate) %></li>
 <%-- 		<%=checkin_date.substring(0, 2) %>시 <%=checkin_date.substring(3) %>분 --%>

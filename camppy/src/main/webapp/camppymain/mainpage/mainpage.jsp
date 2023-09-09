@@ -1,10 +1,13 @@
+<%@page import="camppy.reserve.action.ReserveService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="camppy.main.action.CampRegDTO" %>
 <%@ page import="camppy.main.action.CampRegDAO" %>
 <%@ page import="camppy.main.action.CampRegService" %>
 <%@ page import="java.text.SimpleDateFormat"%>
-
+<%@ page import="camppy.reserve.dao.ReserveDetailDAO" %>
+<%@ page import="camppy.reserve.dao.ReserveDetailDTO" %>
+<%@ page import="camppy.reserve.action.ReserveService" %>
     
 <!DOCTYPE html>
 <html>
@@ -81,6 +84,33 @@
 		    });
 		   }
 		  });
+		  
+		  
+		  
+		  
+		  // 예약 조회 
+		  $(document).ready(function () {
+			    $('#reserveForm').submit(function (e) {
+			        e.preventDefault(); // 기본 폼 제출 동작을 막음
+			        var res_id = $('#res_id').val(); // 입력된 예약 번호를 가져옴
+
+			        $.ajax({
+			            url: 'resIdCheck.re', // 예약 내역을 조회할 서버 측 URL로 변경해야 함
+			            method: 'POST', // POST 요청으로 변경
+			            data: { 'res_id': res_id }, // 사용자가 입력한 예약 번호를 서버로 전송
+			            success: function (result) {
+			                if (result === '1') { // 예약 내역이 있는 경우
+			                    alert("예약 상세 내역으로 이동합니다.");
+			                }
+			                else if (result === '0') { // 예약 내역이 없는 경우
+			                    alert("예약 내역이 없습니다.");
+			                }           
+			            },			           
+			        });
+		  
+		  
+		  
+		  
 
 
 		 });
@@ -88,6 +118,17 @@
     </script> 
 </head>
 <body>
+
+<%
+           
+           int res_id = Integer.parseInt(request.getParameter("res_id"));
+            ReserveDetailDAO reserveDetailDAO = new ReserveDetailDAO();
+			ReserveDetailDTO reserveDetailDTO = reserveDetailDAO.getDetailres(res_id);
+           %>
+
+
+
+
 <jsp:include page="/inc/top.jsp"/>
     <div class="mainpage">
       <div class="mainpage__section-total">
@@ -132,8 +173,11 @@
               </div>
             </form> <!-- form -->
            
-            <form action="listSearch.camp" method="post" class="mainpage__div-searchbox-form1">         
-            <input type="text" name="reservesearch" placeholder="예약 번호 입력" class="mainpage__options1">
+           
+           
+           
+            <form action="DetailList.re" method="post" class="mainpage__div-searchbox-form1">         
+            <input type="text" name="res_id" placeholder="예약 번호 입력" class="mainpage__options1">
                   <button type="submit" class="mainpage__button1">
                     예약 조회
                   </button> <!-- 검색 버튼 -->    

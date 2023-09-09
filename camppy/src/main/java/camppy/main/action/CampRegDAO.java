@@ -449,5 +449,41 @@ String sql = "select count(*) from campreg where subject like ?;";
 		return campregDTO;
 	}//getCampReg
 	
+	
+	
+	public boolean checkResId(int res_id) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean checksResID = true;
+		try {
+			con = getConnection();
+			String sql = "select * from reservation where res_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, res_id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				checksResID = true;
+			} else {
+				checksResID = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			if(con != null) try {con.close();} catch (Exception e2) {}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+			if(rs != null) try {rs.close();} catch (SQLException e) {}
+		}
+		return checksResID;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 }//클래스
