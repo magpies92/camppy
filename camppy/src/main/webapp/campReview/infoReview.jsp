@@ -484,7 +484,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 					            if (confirm("정말로 삭제하시겠습니까?")) {
 					                $.ajax({
-					                    url : "deleteReview.jsp",
+					                    url : "review/del/deleteReview.jsp",
 					                    method : "POST",
 					                    data : {
 					                        review_id : reviewId
@@ -492,6 +492,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					                    success : function(response) {
 					                        if (response.trim() === "success") {
 					                            row.remove();
+					                            location.reload();
 					                        } else {
 					                            alert("삭제 실패");
 					                        }
