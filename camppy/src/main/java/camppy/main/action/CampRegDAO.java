@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -94,6 +95,7 @@ public class CampRegDAO {
 		System.out.println("CampRegDAO getCampRegListSearch()");
 		List<CampRegDTO> campregList = null;
 		try {
+			
 			//1,2 디비연결
 			con = getConnection();
 			//3 sql  => mysql 제공 => limit 시작행-1, 몇개

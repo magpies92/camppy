@@ -12,7 +12,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="./commuContentsList/style.css" />
+<link rel="stylesheet" href="commuContentsList/style.css" />
 
 <style>
 a, button, input, select, h1, h2, h3, h4, h5, * {
@@ -33,12 +33,9 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 	<!-- 	베스트 게시글  -->
 	<%
-	String id = (String) session.getAttribute("id");
+	String id = (String) session.getAttribute("id");	
 	MemberDTO memberDTO = (MemberDTO) request.getAttribute("memberDTO");
-
-	CommuDTO commuDTO = new CommuDTO();
 	List<CommuDTO> commuRankList = (List<CommuDTO>) request.getAttribute("commuRankList");
-	
 	List<CommuDTO> commuList = (List<CommuDTO>) request.getAttribute("commuList");
 	PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");
 	%>
@@ -53,7 +50,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					for (int i = 0; i < commuRankList.size(); i++) {
 					%>
 					<%
-					commuDTO = commuRankList.get(i);
+					CommuDTO commuDTO = commuRankList.get(i);
 					%>
 					<div class="commu-contents-list__box-3">
 						<div class="commu-contents-list__"><%=commuDTO.getTitle()%></div>
@@ -66,12 +63,12 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 							<div class="commu-contents-list__user" id="name3"><%=commuDTO.getNickname()%></div>
 							<!-- 유저 아이콘  -->
 							<img class="commu-contents-list__free-icon-user-8484069-3"
-								src="./commuContentsList/free-icon-user-8484069-3.png" />
+								src="commuContentsList/free-icon-user-8484069-3.png" />
 							<!-- 좋아요 -->
 							<form action="submit" method="post">
 								<button type="button" id="likeButton3">
 									<img class="commu-contents-list__image-3"
-										src="./commuContentsList/image-3.png" />
+										src="commuContentsList/image-3.png" />
 								</button>
 							</form>
 							<!-- 좋아요  -->
@@ -106,17 +103,19 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					</select> <input type="text" class="commu-contents-list__div-sc-camp"
 						name="search" placeholder="검색어를 입력하세요"> <img
 						class="commu-contents-list__button"
-						src="./commuContentsList/button.png" />
+						src="commuContentsList/button.png" />
 				</div>
 			</form>
 
 		
 			<%
 			for (int i = 0; i < commuList.size(); i++) {
+				//commuList.size()
+			
 			%>
 
 			<%
-			commuDTO = commuList.get(i);
+			CommuDTO commuDTO = commuList.get(i);
 			%>
 
 
@@ -130,7 +129,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 					<!--              유저 아이콘  -->
 					<img class="commu-contents-list__free-icon-user-8484069-12"
-						src="./commuContentsList/free-icon-user-8484069-12.png"
+						src="commuContentsList/free-icon-user-8484069-12.png"
 						id="bodyUsericon">
 
 					<!--              닉네임  -->
@@ -144,13 +143,13 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					<!--              내용이미지  -->
 					<a href="commuContents.commu?post_id=<%=commuDTO.getPost_id()%>">
 						<img class="commu-contents-list___002"
-						src="./upload/<%=commuDTO.getImg_url()%>" id="bodyContentsImage">
+						src="upload/<%=commuDTO.getImg_url()%>" id="bodyContentsImage">
 					</a>
 
 					<!--              좋아요 아이콘  -->
 					<button type="button" id="bodyLikeIcon">
 						<img class="commu-contents-list__like-1"
-							src="./commuContentsList/like-1.png">
+							src="commuContentsList/like-1.png">
 					</button>
 
 					<!--              좋아요 수  -->
@@ -158,8 +157,8 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				   
 					<%
 					if (id != null) {
-						if (id.equals(memberDTO.getId())) {
-// 							if (commuDTO.getMember_id() == memberDTO.getMember_id()) {
+						//if (id.equals(memberDTO.getId())) {
+ 							if (commuDTO.getMember_id() == memberDTO.getMember_id()) {
 					%>
 					<input type="button" value="수정" class="commu-contents-list___12"
 						onclick="location.href='commuUpdate.commu?post_id=<%=commuDTO.getPost_id()%>'">
@@ -176,7 +175,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					<!--            댓글 이미지 -->
 					<button type="button" id="bodycomment">
 						<img class="commu-contents-list__text-box-1"
-							src="./commuContentsList/text-box-1.png" />
+							src="commuContentsList/text-box-1.png" />
 					</button>
 				</div>
 

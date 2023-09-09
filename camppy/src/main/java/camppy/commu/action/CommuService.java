@@ -68,20 +68,22 @@ public class CommuService {
 			commuDTO.setMember_id(member_id);
 			commuDTO.setImg_url(img_url); 
 			System.out.println(img_url);
-			
 			commuDAO = new CommuDAO();
+			int post_id = commuDAO.getMaxNum()+1;
+			commuDTO.setPost_id(post_id);			
 
 			commuDAO.commuInsert(commuDTO);
-			int post_id = commuDAO.getMaxNum()+1;
+			
 			System.out.println(post_id); 
 
-			commuDTO.setCreate_date(last_modified_date);
-			commuDTO.setPost_id(post_id);
-//			commuDTO.setMember_id(member_id);
-			commuDTO.setLast_modified_date(last_modified_date);
-			commuDTO.setCreated_by(created_by);
-			commuDTO.setLast_modified_by(last_modified_by);
-			commuDTO.setImg_url(img_url);
+			/*
+			 * commuDTO.setCreate_date(last_modified_date);
+			 * commuDTO.setPost_id(post_id); //
+			 * commuDTO.setMember_id(member_id);
+			 * commuDTO.setLast_modified_date(last_modified_date);
+			 * commuDTO.setCreated_by(created_by);
+			 * commuDTO.setLast_modified_by(last_modified_by); commuDTO.setImg_url(img_url);
+			 */
 
 
 

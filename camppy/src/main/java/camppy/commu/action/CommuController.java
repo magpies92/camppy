@@ -20,6 +20,7 @@ import camppy.member.MemberService;
 public class CommuController extends HttpServlet {
     MemberService memberService = null;
 	CommuService commuService = null;
+	MemberDTO memberDTO = null;
 	RequestDispatcher dispatcher = null;
     
 	@Override
@@ -69,8 +70,9 @@ public class CommuController extends HttpServlet {
 //			int memder_id=(int)session.getAttribute("member_id");   
 		
 			memberService = new MemberService();
+			memberDTO = new MemberDTO();
 //			MemberDTO memberDTO2 = memberService.getMember3(memder_id);
-			MemberDTO memberDTO = memberService.getMember(id);
+			memberDTO = memberService.getMember(id);
 			
 			
 			// 한페이지에서 보여지는 글개수 설정
@@ -137,6 +139,7 @@ public class CommuController extends HttpServlet {
 		    String search = request.getParameter("search");
 		    String searchType = request.getParameter("searchtype");
 		    System.out.println(search);
+		    System.out.println(searchType);
 		    //현재 보이는 페이지 설정 
 		    int pageSize = 3;
 		    
@@ -162,7 +165,7 @@ public class CommuController extends HttpServlet {
 		    
 		    
 		    commuService = new CommuService();
-		    
+		    List<CommuDTO> commuRankList = commuService.getCommuRank();
 		    List<CommuDTO> commuList = commuService.getCommuListSearch(pageDTO);
 		    
 		    //게시판 전체 글 개수 구하기 
@@ -190,6 +193,7 @@ public class CommuController extends HttpServlet {
 		    pageDTO.setPageCount(pageCount);
 		
 		    request.setAttribute("commuList",commuList);
+		    request.setAttribute("commuRankList", commuRankList);
 		    request.setAttribute("pageDTO",pageDTO);
 		  
 		    dispatcher = request.getRequestDispatcher("commuContentsList/commuContentsList.jsp");
