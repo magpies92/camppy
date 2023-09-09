@@ -55,11 +55,11 @@ public class LikeDAO {
 					+ "					on c.camp_id = ca.camp_id\n"
 					+ "					where cl.member_id = 2\n"
 					+ "					order by cl.camp_like_id desc\n"
-					+ "					limit 0, 10";
+					+ "					limit ?, ?";
 			pstmt=con.prepareStatement(sql);
 			//pstmt.setInt(1, likeDTO.getMember_id());
-			//pstmt.setInt(2, pageDTO.getStartRow()-1);//시작행-1
-			//pstmt.setInt(3, pageDTO.getPageSize());//몇 개
+			pstmt.setInt(2, pageDTO.getStartRow()-1);//시작행-1
+			pstmt.setInt(3, pageDTO.getPageSize());//몇 개
 			rs=pstmt.executeQuery();
 			System.out.println("rs1"+rs);
 			likeList=new ArrayList<>();
