@@ -192,7 +192,7 @@
   width: 200px;
   height: 60px;
   position: absolute;
-  left: 548.2px;
+  left: 635px;
   top: 20px;
 }
 .section-navi__link2 {
@@ -220,7 +220,7 @@
   width: 200px;
   height: 60px;
   position: absolute;
-  left: 809.4px;
+  left: 983px;
   top: 20px;
 }
 .section-navi__navi-list-4 {
@@ -251,7 +251,7 @@
   width: 200px;
   height: 60px;
   position: absolute;
-  left: 1331.8px;
+  left: 1331px;
   top: 20px;
 }
 
@@ -302,13 +302,28 @@
   height: 44px;
   position: absolute;
   top: 7px;
-  left: 200px;
+  left: 170px;
   color: #ffffff;
   text-align: center;
   font: 700 15px/44px "Inter", sans-serif;
 }
 .logout__button:hover { /* a태그에 마우스를 올렸을 때 */
-
+  cursor: pointer; 
+}
+.logout__button1 {
+  background: #4da385;
+  border-radius: 10px;
+  flex-shrink: 0;
+  width: 95px;
+  height: 44px;
+  position: absolute;
+  top: 7px;
+  left: 270px;
+  color: #ffffff;
+  text-align: center;
+  font: 700 15px/44px "Inter", sans-serif;
+}
+.logout__button1:hover { /* a태그에 마우스를 올렸을 때 */
   cursor: pointer; 
 }
 
@@ -347,8 +362,14 @@ if(id == null){
 </div>
 	<%
 }else{
+	
 %>
 <div class="logout">
+<%if(id.equals("admin")){%>
+<button type="button" onclick="location.href='campreg.campreg'" class="logout__button1">캠핑장 등록</button>
+	<%
+} %>
+
   <div class="logout___000"><%=id %>님</div>
   <!-- <img
     class="login__free-icon-user-8484069-5"
@@ -371,7 +392,7 @@ if(id == null){
 <div class="section-navi">
   <div class="section-navi__navi-list">
     <div class="section-navi__navi-list-1">
-      <button type="button" onclick="location.href='campreg.campreg'" class="section-navi__link">캠핑장 등록</button>
+      <button type="button" onclick="location.href='list.camp'" class="section-navi__link">캠핑장</button>
     </div>
     <div class="section-navi__navi-list-2">
       <button type="button" onclick="location.href='commuContentsList.commu'" class="section-navi__link">커뮤니티</button>
@@ -379,11 +400,11 @@ if(id == null){
     <div class="section-navi__navi-list-3">
        <button type="button" onclick="location.href='list.qu'" class="section-navi__link">문의하기</button>
     </div>
-    <div class="section-navi__navi-list-4">
-      <button type="button" onclick="popupInsert()" class="section-navi__link">예약조회</button>
-    </div>
+    <!-- <div class="section-navi__navi-list-4">
+      <button type="button" onclick="location.href='campreg.campreg'" class="section-navi__link">예약조회</button>
+    </div> -->
     <div class="section-navi__navi-list-5">
-     <button type="button" onclick="location.href='mypage.my'" class="section-navi__link">마이페이지</button>
+     <button type="button" onclick="location.href='likeList.my'" class="section-navi__link">마이페이지</button>
     </div>
   </div>
 </div>

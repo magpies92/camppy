@@ -25,7 +25,7 @@
     <title>Document</title>
   </head>
   <body>
-  
+       <jsp:include page="../../inc/top.jsp"/>  
   <%
 String id = (String)session.getAttribute("id");
 
@@ -68,6 +68,6 @@ List<QuestionDTO> noticeList = (List<QuestionDTO>)request.getAttribute("question
           </div>
         </div>
       </div>
-
+    <jsp:include page="../../inc/bottom.jsp"/>		  
   </body>
 </html>

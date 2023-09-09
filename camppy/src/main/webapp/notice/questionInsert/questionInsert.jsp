@@ -33,7 +33,7 @@
     <title>Document</title>
   </head>
   <body>
-  
+      <jsp:include page="../../inc/top.jsp"/>		  
 <%
 String id = (String)session.getAttribute("id");
 
@@ -72,6 +72,6 @@ MemberDTO  memberDTO =(MemberDTO)request.getAttribute("memberDTO");
 
 		</div>
 	</div>
-
+    <jsp:include page="../../inc/bottom.jsp"/>		  
 </body>
 </html>

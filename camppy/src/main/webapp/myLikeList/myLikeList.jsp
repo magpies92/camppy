@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="myLikeList/myLikeList.css" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<style>
       a,button, input,select, h1,h2,h3,h4,h5,
       * {margin: 0; padding: 0; border: none; text-decoration: none;
@@ -19,15 +20,48 @@
   </head>
   <body>
   
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="/inc/top.jsp"></jsp:include>
+<!-- 헤더들어가는 곳 -->
+
+
+<!-- 마이페이지 헤더 들어가는 곳 -->
+<div class="mypageProfile">
+		<img class="mypageUserIcon" src="free-icon-user-8484069-2.png" />
+		<div class="profileNickname">발레하는 감자</div>
+		<button type="button" onclick="location.href = 'update.me'"
+			class="updateButton">
+			<div class="updateProfile">프로필수정</div>
+		</button>
+		<div class="mypageProfileNum">
+			<div class="myArticle">작성글</div>
+			<div class="myArticleNum">3</div>
+			<div class="myReply">댓글</div>
+			<div class="myReplyNum">6</div>
+		</div>
+	</div>
+	<div class="mypageNavi">
+		<div class="tab" id="tab1" >찜 리스트</div>
+		<div class="tab" id="tab2">작성한 글</div>
+		<div class="tab" id="tab3">작성 리뷰</div>
+		<div class="tab" id="tab4">예약 내역</div>
+	</div>
+	<div class="tabContents" id="contentContainer">
+		<!-- The content from tab1 (star.html) will be displayed here by default -->
+
+	</div>
+<!-- 마이페이지 헤더 들어가는 곳 -->
+
+  
   <%
   PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
   List<LikeDTO> likeList = (List<LikeDTO>)request.getAttribute("likeList");
   LikeDTO likeDTO = (LikeDTO)request.getAttribute("likeDTO");
 /*   String id=(String)session.getAttribute("id"); */
   %>
-  <div class="allCheck"> 전체선택
-  <input type="checkbox" name="all" class="allCheckbox"
-         style="margin-left: 1vw;"></div> 
+  <label class="allCheck"> <b>전체선택</b>&nbsp;
+  <input type="checkbox" name="all" class="allCheckbox" id="cboxAll"
+         style="margin-left: 1vw;"></label>> 
 <div class="allbody">
 	<%
 	for(int i=0; i<likeList.size(); i++){
@@ -80,7 +114,7 @@
 	// for(int i=시작하는 페이지 번호; i<=끝나는 페이지 번호; i++)
 	for(int i=pageDTO.getStartPage();i<=pageDTO.getEndPage();i++){
 		%>
-		<a href="likeList.my?pageNum=<%=i%>" class="page"><%=i %></a>
+		<a href="likeList.my?pageNum=<%=i%>" class="page"><%=i %>ﾠ </a>
 		<%
 		
 	}
@@ -107,5 +141,94 @@
           </div>
           
     </div>
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+	    // 전체선택 체크박스 클릭 시
+	    $("#cboxAll").on("click", function() {
+	        $("input:checkbox[name=cbox]").prop("checked", this.checked);
+	    });
+
+	    // 개별 체크박스 클릭 시
+	    $(document).on("click", "input:checkbox[name=cbox]", function(e) {
+	        var chks = document.getElementsByName("cbox");
+	        var chksChecked = 0;
+
+	        for (var i = 0; i < chks.length; i++) {
+	            var cbox = chks[i];
+
+	            if (cbox.checked) {
+	                chksChecked++;
+	            }
+	        }
+	        if (chks.length == chksChecked) {
+	            $("#cboxAll").prop("checked", true);
+	        } else {
+	            $("#cboxAll").prop("checked", false);
+	        }
+	    });
+	    
+	    // 전체선택 체크박스 상태 변경 시
+	    $(document).on("change", "#cboxAll", function() {
+	        var chks = document.getElementsByName("cbox");
+
+	        for (var i = 0; i < chks.length; i++) {
+	            var cbox = chks[i];
+	            cbox.checked = this.checked;
+	        }
+	    });
+	});
+	//선택삭제
+	function selectedDel() {
+		var reviewIds = [];
+		var selectedRows = []; // 선택된 행의 DOM 요소를 저장하는 배열
+
+		// 선택된 체크박스와 해당 행을 찾아서 배열에 추가
+		$("input:checkbox[name='cbox']:checked").each(function() {
+			reviewIds.push($(this).val());
+			selectedRows.push($(this).closest(".campinfoRow")); // 선택된 행 추가
+		});
+
+		if (reviewIds.length === 0) {
+			alert("삭제할 리뷰를 선택하세요.");
+			return;
+		}
+
+		// 사용자에게 삭제 여부를 확인하는 대화 상자 표시
+		var confirmMessage = "선택한 리뷰를 삭제하시겠습니까?";
+		if (confirm(confirmMessage)) {
+			$.ajax({
+				type : "POST",
+				url : "review/del/deleteSelectedReviews.jsp",
+				data : {
+					reviewIds : reviewIds.join("|")
+				// 선택된 리뷰 ID를 파이프로 구분하여 문자열로 전달
+				},
+				success : function(result) {
+					console.log(result);
+
+					// 삭제가 성공한 경우 선택된 행을 화면에서 제거
+					if (result.trim() === "success") {
+						for (var i = 0; i < selectedRows.length; i++) {
+							selectedRows[i].remove();
+							location.reload();
+						}
+					} else {
+						alert("삭제 실패");
+					}
+				},
+				error : function(xhr, status, error) {
+					alert(error);
+				}
+			});
+		}
+	}
+    </script>
+    
+<!-- 푸터들어가는 곳 -->
+<jsp:include page="/inc/bottom.jsp"></jsp:include>
+<!-- 푸터들어가는 곳 --> 
+
+    
   </body>
 </html>

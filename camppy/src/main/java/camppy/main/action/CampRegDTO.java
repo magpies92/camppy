@@ -27,7 +27,20 @@ public class CampRegDTO {
 	private String bankaccount;
 	private String bankname;
 	private int campprice;
-	private String doo;
+	private String sido;
+	private String gungu;
+	public String getSido() {
+		return sido;
+	}
+	public void setSido(String sido) {
+		this.sido = sido;
+	}
+	public String getGungu() {
+		return gungu;
+	}
+	public void setGungu(String gungu) {
+		this.gungu = gungu;
+	}
 	private String mapx;
 	private String mapy;
 	private int campid;
@@ -74,12 +87,7 @@ public class CampRegDTO {
 	public void setCampid(int campid) {
 		this.campid = campid;
 	}
-	public String getDoo() {
-		return doo;
-	}
-	public void setDoo(String doo) {
-		this.doo = doo;
-	}
+	
 	public String getSigungu() {
 		return sigungu;
 	}
