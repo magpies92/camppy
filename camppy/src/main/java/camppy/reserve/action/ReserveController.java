@@ -365,9 +365,9 @@ public class ReserveController extends HttpServlet {
 //			String id="ljy";
 			
 			memberService= new MemberService();
-			MemberDTO memberDTO=memberService.getMember(id);
-			
-			int member_id=memberDTO.getMember_id();
+//			MemberDTO memberDTO=memberService.getMember(id);
+//			
+//			int member_id=memberDTO.getMember_id();
 			
 			reserveService = new ReserveService();
 //			List<ReserveDetailDTO> reserveList =reserveService.getReserveList(member_id);
@@ -394,7 +394,7 @@ public class ReserveController extends HttpServlet {
 			reserveService = new ReserveService();
 //List<BoardDTO> boardList = getBoardList(); 메서드 호출
 //			List<MyReserveDTO> PageList=reserveService.getPageList(pageDTO);
-			pageDTO.setMember_id(member_id);
+//			pageDTO.setMember_id(member_id);
 			
 			List<ReserveDetailDTO> reserveList =reserveService.getReserveList(pageDTO);
 			
@@ -452,6 +452,43 @@ public class ReserveController extends HttpServlet {
 		}
 		
 		System.out.println("비교 : DetailList.reR");
+		
+		
+		
+		
+		if(sPath.equals("/resCheck.re")) {
+			System.out.println("뽑은 가상주소 비교 : /resCheck.re");
+			int res_id = Integer.parseInt(request.getParameter("res_id"));
+			System.out.println("받은 닉네임 : " + res_id);
+			// MemberService 객체생성
+			ReserveService reserveService = new ReserveService();
+			// getMember() 메서드 호출
+			ReserveDetailDTO reserveDetailDTO = reserveService.getReserve(res_id);
+			String result="";
+			if(reserveDetailDTO != null) {
+				//아이디 있음 => 아이디 중복
+				response.sendRedirect("DetailList.jsp?res_id=" + res_id); //
+			}else {
+				//아이디 없음 => 아이디 사용가능
+				 response.setContentType("text/html; charset=UTF-8");
+				    PrintWriter printWriter = response.getWriter();
+				    printWriter.println("<script>alert('예약 내역이 없습니다.');</script>");
+				    printWriter.close();
+			}
+		}//
+			    
+		
+	
+
+
+	
+		
+		
+		
+		
+		
+		
+		
 		
 //		------------------------------------------------------
 		
@@ -749,5 +786,5 @@ public class ReserveController extends HttpServlet {
 		
 	}//doProcess()
 
-}
+	}
 }

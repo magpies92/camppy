@@ -92,7 +92,7 @@
 <%
 	// 아이디 세션 값
 	String id = (String)session.getAttribute("id");
-	int res_id = Integer.parseInt(request.getParameter("res_id"));
+	int res_id = Integer.parseInt(request.getParameter("res_id")); 
 	
 	// 예약정보
 	
@@ -147,6 +147,7 @@
 		Date date = reserveDetailDTO.getRes_time();
 		LocalDate reservedate = LocalDate.ofInstant(date.toInstant(), ZoneId.systemDefault()); // 예약일자
 		
+	
 	%>
 	
 	<ul>
@@ -195,6 +196,11 @@ geocoder.addressSearch(addr, function(result, status) {
     map.setCenter(coords);
 } 
 });     
+
+	}else {
+		 alert("예약된 내역이 없습니다.");
+		
+	}
 
 </script>
 		
