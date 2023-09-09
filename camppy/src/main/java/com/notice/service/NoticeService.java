@@ -78,7 +78,6 @@ public class NoticeService {
 				noticeDTO.setTitle(title);
 				noticeDTO.setMember_id(member_id);
 				noticeDTO.setContent(content);
-//				noticeDTO.setImage_url(image_url);
 				noticeDTO.setNotice_cnt(notice_cnt);
 				noticeDTO.setCreate_date(create_date);
 				noticeDTO.setLast_modified_date(last_modified_date);

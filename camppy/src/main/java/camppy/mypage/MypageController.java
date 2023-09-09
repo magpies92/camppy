@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.camppy.dto.DetailDTO;
+
 import camppy.main.action.PageDTO;
 import camppy.mypage.MypageService;
 
@@ -65,7 +67,7 @@ public class MypageController extends HttpServlet {
 			System.out.println("가상주소 비교: /likeList.my");
 			
 			//한 페이지에서 보여지는 글 개수 설정
-			int pageSize = 10;
+			int pageSize = 5;
 			
 			//페이지 번호
 			String pageNum = request.getParameter("pageNum");
@@ -88,8 +90,11 @@ public class MypageController extends HttpServlet {
 			//List<LikeDTO> likeList = getLikeList(); 메서드 호출
 			List<LikeDTO> likeList = mypageService.getLikeList(pageDTO);
 			
+			//DetailDTO = getDetail(request) 메서드 호출
+			mypageService.getHeartsCount(request);
+			
 			//게시판 전체 글 개수 구하기
-//			int count=mypageService.getLikeCount();
+			int count=mypageService.getLikeCount();
 			
 			//한 화면에 보여 줄 페이지 개수 설정
 			int pageBlock=10;
@@ -100,21 +105,22 @@ public class MypageController extends HttpServlet {
 			//끝나는 페이지 번호
 			int endPage=startPage+pageBlock-1;
 			
-//			//계산한 값
-//			int pageCount=count/pageSize+(count%pageSize==0?0:1);
-//			if(endPage > pageCount) { //endPage > 전체 페이지
-//				endPage = pageCount; // endPage = 전체 페이지;
-//			}
-//			
-//			//pageDTO 저장
-//			pageDTO.setCount(count);
-//			pageDTO.setPageBlock(pageBlock);
-//			pageDTO.setStartPage(startPage);
-//			pageDTO.setEndPage(endPage);
-//			
+			//계산한 값
+			int pageCount=count/pageSize+(count%pageSize==0?0:1);
+			if(endPage > pageCount) { //endPage > 전체 페이지
+				endPage = pageCount; // endPage = 전체 페이지;
+			}
+			
+			//pageDTO 저장
+			pageDTO.setCount(count);
+			pageDTO.setPageBlock(pageBlock);
+			pageDTO.setStartPage(startPage);
+			pageDTO.setEndPage(endPage);
+			
 			//request에 "likeList", likeList 저장
 			request.setAttribute("likeList", likeList);
 			request.setAttribute("pageDTO", pageDTO);
+			
 			//주소 변경 없이 이동 (myLikeList/myLikeList.jsp)
 			dispatcher = request.getRequestDispatcher("myLikeList/myLikeList.jsp");
 			dispatcher.forward(request, response);	

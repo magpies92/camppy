@@ -54,18 +54,15 @@ public class QuestionDAO {
 				while(rs.next()) {
 					QuestionDTO questionDTO = new QuestionDTO();
 					questionDTO.setInquiry_id(rs.getInt("inquiry_id"));
-					questionDTO.setComment_cnt(rs.getInt("comment_cnt"));
 					questionDTO.setCreate_date(rs.getTimestamp("create_date")); // 작성날짜
 					questionDTO.setLast_modified_date(rs.getTimestamp("last_modified_date")); //수정날짜
 					questionDTO.setCreated_by(rs.getString("created_by")); // 생성자
 					questionDTO.setLast_modified_by(rs.getString("last_modified_by")); // 마지막 수정자
 					questionDTO.setContent(rs.getString("content")); //댓글
-					questionDTO.setLike_cnt(rs.getInt("like_cnt")); //좋아요 개수
 					questionDTO.setPost_type(rs.getInt("post_type")); //게시글 종류
 					questionDTO.setTitle(rs.getString("title")); //제목
 					questionDTO.setMember_id(rs.getInt("member_id")); //회원 아이디
 					questionDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
-					questionDTO.setImage_url(rs.getString("image_url")); //공지사진주소
 					// 배열 한 칸에 저장
 					questionList.add(questionDTO);
 					
@@ -172,7 +169,6 @@ public class QuestionDAO {
 					questionDTO.setTitle(rs.getString("title")); //제목
 					questionDTO.setMember_id(rs.getInt("member_id")); //회원 아이디
 					questionDTO.setContent(rs.getString("content")); //댓글
-					questionDTO.setImage_url(rs.getString("image_url")); //공지사진주소
 					questionDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
 					questionDTO.setCreate_date(rs.getTimestamp("create_date")); // 작성날짜
 					questionDTO.setLast_modified_date(rs.getTimestamp("last_modified_date")); //수정날짜
@@ -208,7 +204,6 @@ public class QuestionDAO {
 					questionDTO.setTitle(rs.getString("title")); //제목
 					questionDTO.setMember_id(rs.getInt("member_id")); //회원 아이디
 					questionDTO.setContent(rs.getString("content")); //댓글
-					questionDTO.setImage_url(rs.getString("image_url")); //공지사진주소
 					questionDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
 					questionDTO.setCreate_date(rs.getTimestamp("create_date")); // 작성날짜
 					questionDTO.setLast_modified_date(rs.getTimestamp("last_modified_date")); //수정날짜

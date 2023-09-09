@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import camppy.main.action.CampRegDTO;
+import camppy.commu.db.PageDTO;
 
 public class CommuDAO {
 	Connection con = null;// 자바와 데이터베이스를 연결
@@ -112,6 +113,7 @@ public class CommuDAO {
 			pstmt2 = con.prepareStatement(sql2);
 
 			pstmt2.setTimestamp(1, commuDTO.getCreate_date());
+			System.out.println("getpostid="+commuDTO.getPost_id());
 			pstmt2.setInt(2, commuDTO.getPost_id());
 			pstmt2.setInt(3, commuDTO.getMember_id());
 			pstmt2.setTimestamp(4, commuDTO.getLast_modified_date());
@@ -163,7 +165,8 @@ public class CommuDAO {
 		try {
 			con = getConnection();
 
-			String sql = "select count(*) from post p join post_image i on (p.post_id = i.post_id)";
+			String sql = "select count(*) from post";
+			//String sql = "select count(*) from post p join post_image i on (p.post_id = i.post_id)";
 			pstmt = con.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
@@ -281,26 +284,31 @@ public class CommuDAO {
 		System.out.println("getCommuCountSearch");
 		int count = 0;
 		try {
-			pageDTO = new PageDTO();
+			String sql="";
 
 			con = getConnection();
+			System.out.println(pageDTO.getSearch());
+			System.out.println(pageDTO.getSearchType());
 
-			if (pageDTO.getSearchType() == "제목+내용") {
-				String sql = "select count(*) as count from post p join post_image i on (p.post_id = i.post_id) where concat(p.title, p.content) like ?";
-
-				pstmt = con.prepareStatement(sql);
+			if (pageDTO.getSearchType().equals("제목+내용")) {
+				sql = "select count(*) as count from post p where concat(p.title, p.content) like ?";
+				
+				
+			
+				
 			}
-			if (pageDTO.getSearchType() == "아이디") {
-				String sql = "select count(*) as count from post p join members m on (p.member_id = m.member_id) where m.id like ?";
-				pstmt = con.prepareStatement(sql);
+			else if (pageDTO.getSearchType().equals("아이디")) {
+				sql = "select count(*) as count from post p join members m on (p.member_id = m.member_id) where m.id like ?";				
 			}
-			pstmt.setString(1, "%" + pageDTO.getSearch() + "%");
-
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%" + pageDTO.getSearch() + "%");						
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
 				count = rs.getInt("count");
 			}
+
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
