@@ -29,6 +29,7 @@
 	top: 15px;
 	border-bottom: solid;
 	border-width: 1px;
+	    margin-bottom: 16px;
 	
 }
 
@@ -324,11 +325,17 @@
     height: 30px;
     left: 50%;
 }
-  .pagination {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
+tabContents
+{margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.pagination {
+  display: contents;
+
     }
 
     .pagination a {

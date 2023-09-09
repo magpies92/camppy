@@ -16,7 +16,6 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	padding: 0;
 	border: none;
 	text-decoration: none;
-	
 	background: none;
 }
 
@@ -277,7 +276,6 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 /* 	border-radius: 5px; */
 /* 	border: none; */
 /* } */
-
 .del {
 	color: #ffffff;
 	text-align: center;
@@ -316,29 +314,30 @@ div.tab.active {
 	padding-left: 150px;
 }
 
- .tab { 
- 	color: grey; 
- 	text-align: center; 
- 	font: 400 30px/28px "NanumGothic", sans-serif; 
- 	position: relative; 
- 	width: 380px; 
- 	height: 160px; 
-	display: flex; 
- 	align-items: center; 
- 	justify-content: center; 
- } 
-/*     .tab { */
-/*             cursor: pointer; */
-/*             padding: 10px 20px; */
-/*             background-color: #eee; */
-/*             border: 1px solid #ccc; */
-/*             display: inline-block; */
-/*             margin-right: 10px; */
-/*         } */
+.tab {
+	color: grey;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
-        .content {
-            margin-top: 20px;
-        }
+.tabContents {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.pagination {
+display: contents;
+
+    }
 </style>
 
 
@@ -373,21 +372,20 @@ div.tab.active {
 	</div>
 	<div class="tabContents" id="contentContainer">
 		<!-- The content from tab1 (star.html) will be displayed here by default -->
-		
+
 	</div>
 
 
-<jsp:include page="./bottom.jsp" />
+	<jsp:include page="./bottom.jsp" />
 
-<script type="text/javascript">
-	
-	   // 주소 정보 객체
-    var addresses = {
-        "찜 리스트": "http://aaa.me",
-        "작성한 글": "http://aaa.me",
-        "작성 리뷰": "mypageReviewList.rv",
-        "예약 내역": "mypage_reserve.re"
-    };
+	<script type="text/javascript">
+		// 주소 정보 객체
+		var addresses = {
+			"찜 리스트" : "http://aaa.me",
+			"작성한 글" : "http://aaa.me",
+			"작성 리뷰" : "mypageReviewList.rv",
+			"예약 내역" : "mypage_reserve.re"
+		};
 
 		function updateContent(tabLabel) {
 			var url = addresses[tabLabel];
@@ -412,42 +410,41 @@ div.tab.active {
 				updateContent(tabLabel);
 			});
 		});
-	
 
 		$(document).ready(function() {
-		    // 전체선택 체크박스 클릭 시
-		    $("#cboxAll").on("click", function() {
-		        $("input:checkbox[name=cbox]").prop("checked", this.checked);
-		    });
+			// 전체선택 체크박스 클릭 시
+			$("#cboxAll").on("click", function() {
+				$("input:checkbox[name=cbox]").prop("checked", this.checked);
+			});
 
-		    // 개별 체크박스 클릭 시
-		    $(document).on("click", "input:checkbox[name=cbox]", function(e) {
-		        var chks = document.getElementsByName("cbox");
-		        var chksChecked = 0;
+			// 개별 체크박스 클릭 시
+			$(document).on("click", "input:checkbox[name=cbox]", function(e) {
+				var chks = document.getElementsByName("cbox");
+				var chksChecked = 0;
 
-		        for (var i = 0; i < chks.length; i++) {
-		            var cbox = chks[i];
+				for (var i = 0; i < chks.length; i++) {
+					var cbox = chks[i];
 
-		            if (cbox.checked) {
-		                chksChecked++;
-		            }
-		        }
-		        if (chks.length == chksChecked) {
-		            $("#cboxAll").prop("checked", true);
-		        } else {
-		            $("#cboxAll").prop("checked", false);
-		        }
-		    });
-		    
-		    // 전체선택 체크박스 상태 변경 시
-		    $(document).on("change", "#cboxAll", function() {
-		        var chks = document.getElementsByName("cbox");
+					if (cbox.checked) {
+						chksChecked++;
+					}
+				}
+				if (chks.length == chksChecked) {
+					$("#cboxAll").prop("checked", true);
+				} else {
+					$("#cboxAll").prop("checked", false);
+				}
+			});
 
-		        for (var i = 0; i < chks.length; i++) {
-		            var cbox = chks[i];
-		            cbox.checked = this.checked;
-		        }
-		    });
+			// 전체선택 체크박스 상태 변경 시
+			$(document).on("change", "#cboxAll", function() {
+				var chks = document.getElementsByName("cbox");
+
+				for (var i = 0; i < chks.length; i++) {
+					var cbox = chks[i];
+					cbox.checked = this.checked;
+				}
+			});
 		});
 		//수정버튼
 		function updateRow(button) {
@@ -544,14 +541,12 @@ div.tab.active {
 
 				// 수정 버튼 활성화
 				row.querySelector(".buttonUpdate").disabled = false;
-				
+
 			} else {
 				console.error("One or more elements not found.");
 			}
 		}
 
-	
-		
 		//선택삭제
 		function selectedDel() {
 			var reviewIds = [];
