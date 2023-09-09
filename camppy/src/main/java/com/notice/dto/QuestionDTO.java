@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class QuestionDTO {
 	
-	private int inquriy_id; //게시글아이디
+	private int inquiry_id; //게시글아이디
 	private Timestamp create_date; //작성날짜
 	private Timestamp last_modified_date; //수정날짜
 	private String created_by; //생성자
@@ -19,11 +19,11 @@ public class QuestionDTO {
 	private String image_url; //공지사진주소
 	
 	
-	public int getInquriy_id() {
-		return inquriy_id;
+	public int getInquiry_id() {
+		return inquiry_id;
 	}
-	public void setInquriy_id(int inquriy_id) {
-		this.inquriy_id = inquriy_id;
+	public void setInquiry_id(int inquiry_id) {
+		this.inquiry_id = inquiry_id;
 	}
 	public Timestamp getCreate_date() {
 		return create_date;

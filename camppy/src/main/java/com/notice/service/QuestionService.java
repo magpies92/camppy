@@ -96,11 +96,11 @@ public class QuestionService {
 		try {
 			request.setCharacterEncoding("utf-8");
 			
-			int inquriy_id = Integer.parseInt(request.getParameter("inquriy_id"));
+			int inquiry_id = Integer.parseInt(request.getParameter("inquiry_id"));
 				 
 			questionDAO = new QuestionDAO();
 			
-			questionDTO = questionDAO.getQuestion(inquriy_id);
+			questionDTO = questionDAO.getQuestion(inquiry_id);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -119,7 +119,7 @@ public class QuestionService {
 		try {
 			request.setCharacterEncoding("utf-8");
 			
-			int inquriy_id = Integer.parseInt(request.getParameter("inquriy_id"));
+			int inquiry_id = Integer.parseInt(request.getParameter("inquiry_id"));
 			String created_by = request.getParameter("created_by");
 			int post_type = Integer.parseInt(request.getParameter("post_type"));
 			String title= request.getParameter("title");
@@ -127,7 +127,7 @@ public class QuestionService {
 			
 			QuestionDTO questionDTO = new QuestionDTO();
 			
-			questionDTO.setInquriy_id(inquriy_id);
+			questionDTO.setInquiry_id(inquiry_id);
 			questionDTO.setCreated_by(created_by);
 			questionDTO.setPost_type(post_type);
 			questionDTO.setTitle(title);
@@ -149,9 +149,9 @@ public class QuestionService {
 		try {
 			request.setCharacterEncoding("utf-8");
 			
-			int inquriy_id = Integer.parseInt(request.getParameter("inquriy_id"));
+			int inquiry_id = Integer.parseInt(request.getParameter("inquiry_id"));
 			questionDAO = new QuestionDAO();
-			questionDAO.deleteQuestion(inquriy_id);
+			questionDAO.deleteQuestion(inquiry_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -162,11 +162,11 @@ public class QuestionService {
 		try {
 			request.setCharacterEncoding("utf-8");
 			
-			int inquriy_id = Integer.parseInt(request.getParameter("inquriy_id"));
+			int inquiry_id = Integer.parseInt(request.getParameter("inquiry_id"));
 			
 			questionDAO = new QuestionDAO();
 			
-			questionDAO.notice_cnt(inquriy_id);
+			questionDAO.notice_cnt(inquiry_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
