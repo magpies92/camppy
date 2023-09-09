@@ -85,14 +85,44 @@
  		padding-top: 50px;
  	}
  	
+ 	  a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+      }
+       table {
+    /* width: 400px;
+    height: 200px; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+ 	
+ 	
+ 	
+ 	
 </style>
 </head>
 
 <body>
+
+<jsp:include page="/inc/top.jsp" />
+
 <%
 	// 아이디 세션 값
 	String id = (String)session.getAttribute("id");
-	int res_id = Integer.parseInt(request.getParameter("res_id"));
+	int res_id = Integer.parseInt(request.getParameter("res_id")); 
 	
 	// 예약정보
 	
@@ -117,7 +147,7 @@
 	
 <% 
 	// 예약 내역 확인
-	if(reserveDetailDTO.getRes_id() == res_id) {
+	
 	
 		// 예약정보 - 펜션이름, 체크인 / 체크아웃 시간
 		DetailDAO ddao = new DetailDAO();
@@ -147,6 +177,7 @@
 		Date date = reserveDetailDTO.getRes_time();
 		LocalDate reservedate = LocalDate.ofInstant(date.toInstant(), ZoneId.systemDefault()); // 예약일자
 		
+	
 	%>
 	
 	<ul>
@@ -194,30 +225,13 @@ geocoder.addressSearch(addr, function(result, status) {
     // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
     map.setCenter(coords);
 } 
-});     
+});  
 
 </script>
-		
-		<%
-		
-	} else {
-		%>
-		<p>예약된 내역이 없습니다.</p>
-		
-	<%
-	}
-		
-		%>
-	
-
-	
-	
-
-
 
 
 <!-- <!-- 푸터 들어가는 곳  -->
-	<jsp:include page="../../inc/bottom.jsp" />
+	<jsp:include page="/inc/bottom.jsp" />
 <!-- <!-- 푸터 들어가는 곳 -->
 		
 

@@ -13,6 +13,8 @@ import camppy.reserve.dao.PageDTO;
 
 import camppy.main.action.CampRegDAO;
 import camppy.main.action.CampRegDTO;
+import camppy.member.MemberDAO;
+import camppy.member.MemberDTO;
 import camppy.reserve.dao.MyReserveDAO;
 import camppy.reserve.dao.MyReserveDTO;
 import camppy.reserve.dao.ReserveDetailDAO;
@@ -291,7 +293,18 @@ public class ReserveService {
 
 	}
 	
-	
+	public ReserveDetailDTO getReserve(int res_id) {
+		ReserveDetailDTO reserveDetailDTO = null;
+		try {
+			// MemberDAO 객체생성
+			reserveDetailDAO = new ReserveDetailDAO();
+			// MemberDTO memberDTO = getMember(id) 메서드 호출
+			reserveDetailDTO=reserveDetailDAO.getDetailres(res_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return reserveDetailDTO;
+	}//getMember()
 	
 	
 	

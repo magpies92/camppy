@@ -29,9 +29,9 @@
 }
 .art{
  	font-family: 'NanumSquareNeo';
-    width: 900px;
-    height: 700px;
-  	padding-left: 100px;
+    width: 600px;
+    height: 600px;
+  	padding-left: 50px;
 /*     margin-bottom: 300px; */
     margin-left: 200;
  
@@ -49,6 +49,8 @@
     font-family: "Poppins", Arial, sans-serif;
     font-weight: bold;
     text-align: center;
+    position: relative;
+    left: 195px
      
 }
 .table td.a{
@@ -57,7 +59,9 @@ font-weight: bold;
 }
 
 .count{
-float: right;	
+float: right;
+position: relative;
+left: 400px;	
 }
 .res{
 height: 150px;
@@ -65,16 +69,37 @@ position: relative;
 left: 400px;
 }
 
-
+	  a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      
+      h4,
+      h5,
+      * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none; 
+        background: none;
+      }
+       table {
+    /* width: 400px;
+    height: 200px; */
+    margin-left: auto;
+    margin-right: auto;
+  }
 
 </style>
 </head>
 <body>
 
 <!-- 헤더들어가는 곳 -->
-	<jsp:include page="../../inc/top.jsp"/>
+	<jsp:include page="/inc/top.jsp"/>
 <!-- 헤더들어가는 곳 -->
-		
 
 <%
  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
@@ -310,7 +335,7 @@ if(endPage < pageCount){
 </article>
 </div>
 <!-- <!-- 푸터 들어가는 곳  -->
-<%-- 	<jsp:include page="../../inc/bottom.jsp" /> --%>
+<jsp:include page="/inc/bottom.jsp" />
 <!-- <!-- 푸터 들어가는 곳 -->
 
 </body>
