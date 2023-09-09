@@ -139,6 +139,34 @@ label {
 #sample4_detailAddress {
 	flex: 1;
 }
+
+ 	   a, 
+       button, 
+       input, 
+       select, 
+       h1, 
+       h2, 
+       h3, 
+       h4, 
+       h5, 
+       * {
+        margin: 0; */
+         padding: 0; */
+         border: none; 
+         text-decoration: none; 
+         appearance: none; 
+         background: none; 
+      }
+       table {
+    /* width: 400px;
+    height: 200px; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+
+
 </style>
 </head>
 <body>
@@ -146,7 +174,7 @@ label {
 
 
 	<!-- 헤더파일들어가는 곳 -->
-	<jsp:include page="../../inc/top.jsp"/>
+	<jsp:include page="/inc/top.jsp"/>
 	<!-- 헤더파일들어가는 곳 -->
 	<%
 	// String id=(String)session.getAttribute("id"); 
@@ -237,7 +265,7 @@ CampRegDTO campRegDTO = (CampRegDTO)request.getAttribute("campRegDTO");
 
 	</article>
 	<!-- 푸터 들어가는 곳 -->
-	<jsp:include page="../../inc/bottom.jsp" />
+	<jsp:include page="/inc/bottom.jsp" />
 	<!-- 푸터 들어가는 곳 -->
 </body>
 </html>
