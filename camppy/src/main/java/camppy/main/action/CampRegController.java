@@ -50,19 +50,6 @@ public class CampRegController extends HttpServlet {
 //		http://localhost:8080/FunWeb/list.bo?pageNum=2
 
 		
-		/*
-		 * if(sPath.equals("/camp.campreg")) {
-		 * System.out.println("뽑은 가상주소 비교 : /list.bo");
-		 * 
-		 * // List<BoardDTO> boardList = getBoardList(); 메서드 호출 campregService = new
-		 * CampRegService(); int campid=0;
-		 * 
-		 * List<CampRegDTO> campregList=campregService.getCampRegList(campid);
-		 * 
-		 * // 주소변경없이 이동 center/notice.jsp dispatcher =
-		 * request.getRequestDispatcher("center/notice.jsp");
-		 * dispatcher.forward(request, response); }//
-		 */		
 		
 
 		// 첨부파일
@@ -72,26 +59,25 @@ public class CampRegController extends HttpServlet {
 			HttpSession session = request.getSession();
 			// 세션에서 로그인 정보 가져오기
 			String id=(String)session.getAttribute("id");
-			if(id == null){
+			/*if(id == null){
 				 response.setContentType("text/html; charset=utf-8");
 			        PrintWriter w = response.getWriter();
 			        w.write("<script>alert('관리자 계정으로 로그인 먼저 해주세요');history.go(-1);</script>");
 			        w.flush();
 			        w.close();			        
 		       
-		    } 
-			else if(id.equals("admin")){
+		    } */
+			
 				dispatcher = request.getRequestDispatcher("camppymain/campreg/campreg.jsp");
 				dispatcher.forward(request, response);
-			}
-			else {
+			/*else {
 				response.setContentType("text/html; charset=utf-8");
 		        PrintWriter w = response.getWriter();
 		        w.write("<script>alert('관리자 계정이 아닙니다');history.go(-1);</script>");
 		        w.flush();
 		        w.close();
 				
-			}
+			}*/
 			
 			}
 		
