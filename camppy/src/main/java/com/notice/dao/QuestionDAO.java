@@ -41,7 +41,7 @@ public class QuestionDAO {
 			List<QuestionDTO> questionList = null;
 			try {
 				con = getConnection();
-				String sql = "select * from question order by inquiry_id desc limit ?, ?";
+				String sql = "select * from inquiry order by inquiry_id desc limit ?, ?";
 				
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, questionPageDTO.getStartRow()-1);//시작행-1
@@ -82,7 +82,7 @@ public class QuestionDAO {
 			try {
 				con = getConnection();
 				
-				String sql = "select count(*) from question";
+				String sql = "select count(*) from inquiry";
 				
 				pstmt = con.prepareStatement(sql);
 				
@@ -105,7 +105,7 @@ public class QuestionDAO {
 			try {
 				con = getConnection();
 				
-				String sql = "select max(inquiry_id) from question";
+				String sql = "select max(inquiry_id) from inquiry";
 				
 				rs = pstmt.executeQuery();
 				if(rs.next()) {
@@ -126,7 +126,7 @@ public class QuestionDAO {
 			try {
 				con = getConnection();
 				
-				String sql = "insert into question(post_type, title, member_id, content, create_date, last_modified_date, notice_cnt, created_by ) values(?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "insert into inquiry(post_type, title, member_id, content, create_date, last_modified_date, notice_cnt, created_by ) values(?, ?, ?, ?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, questionDTO.getPost_type());
 				pstmt.setString(2, questionDTO.getTitle());
@@ -153,7 +153,7 @@ public class QuestionDAO {
 			try {
 				con = getConnection();
 				
-				String sql = "select * from question where inquiry_id = ?";
+				String sql = "select * from inquiry where inquiry_id = ?";
 				
 				pstmt = con.prepareStatement(sql);
 				
@@ -190,7 +190,7 @@ public class QuestionDAO {
 				// 2단계 디비 연결
 				con=getConnection();
 				// 3단계  num 기준으로 내림차순
-				String sql = "select * from question";
+				String sql = "select * from inquiry";
 				pstmt=con.prepareStatement(sql);
 				// //4단계 sql구문 실행 => 실행결과 ResultSet 내장객체에 저장
 				rs =pstmt.executeQuery();
@@ -223,7 +223,7 @@ public class QuestionDAO {
 			try {
 				con = getConnection();
 				
-				String sql = "update question set post_type = ?, title = ?, content =? where inquiry_id = ?" ;
+				String sql = "update inquiry set post_type = ?, title = ?, content =? where inquiry_id = ?" ;
 			
 				pstmt=con.prepareStatement(sql);
 				
@@ -244,7 +244,7 @@ public class QuestionDAO {
 		public void deleteQuestion(int inquiry_id) {
 			try {
 				con = getConnection();
-				String sql = "delete from question where inquiry_id = ?";
+				String sql = "delete from inquiry where inquiry_id = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, inquiry_id);
 				pstmt.executeUpdate();
@@ -260,7 +260,7 @@ public class QuestionDAO {
 			try {
 				con = getConnection();
 				
-				String sql = "update question set notice_cnt =notice_cnt+1 where inquiry_id = ?" ;
+				String sql = "update inquiry set notice_cnt =notice_cnt+1 where inquiry_id = ?" ;
 			
 				pstmt=con.prepareStatement(sql);
 

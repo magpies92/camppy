@@ -228,3 +228,20 @@
   justify-content: center;
 }
 
+.writebtn {
+  border-radius: 4.9px;
+  border-style: solid;
+  border-color: #4da385;
+  border-width: 1.96px;
+  flex-shrink: 0;
+  width: 113.12px;
+  height: 36px;
+  position: absolute;
+  left: 1497px;
+  top: 609px;
+  overflow: hidden;
+  color: #4da385;
+  font: 700 16px "Inter", sans-serif;
+   text-align: center;
+}
+

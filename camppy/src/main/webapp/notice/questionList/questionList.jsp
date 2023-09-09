@@ -38,18 +38,41 @@
 List<QuestionDTO> questionList = (List<QuestionDTO>)request.getAttribute("questionList");
 %>
 
-	<div class="questionListSectionQna">
+<!-- 	<div class="questionListSectionQna"> -->
 
-		<div class="questionListA">문의하기</div>
+<!-- 		<div class="questionListA">문의하기</div> -->
 
-		<div class="questionListHeader">
-			<div class="questionList2">번호</div>
-			<div class="questionList10">제목</div>
-			<div class="questionList11">작성자</div>
-			<div class="questionList12">등록일</div>
-			<div class="questionList13">조회수</div>
-		</div>
+<!-- 		<div class="questionListHeader"> -->
+<!-- 			<div class="questionList2">번호</div> -->
+<!-- 			<div class="questionList10">제목</div> -->
+<!-- 			<div class="questionList11">작성자</div> -->
+<!-- 			<div class="questionList12">등록일</div> -->
+<!-- 			<div class="questionList13">조회수</div> -->
+<!-- 		</div> -->
 		
+		
+		<div class="questionList">
+        <div class="questionListSectionTotal">
+                    <div class="questionListA">공지사항</div>
+                </div>
+                </div>
+                            <div class="questionListBoardList">
+              <div class="questionListCell1">
+                <div class="questionList4">번호</div>
+              </div>
+              <div class="questionListCell2">
+                <div class="questionList5">제목</div>
+              </div>
+              <div class="questionListCell3">
+                <div class="questionList6">작성자</div>
+              </div>
+              <div class="questionListCell4">
+                <div class="questionList7">등록일</div>
+              </div>
+              <div class="questionListCell5">
+                <div class="questionList8">조회</div>
+              </div>
+            </div>
 
 <%
  for(int i=0; i<questionList.size(); i++){
@@ -68,11 +91,13 @@ List<QuestionDTO> questionList = (List<QuestionDTO>)request.getAttribute("questi
 			</div>
 
 		</div>
-<%} %> 
+
 	</div>
 
-</div>
+<!-- </div> -->
+<%} %> 
 
+<input type="button" value="글쓰기" class="writebtn" onclick="location.href='write.qu'">
    <jsp:include page="../../inc/bottom.jsp"/>		
 </body>
 </html>
