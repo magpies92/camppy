@@ -25,7 +25,7 @@
     <title>Document</title>
   </head>
   <body>
-  
+       <jsp:include page="../../inc/top.jsp"/>		   
 <%
 String id = (String)session.getAttribute("id");
 
@@ -70,5 +70,7 @@ QuestionDTO questionDTO = (QuestionDTO)request.getAttribute("questionDTO");
     </div>
     
     </form>
+    
+          <jsp:include page="../../inc/bottom.jsp"/>		  
   </body>
 </html>

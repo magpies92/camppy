@@ -25,7 +25,7 @@
     <title>Document</title>
   </head>
   <body>
-  
+    <jsp:include page="../../inc/top.jsp"/> 
   
 <%
 // NoticeDTO noticeDTO = (NoticeDTO)request.getAttribute("noticeDTO");
@@ -61,7 +61,7 @@ MemberDTO  memberDTO =(MemberDTO)request.getAttribute("memberDTO");
 					<div class="noticeInsertLine1"></div>
 
 					<!--            제목을 입력해 주세요 -->
-					<textarea class="noticeInsert2" name="title"></textarea>
+					<textarea class="noticeInsert2" name="title" ></textarea>
 
 					<!--             문의 내용을 입력해 주세요 -->
 					<textarea class="noticeInsert3" name="content"></textarea>
@@ -76,6 +76,6 @@ MemberDTO  memberDTO =(MemberDTO)request.getAttribute("memberDTO");
 
 		</div>
 	</div>
-
+   <jsp:include page="../../inc/bottom.jsp"/>		
 </body>
 </html>

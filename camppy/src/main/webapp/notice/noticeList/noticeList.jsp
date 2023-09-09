@@ -84,7 +84,7 @@ List<NoticeDTO> noticeList = (List<NoticeDTO>)request.getAttribute("noticeList")
 <%} %>
 
 <input type="button" value="글쓰기" class="writebtn" onclick="location.href='write.no'">
-
+   <jsp:include page="../../inc/bottom.jsp"/>		
 </body>
 </html>
    

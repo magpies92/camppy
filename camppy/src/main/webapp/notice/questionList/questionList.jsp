@@ -71,6 +71,8 @@ List<QuestionDTO> questionList = (List<QuestionDTO>)request.getAttribute("questi
 <%} %> 
 	</div>
 
-</div>		
+</div>
+
+   <jsp:include page="../../inc/bottom.jsp"/>		
 </body>
 </html>
