@@ -117,7 +117,7 @@
 	
 <% 
 	// 예약 내역 확인
-	if(reserveDetailDTO.getRes_id() == res_id) {
+	
 	
 		// 예약정보 - 펜션이름, 체크인 / 체크아웃 시간
 		DetailDAO ddao = new DetailDAO();
@@ -195,35 +195,13 @@ geocoder.addressSearch(addr, function(result, status) {
     // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
     map.setCenter(coords);
 } 
-});     
-
-	}else {
-		 alert("예약된 내역이 없습니다.");
-		
-	}
+});  
 
 </script>
-		
-		<%
-		
-	} else {
-		%>
-		<p>예약된 내역이 없습니다.</p>
-		
-	<%
-	}
-		
-		%>
-	
-
-	
-	
-
-
 
 
 <!-- <!-- 푸터 들어가는 곳  -->
-	<jsp:include page="../../inc/bottom.jsp" />
+	<jsp:include page="/inc/bottom.jsp" />
 <!-- <!-- 푸터 들어가는 곳 -->
 		
 

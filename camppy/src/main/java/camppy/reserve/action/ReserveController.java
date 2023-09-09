@@ -363,6 +363,16 @@ public class ReserveController extends HttpServlet {
 			HttpSession session=request.getSession();
 			String id=(String)session.getAttribute("id");
 //			String id="ljy";
+			System.out.println("받은 예약번호는 : " + request.getParameter("res_id"));
+			if(request.getParameter("res_id") == "") {
+				//아이디 없음 => 아이디 사용가능
+				 response.setContentType("text/html; charset=UTF-8");
+				    PrintWriter printWriter = response.getWriter();
+				    printWriter.println("<script>alert('예약 번호를 입력해주세요.');");
+				    printWriter.println("history.back();");
+				    printWriter.println("</script>");
+				    printWriter.close();
+			}
 			
 			int res_id = Integer.parseInt(request.getParameter("res_id"));
 			System.out.println("받은 닉네임 : " + res_id);
