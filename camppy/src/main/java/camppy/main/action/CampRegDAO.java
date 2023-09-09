@@ -48,7 +48,10 @@ public class CampRegDAO {
 			con = getConnection();
 			//3 sql  => mysql 제공 => limit 시작행-1, 몇개
 //			String sql="select * from campreg order by num desc";
-			String sql="select * from camp order by camp_id desc limit ?, ?";
+			String sql="select camp.*, camp_addr.*\r\n"
+					+ "from camp left join camp_addr\r\n"
+					+ "on camp.camp_id = camp_addr.camp_id\r\n"
+					+ "order by camp.camp_id desc limit ?, ?;";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, pageDTO.getStartRow()-1);//시작행-1
 			pstmt.setInt(2, pageDTO.getPageSize());//몇개
@@ -71,6 +74,7 @@ public class CampRegDAO {
 				campregDTO.setBankaccount(rs.getString("bank_account"));
 				campregDTO.setBankname(rs.getString("bank_name"));
 				campregDTO.setCampprice(rs.getInt("camp_price"));
+				campregDTO.setCampaddr(rs.getString("camp_addr"));
 				/*
 				 * campregDTO.setDoo(rs.getString("doo"));
 				 * campregDTO.setMapx(rs.getString("mapx"));
@@ -138,6 +142,7 @@ public class CampRegDAO {
 				campregDTO.setIntro(rs.getString("intro"));
 				campregDTO.setShortintro(rs.getString("short_intro"));
 				campregDTO.setCampname(rs.getString("camp_name"));
+				campregDTO.setCampaddr(rs.getString("camp_addr"));
 				// => 배열 한칸에 저장
 				campregList.add(campregDTO);
 			}

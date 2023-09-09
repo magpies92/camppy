@@ -134,6 +134,7 @@ public class MainFrontController extends HttpServlet {
 			// request 한글처리
 			request.setCharacterEncoding("utf-8");
 			//request 검색어 뽑아오기
+			
 			String sido = request.getParameter("sido");
 			if (sido.equals("시/도 선택"))
 			{
@@ -143,6 +144,8 @@ public class MainFrontController extends HttpServlet {
 			String gungu = request.getParameter("gungu");
 			String keywordsearch = request.getParameter("keywordsearch");
 			System.out.println(sido);
+			System.out.println(gungu);
+			System.out.println(keywordsearch);
 			// 한페이지에서 보여지는 글개수 설정
 						int pageSize=10;
 						// 페이지번호 
