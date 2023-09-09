@@ -2,15 +2,22 @@
 .likeListBody * {
   box-sizing: border-box;
 }
+
+.allbody{
+	width: 85vw;
+    position: relative;
+    padding-left: 11vw;
+    top: 5vw;
+}
+
 .likeListBody {
   background: #ffffff;
-  display: flex;
   flex-direction: row;
   gap: 0.5207vw;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
-  height: 78.1250vw;
+  height: 165vw;
   position: relative;
   overflow: hidden;
 }
@@ -21,43 +28,52 @@
   text-align: center;
   font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
   position: relative;
-  width: 12.6564vw;
   height: 2.5000vw;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 77vw;
-  top: 2vw;
+  left: 79.5vw;
+  width: 10vw;
+  top: 3vw;
 }
 
 .likeList {
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
-  display: flex;
-  flex-direction: row;
-  gap: 3.1250vw;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  width: 76.0415vw;
-  position: absolute;
-  left: calc(50% - 38.0207vw);
-  top: 6.3543vw;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 0vw 0vw 0.0521vw 0vw;
+    display: inline;
+    flex-direction: row;
+    gap: 3.125vw;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+    top: 3vw;
 }
+
+.likeList2{
+    position: relative;
+    display: inline-block;
+    bottom: 1vw;
+    padding-left: 1vw;
+    width: 61vw;
+    font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+}
+
+
 .likeListPhoto {
   background: #d9d9d9;
   flex-shrink: 0;
-  width: 12.5000vw;
+  width: 15.5000vw;
   height: 12.5000vw;
   position: relative;
   bottom:0.5vw;
 }
-.likeListTitle {
+
+
+/*.likeListTitle {
   color: #000000;
   text-align: left;
   font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-  position: absolute;
+  position: relative;
   left: 14.5vw;
   top: 0.0000vw;
   width: 46.8750vw;
@@ -69,9 +85,8 @@
   color: #000000;
   text-align: left;
   font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-  position: absolute;
+  position: relative;
   left: 14.5vw;
-  padding-top: 2.5vw;
   width: 46.8750vw;
   display: flex;
   align-items: center;
@@ -81,9 +96,8 @@
   color: #000000;
   text-align: left;
   font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-  position: absolute;
+  position: relative;
   left: 14.5vw;
-  padding-top: 5vw;
   width: 46.8750vw;
   display: flex;
   align-items: center;
@@ -93,21 +107,18 @@
   color: #000000;
   text-align: left;
   font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-  position: absolute;
+  position: relative;
   left: 14.5vw;
-  padding-top: 7.5vw;
   width: 46.8750vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-}
+}*/
 
 .likeTitle {
   color: #000000;
   font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-  position: absolute;
-  left: 14.5vw;
-  top: 9.9vw;
+  position: relative;
 }
 
 .hearts {
@@ -140,12 +151,11 @@
   font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
   position: relative;
   width: 12.6564vw;
-  height: 2.5000vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 53.3vw;
-  top: 4.5vw;
+  left: 69.3vw;
+  bottom: 9vw;
 }
 
 .bannerRsButton {
@@ -161,8 +171,8 @@
   width: 4.9468vw;
   height: 1.7553vw;
   position: absolute;
-  left: 71vw;
-  top: 14vw;
+  left: 72.5vw;
+  top: 17vw;
 }
 
 /*.mypage-like-list__contents-2 {
@@ -510,3 +520,11 @@
   height: 1.6665vw;
   position: relative;
 }*/
+
+.page{
+	position: relative;
+    left: 38vw;
+    top: 5vw;
+	
+}
+

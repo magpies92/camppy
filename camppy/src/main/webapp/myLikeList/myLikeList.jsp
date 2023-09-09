@@ -23,21 +23,23 @@
   PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
   List<LikeDTO> likeList = (List<LikeDTO>)request.getAttribute("likeList");
   LikeDTO likeDTO = (LikeDTO)request.getAttribute("likeDTO");
-  String id=(String)session.getAttribute("id");
+/*   String id=(String)session.getAttribute("id"); */
   %>
-
+  <div class="allCheck"> 전체선택
+  <input type="checkbox" name="all" class="allCheckbox"
+         style="margin-left: 1vw;"></div> 
+<div class="allbody">
 	<%
 	for(int i=0; i<likeList.size(); i++){
 		likeDTO = likeList.get(i);
 		%>
-  
     <div class="likeListBody">
-         <div class="allCheck"> 전체선택
-         <input type="checkbox" name="all" class="allCheckbox"
-         style="margin-left: 1vw;"></div> 
+         
+         
           <div class="likeList">
             <img class="likeListPhoto"
              src="campimg/<%=likeDTO.getCamp_img() %>"/>
+             <div class="likeList2">
             <div class="likeListTitle"><%=likeDTO.getCamp_name()%></div>
             <div class="likeListAdd">
             <%=likeDTO.getCamp_addr()%>
@@ -49,7 +51,11 @@
             
               <div class="likeTitle">
               <img src="myLikeList/hearts.png" class=hearts>
-			  <div class="likeNum"><%=likeDTO.getCamp_like_id()%></div></div>
+			  <div class="likeNum"><%=likeDTO.getCamp_like_id()%></div>
+			  </div>
+			  </div>
+			  <div class="eachCheck">
+             <input type="checkbox" name="each" class="eachCheckbox"></div> 
           
           
           <%
@@ -57,12 +63,44 @@
 	}
 		
 	%>
+	</div>
+	<%
+	// 시작 페이지 1페이지 Prev 없음
+	// 시작 페이지 11, 21, 31 Prev 보임
+	if(pageDTO.getStartPage()>pageDTO.getPageBlock()){
+		%>
+		<a href="likeList.my?pageNum=<%=pageDTO.getStartPage()-pageDTO.getPageBlock()%>">Prev</a>
+		<%
+		
+	}
+	%>
+	
+	
+	<%
+	// for(int i=시작하는 페이지 번호; i<=끝나는 페이지 번호; i++)
+	for(int i=pageDTO.getStartPage();i<=pageDTO.getEndPage();i++){
+		%>
+		<a href="likeList.my?pageNum=<%=i%>" class="page"><%=i %></a>
+		<%
+		
+	}
+	%>
+	
+	
+	<%
+	// 끝페이지번호 전체페이지수 비교 -> 전체페이지수 클 때 -> Next 보임
+	if(pageDTO.getEndPage()<pageDTO.getPageCount()){
+		%>
+		<a href="likeList.my?pageNum=<%=pageDTO.getStartPage()+pageDTO.getPageBlock()%>">Next</a>
+		<%
+		
+	}
+	%>
 
 
 
                     
-			  <div class="eachCheck">
-             <input type="checkbox" name="each" class="eachCheckbox"></div> 
+
           
 
             <input type="button" value="삭제" class="bannerRsButton" >  
