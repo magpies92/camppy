@@ -35,23 +35,21 @@
 
 .campName {
   color: #ffffff;
-  text-align: left;
+  text-align: center;
   font: 400 3.5vw "Inter", sans-serif;
-  position: relative;
+  position: absolute;
   top: 40%;
-  display: flex;
+  display: inline-grid;
   justify-content: center;
   width: 90vw;
-
-
 }
+
 .campReport {
   color: #ffffff;
-  text-align: left;
   font: 400 1.5vw "NanumGothic", sans-serif;
   position: relative;
-  margin-top: 4vw;
 }
+
 
 .bannerRsButton {
   color: #ffffff;

@@ -383,7 +383,7 @@ if(id == null){
       <button type="button" onclick="location.href='campreg.campreg'" class="section-navi__link">예약조회</button>
     </div>
     <div class="section-navi__navi-list-5">
-     <button type="button" onclick="location.href='mypage.my'" class="section-navi__link">마이페이지</button>
+     <button type="button" onclick="location.href='likeList.my'" class="section-navi__link">마이페이지</button>
     </div>
   </div>
 </div>
