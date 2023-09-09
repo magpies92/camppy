@@ -40,7 +40,7 @@ NoticeDTO noticeDTO = (NoticeDTO)request.getAttribute("noticeDTO");
             
             <div class="noticeupdateGroup2">
               <div class="noticeupdateRectangle2">
-                 <select class="noticeUpdate23" >
+                 <select class="noticeUpdate23" name="post_type">
                 <option value="1">말머리</option>
              	<option value="2">로그인</option>
              	<option value="3">결제</option>
@@ -48,17 +48,17 @@ NoticeDTO noticeDTO = (NoticeDTO)request.getAttribute("noticeDTO");
   			 </div>
 		 </div>
 
-<tr><td><input type="text" name="created_by" readonly="readonly" value="<%=id%>" class="name"></td></tr>
+<%-- <tr><td><input type="text" name="created_by" readonly="readonly" value="<%=id%>" class="name"></td></tr> --%>
 		
-<%-- 		<input type = "hidden" name = "member_id" value = "<%=memberDTO.getMember_id()%>"> --%>
+		<input type = "hidden" name = "notice_id" value = "<%=noticeDTO.getNotice_id()%>">
 
             <div class="noticeupdateRectangle1"></div>
             <div class="noticeupdateLine1">            </div>
 
             <!--            제목을 입력해 주세요 -->
-            <textarea class="noticeupdate2"><%=noticeDTO.getTitle() %></textarea>
+            <textarea class="noticeupdate2" name="title"><%=noticeDTO.getTitle() %></textarea>
 			<!--            문의 내용을 입력해 주세요 -->
-            <textarea class="noticeupdate3"><%=noticeDTO.getContent() %></textarea>
+            <textarea class="noticeupdate3" name="content"><%=noticeDTO.getContent() %></textarea>
 	</div>
 
           <div class="noticeupdateBodyButton">

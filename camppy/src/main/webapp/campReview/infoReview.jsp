@@ -2,7 +2,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page import="org.apache.catalina.mbeans.DataSourceUserDatabaseMBean"%>
+
 <%@page import="com.camppy.dto.DetailDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -373,6 +373,13 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 							document.getElementsByClassName('likeButton')[i].style.display = "none"; // 즐겨찾기 추가 버튼 활성화
 						}
 						
+						 function popupInsert() {
+					            var url = "review/insert/reviewInsert.jsp";
+					            var name = "reviewInsert";
+					            var option = "width = 710, height = 730, top= 100, left= 500";
+					            window.open(url, name, option);
+					        }
+
 						 function updateRow(button) {
 					            var row = button.closest(".campinfoRow");
 					            var contentsElement = row.querySelector(".reviewContents1");
@@ -422,7 +429,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					            }
 
 					            $.ajax({
-					                url : "../update/updateReviewList.jsp",
+					                url : "review/update/updateReviewList.jsp",
 					                method : "POST",
 					                data : {
 					                    review_id : reviewId,
@@ -439,6 +446,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 					                        // 수정 버튼 활성화
 					                        row.querySelector(".buttonUpdate").disabled = false;
+					                    	location.reload();
 					                    } else {
 					                        alert("수정 실패");
 					                    }
@@ -477,7 +485,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 					            if (confirm("정말로 삭제하시겠습니까?")) {
 					                $.ajax({
-					                    url : "deleteReview.jsp",
+					                    url : "review/del/deleteReview.jsp",
 					                    method : "POST",
 					                    data : {
 					                        review_id : reviewId
@@ -485,6 +493,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					                    success : function(response) {
 					                        if (response.trim() === "success") {
 					                            row.remove();
+					                            location.reload();
 					                        } else {
 					                            alert("삭제 실패");
 					                        }

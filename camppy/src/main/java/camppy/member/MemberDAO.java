@@ -229,6 +229,45 @@ public class MemberDAO {
 		}
 		return memberDTO;
 	}//getMember()
+	
+	// MemberDTO memberDTO = getMember(id) 메서드 호출
+		public MemberDTO getMember2(String nick) {
+			MemberDTO memberDTO = null;
+			try {
+				// 1단계 JDBC 프로그램 가져오기 
+				// 2단계 디비 연결
+				con = getConnection();
+				// 3단계 문자열 -> sql구문 변경
+			//  select * from members where id=폼입력id
+			String sql = "select * from members where nickname=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, nick);
+
+			//4단계 sql구문 실행 => 실행결과 ResultSet 내장객체에 저장
+			rs =pstmt.executeQuery();
+
+			//5단계 : if  행 접근 -> 데이터 있으면 true 
+//			     -> 아이디 비밀번호 이름 가입날짜 출력
+			if(rs.next()){
+				// => MemberDTO 객체생성 -> 기억장소 할당
+				// -> 멤버변수에 rs 열에서 가져온값을 저장
+				memberDTO = new MemberDTO();
+				memberDTO.setId(rs.getString("id"));
+				memberDTO.setPass(rs.getString("pass"));
+				memberDTO.setName(rs.getString("name"));
+				memberDTO.setDate(rs.getTimestamp("created_date"));
+				memberDTO.setPhone(rs.getString("phonenum")); 
+				memberDTO.setNick(rs.getString("nickname")); 
+				memberDTO.setMember_id(rs.getInt("member_id"));
+				
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbClose();
+			}
+			return memberDTO;
+		}//getMember()
 
 	public void updateMember(MemberDTO memberDTO) {
 		System.out.println("MemberDAO updateMember()");

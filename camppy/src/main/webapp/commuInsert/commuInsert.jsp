@@ -38,6 +38,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	}
 </script>
 <body>
+
 	<div class="commu-insert">
 		<div class="commu-insert__section-total">
 
@@ -48,7 +49,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					<div class="commu-insert__line-2"></div>
 					<!-- 말머리  -->
 					<form action="commuInsertPro.commu" method="post" name=title
-						class="commu-insert__group-2">
+						class="commu-insert__group-2" enctype="multipart/form-data">
 
 						<select name="titleOption" class="commu-insert__rectangle-2">
 							<option class="commu-insert__" id="option1">캠핑후기</option>
@@ -73,7 +74,8 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 						<textarea class="commu-insert__3" placeholder="문의 내용을 입력해 주세요."
 							name="content"></textarea>
 
-						<label class="input-file-button" for="image-upload"> <img
+						<label class="input-file-button" for="image-upload"> 
+						<img
 							class="commu-insert__free-icon-image-8191595-1"
 							src="./commuInsert/free-icon-image-8191595-1.png" alt="이미지">
 						</label> <input type="file" name="uploadFile" id="image-upload"

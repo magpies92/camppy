@@ -11,7 +11,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="review/mypagelist/mypageReveiwList.css" />
+<link rel="stylesheet" href="review/mypagelist/mypageReviewList.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
@@ -40,8 +40,8 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 <%
 //세션에서 로그인 정보를 가져오기
-//String id = (String) session.getAttribute("id");
-String id = "ksb"; // 임의의 id 값 "ksb" 설정
+String id = (String) session.getAttribute("id");
+// String id = "ksb"; // 임의의 id 값 "ksb" 설정
 
 int pageSize = 5; // 한 페이지에 표시될 레코드 수
 int currentPage = (request.getParameter("page") != null) ? Integer.parseInt(request.getParameter("page")) : 1;
@@ -145,17 +145,17 @@ if (currentPage < totalPages) {
 
 <script>
 
-//	//글쓰기용 팝업버튼
-//	function popupInsert() {
-//		var url = "../insert/reviewInsert.jsp";
-//		var name = "reviewInsert";
-//		var option = "width = 710, height = 730, top= 100, left= 500";
-//		window.open(url, name, option);
+// 	//글쓰기용 팝업버튼
+// 	function popupInsert() {
+// 		var url = "../insert/reviewInsert.jsp";
+// 		var name = "reviewInsert";
+// 		var option = "width = 710, height = 730, top= 100, left= 500";
+// 		window.open(url, name, option);
 	
-//		newWindow.addEventListener("unload", function () {
-//		    location.reload(); // 새로고침
-//		  });
-//	}
+// 		newWindow.addEventListener("unload", function () {
+// 		    location.reload(); // 새로고침
+// 		  });
+// 	}
 
 
 //수정버튼

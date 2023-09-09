@@ -244,9 +244,9 @@
   font: 700 1.535rem/2.70125rem "Inter", sans-serif;
   position: absolute;
   left: calc(50% - 2.885625rem);
-  top: calc(50% - 0.798125rem);
+  top: calc(50% - 1.3rem);
   width: 5.8325rem;
-  height: 1.6575rem;
+  height: 2.2rem;
   display: flex;
   align-items: center;
   justify-content: center;

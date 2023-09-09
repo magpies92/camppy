@@ -8,14 +8,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.notice.dto.QuestionDTO;
 import com.notice.dto.QuestionPageDTO;
 import com.notice.service.QuestionService;
 
+import camppy.member.MemberDTO;
+import camppy.member.MemberService;
+
 public class QuestionController extends HttpServlet{
 		QuestionService questionService = null;
 		RequestDispatcher dispatcher = null;
+		MemberService memberService = null;
 		
 		@Override
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,7 +32,6 @@ public class QuestionController extends HttpServlet{
 			System.out.println("QuestionController doPost()");
 			doProcess(request, response);
 		}
-		
 		
 		protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			System.out.println("QuestionController doProcess()");
@@ -54,13 +58,13 @@ public class QuestionController extends HttpServlet{
 				questionPageDTO.setPageNum(pageNum);
 				questionPageDTO.setCurrentPage(currentPage);
 				
-				// noticeService 객체생성
+				// questionService 객체생성
 				questionService = new QuestionService();
-				// List<NoitceDTO> noticeList = getNoticeList(); 메서드 호출
+				// List<QuestionDTO> NoticeController.java = getQuestionList(); 메서드 호출
 				List<QuestionDTO> questionList = questionService.getQuestionList(questionPageDTO);
 				
 				// 게시판 전체 글 개수 구하기 
-				int count = questionService.getNoticeCount();
+				int count = questionService.getQuestionCount();
 				
 				// 한 화면에 보여줄 페이지 개수 설정
 				int pageBlock = 10;
@@ -75,23 +79,93 @@ public class QuestionController extends HttpServlet{
 					endPage = pageCount;
 				}
 				
-				// noticepageDTO 저장
+				// questionPageDTO 저장
 				questionPageDTO.setCount(count);
 				questionPageDTO.setPageBlock(pageBlock);
 				questionPageDTO.setStartPage(startPage);
 				questionPageDTO.setEndPage(endPage);
 				questionPageDTO.setPageCount(pageCount);
 				
-				// request에 "boardList",boardList 저장
+				// request에 "questionList",questionList 저장
 				request.setAttribute("questionList", questionList);
 				request.setAttribute("questionPageDTO", questionPageDTO);
 				
-				// 주소변경없이 이동 center/notice.jsp
+				// 주소변경없이 이동 notice/questionList/questionList.jsp
 				dispatcher = request.getRequestDispatcher("notice/questionList/questionList.jsp");
 				dispatcher.forward(request, response);
 			}//
 			
 			
+			
+			if(sPath.equals("/write.qu")) {
+				HttpSession session = request.getSession();
+				String id = (String)session.getAttribute("id");
+				
+				memberService = new MemberService();
+				MemberDTO  memberDTO =memberService.getMember(id);
+				request.setAttribute("memberDTO", memberDTO);
+				
+				// 주소변경없이 이동 notice/noticeInsert/noticeInsert.jsp
+				dispatcher = request.getRequestDispatcher("notice/questionInsert/questionInsert.jsp");
+				dispatcher.forward(request, response);
+			}
+			if(sPath.equals("/writePro.qu")) {
+				System.out.println("뽑은 가상주소 비교 : /writePro.qu");
+				// questionService 객체생성
+				questionService = new QuestionService();
+				questionService.insertQuestion(request);
+				response.sendRedirect("list.qu");
+			}
+			
+			
+			
+			if(sPath.equals("/content.qu")) {
+				System.out.println("뽑은 가상주소 비교 : /content.qu");
+				
+				questionService = new QuestionService();
+				
+				questionService.notice_cnt(request);
+				
+				QuestionDTO questionDTO = questionService.getQuestion(request);
+				
+				request.setAttribute("questionDTO", questionDTO);
+				
+				dispatcher = request.getRequestDispatcher("notice/questionContents/questionContents.jsp");
+				dispatcher.forward(request, response);
+			}
+			
+			
+			
+			if(sPath.equals("/update.qu")) {
+				System.out.println("뽑은 가상주소 비교 : /update.qu");
+				
+				questionService = new QuestionService();
+				
+				QuestionDTO questionDTO = questionService.getQuestion(request);
+				
+				request.setAttribute("questionDTO", questionDTO);
+				
+				dispatcher = request.getRequestDispatcher("notice/questionUpdate/questionUpdate.jsp");
+				dispatcher.forward(request, response);
+				
+			}
+			if(sPath.equals("/updatePro.qu")) {
+				System.out.println("뽑은 가상주소 비교 : /updatePro.qu");
+				// noticeService 객체생성
+				questionService = new QuestionService();
+				questionService.updateQuestion(request);
+				response.sendRedirect("list.qu");
+			}
+			
+			
+			
+			if(sPath.equals("/delete.qu")) {
+				System.out.println("뽑은 가상주소 비교 : /delete.qu");
+				// noticeService 객체생성
+				questionService = new QuestionService();
+				questionService.deleteQuestion(request);
+				response.sendRedirect("list.qu");
+			}
 		}
 		
 }

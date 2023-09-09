@@ -39,16 +39,16 @@ public class NoticeService {
 
 		public int getNoticeCount() {
 			System.out.println("NoticeService getNoticeCount()");
-			int count = 0;
+			int notice_cnt = 0;
 			try {
 				// NoticeDAO 객체생성
 				noticeDAO = new NoticeDAO();
-				// count = getNoticeCount() 호출
-				 count = noticeDAO.getNoticeCount();
+				// notice_cnt = getNoticeCount() 호출
+				notice_cnt = noticeDAO.getNoticeCount();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return count;
+			return notice_cnt;
 		} // getNoticeCount
 
 		
@@ -59,9 +59,9 @@ public class NoticeService {
 				request.setCharacterEncoding("utf-8");
 				
 				String created_by = request.getParameter("created_by");
-				String post_type = request.getParameter("post_type");
+				int post_type = Integer.parseInt(request.getParameter("post_type"));
 				String title = request.getParameter("title");
-				String member_id = request.getParameter("member_id");
+				int member_id = Integer.parseInt(request.getParameter("member_id"));
 				String content = request.getParameter("content");
 				int notice_cnt = 0;
 				Timestamp create_date = new Timestamp(System.currentTimeMillis());
@@ -78,7 +78,6 @@ public class NoticeService {
 				noticeDTO.setTitle(title);
 				noticeDTO.setMember_id(member_id);
 				noticeDTO.setContent(content);
-//				noticeDTO.setImage_url(image_url);
 				noticeDTO.setNotice_cnt(notice_cnt);
 				noticeDTO.setCreate_date(create_date);
 				noticeDTO.setLast_modified_date(last_modified_date);
@@ -99,7 +98,6 @@ public class NoticeService {
 				request.setCharacterEncoding("utf-8");
 				
 				int notice_id = Integer.parseInt(request.getParameter("notice_id"));
-				
 					 
 				noticeDAO = new NoticeDAO();
 				
@@ -124,7 +122,7 @@ public class NoticeService {
 				
 				int notice_id = Integer.parseInt(request.getParameter("notice_id"));
 				String created_by = request.getParameter("created_by");
-				String post_type = request.getParameter("post_type");
+				int post_type = Integer.parseInt(request.getParameter("post_type"));
 				String title= request.getParameter("title");
 				String content= request.getParameter("content");
 				
@@ -159,6 +157,22 @@ public class NoticeService {
 				e.printStackTrace();
 			}
 		} //  deleteNotice
+
+		public void notice_cnt(HttpServletRequest request) {
+			System.out.println("NoticeService notice_cnt");
+			try {
+				request.setCharacterEncoding("utf-8");
+				
+				int notice_id = Integer.parseInt(request.getParameter("notice_id"));
+	 
+				noticeDAO = new NoticeDAO();
+				
+				noticeDAO.notice_cnt(notice_id);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
 		
 		
 		

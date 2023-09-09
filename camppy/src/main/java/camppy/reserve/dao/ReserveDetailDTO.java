@@ -13,7 +13,7 @@ public class ReserveDetailDTO {
 	private int camp_id; //캠프 아이디
 	private int camp_price; // 캠프 가격
 	private int sprice; // 총가격
-	private String camp_name;
+	private String camp_name; // 캠프 이름
 	
 	
 	
