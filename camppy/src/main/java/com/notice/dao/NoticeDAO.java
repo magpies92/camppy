@@ -53,18 +53,15 @@ public class NoticeDAO {
 			while(rs.next()) {
 				NoticeDTO noticeDTO = new NoticeDTO();
 				noticeDTO.setNotice_id(rs.getInt("notice_id"));
-				noticeDTO.setComment_cnt(rs.getInt("comment_cnt"));
 				noticeDTO.setCreate_date(rs.getTimestamp("create_date")); // 작성날짜
 				noticeDTO.setLast_modified_date(rs.getTimestamp("last_modified_date")); //수정날짜
 				noticeDTO.setCreated_by(rs.getString("created_by")); // 생성자
 				noticeDTO.setLast_modified_by(rs.getString("last_modified_by")); // 마지막 수정자
 				noticeDTO.setContent(rs.getString("content")); //댓글
-				noticeDTO.setLike_cnt(rs.getInt("like_cnt")); //좋아요 개수
 				noticeDTO.setPost_type(rs.getInt("post_type")); //게시글 종류
 				noticeDTO.setTitle(rs.getString("title")); //제목
 				noticeDTO.setMember_id(rs.getInt("member_id")); //회원 아이디
 				noticeDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
-				noticeDTO.setImage_url(rs.getString("image_url")); //공지사진주소
 				// 배열 한 칸에 저장
 				noticeList.add(noticeDTO);
 				
@@ -175,7 +172,6 @@ public class NoticeDAO {
 				noticeDTO.setTitle(rs.getString("title")); //제목
 				noticeDTO.setMember_id(rs.getInt("member_id")); //회원 아이디
 				noticeDTO.setContent(rs.getString("content")); //댓글
-				noticeDTO.setImage_url(rs.getString("image_url")); //공지사진주소
 				noticeDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
 				noticeDTO.setCreate_date(rs.getTimestamp("create_date")); // 작성날짜
 				noticeDTO.setLast_modified_date(rs.getTimestamp("last_modified_date")); //수정날짜
@@ -212,7 +208,6 @@ public class NoticeDAO {
 				noticeDTO.setTitle(rs.getString("title")); //제목
 				noticeDTO.setMember_id(rs.getInt("member_id")); //회원 아이디
 				noticeDTO.setContent(rs.getString("content")); //댓글
-				noticeDTO.setImage_url(rs.getString("image_url")); //공지사진주소
 				noticeDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
 				noticeDTO.setCreate_date(rs.getTimestamp("create_date")); // 작성날짜
 				noticeDTO.setLast_modified_date(rs.getTimestamp("last_modified_date")); //수정날짜

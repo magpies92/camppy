@@ -39,7 +39,7 @@ QuestionDTO questionDTO = (QuestionDTO)request.getAttribute("questionDTO");
       <div class="questionUpdateSectionTotal">
         <div class="questionUpdateSectionBody">
   
-  	<input type = "hidden" name = "inquiry_id" value = "<%=questionDTO.getInquiry_id()%>">        
+<%--   	<input type = "hidden" name = "inquiry_id" value = "<%=questionDTO.getInquiry_id()%>">         --%>
           <div class="questionUpdateButton">
             <div class="questionUpdateLeaveButton">
             <input type="button" class="questionUpdateB" value="나가기" onclick="location.href='list.qu'">
