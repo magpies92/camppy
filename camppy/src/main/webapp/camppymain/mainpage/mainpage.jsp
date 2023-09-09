@@ -110,32 +110,36 @@
               </div>
             </div>
             
-            
-            <form action="list.camp" method="post" class="mainpage__div-search-box">
+                        <div class="mainpage__div-search-box">
+            <form action="listSearch.camp" method="post">
               <div class="mainpage__div-searchbox-form">
                 <div class="mainpage__div-form-1-2">             
  <select name="sido" class="mainpage__options-1">
           <!-- <option class="mainpage__3"   >전체/도</option> -->
           
         </select>
-           
-           <select name="gungu"  class="mainpage__options-2">
+                      <select name="gungu"  class="mainpage__options-2">
           <!-- <option class="mainpage__3" >전체/시/군</option> -->
-         
+        
         </select>
                  </div>
-                           
-            
-                <div class="mainpage__div-form-1-3">
-                
-                  
-                  <input type="text" name="Keywordsearch" placeholder="키워드 검색" class="mainpage__options">
+                       <div class="mainpage__div-form-1-3">
+                 <input type="text" name="keywordsearch" placeholder="키워드 검색" class="mainpage__options">
                   <button type="submit" class="mainpage__button">
                     검색
                   </button> <!-- 검색 버튼 -->    
                 </div>
               </div>
             </form> <!-- form -->
+           
+            <form action="listSearch.camp" method="post" class="mainpage__div-searchbox-form1">         
+            <input type="text" name="reservesearch" placeholder="예약 번호 입력" class="mainpage__options1">
+                  <button type="submit" class="mainpage__button1">
+                    예약 조회
+                  </button> <!-- 검색 버튼 -->    
+                      
+            </form> <!-- form -->
+            </div>
             
             
             
