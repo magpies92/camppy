@@ -17,7 +17,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
-  height: 165vw;
+  height: 100vw;
   position: relative;
   overflow: hidden;
 }
@@ -175,356 +175,329 @@
   top: 17vw;
 }
 
-/*.mypage-like-list__contents-2 {
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
-  display: flex;
-  flex-direction: row;
-  gap: 3.1250vw;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  width: 76.0415vw;
-  position: absolute;
-  left: calc(50% - 38.0207vw);
-  top: 20.3128vw;
-}
-.mypage-like-list-25-span3 {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-25-span4 {
-  color: #000000;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-4-span3 {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-4-span4 {
-  color: #000000;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-1153-span3 {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-1153-span4 {
-  color: #000000;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list__checkbox3 {
-  border-radius: 0.0000vw;
-  flex-shrink: 0;
-  position: absolute;
-  right: 0.0000vw;
-  top: 4.3750vw;
-  overflow: visible;
-}
-.mypage-like-list__contents-3 {
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
-  display: flex;
-  flex-direction: row;
-  gap: 3.1250vw;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  width: 76.0415vw;
-  position: absolute;
-  left: calc(50% - 38.0207vw);
-  top: 34.2707vw;
-}
-.mypage-like-list-25-span5 {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-25-span6 {
-  color: #000000;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-4-span5 {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-4-span6 {
-  color: #000000;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-1153-span5 {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-1153-span6 {
-  color: #000000;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list__checkbox4 {
-  border-radius: 0.0000vw;
-  flex-shrink: 0;
-  position: absolute;
-  right: 0.0000vw;
-  top: 4.3750vw;
-  overflow: visible;
-}
-.mypage-like-list__contents-4 {
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
-  display: flex;
-  flex-direction: row;
-  gap: 3.1250vw;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  width: 76.0415vw;
-  position: absolute;
-  left: calc(50% - 38.0207vw);
-  top: 48.2293vw;
-}
-.mypage-like-list-1153-span7 {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-1153-span8 {
-  color: #000000;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list__checkbox5 {
-  border-radius: 0.0000vw;
-  flex-shrink: 0;
-  position: absolute;
-  right: 0.0000vw;
-  top: 4.3750vw;
-  overflow: visible;
-}
-.mypage-like-list__like2 {
-  display: flex;
-  flex-direction: column;
-  gap: 0.0000vw;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  width: 6.3543vw;
-  position: absolute;
-  left: 14.5835vw;
-  top: 10.1043vw;
-}
-.mypage-like-list___252 {
-  color: #000000;
-  text-align: right;
-  position: absolute;
-  left: 2.9255vw;
-  top: 0.0000vw;
-  width: 3.3856vw;
-  height: 1.8229vw;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-.mypage-like-list-252-span {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-252-span2 {
-  color: #000000;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-4-span7 {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list-4-span8 {
-  color: #000000;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-}
-.mypage-like-list__button-del {
-  display: flex;
-  flex-direction: column;
-  gap: 0.0000vw;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 7.1872vw;
-  height: 3.1771vw;
-  position: absolute;
-  left: 80.9894vw;
-  top: 66.8750vw;
-}
-.mypage-like-list__rectangle-15 {
-  border-radius: 0.0000vw;
-  flex-shrink: 0;
-  position: absolute;
-  left: 0.5207vw;
-  top: 0.0000vw;
-  overflow: visible;
-}
-.mypage-like-list__6 {
-  color: #ffffff;
-  text-align: center;
-  font: 700 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-  position: absolute;
-  left: calc(50% - 2.5521vw);
-  top: 0.6771vw;
-  width: 5.2085vw;
-  height: 1.5628vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mypage-like-list__page-list {
-  padding: 0.0521vw 17.2394vw 0.0521vw 17.2394vw;
-  display: flex;
-  flex-direction: row;
-  gap: 0.3644vw;
-  align-items: center;
-  justify-content: center;
-  height: 3.3856vw;
-  position: absolute;
-  left: calc(50% - 32.2415vw);
-  top: 72.2915vw;
-  overflow: hidden;
-}
-.mypage-like-list__item-link-btn-pre-00-png {
-  flex-shrink: 0;
-  width: 1.6665vw;
-  height: 1.6665vw;
-  position: relative;
-}
-.mypage-like-list__item-link-btn-pre-01-png {
-  flex-shrink: 0;
-  width: 1.6665vw;
-  height: 1.6665vw;
-  position: relative;
-}
-.mypage-like-list__item {
-  padding: 0.0000vw 0.6122vw 0.2085vw 0.5862vw;
-  display: flex;
-  flex-direction: row;
-  gap: 0.0000vw;
-  align-items: flex-start;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-}
-.mypage-like-list__link-1 {
-  color: #626262;
-  text-align: center;
-  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mypage-like-list__link-2 {
-  color: #626262;
-  text-align: center;
-  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mypage-like-list__link-3 {
-  color: #626262;
-  text-align: center;
-  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mypage-like-list__link-4 {
-  color: #626262;
-  text-align: center;
-  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mypage-like-list__link-5 {
-  color: #626262;
-  text-align: center;
-  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mypage-like-list__link-6 {
-  color: #626262;
-  text-align: center;
-  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mypage-like-list__link-7 {
-  color: #626262;
-  text-align: center;
-  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mypage-like-list__link-8 {
-  color: #626262;
-  text-align: center;
-  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mypage-like-list__link-9 {
-  color: #626262;
-  text-align: center;
-  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mypage-like-list__item2 {
-  padding: 0.0000vw 0.3894vw 0.2085vw 0.4436vw;
-  display: flex;
-  flex-direction: row;
-  gap: 0.0000vw;
-  align-items: flex-start;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-}
-.mypage-like-list__link-10 {
-  color: #626262;
-  text-align: center;
-  font: 400 0.7293vw/1.4585vw "NanumGothic", sans-serif;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mypage-like-list__item-link-btn-next-01-png {
-  flex-shrink: 0;
-  width: 1.6665vw;
-  height: 1.6665vw;
-  position: relative;
-}
-.mypage-like-list__item-link-btn-next-00-png {
-  flex-shrink: 0;
-  width: 1.6665vw;
-  height: 1.6665vw;
-  position: relative;
-}*/
-
 .page{
 	position: relative;
     left: 38vw;
     top: 5vw;
-	
 }
+
+.mypageProfile {
+	padding: 10px 100px 10px 100px;
+	display: flex;
+	flex-direction: row;
+	gap: 136px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	width: 1920px;
+	height: 314px;
+	position: relative;
+	left: 1px;
+	overflow: hidden;
+}
+
+.mypageUserIcon {
+	flex-shrink: 0;
+	width: 217px;
+	height: 217px;
+	position: absolute;
+	left: 277px;
+	top: 51px;
+}
+
+.profileNickname {
+	color: #000000;
+	text-align: left;
+	font: 400 40px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 546px;
+	top: 75px;
+	width: 642px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.updateButton {
+	background: #4da385;
+	border-radius: 5px;
+	padding: 0px 9px 0px 9px;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-shrink: 0;
+	width: 207px;
+	height: 70px;
+	position: absolute;
+	left: 1258px;
+	top: 80px;
+	overflow: hidden;
+	border: none;
+}
+
+.updateProfile {
+	color: #ffffff;
+	text-align: center;
+	font: 700 30px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: calc(50% - 94.5px);
+	top: 0px;
+	width: 189px;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageProfileNum {
+	display: flex;
+	flex-direction: row;
+	gap: 136px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-shrink: 0;
+	width: 1040px;
+	height: 70px;
+	position: absolute;
+	left: 135px;
+	top: 160px;
+}
+
+.myVisit {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 0px;
+	top: 10px;
+	width: 180px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.visitNum {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 180px;
+	top: 10px;
+	width: 100px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: solid 1px;
+	border-left-color: grey;
+}
+
+.myArticle {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 360px;
+	top: 10px;
+	width: 180px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.myArticleNum {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 540px;
+	top: 10px;
+	width: 100px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: solid 1px;
+	border-left-color: grey;
+}
+
+.myReply {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 720px;
+	top: 10px;
+	width: 180px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.myReplyNum {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 900px;
+	top: 10px;
+	width: 100px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: solid 1px;
+	border-left-color: grey;
+}
+
+.mypageNavi {
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px 0px 1px 0px;
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	width: 1920px;
+	height: 163px;
+	position: relative;
+	/*   left: calc(50% - 960px); */
+	padding-right: 150px;
+	padding-left: 150px;
+}
+
+.mypageLike {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageArticle {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageReply {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageReserve {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* .buttonDel { */
+/* 	display: flex; */
+/* 	flex-direction: column; */
+/* 	gap: 0px; */
+/* 	align-items: flex-start; */
+/* 	justify-content: flex-start; */
+/* 	width: 138px; */
+/* 	height: 61px; */
+/* 	position: relative; */
+/* 	left: 1555px; */
+/* 	background: #4da385; */
+/* 	border-radius: 5px; */
+/* 	border: none; */
+/* } */
+.del {
+	color: #ffffff;
+	text-align: center;
+	font: 700 25px/45px "NanumGothic", sans-serif;
+	position: absolute;
+	left: calc(50% - 49px);
+	top: 13px;
+	width: 100px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+div.tab.active {
+	color: black;
+	font-weight: bold;
+}
+
+.mypageNavi {
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px 0px 1px 0px;
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	width: 1920px;
+	height: 163px;
+	position: relative;
+	/*   left: calc(50% - 960px); */
+	padding-right: 150px;
+	padding-left: 150px;
+}
+
+.tab {
+	color: grey;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tabContents {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.pagination {
+display: contents;
+
+    }
 

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="camppymain/searchpage/searchpage.css" />
 
    
-    
+    <title>Document</title>
     <style>
       a,
       button,
@@ -39,11 +39,9 @@
     margin-left: auto;
     margin-right: auto;
   }
-     button:hover { /* a태그에 마우스를 올렸을 때 */
-  cursor: pointer; 
-}
+     
     </style>
-    <title>Document</title>
+    
     <script src="script/jquery-3.7.0.js"></script>
  <script> 
  $('document').ready(function() {
@@ -166,15 +164,15 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 // 시작페이지 11,21,31 Prev 보임
 if(pageDTO.getStartPage() > pageDTO.getPageBlock()){
 	%>
-	<a href="listSearch.camp?pageNum=<%=pageDTO.getStartPage()-pageDTO.getPageBlock()%>&keywordsearch=<%=pageDTO.getSearch()%>&sido=<%=pageDTO.getSido()%>&gungu=<%=pageDTO.getGungu()%>">Prev</a>
+	<a href="list.camp?pageNum=<%=pageDTO.getStartPage()-pageDTO.getPageBlock()%>">Prev</a>
 	<%
 }
-%>
+%> 
 
 <%
 for(int i=pageDTO.getStartPage();i<=pageDTO.getEndPage();i++){
 	%>
-	<a href="listSearch.camp?pageNum=<%=i%>&keywordsearch=<%=pageDTO.getSearch()%>&sido=<%=pageDTO.getSido()%>&gungu=<%=pageDTO.getGungu()%>"><%=i %></a> 
+	<a href="list.camp?pageNum=<%=i%>"><%=i %></a> 
 	<%
 }
 %>
@@ -183,10 +181,10 @@ for(int i=pageDTO.getStartPage();i<=pageDTO.getEndPage();i++){
 //끝페이지번호  전체페이지수 비교 => 전체페이지수 크면 => Next보임
 if(pageDTO.getEndPage() < pageDTO.getPageCount()){
 	%>
-	<a href="listSearch.camp?pageNum=<%=pageDTO.getStartPage()+pageDTO.getPageBlock()%>&keywordsearch=<%=pageDTO.getSearch()%>&sido=<%=pageDTO.getSido()%>&gungu=<%=pageDTO.getGungu()%>">Next</a>
+	<a href="list.camp?pageNum=<%=pageDTO.getStartPage()+pageDTO.getPageBlock()%>">Next</a>
 	<%
-}%>   
-
+}
+%>
        <!--  <div class="mainpage__item">
           <div class="mainpage__link-1">1</div>
         </div>
