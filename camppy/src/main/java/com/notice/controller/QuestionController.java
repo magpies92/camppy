@@ -104,7 +104,7 @@ public class QuestionController extends HttpServlet{
 				MemberDTO  memberDTO =memberService.getMember(id);
 				request.setAttribute("memberDTO", memberDTO);
 				
-				// 주소변경없이 이동 notice/noticeInsert/noticeInsert.jsp
+				// 주소변경없이 이동 notice/questionInsert/questionInsert.jsp
 				dispatcher = request.getRequestDispatcher("notice/questionInsert/questionInsert.jsp");
 				dispatcher.forward(request, response);
 			}

@@ -37,7 +37,7 @@ List<QuestionDTO> questionList = (List<QuestionDTO>)request.getAttribute("questi
 	<div class="questionContents">
 		<div class="questionContentsSectionBody">
 			<div class="questionContentsQuestionContents">
-				<div class="questionContentsA">공지사항</div>
+				<div class="questionContentsA">문의하기</div>
 
 				<div class="questionContentsTitleNcontent">
 					<div class="questionContentsC"><%=questionDTO.getTitle()%></div>
