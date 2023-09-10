@@ -95,7 +95,6 @@ public class QuestionController extends HttpServlet{
 				dispatcher.forward(request, response);
 			}//
 			
-//			ㄴㄴㄴㄴㄴ
 			
 			if(sPath.equals("/write.qu")) {
 				HttpSession session = request.getSession();
