@@ -230,9 +230,9 @@ public class QuestionDAO {
 				pstmt=con.prepareStatement(sql);
 				
 //				pstmt.setInt(1, questionDTO.getPost_type());
-				pstmt.setString(2, questionDTO.getTitle());
-				pstmt.setString(3, questionDTO.getContent());
-				pstmt.setInt(4, questionDTO.getInquiry_id());
+				pstmt.setString(1, questionDTO.getTitle());
+				pstmt.setString(2, questionDTO.getContent());
+				pstmt.setInt(3, questionDTO.getInquiry_id());
 				  
 				pstmt.executeUpdate();
 			} catch (Exception e) {

@@ -58,10 +58,10 @@ QuestionDTO questionDTO = (QuestionDTO)request.getAttribute("questionDTO");
             
             <div class="questionUpdateBox"></div>
             <!--            제목을 입력해 주세요 -->
-            <textarea class="questionUpdate4" name="title"></textarea>
+            <textarea class="questionUpdate4" name="title"><%=questionDTO.getTitle() %></textarea>
             
 			<!--            문의 내용을 입력해 주세요 -->
-            <textarea class="questionUpdate5" name="content"></textarea>
+            <textarea class="questionUpdate5" name="content"><%=questionDTO.getContent() %></textarea>
            </div>
           
           
