@@ -136,13 +136,15 @@ public class MainFrontController extends HttpServlet {
 			//request 검색어 뽑아오기
 			
 			String sido = request.getParameter("sido");
-			if (sido.equals("시/도 선택"))
+			String keywordsearch = request.getParameter("keywordsearch");
+			if (sido.equals("시/도 선택") && keywordsearch.equals(""))
 			{
 				response.sendRedirect("list.camp");
 			}
 			else {
 			String gungu = request.getParameter("gungu");
-			String keywordsearch = request.getParameter("keywordsearch");
+			
+			
 			System.out.println(sido);
 			System.out.println(gungu);
 			System.out.println(keywordsearch);
@@ -162,7 +164,14 @@ public class MainFrontController extends HttpServlet {
 						pageDTO.setCurrentPage(currentPage);
 						//검색어 저장
 						pageDTO.setSearch(keywordsearch);
-						String sido2 =  sido.substring(0,2); //abc
+						String sido2 ="";
+						if (sido.equals("시/도 선택") || sido.equals(""))
+						{
+							
+							gungu = "";
+						}
+						else{sido2 =  sido.substring(0,2);} //abc
+						
 						pageDTO.setSido(sido2);
 						pageDTO.setGungu(gungu);
 						// CampRegService 객체생성

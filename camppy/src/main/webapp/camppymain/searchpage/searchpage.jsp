@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="camppymain/searchpage/searchpage.css" />
 
    
-    
+    <title>Document</title>
     <style>
       a,
       button,
@@ -39,11 +39,9 @@
     margin-left: auto;
     margin-right: auto;
   }
-     button:hover { /* a태그에 마우스를 올렸을 때 */
-  cursor: pointer; 
-}
+     
     </style>
-    <title>Document</title>
+   
     <script src="script/jquery-3.7.0.js"></script>
  <script> 
  $('document').ready(function() {
@@ -97,19 +95,22 @@
  
 	   
     </script> 
-  </head>
-  <body>
-  <jsp:include page="/inc/top.jsp"/>
-  
-  <%
+     <%
 List<CampRegDTO> campregList 
     = (List<CampRegDTO>)request.getAttribute("campregList");
 
 PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
+
+String sido = request.getParameter("sido");
+String gungu = request.getParameter("gungu");
+String keywordsearch = request.getParameter("keywordsearch");
 %>
-    <div class="mainpage">
-  <div class="mainpage__section-total">
-    <form action="listSearch.camp" method="post" class="mainpage__search-box-frame">
+  </head>
+  <body>
+  <jsp:include page="/inc/top.jsp"/>
+  
+  
+<form action="listSearch.camp" method="post" class="mainpage__search-box-frame">
       <div class="mainpage__search-box">
         <div class="mainpage__searchbox-form">
           <div class="mainpage__form-1">
@@ -129,16 +130,25 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
           <div class="mainpage__button">
             <button type="submit" class="mainpage__3">검색</button>
           </div>
+          <%if(sido.equals("시/도 선택")){%>
+          <div class="mainpage__options-13"> <%=keywordsearch%> 검색 결과 </div>
+        	 <%}
+          else{ %>
+          <div class="mainpage__options-13"> <%=sido%> <%=gungu%> <%=keywordsearch%> 검색 결과 </div>
+          <%} %>
         </div>
       </div>
     </form>
+    <div class="mainpage">
+     
+  <div class="mainpage__section-total">
+   
     <div class="mainpage__popular-info">
     <table>
     <tr>
     <%
     for(int i=1;i<=campregList.size();i++){
-    	CampRegDTO campregDTO=campregList.get(i-1);
-    	%>
+    	CampRegDTO campregDTO=campregList.get(i-1);%>
     	<td>
     	<button type="button" onclick="location.href='detail.de?campId=<%=campregDTO.getCampid()%>'">
         <img class="mainpage__forest-7" src="campimg/<%=campregDTO.getCampimg()%>" /><br>
@@ -153,41 +163,20 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
     }
     %>
     </table>
-      <div class="mainpage__list">
-        <img
+      
+  </div>
+ 
+    </div>
+  <div class="mainpage__list">
+       <!--  <img
           class="mainpage__item-link-btn-pre-00-png"
           src="camppymain/searchpage/item-link-btn-pre-00-png.png"
         /><img
           class="mainpage__item-link-btn-pre-01-png"
           src="camppymain/searchpage/item-link-btn-pre-01-png.png"
-        />
-        <%
-// 시작페이지 1페이지 Prev 없음
-// 시작페이지 11,21,31 Prev 보임
-if(pageDTO.getStartPage() > pageDTO.getPageBlock()){
-	%>
-	<a href="listSearch.camp?pageNum=<%=pageDTO.getStartPage()-pageDTO.getPageBlock()%>&keywordsearch=<%=pageDTO.getSearch()%>&sido=<%=pageDTO.getSido()%>&gungu=<%=pageDTO.getGungu()%>">Prev</a>
-	<%
-}
-%>
-
-<%
-for(int i=pageDTO.getStartPage();i<=pageDTO.getEndPage();i++){
-	%>
-	<a href="listSearch.camp?pageNum=<%=i%>&keywordsearch=<%=pageDTO.getSearch()%>&sido=<%=pageDTO.getSido()%>&gungu=<%=pageDTO.getGungu()%>"><%=i %></a> 
-	<%
-}
-%>
-
-<%
-//끝페이지번호  전체페이지수 비교 => 전체페이지수 크면 => Next보임
-if(pageDTO.getEndPage() < pageDTO.getPageCount()){
-	%>
-	<a href="listSearch.camp?pageNum=<%=pageDTO.getStartPage()+pageDTO.getPageBlock()%>&keywordsearch=<%=pageDTO.getSearch()%>&sido=<%=pageDTO.getSido()%>&gungu=<%=pageDTO.getGungu()%>">Next</a>
-	<%
-}%>   
-
-       <!--  <div class="mainpage__item">
+        /> -->
+       
+       <!--   <div class="mainpage__item">
           <div class="mainpage__link-1">1</div>
         </div>
         
@@ -197,13 +186,31 @@ if(pageDTO.getEndPage() < pageDTO.getPageCount()){
         /><img
           class="mainpage__item-link-btn-next-00-png"
           src="camppymain/searchpage/item-link-btn-next-00-png.png"
-        />
-      </div>
-      <!-- <div class="mainpage__5">인기순</div> -->
-    </div>
-  </div>
+        />-->
+        <%
+if(pageDTO.getStartPage() > pageDTO.getPageBlock()){
+	%>
+	<a href="listSearch.camp?pageNum=<%=pageDTO.getStartPage()-pageDTO.getPageBlock()%>&keywordsearch=<%=pageDTO.getSearch()%>&sido=<%=pageDTO.getSido()%>&gungu=<%=pageDTO.getGungu()%>">Prev</a>
+	<%
+}
+
+for(int i=pageDTO.getStartPage();i<=pageDTO.getEndPage();i++){
+	%>
+	<a href="listSearch.camp?pageNum=<%=i%>&keywordsearch=<%=pageDTO.getSearch()%>&sido=<%=pageDTO.getSido()%>&gungu=<%=pageDTO.getGungu()%>"><%=i %></a> 
+	<%
+}
+
+//끝페이지번호  전체페이지수 비교 => 전체페이지수 크면 => Next보임
+if(pageDTO.getEndPage() < pageDTO.getPageCount()){
+	%>
+	<a href="listSearch.camp?pageNum=<%=pageDTO.getStartPage()+pageDTO.getPageBlock()%>&keywordsearch=<%=pageDTO.getSearch()%>&sido=<%=pageDTO.getSido()%>&gungu=<%=pageDTO.getGungu()%>">Next</a>
+	<%
+}%>
+
+      </div> 
+  
 </div>
-</div>
+ 
 
     <jsp:include page="/inc/bottom.jsp"/>
   </body>

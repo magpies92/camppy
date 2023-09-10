@@ -67,7 +67,7 @@ public class MypageController extends HttpServlet {
 			System.out.println("가상주소 비교: /likeList.my");
 			
 			//한 페이지에서 보여지는 글 개수 설정
-			int pageSize = 10;
+			int pageSize = 5;
 			
 			//페이지 번호
 			String pageNum = request.getParameter("pageNum");
