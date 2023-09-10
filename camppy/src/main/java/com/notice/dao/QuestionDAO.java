@@ -99,6 +99,8 @@ public class QuestionDAO {
 			return count;
 		} // getQuestionCount
 
+		
+		
 		public int getMaxInquiry_id() {
 			System.out.println("QuestionDAO getMaxInquiry_id()");
 			int inquiry_id = 0;

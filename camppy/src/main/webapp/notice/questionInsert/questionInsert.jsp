@@ -40,7 +40,7 @@ String id = (String)session.getAttribute("id");
 MemberDTO  memberDTO =(MemberDTO)request.getAttribute("memberDTO");
 %>
 
-
+	<form action="writePro.qu" method="post">
 	<div class="questionInsert">
 		<div class="questionInsertSectionBody">
 			<div class="questionInsertInputBox">
@@ -72,6 +72,7 @@ MemberDTO  memberDTO =(MemberDTO)request.getAttribute("memberDTO");
 
 		</div>
 	</div>
+			</form>
     <jsp:include page="../../inc/bottom.jsp"/>		  
 </body>
 </html>
