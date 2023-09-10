@@ -50,7 +50,7 @@ List<QuestionDTO> questionList = (List<QuestionDTO>)request.getAttribute("questi
 
 				<div class="questionContentsDateNbutton">
 					<div class="questionContents2023"><%=questionDTO.getCreate_date()%></div> 
-									</div>
+				</div>
 					
 				<div class="ContentsNbutton">
 					<input type="button" class="questionContentsH" value="수정" onclick="location.href='update.qu?inquiry_id=<%=questionDTO.getInquiry_id()%>'"> 

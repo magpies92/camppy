@@ -128,7 +128,7 @@ public class QuestionDAO {
 			try {
 				con = getConnection();
 				
-				String sql = "insert into inquiry(title, member_id, content, create_date, last_modified_date, notice_cnt, created_by ) values(?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "insert into inquiry(title, member_id, content, create_date, last_modified_date, notice_cnt, created_by ) values(?, ?, ?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
 //				pstmt.setInt(1, questionDTO.getPost_type());
 				pstmt.setString(1, questionDTO.getTitle());
