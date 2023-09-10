@@ -54,7 +54,7 @@ List<QuestionDTO> questionList = (List<QuestionDTO>)request.getAttribute("questi
 					
 				<div class="ContentsNbutton">
 					<input type="button" class="questionContentsH" value="수정" onclick="location.href='update.qu?inquiry_id=<%=questionDTO.getInquiry_id()%>'"> 
-					<input type="button" class="questionContentsI" value="삭제" onclick="location.href='delete.qu?nquiry_id=<%=questionDTO.getInquiry_id()%>'">
+					<input type="button" class="questionContentsI" value="삭제" onclick="location.href='delete.qu?inquiry_id=<%=questionDTO.getInquiry_id()%>'">
 					<input type="button" class="questionContents22" value="목록" onclick="location.href='list.qu'">
 				</div>
 

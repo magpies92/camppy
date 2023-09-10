@@ -254,8 +254,7 @@ public class QuestionDAO {
 				e.printStackTrace();
 			}finally {
 				dbClose();
-			}
-			
+			}		
 		} // deleteQuestion
 
 		public void notice_cnt(int inquiry_id) {

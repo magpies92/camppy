@@ -157,6 +157,8 @@ public class QuestionService {
 		}
 	} //  deleteQuestion
 
+	
+	
 	public void notice_cnt(HttpServletRequest request) {
 		System.out.println("QuestionService notice_cnt()");
 		try {
