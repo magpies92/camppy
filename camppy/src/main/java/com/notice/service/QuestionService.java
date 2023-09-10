@@ -59,7 +59,7 @@ public class QuestionService {
 			request.setCharacterEncoding("utf-8");
 			
 			String created_by = request.getParameter("created_by");
-			int post_type = Integer.parseInt(request.getParameter("post_type"));
+//			int post_type = Integer.parseInt(request.getParameter("post_type"));
 			String title = request.getParameter("title");
 			int member_id = Integer.parseInt(request.getParameter("member_id"));
 			String content = request.getParameter("content");
@@ -72,7 +72,7 @@ public class QuestionService {
 			QuestionDTO questionDTO = new QuestionDTO();
 			
 			questionDTO.setCreated_by(created_by);
-			questionDTO.setPost_type(post_type);
+//			questionDTO.setPost_type(post_type);
 			questionDTO.setTitle(title);
 			questionDTO.setMember_id(member_id);
 			questionDTO.setContent(content);
@@ -121,7 +121,7 @@ public class QuestionService {
 			
 			int inquiry_id = Integer.parseInt(request.getParameter("inquiry_id"));
 			String created_by = request.getParameter("created_by");
-			int post_type = Integer.parseInt(request.getParameter("post_type"));
+//			int post_type = Integer.parseInt(request.getParameter("post_type"));
 			String title= request.getParameter("title");
 			String content= request.getParameter("content");
 			
@@ -129,7 +129,7 @@ public class QuestionService {
 			
 			questionDTO.setInquiry_id(inquiry_id);
 			questionDTO.setCreated_by(created_by);
-			questionDTO.setPost_type(post_type);
+//			questionDTO.setPost_type(post_type);
 			questionDTO.setTitle(title);
 			questionDTO.setContent(content);
 			

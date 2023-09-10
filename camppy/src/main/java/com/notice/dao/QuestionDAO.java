@@ -59,7 +59,7 @@ public class QuestionDAO {
 					questionDTO.setCreated_by(rs.getString("created_by")); // 생성자
 					questionDTO.setLast_modified_by(rs.getString("last_modified_by")); // 마지막 수정자
 					questionDTO.setContent(rs.getString("content")); //댓글
-					questionDTO.setPost_type(rs.getInt("post_type")); //게시글 종류
+//					questionDTO.setPost_type(rs.getInt("post_type")); //게시글 종류
 					questionDTO.setTitle(rs.getString("title")); //제목
 					questionDTO.setMember_id(rs.getInt("member_id")); //회원 아이디
 					questionDTO.setNotice_cnt(rs.getInt("notice_cnt")); //조회수
@@ -128,16 +128,16 @@ public class QuestionDAO {
 			try {
 				con = getConnection();
 				
-				String sql = "insert into inquiry(post_type, title, member_id, content, create_date, last_modified_date, notice_cnt, created_by ) values(?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "insert into inquiry(title, member_id, content, create_date, last_modified_date, notice_cnt, created_by ) values(?, ?, ?, ?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, questionDTO.getPost_type());
-				pstmt.setString(2, questionDTO.getTitle());
-				pstmt.setInt(3,questionDTO.getMember_id());
-				pstmt.setString(4, questionDTO.getContent());
-				pstmt.setTimestamp(5, questionDTO.getCreate_date());
-				pstmt.setTimestamp(6,  questionDTO.getLast_modified_date());
-				pstmt.setInt(7, questionDTO.getNotice_cnt());
-				pstmt.setString(8,  questionDTO.getCreated_by());
+//				pstmt.setInt(1, questionDTO.getPost_type());
+				pstmt.setString(1, questionDTO.getTitle());
+				pstmt.setInt(2,questionDTO.getMember_id());
+				pstmt.setString(3, questionDTO.getContent());
+				pstmt.setTimestamp(4, questionDTO.getCreate_date());
+				pstmt.setTimestamp(5,  questionDTO.getLast_modified_date());
+				pstmt.setInt(6, questionDTO.getNotice_cnt());
+				pstmt.setString(7,  questionDTO.getCreated_by());
 
 				
 				pstmt.executeUpdate();
@@ -167,7 +167,7 @@ public class QuestionDAO {
 					questionDTO = new QuestionDTO();			
 					questionDTO.setInquiry_id(rs.getInt("inquiry_id"));
 					questionDTO.setCreated_by(rs.getString("created_by")); // 생성자
-					questionDTO.setPost_type(rs.getInt("post_type")); //게시글 종류
+//					questionDTO.setPost_type(rs.getInt("post_type")); //게시글 종류
 					questionDTO.setTitle(rs.getString("title")); //제목
 					questionDTO.setMember_id(rs.getInt("member_id")); //회원 아이디
 					questionDTO.setContent(rs.getString("content")); //댓글
@@ -202,7 +202,7 @@ public class QuestionDAO {
 					QuestionDTO questionDTO = new QuestionDTO();
 					questionDTO.setInquiry_id(rs.getInt("inquiry_id"));
 					questionDTO.setCreated_by(rs.getString("created_by")); // 생성자
-					questionDTO.setPost_type(rs.getInt("post_type")); //게시글 종류
+//					questionDTO.setPost_type(rs.getInt("post_type")); //게시글 종류
 					questionDTO.setTitle(rs.getString("title")); //제목
 					questionDTO.setMember_id(rs.getInt("member_id")); //회원 아이디
 					questionDTO.setContent(rs.getString("content")); //댓글
@@ -225,11 +225,11 @@ public class QuestionDAO {
 			try {
 				con = getConnection();
 				
-				String sql = "update inquiry set post_type = ?, title = ?, content =? where inquiry_id = ?" ;
+				String sql = "update inquiry set title = ?, content =? where inquiry_id = ?" ;
 			
 				pstmt=con.prepareStatement(sql);
 				
-				pstmt.setInt(1, questionDTO.getPost_type());
+//				pstmt.setInt(1, questionDTO.getPost_type());
 				pstmt.setString(2, questionDTO.getTitle());
 				pstmt.setString(3, questionDTO.getContent());
 				pstmt.setInt(4, questionDTO.getInquiry_id());
