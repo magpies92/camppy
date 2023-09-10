@@ -150,7 +150,7 @@ public class QuestionController extends HttpServlet{
 			}
 			if(sPath.equals("/updatePro.qu")) {
 				System.out.println("뽑은 가상주소 비교 : /updatePro.qu");
-				// noticeService 객체생성
+				// questionService 객체생성
 				questionService = new QuestionService();
 				questionService.updateQuestion(request);
 				response.sendRedirect("list.qu");
@@ -160,7 +160,7 @@ public class QuestionController extends HttpServlet{
 			
 			if(sPath.equals("/delete.qu")) {
 				System.out.println("뽑은 가상주소 비교 : /delete.qu");
-				// noticeService 객체생성
+				// questionService 객체생성
 				questionService = new QuestionService();
 				questionService.deleteQuestion(request);
 				response.sendRedirect("list.qu");
