@@ -95,6 +95,7 @@
           <%
 		
 	}
+	
 		
 	%>
 	</div>
@@ -132,13 +133,11 @@
 	%>
 
 
-
-                    
-
              <input type="button" value="삭제" class="bannerRsButton" onclick="selectedDel()" > 
+         
           </div>
-          
     </div>
+    
     
     <script type="text/javascript">
     $(document).ready(function() {
@@ -178,49 +177,48 @@
 	});
 	//선택삭제
 	function selectedDel() {
-		var reviewIds = [];
-		var selectedRows = []; // 선택된 행의 DOM 요소를 저장하는 배열
+        var campLikeIds = [];
+        var selectedRows = []; 
 
-		// 선택된 체크박스와 해당 행을 찾아서 배열에 추가
-		$("input:checkbox[name='cbox']:checked").each(function() {
-			reviewIds.push($(this).val());
-			selectedRows.push($(this).closest(".campinfoRow")); // 선택된 행 추가
-		});
+        // 선택된 체크박스와 해당 행을 찾아서 배열에 추가
+        $("input:checkbox[name='cbox']:checked").each(function() {
+        	campLikeIds.push($(this).val());
+            selectedRows.push($(this).closest(".likeListBody")); 
+        });
 
-		if (reviewIds.length === 0) {
-			alert("삭제할 캠핑장을 선택하세요.");
-			return;
-		}
+        if (campLikeIds.length === 0) {
+            alert("삭제할 캠핑장을 선택하세요.");
+            return;
+        }
 
-		// 사용자에게 삭제 여부를 확인하는 대화 상자 표시
-		var confirmMessage = "선택한 캠핑장을 삭제하시겠습니까?";
-		if (confirm(confirmMessage)) {
-			$.ajax({
-				type : "POST",
-				url : "review/del/deleteSelectedReviews.jsp",
-				data : {
-					reviewIds : reviewIds.join("|")
-				// 선택된 리뷰 ID를 파이프로 구분하여 문자열로 전달
-				},
-				success : function(result) {
-					console.log(result);
+        // 사용자에게 삭제 여부를 확인하는 대화 상자 표시
+        var confirmMessage = "선택한 캠핑장을 삭제하시겠습니까?";
+        if (confirm(confirmMessage)) {
+            $.ajax({
+                type : "POST",
+                url : "myLikeList/deleteSelectedLike.jsp",
+                data : {
+                	campLikeIds : campLikeIds.join("|")
+                },
+                success : function(result) {
+                    console.log(result);
 
-					// 삭제가 성공한 경우 선택된 행을 화면에서 제거
-					if (result.trim() === "success") {
-						for (var i = 0; i < selectedRows.length; i++) {
-							selectedRows[i].remove();
-							location.reload();
-						}
-					} else {
-						alert("삭제 실패");
-					}
-				},
-				error : function(xhr, status, error) {
-					alert(error);
-				}
-			});
-		}
-	}
+                    // 삭제가 성공한 경우 선택된 행을 화면에서 제거
+                    if (result.trim() === "success") {
+                        for (var i = 0; i < selectedRows.length; i++) {
+                            selectedRows[i].remove();
+                        }
+                        location.reload();
+                    } else {
+                        alert("삭제 실패");
+                    }
+                },
+                error : function(xhr, status, error) {
+                    alert(error);
+                }
+            });
+        }
+    }
     </script>
     
 <!-- 푸터들어가는 곳 -->
