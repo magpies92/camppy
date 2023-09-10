@@ -97,6 +97,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  border-bottom: solid;
 }
 .questionContentsD {
   color: #000000;
@@ -116,20 +117,21 @@
   flex-shrink: 0;
   position: absolute;
   left: 64px;
-  top: 117px;
+  top: 75px;
 }
 .questionContentsE {
   color: #000000;
   text-align: left;
   font: 400 30px/18px "NanumGothic", sans-serif;
   position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 195px;
+  left: 1095px;
+  top: -43px;
+  width: 105px;
   height: 38px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  border-right: solid;
 }
 .questionContentsIconBox {
   display: flex;
@@ -200,6 +202,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  top: -80px;
 }
 .questionContentsH {
   color: #000000;
