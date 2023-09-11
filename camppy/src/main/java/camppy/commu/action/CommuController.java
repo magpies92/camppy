@@ -162,12 +162,13 @@ public class CommuController extends HttpServlet {
 			
 			pageDTO.setSearch(search);
 			pageDTO.setSearchType(searchtype);
-			
+			   System.out.println("문제123456789"+searchtype);
+		  
 
 			commuService = new CommuService();
 			List<CommuDTO> commuRankList = commuService.getCommuRank();
 			List<CommuDTO> commuList = commuService.getCommuListSearch(pageDTO);
-
+			   System.out.println("문제1111"+searchtype);
 			// 게시판 전체 글 개수 구하기
 			int count = commuService.getCommuCountSearch(pageDTO);
 			// 한 화면에 보여줄 페이지개수 설정
@@ -213,6 +214,7 @@ public class CommuController extends HttpServlet {
 			// request 검색어 뽑아오기
 			String search = request.getParameter("search");
 			String searchType = request.getParameter("searchtype");
+			
 			System.out.println(search);
 			System.out.println(searchType);
 			// 현재 보이는 페이지 설정

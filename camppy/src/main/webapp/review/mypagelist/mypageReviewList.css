@@ -27,7 +27,7 @@
 	height: 60px;
 	position: relative;
 	top: 15px;
-	left: 340px;
+	left: 370px;
 	border-bottom: solid;
 	border-width: 1px;
 	margin-bottom: 20px;
@@ -47,19 +47,19 @@
 	justify-content: flex-start;
 }
 
-.buttonInsert {
-	background: #4da285;
-	border-radius: 5.97px;
-	flex-shrink: 0;
-	width: 75px;
-	height: 25px;
-	position: absolute;
-	left: 905px;
-	top: 30px;
-	color: #ffffff;
-	text-align: center;
-	font: "NanumGothic", sans-serif;
-}
+/* .buttonInsert { */
+/* 	background: #4da285; */
+/* 	border-radius: 5.97px; */
+/* 	flex-shrink: 0; */
+/* 	width: 75px; */
+/* 	height: 25px; */
+/* 	position: absolute; */
+/* 	left: 905px; */
+/* 	top: 30px; */
+/* 	color: #ffffff; */
+/* 	text-align: center; */
+/* 	font: "NanumGothic", sans-serif; */
+/* } */
 
 .selectAll {
 	width: 90px;
@@ -117,7 +117,7 @@
 	height: 87.15px;
 	position: relative;
 	margin-top: 10px;
-	left: 340px;
+	left: 370px;
 	transform: scale(1.2);
 }
 

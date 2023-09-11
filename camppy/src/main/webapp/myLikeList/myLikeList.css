@@ -7,7 +7,8 @@
 	width: 85vw;
     position: relative;
     padding-left: 11vw;
-    top: 5vw;
+    top: -3vw;
+    transform: scale(0.93);
 }
 
 .likeListBody {
@@ -22,6 +23,58 @@
   overflow: hidden;
 }
 
+.reviewTop {
+	display: flex;
+	flex-direction: row;
+	gap: 0px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-shrink: 0;
+	width: 1150px;
+	height: 60px;
+	position: relative;
+	top: 15px;
+	left: 370px;
+	border-bottom: solid;
+	border-width: 1px;
+	margin-bottom: 20px;
+	transform: scale(1.2);
+}
+
+.reviewCount {
+	color: #000000;
+	text-align: left;
+	font: 400 19.58px/26.44px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 10px;
+	top: 30px;
+	width: 117.5px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.selectAll {
+	width: 90px;
+	height: 25px;
+	position: absolute;
+	left: 1066px;
+	top: 32px;
+}
+
+.selectDel {
+	background: #4da285;
+	border-radius: 5.97px;
+	flex-shrink: 0;
+	width: 75px;
+	height: 25px;
+	position: absolute;
+	left: 985px;
+	top: 30px;
+	color: #ffffff;
+	text-align: center;
+	font: "NanumGothic", sans-serif;
+}
 
 .allCheck {
   color: #000000;
@@ -143,6 +196,7 @@
   right: 0.0000vw;
   top: 4.3750vw;
   overflow: visible;
+  
 }
 
 .eachCheck {
@@ -150,14 +204,18 @@
   text-align: center;
   font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
   position: relative;
-  width: 12.6564vw;
+  height: 1vw;
+  width: 1vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 69.3vw;
+  left: 75.9vw;
   bottom: 9vw;
 }
-
+.eachCheckbox{
+	width:15.6px;
+	height:15.6px;
+}
 .bannerRsButton {
   color: #ffffff;
   font: 700 0.6915vw "Inter", sans-serif;

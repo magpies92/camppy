@@ -42,14 +42,15 @@
 	</div>
 	<div class="mypageNavi">
 		<div class="tab" id="tab1" onclick="location.href='likeList.my'" >찜 리스트</div>
+<<<<<<< HEAD
 		<div class="tab" id="tab2" onclick="location.href='myCommuList.commu'">작성한 글</div>
+=======
+		<div class="tab" id="tab2" onclick="location.href='myCommutList.commu'">작성한 글</div>
+>>>>>>> branch 'main' of https://github.com/magpies92/camppy.git
 		<div class="tab" id="tab3" onclick="location.href='mypageReviewList.rv'">작성 리뷰</div>
 		<div class="tab" id="tab4" onclick="location.href='mypage_reserve.re'">예약 내역</div>
 	</div>
-	<div class="tabContents" id="contentContainer">
-		<!-- The content from tab1 (star.html) will be displayed here by default -->
-
-	</div>
+	
 <!-- 마이페이지 헤더 들어가는 곳 -->
 
   
@@ -57,11 +58,28 @@
   PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
   List<LikeDTO> likeList = (List<LikeDTO>)request.getAttribute("likeList");
   LikeDTO likeDTO = (LikeDTO)request.getAttribute("likeDTO");
-/*   String id=(String)session.getAttribute("id"); */
+  String id=(String)session.getAttribute("id"); 
+  
+  request.setCharacterEncoding("UTF-8");
+ 
   %>
-  <label class="allCheck"> <b>전체선택</b>&nbsp;
-  <input type="checkbox" name="all" class="allCheckbox" id="cboxAll"
-         style="margin-left: 1vw;"></label>
+<!--   <label class="allCheck"> <b>전체선택</b>&nbsp; -->
+<!--   <input type="checkbox" name="all" class="allCheckbox" id="cboxAll" -->
+<!--          style="margin-left: 1vw;"></label> -->
+	<div class="reviewTop">
+		<div class="reviewCount">찜 리스트</div>
+		<!-- 	<input type="button" value="글쓰기" onclick="popupInsert();" -->
+		<!-- 		class="buttonInsert" /> -->
+		<button type="button" onclick="selectedDel();" class="selectDel">
+			<div>선택삭제</div> 
+		</button>
+		<label class="selectAll"> <b>전체선택</b>&nbsp;<input
+			type="checkbox" class="selectCheck" id="cboxAll">
+		</label>
+
+	</div>
+
+
 <div class="allbody">
 	<%
 	for(int i=0; i<likeList.size(); i++){
@@ -88,8 +106,10 @@
 			  <div class="likeNum"><%=likeDTO.getMember_id()%></div>
 			  </div>
 			  </div>
+<!-- 			  //선택삭제 -->
 			  <div class="eachCheck">
-             <input type="checkbox" name="cbox" class="eachCheckbox"></div> 
+             <input type="checkbox" name="cbox" class="eachCheckbox"
+            value="<%=likeDTO.getCamp_id() %>"></div> 
           
           
           <%
@@ -132,15 +152,13 @@
 	}
 	%>
 
-
-             <input type="button" value="삭제" class="bannerRsButton" onclick="selectedDel()" > 
          
           </div>
     </div>
     
     
     <script type="text/javascript">
-    $(document).ready(function() {
+     $(document).ready(function() {
 	    // 전체선택 체크박스 클릭 시
 	    $("#cboxAll").on("click", function() {
 	        $("input:checkbox[name=cbox]").prop("checked", this.checked);
@@ -218,8 +236,11 @@
                 }
             });
         }
-    }
+    } 
+    
     </script>
+
+    
     
 <!-- 푸터들어가는 곳 -->
 <jsp:include page="/inc/bottom.jsp"></jsp:include>

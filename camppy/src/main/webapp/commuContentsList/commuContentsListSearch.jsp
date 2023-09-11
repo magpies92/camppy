@@ -98,8 +98,8 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				class="commu-contents-list__search">
 				<div class="commu-contents-list__div-myp-02">
 					<select name="searchtype" class="commu-contents-list__options">
-						<option class="commu-contents-list__3">제목+내용</option>
-						<option class="commu-contents-list__3">아이디</option>
+						<option class="commu-contents-list__3" value="제목+내용">제목+내용</option>
+						<option class="commu-contents-list__3" value="아이디">아이디</option>
 					</select> <input type="text" class="commu-contents-list__div-sc-camp"
 						name="search" placeholder="검색어를 입력하세요"> <img
 						class="commu-contents-list__button"
@@ -146,7 +146,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					</a>
 
 					<!--              좋아요 아이콘  -->
-					<button type="button" id="bodyLikeIcon">
+					<button type="button" id="bodyLikeIcon" >
 						<img class="commu-contents-list__like-1"
 							src="commuContentsList/like-1.png">
 					</button>
@@ -192,7 +192,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				if (pageDTO.getStartPage() > pageDTO.getPageBlock()) {
 				%>
 				<a
-					href="commuContentsListSearch.commu?pageNum=<%=pageDTO.getStartPage() - pageDTO.getPageBlock()%>&search=<%=pageDTO.getSearch()%>">Prev</a>
+					href="commuContentsListSearch.commu?pageNum=<%=pageDTO.getStartPage() - pageDTO.getPageBlock()%>&search=<%=pageDTO.getSearch()%>&searchtype=<%=pageDTO.getSearchType() %>">Prev</a>
 				<%
 }
 %>
@@ -202,7 +202,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				%>
 				<div class="commu-contents-list__item your-button-class">
 					<a
-						href="commuContentsListSearch.commu?pageNum=<%=i%>&search=<%=pageDTO.getSearch()%>"
+						href="commuContentsListSearch.commu?pageNum=<%=i%>&search=<%=pageDTO.getSearch	()%>&searchtype=<%=pageDTO.getSearchType() %>"
 						class="commu-contents-list__item your-button-class"><%=i%></a>
 				</div>
 				<%
@@ -214,7 +214,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				if (pageDTO.getEndPage() < pageDTO.getPageCount()) {
 				%>
 				<a
-					href="commuContentsListSearch.commu?pageNum=<%=pageDTO.getStartPage() + pageDTO.getPageBlock()%>&search=<%=pageDTO.getSearch()%>">Next</a>
+					href="commuContentsListSearch.commu?pageNum=<%=pageDTO.getStartPage() + pageDTO.getPageBlock()%>&search=<%=pageDTO.getSearch()%>&searchtype=<%=pageDTO.getSearchType() %>">Next</a>
 				<%
 }
 %>

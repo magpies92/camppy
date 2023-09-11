@@ -32,23 +32,6 @@
         src="script/jquery-3.7.0.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('.edit-profile__7').click(function(){
-		event.preventDefault();
-	    // 회원 탈퇴 기능 구현
-	    $.ajax({
-	        url: '/delete.me', // 회원 탈퇴 요청 URL
-	        type: 'POST',
-	        data: {id: '회원아이디'}, // 탈퇴할 회원의 아이디 전달
-	        success: function(data) {
-	            // 회원 탈퇴 요청 성공
-	            alert('회원 탈퇴가 완료되었습니다.');
-	        },
-	        error: function() {
-	            // 회원 탈퇴 요청 실패
-	            alert('회원 탈퇴에 실패하였습니다. 다시 시도해주세요.');
-	        }
-	    });
-	});
     var originalNick = $('.nick').val();
     $('#join').submit(function(event){
     	event.preventDefault();
@@ -185,7 +168,7 @@ $(document).ready(function(){
 </div>
 
         <div class="edit-profile__button-withdraw">        
-          <button class="edit-profile__7">회원 탈퇴</button>
+ <button type="button" onclick="location.href='delete.me'" class="edit-profile__7">회원 탈퇴</button>
         </div>
       </div>
     </div>

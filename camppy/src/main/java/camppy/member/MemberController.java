@@ -193,15 +193,7 @@ public class MemberController extends HttpServlet{
 				dispatcher.forward(request, response);
 			}
 		}//
-		
-		// delete.me 비교 일치 -> 처리 -> member/delete.jsp
-		if(sPath.equals("/delete.me")) {
-			// 주소 변경없이 이동 => member/delete.jsp 이동
-			dispatcher 
-		    = request.getRequestDispatcher("member/join/delete.jsp");
-			dispatcher.forward(request, response);
-		}
-		
+				
 		
 		if(sPath.equals("/list.me")) {
 			System.out.println("주소 비교 : /list.me");
@@ -271,19 +263,13 @@ List<MemberDTO> memberList = memberService.getMemberList();
 		
 		//회원 탈퇴
 		if(sPath.equals("/delete.me")) {
+			System.out.println("뽑은 가상주소 비교 : /delete.me");
 			memberService = new MemberService();
-			MemberDTO memberDTO = memberService.userCheck2(request);
-			if(memberDTO != null) {
-				memberService.deleteMember(request);
-				HttpSession session = request.getSession();
-				session.invalidate();
-				response.sendRedirect("main.camp");
-			}else {
-				// memberDTO == null 아이디 비밀번호 틀림=> member/msg.jsp
-				dispatcher 
-			    = request.getRequestDispatcher("member/msg.jsp");
-			dispatcher.forward(request, response);
-			}
+			memberService.deleteMember(request);
+			HttpSession session = request.getSession();
+			session.invalidate();
+			response.sendRedirect("main.camp");
+			
 		}//		
 		
 	}//doProcess() 메서드

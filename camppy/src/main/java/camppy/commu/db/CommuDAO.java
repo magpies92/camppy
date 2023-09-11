@@ -255,7 +255,11 @@ public class CommuDAO {
 			if (pageDTO.getSearchType().equals("제목+내용")) {
 				System.out.println(pageDTO.getSearchType());
 				sql = "select count(*) as count from post p where concat(p.title, p.content) like ?";
-			} else if (pageDTO.getSearchType().equals("아이디")) {
+			}else if(pageDTO.getSearchType().equals("제목 내용")){
+				System.out.println(pageDTO.getSearchType());
+				sql = "select count(*) as count from post p where concat(p.title, p.content) like ?";
+			} 
+			else if(pageDTO.getSearchType().equals("아이디")) {
 				System.out.println(pageDTO.getSearchType());
 				sql = "select count(*) as count from post p join members m on (p.member_id = m.member_id) where m.id like ?";
 			}
@@ -275,6 +279,8 @@ public class CommuDAO {
 		}
 		return count;
 	}
+	
+	
 
 	public List<CommuDTO> getCommuRank() {
 		List<CommuDTO> commuRankList = null;

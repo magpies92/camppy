@@ -444,15 +444,11 @@ display: contents;
 	</div>
 	<div class="mypageNavi">
 		<div class="tab" id="tab1" onclick="location.href='likeList.my'" >찜 리스트</div>
-		<div class="tab" id="tab2">작성한 글</div>
+		<div class="tab" id="tab2" onclick="location.href='myCommutList.commu'">작성한 글</div>
 		<div class="tab" id="tab3" onclick="location.href='mypageReviewList.rv'">작성 리뷰</div>
 		<div class="tab" id="tab4" onclick="location.href='mypage_reserve.re'">예약 내역</div>
 	</div>
-	<div class="tabContents" id="contentContainer">
-		<!— The content from tab1 (star.html) will be displayed here by default —>
-
-	</div>
-
+	
 
 <%
  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
@@ -511,8 +507,8 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
        </div>
 	<div><table class="table" style="
     position: relative;
-    left: 550px; transform: scale(1.3,1.3);
-    top: 80px;
+    left: 570px; transform: scale(1.3,1.3);
+    top: 21px; line-height: 170%; letter-spacing: 0.5px;
 ">
 	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
@@ -633,7 +629,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 	<%
 }
  %>
-<div class="room-pagination" style=" position: relative; left: 880px; top: 150px">
+<div class="room-pagination" style=" position: relative; left: 880px; top: 86px">
 <%
  for(int i=startPage;i<=endPage;i++){
 	%>

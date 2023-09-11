@@ -1,3 +1,4 @@
+<%@page import="com.notice.dto.QuestionPageDTO"%>
 <%@page import="com.notice.dto.QuestionDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -27,6 +28,7 @@
 
 <%
 List<QuestionDTO> questionList = (List<QuestionDTO>)request.getAttribute("questionList");
+QuestionPageDTO questionPageDTO = (QuestionPageDTO)request.getAttribute("questionPageDTO");
 %>
 
 
@@ -84,6 +86,39 @@ List<QuestionDTO> questionList = (List<QuestionDTO>)request.getAttribute("questi
 <%} %>
 
 <input type="button" value="글쓰기" class="writebtn" onclick="location.href='write.qu'">
+
+
+<div class="clear"></div>
+<div id="page_control">
+<%
+// 시작페이지 1페이지 Prev 없음
+// 시작페이지 11, 21, 31 Prev 보임 
+if(questionPageDTO.getStartPage() > questionPageDTO.getPageBlock()) {
+	%>
+	<a href="list.qu?pageNum=<%= questionPageDTO.getStartPage() - questionPageDTO.getPageBlock()%>">Prev</a>
+	<%
+}
+%>
+
+<%
+for(int i = questionPageDTO.getStartPage(); i <= questionPageDTO.getEndPage(); i++) {
+	%>
+	<a href="list.qu?pageNum=<%= i%>"><%= i %></a>
+	<%
+}
+%>
+
+<%
+// 끝페이지 번호 전체페이지 수 비교 => 전체페이지 수 크면 Next보임
+if(questionPageDTO.getEndPage() < questionPageDTO.getPageCount()) {
+	%>
+	<a href="list.qu?pageNum=<%= questionPageDTO.getStartPage() + questionPageDTO.getPageBlock()%>">Next</a>
+	<%
+}
+%>
+
+
+</div>
    <jsp:include page="../../inc/bottom.jsp"/>		
 </body>
 </html>

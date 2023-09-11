@@ -157,6 +157,7 @@ public class MemberService {
 	public void deleteMember(HttpServletRequest request) {
 		System.out.println("MemberService deleteMember()");
 		try {
+			request.setCharacterEncoding("utf-8");
 			// request id, pass 가져와서 => 변수 저장
 			String id = request.getParameter("id");
 						

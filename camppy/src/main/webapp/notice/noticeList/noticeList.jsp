@@ -1,3 +1,4 @@
+<%@page import="com.notice.dto.NoticePageDTO"%>
 <%@page import="com.notice.dto.NoticeDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -29,7 +30,7 @@
 <%
 List<NoticeDTO> noticeList = (List<NoticeDTO>)request.getAttribute("noticeList");
 
-// NoticePageDTO noticepageDTO = (NoticePageDTO)request.getAttribute("noticePageDTO");
+NoticePageDTO noticePageDTO = (NoticePageDTO)request.getAttribute("noticePageDTO");
 %>
 
     <div class="noticeList">
@@ -84,6 +85,38 @@ List<NoticeDTO> noticeList = (List<NoticeDTO>)request.getAttribute("noticeList")
 <%} %>
 
 <input type="button" value="글쓰기" class="writebtn" onclick="location.href='write.no'">
+
+<div class="clear"></div>
+<div id="page_control">
+<%
+// 시작페이지 1페이지 Prev 없음
+// 시작페이지 11, 21, 31 Prev 보임 
+if(noticePageDTO.getStartPage() > noticePageDTO.getPageBlock()) {
+	%>
+	<a href="list.no?pageNum=<%= noticePageDTO.getStartPage() - noticePageDTO.getPageBlock()%>">Prev</a>
+	<%
+}
+%>
+
+<%
+for(int i = noticePageDTO.getStartPage(); i <= noticePageDTO.getEndPage(); i++) {
+	%>
+	<a href="list.no?pageNum=<%= i%>"><%= i %></a>
+	<%
+}
+%>
+
+<%
+// 끝페이지 번호 전체페이지 수 비교 => 전체페이지 수 크면 Next보임
+if(noticePageDTO.getEndPage() < noticePageDTO.getPageCount()) {
+	%>
+	<a href="list.no?pageNum=<%= noticePageDTO.getStartPage() + noticePageDTO.getPageBlock()%>">Next</a>
+	<%
+}
+%>
+
+
+</div>
    <jsp:include page="../../inc/bottom.jsp"/>		
 </body>
 </html>
