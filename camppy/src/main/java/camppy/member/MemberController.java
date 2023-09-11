@@ -98,6 +98,7 @@ public class MemberController extends HttpServlet{
 				HttpSession session = request.getSession();
 				session.setAttribute("id", memberDTO.getId());
 				session.setAttribute("memberid", memberDTO.getMember_id());
+				session.setAttribute("nickname", memberDTO.getNick());
 				// 주소 변경하면서 이동 -> 가상주소 main.me 이동 
 				response.sendRedirect("main.camp");
 			}else {

@@ -1,6 +1,7 @@
 package camppy.mypage;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -70,7 +71,18 @@ public class MypageController extends HttpServlet {
 		if (sPath.equals("/likeList.my")) {
 			System.out.println("가상주소 비교: /likeList.my");
 			HttpSession session = request.getSession();
-			int memberid= (int)session.getAttribute("memberid");
+			String id=(String)session.getAttribute("id");
+			if(id == null) {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script type='text/javascript'>");
+				out.println("alert('로그인을 해주세요')");
+				out.println("history.back();");
+				out.println("</script>");
+				out.close();
+			}
+			else {
+				int memberid = (int)session.getAttribute("memberid");
 			System.out.println("memberid="+memberid);
 			// 한 페이지에서 보여지는 글 개수 설정
 			int pageSize = 5;
@@ -136,6 +148,7 @@ public class MypageController extends HttpServlet {
 			// 주소 변경 없이 이동 (myLikeList/myLikeList.jsp)
 			dispatcher = request.getRequestDispatcher("myLikeList/myLikeList.jsp");
 			dispatcher.forward(request, response);
+			}
 		} // likeList.my
 
 		
