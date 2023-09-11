@@ -27,10 +27,10 @@
 	height: 60px;
 	position: relative;
 	top: 15px;
+	left: 340px;
 	border-bottom: solid;
 	border-width: 1px;
-	    margin-bottom: 16px;
-	
+	margin-bottom: 16px;
 }
 
 .reviewCount {
@@ -47,40 +47,41 @@
 }
 
 .buttonInsert {
-  background: #4da285;
-  border-radius: 5.97px;
-  flex-shrink: 0;
-  width: 75px;
-  height: 25px;
-  position: absolute;
-  left: 905px;
-  top: 30px;
-  color: #ffffff;
-  text-align: center;
-  font: "NanumGothic", sans-serif;
+	background: #4da285;
+	border-radius: 5.97px;
+	flex-shrink: 0;
+	width: 75px;
+	height: 25px;
+	position: absolute;
+	left: 905px;
+	top: 30px;
+	color: #ffffff;
+	text-align: center;
+	font: "NanumGothic", sans-serif;
 }
+
 .selectAll {
-  width: 90px;
-  height: 25px;
-  position: absolute;
-  left: 1066px;
-  top: 32px;
- 
+	width: 90px;
+	height: 25px;
+	position: absolute;
+	left: 1066px;
+	top: 32px;
 }
 
 .selectDel {
-  background: #4da285;
-  border-radius: 5.97px;
-  flex-shrink: 0;
-  width: 75px;
-  height: 25px;
-  position: absolute;
-  left: 985px;
-  top: 30px;
-  color: #ffffff;
-  text-align: center;
-  font: "NanumGothic", sans-serif;
+	background: #4da285;
+	border-radius: 5.97px;
+	flex-shrink: 0;
+	width: 75px;
+	height: 25px;
+	position: absolute;
+	left: 985px;
+	top: 30px;
+	color: #ffffff;
+	text-align: center;
+	font: "NanumGothic", sans-serif;
 }
+
 .campinfoList {
 	border-width: 0.98px 0px 0px 0px;
 	border-style: solid;
@@ -115,6 +116,7 @@
 	height: 87.15px;
 	position: relative;
 	margin-top: 10px;
+	left: 340px;
 }
 
 .campinfoStar {
@@ -168,6 +170,7 @@
 	align-items: center;
 	justify-content: center;
 }
+
 .reviewName {
 	display: flex;
 	flex-direction: row;
@@ -246,8 +249,7 @@
 	justify-content: flex-start;
 }
 
-
-.buttonUpdate{
+.buttonUpdate {
 	display: flex;
 	flex-direction: row;
 	gap: 0.98px;
@@ -258,6 +260,7 @@
 	left: 350px;
 	top: 10px;
 }
+
 .buttonDel {
 	display: flex;
 	flex-direction: row;
@@ -269,7 +272,8 @@
 	left: 400px;
 	top: 10px;
 }
-.buttonSave{
+
+.buttonSave {
 	display: flex;
 	flex-direction: row;
 	gap: 0.98px;
@@ -280,7 +284,8 @@
 	left: 800px;
 	top: 10px;
 }
-.buttonCancel{
+
+.buttonCancel {
 	display: flex;
 	flex-direction: row;
 	gap: 0.98px;
@@ -292,16 +297,18 @@
 	top: 10px;
 	display: none;
 }
-.editContent { 
-  resize: none;
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  width: 600px; 
-  height: 20px;
-  font: 400 13.71px/19.58px "NanumGothic", sans-serif;
-  color: #777777;
+
+.editContent {
+	resize: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 600px;
+	height: 20px;
+	font: 400 13.71px/19.58px "NanumGothic", sans-serif;
+	color: #777777;
 }
+
 .reviewCheckbox {
 	display: flex;
 	flex-direction: row;
@@ -313,32 +320,359 @@
 	left: 1135px;
 	top: 35px;
 }
+
 .moreList {
 	top: auto;
-    background: #4da285;
-    border-radius: 5.97px;
-    flex-shrink: 0;
-    position: absolute;
-    color: #ffffff;
-    text-align: center;
-    width: 200px;
-    height: 30px;
-    left: 50%;
+	background: #4da285;
+	border-radius: 5.97px;
+	flex-shrink: 0;
+	position: absolute;
+	color: #ffffff;
+	text-align: center;
+	width: 200px;
+	height: 30px;
+	left: 50%;
 }
-tabContents
-{margin-top: 20px;
+
+tabContents {
+	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	align-items: center;
 }
 
-.pagination {
-  display: contents;
+a, button, input, select, h1, h2, h3, h4, h5, * {
+	margin: 0;
+	padding: 0;
+	border: none;
+	text-decoration: none;
+	background: none;
+}
 
+.mypageProfile {
+	padding: 10px 100px 10px 100px;
+	display: flex;
+	flex-direction: row;
+	gap: 136px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	width: 1920px;
+	height: 314px;
+	position: relative;
+	left: 1px;
+	overflow: hidden;
+}
+
+.mypageUserIcon {
+	flex-shrink: 0;
+	width: 217px;
+	height: 217px;
+	position: absolute;
+	left: 277px;
+	top: 51px;
+}
+
+.profileNickname {
+	color: #000000;
+	text-align: left;
+	font: 400 40px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 546px;
+	top: 75px;
+	width: 642px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.updateButton {
+	background: #4da385;
+	border-radius: 5px;
+	padding: 0px 9px 0px 9px;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-shrink: 0;
+	width: 207px;
+	height: 70px;
+	position: absolute;
+	left: 1258px;
+	top: 80px;
+	overflow: hidden;
+	border: none;
+}
+
+.updateProfile {
+	color: #ffffff;
+	text-align: center;
+	font: 700 30px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: calc(50% - 94.5px);
+	top: 0px;
+	width: 189px;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageProfileNum {
+	display: flex;
+	flex-direction: row;
+	gap: 136px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-shrink: 0;
+	width: 1040px;
+	height: 70px;
+	position: absolute;
+	left: 135px;
+	top: 160px;
+}
+
+.myVisit {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 0px;
+	top: 10px;
+	width: 180px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.visitNum {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 180px;
+	top: 10px;
+	width: 100px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: solid 1px;
+	border-left-color: grey;
+}
+
+.myArticle {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 360px;
+	top: 10px;
+	width: 180px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.myArticleNum {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 540px;
+	top: 10px;
+	width: 100px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: solid 1px;
+	border-left-color: grey;
+}
+
+.myReply {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 720px;
+	top: 10px;
+	width: 180px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.myReplyNum {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "NanumGothic", sans-serif;
+	position: absolute;
+	left: 900px;
+	top: 10px;
+	width: 100px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: solid 1px;
+	border-left-color: grey;
+}
+
+.mypageNavi {
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px 0px 1px 0px;
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	width: 1920px;
+	height: 163px;
+	position: relative;
+	/*   left: calc(50% - 960px); */
+	padding-right: 150px;
+	padding-left: 150px;
+}
+
+.mypageLike {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageArticle {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageReply {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageReserve {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* .buttonDel { */
+/* 	display: flex; */
+/* 	flex-direction: column; */
+/* 	gap: 0px; */
+/* 	align-items: flex-start; */
+/* 	justify-content: flex-start; */
+/* 	width: 138px; */
+/* 	height: 61px; */
+/* 	position: relative; */
+/* 	left: 1555px; */
+/* 	background: #4da385; */
+/* 	border-radius: 5px; */
+/* 	border: none; */
+/* } */
+.del {
+	color: #ffffff;
+	text-align: center;
+	font: 700 25px/45px "NanumGothic", sans-serif;
+	position: absolute;
+	left: calc(50% - 49px);
+	top: 13px;
+	width: 100px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+div.tab.active {
+	color: black;
+	font-weight: bold;
+}
+
+.mypageNavi {
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px 0px 1px 0px;
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	width: 1920px;
+	height: 163px;
+	position: relative;
+	/*   left: calc(50% - 960px); */
+	padding-right: 150px;
+	padding-left: 150px;
+}
+
+.tab {
+	color: grey;
+	text-align: center;
+	font: 400 30px/28px "NanumGothic", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tabContents {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+ .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        left: 940px;
     }
 
-    .pagination a {
+.pagination a {
         text-decoration: none;
         padding: 8px 16px;
         margin: 0 4px;
