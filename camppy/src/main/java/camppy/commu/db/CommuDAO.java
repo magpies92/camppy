@@ -387,25 +387,23 @@ public class CommuDAO {
 		try {
 			con = getConnection();
 
-			String sql = "update post set create_date=now(), last_modified_date=now(), created_by=?, last_modified_by=?, content=?, post_type=?, title=? where post_id=?";
+			String sql = "update post set  last_modified_date=now(), created_by=?, last_modified_by=?, content=?, post_type=?, title=? where post_id=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setTimestamp(1, commuDTO.getCreate_date());
-			pstmt.setTimestamp(2, commuDTO.getLast_modified_date());
-			pstmt.setString(3, commuDTO.getCreated_by());
-			pstmt.setString(4, commuDTO.getLast_modified_by());
-			pstmt.setString(5, commuDTO.getContent());
-			pstmt.setString(6, commuDTO.getPost_type());
-			pstmt.setString(7, commuDTO.getTitle());
-			pstmt.setInt(8, commuDTO.getPost_id());
+			
+			pstmt.setString(1, commuDTO.getCreated_by());
+			pstmt.setString(2, commuDTO.getLast_modified_by());
+			pstmt.setString(3, commuDTO.getContent());
+			pstmt.setString(4, commuDTO.getPost_type());
+			pstmt.setString(5, commuDTO.getTitle());
+			pstmt.setInt(6, commuDTO.getPost_id());
 			
 			pstmt.executeUpdate();
 
-			String sql2 = "update post_image set created_date=now(), last_modified_date=now(), img_url=? where post_id=?";
+			String sql2 = "update post_image set last_modified_date=now(), img_url=? where post_id=?";
 			pstmt2 = con.prepareStatement(sql2);
-			pstmt2.setTimestamp(1, commuDTO.getCreated_date());
-			pstmt2.setTimestamp(2, commuDTO.getLast_modified_date());
-			pstmt2.setString(3, commuDTO.getImg_url());
-			pstmt2.setInt(4, commuDTO.getPost_id());
+			
+			pstmt2.setString(1, commuDTO.getImg_url());
+			pstmt2.setInt(2, commuDTO.getPost_id());
 
 			pstmt2.executeUpdate();
 

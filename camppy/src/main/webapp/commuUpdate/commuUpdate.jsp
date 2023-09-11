@@ -61,12 +61,12 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					CommuDTO commuDTO = (CommuDTO) request.getAttribute("commudDTO");
 					%>
 					
-					<input type="hidden" name="num" value="<%=commuDTO.getPost_id()%>">
+					<input type="hidden" name="post_id" value="<%=commuDTO.getPost_id()%>">
 					<input type="text" class="_2" value="<%=commuDTO.getTitle()%>"
 						name="title" onfocus="clearDefaultText(this);"
 						onblur="restoreDefaultText(this);">
 
-					<textarea class="bb" name="context"><%=commuDTO.getContent()%></textarea>
+					<textarea class="bb" name="content"><%=commuDTO.getContent()%></textarea>
 
 
 					<label class="input-file-button" for="image-upload"> <img

@@ -236,9 +236,9 @@ public class CommuService {
 			
 			MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "utf-8",
 					new DefaultFileRenamePolicy());
-			
-			int post_id = Integer.parseInt(multi.getParameter("post_id"));
 		
+			int post_id = Integer.parseInt(multi.getParameter("post_id"));
+	         System.out.println(post_id);
 			
 			String title = multi.getParameter("title");
 			
