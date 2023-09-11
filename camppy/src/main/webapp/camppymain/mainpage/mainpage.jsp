@@ -4,6 +4,10 @@
 <%@ page import="camppy.main.action.CampRegDAO" %>
 <%@ page import="camppy.main.action.CampRegService" %>
 <%@ page import="java.text.SimpleDateFormat"%>
+<%@page import="camppy.reserve.action.ReserveService"%>
+<%@ page import="camppy.reserve.dao.ReserveDetailDAO" %>
+<%@ page import="camppy.reserve.dao.ReserveDetailDTO" %>
+<%@ page import="camppy.reserve.action.ReserveService" %>
 
     
 <!DOCTYPE html>
@@ -84,10 +88,19 @@
 
 
 		 });
+ 
+ 
 	   
     </script> 
 </head>
 <body>
+<%
+           
+           //int res_id = Integer.parseInt(request.getParameter("res_id"));
+            ReserveDetailDAO reserveDetailDAO = new ReserveDetailDAO();
+			//ReserveDetailDTO reserveDetailDTO = reserveDetailDAO.getDetailres(res_id);
+           %>
+
 <jsp:include page="/inc/top.jsp"/>
     <div class="mainpage">
       <div class="mainpage__section-total">
@@ -110,38 +123,42 @@
               </div>
             </div>
             
-            
-            <form action="list.camp" method="post" class="mainpage__div-search-box">
+                        <div class="mainpage__div-search-box">
+            <form action="listSearch.camp" method="post">
               <div class="mainpage__div-searchbox-form">
                 <div class="mainpage__div-form-1-2">             
  <select name="sido" class="mainpage__options-1">
           <!-- <option class="mainpage__3"   >전체/도</option> -->
           
         </select>
-           
-           <select name="gungu"  class="mainpage__options-2">
+                      <select name="gungu"  class="mainpage__options-2">
           <!-- <option class="mainpage__3" >전체/시/군</option> -->
-         
+        
         </select>
                  </div>
-                           
-            
-                <div class="mainpage__div-form-1-3">
-                
-                  
-                  <input type="text" name="Keywordsearch" placeholder="키워드 검색" class="mainpage__options">
+                       <div class="mainpage__div-form-1-3">
+                 <input type="text" name="keywordsearch" placeholder="키워드 검색" class="mainpage__options">
                   <button type="submit" class="mainpage__button">
                     검색
                   </button> <!-- 검색 버튼 -->    
                 </div>
               </div>
             </form> <!-- form -->
+           
+            <form action="DetailList.re" method="post" class="mainpage__div-searchbox-form1">         
+            <input type="text" name="res_id" placeholder="예약 번호 입력" class="mainpage__options1">
+                  <button type="submit" class="mainpage__button1">
+                    예약 조회
+                  </button> <!-- 검색 버튼 -->    
+                      
+            </form> <!-- form -->
+            </div>
             
             
             
           </div>
         </div>
-        <div class="mainpage__section-notice">
+        <div class="mainpage__section-notice" onclick="location.href='list.no'">
           <div class="mainpage__notice-left">
             <div class="mainpage__div-notice-head">
               <div class="mainpage__5">공지사항</div>
@@ -236,9 +253,9 @@
           <div class="mainpage__best">
             <div class="mainpage__best-contents">
               <div class="mainpage__div-best-num-1">
-                <div class="mainpage__best-num-1-contents">
+                <%-- <div class="mainpage__best-num-1-contents">
                   <%=camprankDTO1.getShortintro()%>
-                </div>
+                </div> --%>
                 <button type="button" onclick="location.href='detail.de?campId=<%=camprankDTO1.getCampid()%>'">
                 <img
                   class="mainpage__best-num-1-img"
@@ -247,13 +264,13 @@
                 </button>
                 
                 <div class="mainpage__best-num-1-name">
-                  1위 <%=camprankDTO1.getCampname()%>
+                  <%=camprankDTO1.getCampname()%>
                 </div>
               </div>
               <div class="mainpage__div-best-num-2">
-                <div class="mainpage__best-num-2-contents">
+               <%--  <div class="mainpage__best-num-2-contents">
                   <%=camprankDTO2.getShortintro()%>
-                </div>
+                </div> --%>
                 <button type="button" onclick="location.href='detail.de?campId=<%=camprankDTO2.getCampid()%>'">
                 <img
                   class="mainpage__best-num-2-img"
@@ -261,13 +278,13 @@
                 />
                 </button>
                 <div class="mainpage__best-num-2-name">
-                  2위 <%=camprankDTO2.getCampname()%>
+                  <%=camprankDTO2.getCampname()%>
                 </div>
               </div>
               <div class="mainpage__div-best-num-3">
-                <div class="mainpage__best-num-3-contents">
+               <%--  <div class="mainpage__best-num-3-contents">
                   <%=camprankDTO3.getShortintro()%>
-                </div>
+                </div> --%>
                 <button type="button" onclick="location.href='detail.de?campId=<%=camprankDTO3.getCampid()%>'">
                 <img
                   class="mainpage__best-num-3-img"
@@ -275,13 +292,13 @@
                 />
                 </button>
                 <div class="mainpage__best-num-3-name">
-                  3위 <%=camprankDTO3.getCampname()%>
+                  <%=camprankDTO3.getCampname()%>
                 </div>
               </div>
               <div class="mainpage__div-best-num-4">
-                <div class="mainpage__best-num-4-contents">
+              <%--   <div class="mainpage__best-num-4-contents">
                   <%=camprankDTO4.getShortintro()%>
-                </div>
+                </div> --%>
                 <button type="button" onclick="location.href='detail.de?campId=<%=camprankDTO4.getCampid()%>'">
                 <img
                   class="mainpage__best-num-4-img"
@@ -289,13 +306,13 @@
                 />
                 </button>
                 <div class="mainpage__best-num-4-name">
-                  4위 <%=camprankDTO4.getCampname()%>
+                  <%=camprankDTO4.getCampname()%>
                 </div>
               </div>
               <div class="mainpage__div-best-num-5">
-                <div class="mainpage__best-num-5-contents">
+               <%--  <div class="mainpage__best-num-5-contents">
                   <%=camprankDTO5.getShortintro()%>
-                </div>
+                </div> --%>
                 <button type="button" onclick="location.href='detail.de?campId=<%=camprankDTO5.getCampid()%>'">
                 <img
                   class="mainpage__best-num-5-img"
@@ -303,7 +320,7 @@
                 />
                 </button>
                 <div class="mainpage__best-num-5-name">
-                  5위 <%=camprankDTO5.getCampname()%>
+                  <%=camprankDTO5.getCampname()%>
                 </div>
               </div>
             </div>

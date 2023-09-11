@@ -5,11 +5,11 @@
 .commu-contents-list {
 	background: #ffffff;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	gap: 9.79px;
 	align-items: flex-start;
 	justify-content: center;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	width: 1880px;
 	height: 3231.25px;
 	position: relative;
@@ -19,11 +19,11 @@
 .commu-contents-list__section-total {
 	background: #ffffff;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	gap: 9.96px;
 	align-items: flex-start;
 	justify-content: flex-start;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	flex-shrink: 0;
 	width: 1880px;
 	height: 3231.25px;
@@ -35,7 +35,6 @@
 
 .commu-contents-list__section-body {
 	background: #ffffff;
-	flex-shrink: 0;
 	width: 1880px;
 	height: 3231.25px;
 	position: relative;
@@ -90,7 +89,6 @@
 	align-items: flex-end;
 	justify-content: flex-start;
 	flex-shrink: 0;
-	position: absolute;
 	left: 767.73px;
 	top: 91.61px;
 }
@@ -114,8 +112,8 @@
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
-	width: 248.94px;
-	height: 298.73px;
+	width: 249.94px;
+	height: 406.73px;
 	position: relative;
 }
 
@@ -123,7 +121,7 @@
 	background: #ffffff;
 	flex-shrink: 0;
 	width: 248.94px;
-	height: 298.73px;
+	height: 261px;
 	position: relative;
 }
 
@@ -474,7 +472,7 @@
 	justify-content: flex-start;
 	flex-shrink: 0;
 	width: 192.18px;
-	height: 69.7px;
+	height: 72x;
 	position: relative;
 	color: #ffffff;
 	text-align: center;
@@ -503,7 +501,7 @@
 	border-width: 1px;
 	flex-shrink: 0;
 	width: 497.88px;
-	height: 69.7px;
+	height: 78px;
 	position: relative;
 	padding: 0px 50px 0px 30px;
 	display: flex;
@@ -571,150 +569,156 @@
 }
 
 .commu-contents-list__contents-1 {
-	background: #ededed;
-	width: 1410px;
-	height: 600.44px;
-	position: absolute;
-	left: calc(50% - 705px);
-	top: 881.25px;
-	overflow: hidden;
+ background: #ededed;
+    position: relative;
+    left: 182px;
+    top: 829px;
+    width: 1406px;
+    height: 650px;
+    margin-top: 10px;
+    margin-bottom: 51px;
+    margin-left: 53px;
+    margin-right: 10px;
 }
 
 .commu-contents-list___00 {
-	color: #000000;
-	text-align: center;
-	font: 800 31.86px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
-	left: 13.94px;
-	top: 0px;
-	width: 266.86px;
-	height: 110.53px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+color: #000000;
+    text-align: center;
+    font: 800 31.86px/17.92px "NanumGothic", sans-serif;
+    position: relative;
+    left: 13.94px;
+    width: 281.86px;
+    height: 92.53px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .commu-contents-list__free-icon-user-8484069-12 {
-	width: 29.87px;
-	height: 29.87px;
-	position: absolute;
-	left: 41.82px;
-	top: 95.59px;
+	width: 33.87px;
+    height: 32.87px;
+    position: relative;
+    left: 41.82px;
 }
+	
 
 .commu-contents-list__user-1 {
-	color: #000000;
-	text-align: left;
-	font: 400 29.87px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
-	left: 67.71px;
-	top: 97.58px;
-	width: 86.63px;
-	height: 22.9px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-left: 30px;
+color: #000000;
+    text-align: left;
+    font: 400 29.87px/17.92px "NanumGothic", sans-serif;
+    position: relative;
+    left: 75.71px;
+    width: 96.63px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    top: -41px;
 }
 
+
 .commu-contents-list__5 {
-	color: #000000;
-	text-align: left;
-	font: 400 19.92px/21.91px "NanumGothic", sans-serif;
-	position: absolute;
-	left: 45.81px;
-	top: 142.39px;
-	width: 1298.47px;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
+	    color: #000000;
+    text-align: left;
+    font: 400 19.92px/21.91px "NanumGothic", sans-serif;
+    position: relative;
+    left: 45.81px;
+    width: 1323.47px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 101px;
+    top: -32px;
 }
 
 .commu-contents-list___002 {
-	width: 1314.41px;
-	height: 306.69px;
-	position: absolute;
-	left: 56.76px;
-	top: 208.11px;
+width: 1305.41px;
+    height: 305.69px;
+    position: relative;
+    left: 43.76px;
+    top: -20px;
 }
 
 .commu-contents-list__like-1 {
-	width: 23.62px;
-	height: 24.89px;
-	position: absolute;
-	left: 56.76px;
-	top: 531.74px;
+	    width: 25.62px;
+    height: 26.89px;
+    position: relative;
+    left: -1261px;
+    bottom: -28px;
 }
 
 .commu-contents-list___25 {
 	color: #000000;
-	text-align: center;
-	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
-	left: 56.76px;
-	top: 533.73px;
-	width: 86.63px;
-	height: 22.9px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    text-align: center;
+    font: 400 24.89px/17.92px "NanumGothic", sans-serif;
+    position: relative;
+    left: 81.76px;
+    width: 35.63px;
+    height: 22.9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .commu-contents-list___12 {
 	color: #000000;
-	text-align: center;
-	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
-	left: 1208.86px;
-	top: 530.74px;
-	width: 86.63px;
-	height: 22.9px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    text-align: center;
+    font: 400 26.89px/17.92px "NanumGothic", sans-serif;
+    position: relative;
+    left: 1208.86px;
+    width: 86.63px;
+    height: 40.9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -15px;
 }
 
 .commu-contents-list___13 {
 	color: #000000;
-	text-align: center;
-	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
-	left: 1275.57px;
-	top: 530.74px;
-	width: 86.63px;
-	height: 22.9px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    text-align: center;
+    font: 400 27.89px/17.92px "NanumGothic", sans-serif;
+    position: relative;
+    left: 1299.57px;
+    width: 71.63px;
+    height: 47.9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -61px;
 }
 
 .commu-contents-list___3 {
-	color: #000000;
-	text-align: center;
-	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
-	position: absolute;
-	left: 143.39px;
-	top: 535.72px;
-	width: 54.77px;
-	height: 22.9px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	    color: #000000;
+    text-align: center;
+    font: 400 24.89px/17.92px "NanumGothic", sans-serif;
+    position: relative;
+    left: 158.39px;
+    width: 41.77px;
+    height: 25.9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -113px;
 }
 
 .commu-contents-list__text-box-1 {
-	width: 24.89px;
-	height: 24.89px;
-	position: absolute;
-	left: 129.45px;
-	top: 533.73px;
+	width: 28.89px;
+    height: 30.89px;
+    position: relative;
+    left: 129.45px;
+    top: -143px;
 }
 
 .commu-contents-list__contents-2 {
 	background: #ededed;
 	width: 1410px;
 	height: 600.44px;
-	position: absolute;
+	position: relative;
 	left: calc(50% - 706px);
 	top: 1579.62px;
 	overflow: hidden;
@@ -1103,21 +1107,20 @@
 /* 글쓰기 버튼  */
 .button-insert {
 	background: #4da385;
-    border-radius: 4.9px;
-    padding: 21.54px 61.69px 21.54px 61.69px;
-    display: flex;
-    flex-direction: row;
-    gap: 9.79px;
-    align-items: center;
-    justify-content: center;
-    width: 157px;
-    height: 65px;
-    position: absolute;
-    left: 235px;
-    top: 156px;
-    overflow: hidden;
-    color: #ffffff;
-    text-align: center;
-    font: 700 23.33px "Inter", sans-serif;
+	border-radius: 4.9px;
+	padding: 21.54px 61.69px 21.54px 61.69px;
+	display: flex;
+	flex-direction: row;
+	gap: 9.79px;
+	align-items: center;
+	justify-content: center;
+	width: 157px;
+	height: 65px;
+	position: absolute;
+	left: 235px;
+	top: 156px;
+	overflow: hidden;
+	color: #ffffff;
+	text-align: center;
+	font: 700 23.33px "Inter", sans-serif;
 }
-

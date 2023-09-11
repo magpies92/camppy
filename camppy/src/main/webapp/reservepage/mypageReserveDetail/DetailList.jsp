@@ -16,8 +16,8 @@
     
 <!DOCTYPE html>
 <html>
-<!-- <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet"> -->
-<!-- <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png"> -->
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
 <title>Camppy</title>
@@ -85,27 +85,56 @@
  		padding-top: 50px;
  	}
  	
+ 	  a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+      }
+       table {
+    /* width: 400px;
+    height: 200px; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+ 	
+ 	
+ 	
+ 	
 </style>
 </head>
 
 <body>
+
+<jsp:include page="/inc/top.jsp" />
+
 <%
 	// 아이디 세션 값
 	String id = (String)session.getAttribute("id");
+	int res_id = Integer.parseInt(request.getParameter("res_id")); 
 	
 	// 예약정보
-	List<ReserveDetailDTO> reserveList=(List<ReserveDetailDTO>)request.getAttribute("reserveList");
 	
-	PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 	
-	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 	
-	// 페이징
-	int currentPage = (Integer)request.getAttribute("currentPage");
-	int startPage = (Integer)request.getAttribute("startPage");
-	int pageBlock = (Integer)request.getAttribute("pageBlock");
-	int endPage = (Integer)request.getAttribute("endPage");
-	int pageCount = (Integer)request.getAttribute("pageCount");
+	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+	
+	//DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
+	ReserveDetailDAO reserveDetailDAO = new ReserveDetailDAO();
+	ReserveDetailDTO reserveDetailDTO = new ReserveDetailDTO();
+	reserveDetailDTO = reserveDetailDAO.getDetailres(res_id);
+	
 %>
 <!-- header -->
 <header>
@@ -115,34 +144,25 @@
 <div class="wrap">
 	<form name="myListForm.me" id="myList" method="post">
 	<h3>내 이용 내역</h3>
+	
 <% 
 	// 예약 내역 확인
-	if(reserveList.size() == 0) {
-		%>
-		<p>예약된 내역이 없습니다.</p>
-		<%
-	} else {
-		
-	for(int i = 0 ; i < reserveList.size(); i++){
-		
+	
+	
 		// 예약정보 - 펜션이름, 체크인 / 체크아웃 시간
-		ReserveDetailDTO rdto = reserveList.get(i);
 		DetailDAO ddao = new DetailDAO();
-		DetailDTO ddto = ddao.getDetailList(rdto.getCamp_id());
+		DetailDTO ddto = ddao.getDetailList(reserveDetailDTO.getCamp_id());
 		
+		String camp_addr = ddto.getCamp_addr();
 		String camp_img = ddto.getCamp_img();	// 펜션 대표 이미지
-		String camp_name = rdto.getCamp_name(); // 펜션 이름
-		String checkin_date = rdto.getCheckin_date(); // 체크인 시간
-		String checkout_date = rdto.getCheckout_date(); // 체크아웃 시간
-		int res_id = rdto.getRes_id();
+		String camp_name = ddto.getCamp_name(); // 펜션 이름
+		String checkin_date = reserveDetailDTO.getCheckin_date(); // 체크인 시간
+		String checkout_date = reserveDetailDTO.getCheckout_date(); // 체크아웃 시간
 		
-		// 체크인 / 체크아웃 날짜
-		ReserveDetailDAO reserveDetailDAO = new ReserveDetailDAO();
-		rdto = reserveDetailDAO.getDetailres(res_id);
 // 		SalesDTO salesdto = salesdao.getSalesAno(adto.getAno());
 		
-		String reserveIndateSt = rdto.getCheckin_date(); // 체크인 날짜
-		String reserveOutdateSt = rdto.getCheckout_date(); // 체크아웃 날짜
+		String reserveIndateSt = reserveDetailDTO.getCheckin_date(); // 체크인 날짜
+		String reserveOutdateSt = reserveDetailDTO.getCheckout_date(); // 체크아웃 날짜
 
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date reserveIndate = format.parse(reserveIndateSt);
@@ -154,87 +174,64 @@
 		Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
 		
 		// 예약일자 포맷 변경
-		Date date = rdto.getRes_time();
+		Date date = reserveDetailDTO.getRes_time();
 		LocalDate reservedate = LocalDate.ofInstant(date.toInstant(), ZoneId.systemDefault()); // 예약일자
 		
+	
 	%>
+	
 	<ul>
 <!-- 		<hr> -->
-			<li><img src="campimg/<%=camp_img %>" width="150" height="150"></li>
+			<li><img src="campimg/<%=camp_img%>" width="450px" height="450px"></li>
 		<li>예약일자 : <%=reservedate %></li>
 		<h5><%=camp_name %></h5>
-		<li id="timecheck">체크인 <%=format.format(reserveIndate) %> <%=checkin_date.substring(0, 2) %>시 <%=checkin_date.substring(3) %>분</li>
-		<li id="timecheck">체크아웃 <%=format.format(reserveOutdate) %> <%=checkout_date.substring(0, 2) %>시 <%=checkout_date.substring(3) %>분</li>
+		<li>주소 : <%=camp_addr %><li>
+		<li id="timecheck">체크인 <%=dateFormat.format(reserveIndate) %> </li>
+		<li id="timecheck">체크아웃 <%=dateFormat.format(reserveOutdate) %></li>
+<%-- 		<%=checkin_date.substring(0, 2) %>시 <%=checkin_date.substring(3) %>분 --%>
+<%-- 		 <%=checkout_date.substring(0, 2) %>시 <%=checkout_date.substring(3) %>분 --%>
 		</ul>
 		</form>
 		</div>
-		<%
-	
-	}
-	}
-	
-		
-		
-		%>
-	
-		
-		<%
-		
- if(startPage > pageBlock){
-	%>
-	<a href="DetailList.re?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
-	<%
-}
- %>
-<div class="room-pagination">
-<%
- for(int i=startPage;i<=endPage;i++){
-	%>
-	
-	<a href="DetailList.re?pageNum=<%=i%>"><%=i%></a>
-	<%
-}
- %> 
-</div>
-<%
+		 <div id="map" style="width:70%;height:350px; left:250px; bottom:3vw; position: relative;"></div>
+		<script type="text/javascript" src="script/jquery-3.7.0.js"></script>             
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5cbf788470a637f86f3a750ad4f9d949&libraries=services"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+mapOption = {
+    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+    level: 2 // 지도의 확대 레벨
+};  
+var addr ="<%=camp_addr%>"; 
+//지도를 생성합니다    
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+//주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+//주소로 좌표를 검색합니다
+geocoder.addressSearch(addr, function(result, status) {
+// 정상적으로 검색이 완료됐으면 
+ if (status === kakao.maps.services.Status.OK) {
+    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+    // 결과값으로 받은 위치를 마커로 표시합니다
+    var marker = new kakao.maps.Marker({
+        map: map,
+        position: coords
+    });
+    // 인포윈도우로 장소에 대한 설명을 표시합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content: '<div style="width:150px;text-align:center;padding:6px 0;">여기</div>'
+    });
+    infowindow.open(map, marker);
+    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+    map.setCenter(coords);
+} 
+});  
 
-// 10페이지 다음
-if(endPage < pageCount){
-	%>
-	<a href="DetailList.re?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
-	<%
+</script>
 
- }
- %>
-	
-
-
-
-
-
-<%
-// for(int i=pageDTO.getStartPage();i<=pageDTO.getEndPage();i++){
-	%>
-<%-- 	<a href="list.bo?pageNum=<%=i%>"><%=i %></a>  --%>
-	<%
-// }
-%>
-
-<%
-//끝페이지번호  전체페이지수 비교 => 전체페이지수 크면 => Next보임
-// if(pageDTO.getEndPage() < pageDTO.getPageCount()){
-	%>
-<%-- 	<a href="list.bo?pageNum=<%=pageDTO.getStartPage()+pageDTO.getPageBlock()%>">Next</a> --%>
-	<%
-// }
-%>
-<%-- 	<a href="list.bo?pageNum=<%=pageDTO.getStartPage()-pageDTO.getPageBlock()%>">Prev</a> --%>
- 
-
-</form>
 
 <!-- <!-- 푸터 들어가는 곳  -->
-	<jsp:include page="../../inc/bottom.jsp" />
+	<jsp:include page="/inc/bottom.jsp" />
 <!-- <!-- 푸터 들어가는 곳 -->
 		
 

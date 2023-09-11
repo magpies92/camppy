@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="com.camppy.dto.DetailDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -10,23 +14,9 @@
     <link rel="stylesheet" href="campInfo/campInfo.css" />
 
     <style>
-      a,
-      button,
-      input,
-      select,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      * {
-        margin: 0;
-        padding: 0;
-        border: none;
-        text-decoration: none;
-        appearance: none;
-        background: none;
-      }
+      a,button, input,select, h1,h2,h3,h4,h5,
+      * {margin: 0; padding: 0; border: none; text-decoration: none;
+        appearance: none; background: none; }
       
       .starImg{
       position: relative; 
@@ -44,7 +34,6 @@
 <%
 DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
 String id=(String)session.getAttribute("id");
-
 %>
 
 <!-- 페이지 전체 -->
@@ -208,7 +197,7 @@ for (int i = 1; i <= 5; i++) {
 %> 
   <!-- </div> -->
  </div> 
-       <span class="unLikeButton" style="display: inline;" onclick="likeButton(this)">찜하기</span>
+       <form class="unLikeButton" style="display: inline;" onclick="likeButton(this)" action="insertLike.my">찜하기</form>
        <span class="likeButton" style="display: none;" onclick="unLikeButton(this)">찜하기</span> 
      </div>
      
@@ -277,9 +266,10 @@ for (int i = 1; i <= 5; i++) {
     	location.href="${sPath}/camppy/login.me";
     	
  		}else{
- 			alert("찜하기 목록으로 가시겠습니까?");
+ 			alert("찜하기 목록으로 이동합니다");
  			//document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
  			document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
+ 			location.href="${sPath}/camppy/likeList.my";
  		}
  
     }

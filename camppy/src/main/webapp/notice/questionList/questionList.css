@@ -6,131 +6,141 @@
   background: #ffffff;
   display: flex;
   flex-direction: row;
-  gap: 9.81px;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 1880px;
-  position: relative;
-  overflow: hidden;
-}
-.questionListSectionQna {
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
+  gap: 9.79px;
   align-items: flex-start;
   justify-content: flex-start;
-  flex-shrink: 0;
+  flex-wrap: wrap;
   width: 1880px;
-  height: 1260px;
+  height: 190px;
   position: relative;
   overflow: hidden;
 }
-.questionListAdminQuestion {
+.questionListSectionTotal {
   display: flex;
   flex-direction: row;
-  gap: 0px;
+  gap: 11.75px;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
   flex-shrink: 0;
-  width: 1449.25px;
-  height: 650.54px;
-  position: absolute;
-  left: 215.87px;
-  top: 44.16px;
+  width: 1880px;
+  height: 1566.67px;
+  position: relative;
+  overflow: hidden;
 }
-.questionListHeading {
-  display: flex;
-  flex-direction: row;
-  gap: 0px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  width: 213.9px;
-  height: 47.1px;
-  position: absolute;
-  left: 52.99px;
-  top: 17.66px;
-}
+
 .questionListA {
   color: #000000;
-  text-align: left;
-  font: 700 31.4px "Inter", sans-serif;
+  text-align: center;
+  font: 700 53.85px/27.42px "NanumGothic", sans-serif;
   position: absolute;
-  left: -0.59px;
-  top: 5.08px;
-  width: 214.29px;
-  transform-origin: 0 0;
-  transform: rotate(-0.633deg) scale(1, 1);
+  left: calc(50% - 126.31px);
+  top: 0px;
+  width: 252.62px;
+  height: 137.08px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
-.questionListHeader {
-  border-style: solid;
-  border-color: #a39a9a;
-  border-width: 0.98px 0px 0.98px 0px;
-  padding: 0px;
+.questionListListBody {
+	border-style: solid;
+    border-color: #b3b3b3;
+    border-width: 0px 0px 0.98px 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    width: 1150px;
+    height: 87.15px;
+    position: relative;
+    margin-top: 10px;
+}
+
+
+.questionListNum {
+ 
+  padding: 25.95px 37.45px 27.91px 37.27px;
   display: flex;
   flex-direction: row;
   gap: 0px;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  width: 1338.37px;
-  height: 66.72px;
-  position: absolute;
-  left: 52.99px;
-  top: 78.5px;
+  height: 49px;
+  position: relative;
 }
-.questionList2 {
-  color: #333333;
+.questionListB {
+  color: #777777;
   text-align: center;
-  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: 51.02px;
-  top: calc(50% - 8.83px);
+  font: 400 19.58px/17.62px "Inter", sans-serif;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.questionList3 {
-  color: #333333;
-  text-align: center;
-  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: calc(50% - 18.64px);
-  top: calc(50% - 8.83px);
+.questionListTitle {
+
+  padding: 24.97px 249.28px 28.89px 13.71px;
   display: flex;
+  flex-direction: row;
+  gap: 0px;
   align-items: center;
   justify-content: center;
-}
-.questionList4 {
-  color: #333333;
-  text-align: center;
-  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: 1250.06px;
-  top: calc(50% - 8.83px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.questionListQuestionList2 {
-  display: flex;
-  flex-direction: column;
-  gap: 0.49px;
-  align-items: flex-start;
-  justify-content: flex-start;
   flex-shrink: 0;
-  width: 1338.37px;
-  height: 460.19px;
-  position: absolute;
-  left: 52.99px;
-  top: 145.22px;
+  height: 52px;
+  position: relative;
 }
-.questionListLine1 {
+.questionList2023Event {
+  color: #333333;
+  text-align: left;
+  font: 400 19.58px/17.62px "Inter", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.questionListC {
+  color: #777777;
+  text-align: center;
+  font: 400 16.65px/17.62px "Inter", sans-serif;
+  position: relative;
+  width: 94px;
+  height: 40.15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.questionListNum2 {
+
+  padding: 25.95px 26.11px 27.91px 25.73px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 49px;
+  position: absolute;
+  left: 1341.46px;
+
+}
+.questionListD {
+  color: #777777;
+  text-align: left;
+  font: 400 19.58px/17.62px "Inter", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.questionListList2 {
   border-style: solid;
   border-color: #b3b3b3;
   border-width: 0px 0px 0.98px 0px;
@@ -139,238 +149,238 @@
   gap: 0px;
   align-items: flex-start;
   justify-content: flex-start;
-  flex-wrap: wrap;
   flex-shrink: 0;
-  width: 1338.37px;
-  height: 87.33px;
+  width: 1402.17px;
+  height: 101.83px;
   position: relative;
+  left: 207px;
+/*   top: 300px; */
+}
+.questionList2023Event {
+  color: #333333;
+  text-align: left;
+  font: 400 19.58px/17.62px "Inter", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.questionListAdmin2 {
+
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 106.73px;
+  height: 107.71px;
+  position: absolute;
+  left: 1060.44px;
+  top: calc(50% - 52.87px);
+}
+.questionListD {
+  color: #777777;
+  text-align: center;
+  font: 400 16.65px/17.62px "Inter", sans-serif;
+  position: relative;
+  width: 74.42px;
+  height: 46.02px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionListDate2 {
+ 
+  padding: 25.95px 0px 27.91px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 150.79px;
+  height: 55px;
+  position: absolute;
+  left: 1177.94px;
+
+}
+.questionList2023 {
+  color: #777777;
+  text-align: center;
+  font: 400 16.65px/17.62px "Inter", sans-serif;
+  position: relative;
+  width: 130.23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* 번호제목작성자등록일조회 */
+
+.questionListBoardList {
+  background: #fbfdff;
+  border-style: solid;
+  border-color: #707070;
+  border-width: 0.98px 0px 0px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 1418.81px;
+  height: 66.58px;
+  position: relative;
+  left: 195.08px;
+/*   top: 16.65px; */
+}
+.questionListCell1 {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 97.92px;
+  height: 64.62px;
+  position: relative;
+}
+.questionList4 {
+  color: #000000;
+  text-align: center;
+  font: 400 19.58px/17.62px "Inter", sans-serif;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 32.31px);
+  width: 97.92px;
+  height: 64.62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.questionListCell2 {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 946.85px;
+  height: 63.65px;
+  position: absolute;
+  left: 105.75px;
+  top: 2.94px;
 }
 .questionList5 {
   color: #000000;
   text-align: center;
-  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: calc(50% - 653.49px);
-  top: 18.64px;
-  width: 103.03px;
-  height: 51.02px;
+  font: 400 19.58px/17.62px "Inter", sans-serif;
+  position: relative;
+  width: 946.85px;
+  height: 63.65px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.questionListCell3 {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 112.6px;
+  height: 66.58px;
+  position: absolute;
+  left: 1058.48px;
+  top: calc(50% - 33.29px);
 }
 .questionList6 {
   color: #000000;
   text-align: center;
-  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
+  font: 400 19.58px/17.62px "Inter", sans-serif;
   position: absolute;
-  left: calc(50% - 142.28px);
-  top: 18.64px;
-  width: 284.55px;
-  height: 51.02px;
+  left: 0px;
+  top: calc(50% - 33.29px);
+  width: 112.6px;
+  height: 66.58px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.questionListCell4 {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 127.29px;
+  height: 65.6px;
+  position: absolute;
+  left: 1192.62px;
+  top: calc(50% - 33.29px);
 }
 .questionList7 {
   color: #000000;
   text-align: center;
-  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
+  font: 400 19.58px/17.62px "Inter", sans-serif;
   position: absolute;
-  left: calc(50% - -566.16px);
-  top: 18.64px;
-  width: 83.4px;
-  height: 51.02px;
+  left: 0px;
+  top: calc(50% - 32.8px);
+  width: 127.29px;
+  height: 65.6px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.questionListLine2 {
+.questionListCell5 {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 83.23px;
+  height: 65.6px;
+  position: absolute;
+  left: 1335.58px;
+  top: 0px;
+}
+.questionList8 {
+  color: #000000;
+  text-align: center;
+  font: 400 19.58px/17.62px "Inter", sans-serif;
+  position: absolute;
+  left: calc(50% - 41.62px);
+  top: calc(50% - 32.8px);
+  width: 83.23px;
+  height: 65.6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.writebtn {
+  border-radius: 4.9px;
   border-style: solid;
-  border-color: #b3b3b3;
-  border-width: 0px 0px 0.98px 0px;
-  display: flex;
-  flex-direction: row;
-  gap: 0px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  border-color: #4da385;
+  border-width: 1.96px;
   flex-shrink: 0;
-  width: 1338.37px;
-  height: 87.33px;
-  position: relative;
-}
-
-.questionListLine3 {
-  border-style: solid;
-  border-color: #b3b3b3;
-  border-width: 0px 0px 0.98px 0px;
-  display: flex;
-  flex-direction: row;
-  gap: 0px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  flex-shrink: 0;
-  width: 1338.37px;
-  height: 87.33px;
-  position: relative;
-}
-.questionListLine4 {
-  border-style: solid;
-  border-color: #b3b3b3;
-  border-width: 0px 0px 0.98px 0px;
-  display: flex;
-  flex-direction: row;
-  gap: 0px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  flex-shrink: 0;
-  width: 1338.37px;
-  height: 87.33px;
-  position: relative;
-}
-.questionListLine5 {
-  border-style: solid;
-  border-color: #b3b3b3;
-  border-width: 0px 0px 0.98px 0px;
-  display: flex;
-  flex-direction: row;
-  gap: 0px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  flex-shrink: 0;
-  width: 1338.37px;
-  height: 87.33px;
-  position: relative;
-}
-.questionListMemberQuestion {
-  display: flex;
-  flex-direction: row;
-  gap: 0px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  flex-shrink: 0;
-  width: 1449.25px;
-  height: 476.87px;
+  width: 113.12px;
+  height: 36px;
   position: absolute;
-  left: 215.87px;
-  top: 732.96px;
+  left: 1497px;
+  top: 585px;
+  overflow: hidden;
+  color: #4da385;
+  font: 700 16px "Inter", sans-serif;
+   text-align: center;
 }
-.questionList10 {
-  color: #333333;
-  text-align: center;
-  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: calc(50% - 203.11px);
-  top: calc(50% - 8.83px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.page_control {
+	color: #000000;
+    text-align: center;
+    font: 400 19.58px/17.62px "Inter", sans-serif;
+    position: relative;
 }
-.questionList11 {
-  color: #333333;
-  text-align: center;
-  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: 880.15px;
-  top: calc(50% - 8.83px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.questionList12 {
-  color: #333333;
-  text-align: center;
-  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: 1036.16px;
-  top: calc(50% - 8.83px);
-  width: 78.5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.questionList13 {
-  color: #333333;
-  text-align: center;
-  font: 700 19.62px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: 1218.66px;
-  top: calc(50% - 8.83px);
-  width: 77.52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.questionListQuestionList3 {
-  display: flex;
-  flex-direction: column;
-  gap: 0.49px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  width: 1338.37px;
-  height: 309.08px;
-  position: absolute;
-  left: 52.99px;
-  top: 145.22px;
-}
-.questionList1 {
-  color: #000000;
-  text-align: center;
-  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: 64.76px;
-  top: calc(50% - 8.34px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.questionList14 {
-  color: #000000;
-  text-align: center;
-  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: 376.78px;
-  top: calc(50% - 8.34px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.questionList15 {
-  color: #000000;
-  text-align: center;
-  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: 856.6px;
-  top: calc(50% - 8.34px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.questionList2023 {
-  color: #000000;
-  text-align: center;
-  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: 1034.2px;
-  top: calc(50% - 8.34px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.questionListB {
-  color: #000000;
-  text-align: center;
-  font: 700 15.7px/17.66px "NanumGothic", sans-serif;
-  position: absolute;
-  left: 1235.19px;
-  top: calc(50% - 8.34px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-

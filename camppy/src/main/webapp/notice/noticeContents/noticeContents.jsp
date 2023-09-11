@@ -26,6 +26,8 @@
     <title>Document</title>
   </head>
   <body>
+  
+      <jsp:include page="../../inc/top.jsp"/> 
   <%
 String id = (String)session.getAttribute("id");
 
@@ -50,25 +52,20 @@ List<NoticeDTO> noticeList = (List<NoticeDTO>)request.getAttribute("noticeList")
 				</div>
 
 				<div class="noticeContentsDateNbutton">
-					<div class="noticeContents2023"><%=noticeDTO.getCreate_date()%></div>
+					<div class="noticeContents2023"><%=noticeDTO.getCreate_date()%></div> 
+									</div>
 					
-					
-<% 		
-// 	if(id!= null) {
-// 		if(id.equals(noticeDTO.getCreated_by())) {
-			%>		
+				<div class="ContentsNbutton">
 					<input type="button" class="noticeContentsH" value="수정" onclick="location.href='update.no?notice_id=<%=noticeDTO.getNotice_id()%>'"> 
 					<input type="button" class="noticeContentsI" value="삭제" onclick="location.href='delete.no?notice_id=<%=noticeDTO.getNotice_id()%>'">
-					<% 
-// 		}
-// }
-%>
+					<input type="button" class="noticeContents22" value="목록" onclick="location.href='list.no'">
 				</div>
+
 			</div>
 		</div>
 	</div>
 
 
-
+   <jsp:include page="../../inc/bottom.jsp"/>		
 </body>
 </html>

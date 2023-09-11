@@ -15,6 +15,20 @@ public class PageDTO {
 	
 	//검색어
 	private String search;
+	public String getSido() {
+		return sido;
+	}
+	public void setSido(String sido) {
+		this.sido = sido;
+	}
+	public String getGungu() {
+		return gungu;
+	}
+	public void setGungu(String gungu) {
+		this.gungu = gungu;
+	}
+	private String sido;
+	private String gungu;
 	
 	//alt shift s => v
 	

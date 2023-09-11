@@ -134,7 +134,7 @@ if (currentPage < totalPages) {
 
     <script>
         function popupInsert() {
-            var url = "../insert/reviewInsert.jsp";
+            var url = "review/insert/reviewInsert.jsp";
             var name = "reviewInsert";
             var option = "width = 710, height = 730, top= 100, left= 500";
             window.open(url, name, option);
@@ -142,7 +142,6 @@ if (currentPage < totalPages) {
 
         function updateRow(button) {
             var row = button.closest(".campinfoRow");
-            var contentsElement = row.querySelector(".reviewContents1");
             var editContent = row.querySelector(".editContent");
             var buttonSave = row.querySelector(".buttonSave");
             var buttonCancel = row.querySelector(".buttonCancel"); // 수정된 부분

@@ -2,7 +2,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page import="org.apache.catalina.mbeans.DataSourceUserDatabaseMBean"%>
+
 <%@page import="com.camppy.dto.DetailDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -13,7 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="campReview/infoReview.css" />
-	<script type="text/javascript" src="script/jquery-3.7.0.js"></script>
+<script type="text/javascript" src="script/jquery-3.7.0.js"></script>
 <style>
 a, button, input, select, h1, h2, h3, h4, h5, * {
 	margin: 0;
@@ -40,9 +40,9 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	<%
 	DetailDTO detailDTO = (DetailDTO) request.getAttribute("detailDTO");
 	String camp_addr = detailDTO.getCamp_addr();
-	String id=(String)session.getAttribute("id");
-	// int camp_id=(int)session.getAttribute("camp_id");
-	 int camp_id = 2;
+	String id = (String) session.getAttribute("id");
+// 	int camp_id= (int) request.getAttribute("camp_id");
+	int camp_id = 2;
 	%>
 
 	<!-- 페이지 전체 -->
@@ -225,9 +225,9 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				<!--    <div class="infoLink1">위치/주변정보</div> -->
 				<input type="button" value="위치/주변정보" class="infoLink2"
 					onclick="location.href='position.de?campId=<%=detailDTO.getCamp_id()%>'">
-					
+
 				<div class="infoLink1">캠핑후기</div>
-				
+
 			</div>
 
 			<!-- 찾아오시는 길 -->
@@ -339,162 +339,177 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					}
 					%>
 
-</div>
-</div>
-</div>
-</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-				
-					
 
-					<!-- 푸터들어가는 곳 -->
-					<jsp:include page="/inc/bottom.jsp"></jsp:include>
-					<!-- 푸터들어가는 곳 -->
-					
-					<script type="text/javascript">
+
+
+	<!-- 푸터들어가는 곳 -->
+	<jsp:include page="/inc/bottom.jsp"></jsp:include>
+	<!-- 푸터들어가는 곳 -->
+
+	<script type="text/javascript">
 					function likeButton(e){ // e -> (this)의 정보를 여기로 전달하겠다
 					 	var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
-					 	var id = "<%=id%>"; <%-- String으로 들고 와서 "" 붙여야 됨 --%>
-						    if(id=="null"){ <%-- String으로 들고 와서 "" 붙여야 됨 --%>
-					    	alert("로그인 후 사용할 수 있습니다");
-					    	location.href="${sPath}/camppy/login.me";
-					    	
-					 		}else{
-					 			alert("찜하기 목록으로 가시겠습니까?");
-					 			//document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
-					 			document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
-					 		}
-					 
-					    }
-						// 즐겨찾기 해제
-						function unLikeButton(e) {
-							var i = $(".likeButton").index(e); // 같은 클래스 내 index 값을 가져옴
-							document.getElementsByClassName('unLikeButton')[i].style.display = "inline"; // 즐겨찾기 취소 버튼 비활성화
-							document.getElementsByClassName('likeButton')[i].style.display = "none"; // 즐겨찾기 추가 버튼 활성화
+					 	var id = "<%=id%>
+		";
+	<%-- String으로 들고 와서 "" 붙여야 됨 --%>
+		if (id == "null") {
+	<%-- String으로 들고 와서 "" 붙여야 됨 --%>
+		alert("로그인 후 사용할 수 있습니다");
+				location.href = "${sPath}/camppy/login.me";
+
+			} else {
+				alert("찜하기 목록으로 가시겠습니까?");
+				//document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
+				document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
+			}
+
+		}
+		// 즐겨찾기 해제
+		function unLikeButton(e) {
+			var i = $(".likeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+			document.getElementsByClassName('unLikeButton')[i].style.display = "inline"; // 즐겨찾기 취소 버튼 비활성화
+			document.getElementsByClassName('likeButton')[i].style.display = "none"; // 즐겨찾기 추가 버튼 활성화
+		}
+
+		function popupInsert() {
+			var camp_id =<%=camp_id%>
+			var id =<%=id%>
+		; // JSP 변수를 JavaScript 변수로 가져옴
+			var url = "review/insert/reviewInsert.jsp?camp_id=" + camp_id;
+			var name = "reviewInsert";
+			var option = "width = 710, height = 730, top= 100, left= 500";
+			window.open(url, name, option);
+		}
+
+		function updateRow(button) {
+			var row = button.closest(".campinfoRow");
+			var contentsElement = row.querySelector(".reviewContents1");
+			var editContent = row.querySelector(".editContent");
+			var buttonSave = row.querySelector(".buttonSave");
+			var buttonCancel = row.querySelector(".buttonCancel"); // 수정된 부분
+
+			contentsElement.style.display = "none";
+			editContent.style.display = "block";
+			buttonSave.style.display = "block";
+			buttonCancel.style.display = "block"; // 수정된 부분
+
+			// 현재 내용을 텍스트 입력 필드에 설정
+			editContent.value = contentsElement.textContent;
+
+			// 수정 버튼 비활성화
+			button.disabled = true;
+
+			editContent.focus();
+
+			var maxLength = 130;
+
+			editContent.addEventListener("input", function() {
+				var currentLength = editContent.value.length;
+
+				if (currentLength > maxLength) {
+					// 최대 글자 수를 초과한 경우 현재 입력을 최대 글자 수로 자르기
+					editContent.value = editContent.value.slice(0, maxLength);
+				}
+			});
+		}
+
+		function saveContent(button) {
+			var row = button.closest(".campinfoRow");
+			var reviewId = row.querySelector(".reviewNum1").textContent;
+			var contentsElement = row.querySelector(".reviewContents1");
+			var editContent = row.querySelector(".editContent");
+			var buttonSave = row.querySelector(".buttonSave");
+			var buttonCancel = row.querySelector(".buttonCancel"); // 수정된 부분
+
+			// 수정한 내용을 가져와서 서버로 전송
+			var updatedContent = editContent.value;
+
+			if (updatedContent.trim() === "") {
+				alert("내용을 입력하세요.");
+				return;
+			}
+
+			$.ajax({
+				url : "review/update/updateReviewList.jsp",
+				method : "POST",
+				data : {
+					review_id : reviewId,
+					updated_content : updatedContent
+				},
+				success : function(response) {
+					if (response.trim() === "success") {
+						// 수정 성공 시 UI 업데이트
+						contentsElement.textContent = updatedContent;
+						contentsElement.style.display = "block";
+						editContent.style.display = "none";
+						buttonSave.style.display = "none";
+						buttonCancel.style.display = "none"; // 저장 성공 시 취소 버튼도 숨김
+
+						// 수정 버튼 활성화
+						row.querySelector(".buttonUpdate").disabled = false;
+						location.reload();
+					} else {
+						alert("수정 실패");
+					}
+				},
+				error : function() {
+					alert("오류 발생");
+				}
+			});
+		}
+
+		function cancelEdit(button) {
+			var row = button.closest(".campinfoRow");
+			var contentsElement = row.querySelector(".reviewContents1");
+			var editContent = row.querySelector(".editContent");
+			var buttonSave = row.querySelector(".buttonSave");
+			var buttonCancel = row.querySelector(".buttonCancel");
+
+			if (contentsElement && editContent && buttonSave && buttonCancel) {
+				contentsElement.style.display = "block";
+				editContent.style.display = "none";
+				buttonSave.style.display = "none";
+				buttonCancel.style.display = "none";
+
+				// 수정 버튼 활성화
+				row.querySelector(".buttonUpdate").disabled = false;
+			} else {
+				console.error("One or more elements not found.");
+			}
+		}
+
+		function deleteRow(button) {
+			var row = button.closest(".campinfoRow");
+			var reviewId = row.querySelector(".reviewNum1").textContent;
+
+			console.log("Review ID:", reviewId);
+
+			if (confirm("정말로 삭제하시겠습니까?")) {
+				$.ajax({
+					url : "review/del/deleteReview.jsp",
+					method : "POST",
+					data : {
+						review_id : reviewId
+					},
+					success : function(response) {
+						if (response.trim() === "success") {
+							row.remove();
+							location.reload();
+						} else {
+							alert("삭제 실패");
 						}
-						
-						 function updateRow(button) {
-					            var row = button.closest(".campinfoRow");
-					            var contentsElement = row.querySelector(".reviewContents1");
-					            var editContent = row.querySelector(".editContent");
-					            var buttonSave = row.querySelector(".buttonSave");
-					            var buttonCancel = row.querySelector(".buttonCancel"); // 수정된 부분
-
-					            contentsElement.style.display = "none";
-					            editContent.style.display = "block";
-					            buttonSave.style.display = "block";
-					            buttonCancel.style.display = "block"; // 수정된 부분
-
-					            // 현재 내용을 텍스트 입력 필드에 설정
-					            editContent.value = contentsElement.textContent;
-
-					            // 수정 버튼 비활성화
-					            button.disabled = true;
-
-					            editContent.focus();
-
-					            var maxLength = 130;
-
-					            editContent.addEventListener("input", function() {
-					                var currentLength = editContent.value.length;
-
-					                if (currentLength > maxLength) {
-					                    // 최대 글자 수를 초과한 경우 현재 입력을 최대 글자 수로 자르기
-					                    editContent.value = editContent.value.slice(0, maxLength);
-					                }
-					            });
-					        }
-
-					        function saveContent(button) {
-					            var row = button.closest(".campinfoRow");
-					            var reviewId = row.querySelector(".reviewNum1").textContent;
-					            var contentsElement = row.querySelector(".reviewContents1");
-					            var editContent = row.querySelector(".editContent");
-					            var buttonSave = row.querySelector(".buttonSave");
-					            var buttonCancel = row.querySelector(".buttonCancel"); // 수정된 부분
-
-					            // 수정한 내용을 가져와서 서버로 전송
-					            var updatedContent = editContent.value;
-
-					            if (updatedContent.trim() === "") {
-					                alert("내용을 입력하세요.");
-					                return;
-					            }
-
-					            $.ajax({
-					                url : "../update/updateReviewList.jsp",
-					                method : "POST",
-					                data : {
-					                    review_id : reviewId,
-					                    updated_content : updatedContent
-					                },
-					                success : function(response) {
-					                    if (response.trim() === "success") {
-					                        // 수정 성공 시 UI 업데이트
-					                        contentsElement.textContent = updatedContent;
-					                        contentsElement.style.display = "block";
-					                        editContent.style.display = "none";
-					                        buttonSave.style.display = "none";
-					                        buttonCancel.style.display = "none"; // 저장 성공 시 취소 버튼도 숨김
-
-					                        // 수정 버튼 활성화
-					                        row.querySelector(".buttonUpdate").disabled = false;
-					                    } else {
-					                        alert("수정 실패");
-					                    }
-					                },
-					                error : function() {
-					                    alert("오류 발생");
-					                }
-					            });
-					        }
-
-					        function cancelEdit(button) {
-					            var row = button.closest(".campinfoRow");
-					            var contentsElement = row.querySelector(".reviewContents1");
-					            var editContent = row.querySelector(".editContent");
-					            var buttonSave = row.querySelector(".buttonSave");
-					            var buttonCancel = row.querySelector(".buttonCancel");
-
-					            if (contentsElement && editContent && buttonSave && buttonCancel) {
-					                contentsElement.style.display = "block";
-					                editContent.style.display = "none";
-					                buttonSave.style.display = "none";
-					                buttonCancel.style.display = "none";
-
-					                // 수정 버튼 활성화
-					                row.querySelector(".buttonUpdate").disabled = false;
-					            } else {
-					                console.error("One or more elements not found.");
-					            }
-					        }
-
-					        function deleteRow(button) {
-					            var row = button.closest(".campinfoRow");
-					            var reviewId = row.querySelector(".reviewNum1").textContent;
-
-					            console.log("Review ID:", reviewId);
-
-					            if (confirm("정말로 삭제하시겠습니까?")) {
-					                $.ajax({
-					                    url : "deleteReview.jsp",
-					                    method : "POST",
-					                    data : {
-					                        review_id : reviewId
-					                    },
-					                    success : function(response) {
-					                        if (response.trim() === "success") {
-					                            row.remove();
-					                        } else {
-					                            alert("삭제 실패");
-					                        }
-					                    },
-					                    error : function() {
-					                        alert("오류 발생");
-					                    }
-					                });
-					            }
-					        }
-					</script>
+					},
+					error : function() {
+						alert("오류 발생");
+					}
+				});
+			}
+		}
+	</script>
 </body>
 </html>
