@@ -56,8 +56,21 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 						<div class="commu-contents-list__"><%=commuDTO.getTitle()%></div>
 						<div class="commu-contents-list__frame-189">
 							<a href="commuContentsList?post_id=<%=commuDTO.getPost_id()%>">
+							<%
+							if(commuDTO.getImg_url() != null){
+							%>
 								<img class="commu-contents-list__rectangle-7"
 								src="upload/<%=commuDTO.getImg_url()%>" id="picture3">
+								<%
+							    }
+								else
+								{ 
+								%>
+							    <img class="commu-contents-list__rectangle-7"
+								src="upload/<%=commuDTO.getImg_url()%>" id="picture3">
+								<%
+								}
+								%>
 							</a>
 							<!-- user 닉네임 -->
 							<div class="commu-contents-list__user" id="name3"><%=commuDTO.getNickname()%></div>
@@ -141,10 +154,26 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					</div>
 
 					<!--              내용이미지  -->
-					<a href="commuContents.commu?post_id=<%=commuDTO.getPost_id()%>">
+					<%
+					if(commuDTO.getImg_url() != null){ 
+					%>
+					<a href="commuContentsListSearch.commu?post_id=<%=commuDTO.getPost_id()%>">
 						<img class="commu-contents-list___002"
 						src="upload/<%=commuDTO.getImg_url()%>" id="bodyContentsImage">
 					</a>
+					<%
+					}
+					else
+					{ 
+					%>
+					<a href="commuContents.commu?post_id=<%=commuDTO.getPost_id()%>">
+						<img class="commu-contents-list___002"
+						src="upload/5.png" id="bodyContentsImage">
+					</a>
+                     <%
+					}
+                     %>
+					
 
 					<!--              좋아요 아이콘  -->
 					<button type="button" id="bodyLikeIcon">
@@ -170,13 +199,13 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					}
 					%>
 					<!--             댓글 -->
-					<div id="commentNum" class="commu-contents-list___3"><%=commuDTO.getComment_cnt()%></div>
+<%-- 					<div id="commentNum" class="commu-contents-list___3"><%=commuDTO.getComment_cnt()%></div> --%>
 
 					<!--            댓글 이미지 -->
-					<button type="button" id="bodycomment">
-						<img class="commu-contents-list__text-box-1"
-							src="commuContentsList/text-box-1.png" />
-					</button>
+<!-- 					<button type="button" id="bodycomment"> -->
+<!-- 						<img class="commu-contents-list__text-box-1" -->
+<!-- 							src="commuContentsList/text-box-1.png" /> -->
+<!-- 					</button> -->
 				</div>
 
 			</form>
