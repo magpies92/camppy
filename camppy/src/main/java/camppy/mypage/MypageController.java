@@ -8,10 +8,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.camppy.dto.DetailDTO;
 
+import camppy.main.action.CampRegDTO;
+import camppy.main.action.CampRegService;
 import camppy.main.action.PageDTO;
+import camppy.member.MemberDTO;
+import camppy.member.MemberService;
 import camppy.mypage.MypageService;
 
 public class MypageController extends HttpServlet {
@@ -91,7 +96,7 @@ public class MypageController extends HttpServlet {
 			List<LikeDTO> likeList = mypageService.getLikeList(pageDTO);
 			
 			//DetailDTO = getDetail(request) 메서드 호출
-			//mypageService.getHeartsCount(request);
+			mypageService.getHeartsCount(request);
 			
 			//게시판 전체 글 개수 구하기
 			int count=mypageService.getLikeCount(pageDTO);
@@ -130,6 +135,26 @@ public class MypageController extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("myLikeList/myLikeList.jsp");
 			dispatcher.forward(request, response);	
 		}//likeList.my
+		
+		
+		if(sPath.equals("/insertLike.my")) {
+			System.out.println("주소 비교: /insertLike.my");
+			
+			request.setCharacterEncoding("utf-8");
+			
+			//MypageService 객체 생성
+			mypageService = new MypageService();
+			
+			//insertLike(request) 메서드 호출
+			mypageService.insertLike(request);
+			
+			//주소 변경되면서 likeList.my 이동
+			response.sendRedirect("likeList.my");
+		}
+		
+		
+		
+		
 		
 		
 		

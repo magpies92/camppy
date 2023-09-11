@@ -45,7 +45,7 @@
   font: 800 32px/18px "NanumGothic", sans-serif;
   position: absolute;
   left: 60px;
-  top: 22px;
+  top: 30px;
   width: 183px;
   height: 69px;
   display: flex;
@@ -92,8 +92,8 @@
   text-align: left;
   font: 400 30px/18px "NanumGothic", sans-serif;
   position: relative;
-  width: 1419px;
-  height: 42px;
+  width: 1468px;
+  height: 129px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -122,12 +122,12 @@
 .questionContentsE {
   color: #000000;
   text-align: left;
-  font: 400 30px/18px "NanumGothic", sans-serif;
+  font: 400 24px/18px "NanumGothic", sans-serif;
   position: absolute;
-  left: 1095px;
-  top: -43px;
-  width: 105px;
-  height: 38px;
+  left: 1134px;
+  top: -36px;
+  width: 72px;
+  height: 27px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
