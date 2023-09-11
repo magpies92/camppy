@@ -16,6 +16,24 @@
 <!-- <link rel="stylesheet" href="css/insert.css" type="text/css" > -->
 <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 <style>
+ a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+      }
+      
 div {
 	display: block;
 }
@@ -140,23 +158,7 @@ label {
 	flex: 1;
 }
 
- 	   a, 
-       button, 
-       input, 
-       select, 
-       h1, 
-       h2, 
-       h3, 
-       h4, 
-       h5, 
-       * {
-        margin: 0; */
-         padding: 0; */
-         border: none; 
-         text-decoration: none; 
-         appearance: none; 
-         background: none; 
-      }
+ 	   
        table {
     /* width: 400px;
     height: 200px; */

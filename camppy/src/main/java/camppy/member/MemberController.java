@@ -100,7 +100,17 @@ public class MemberController extends HttpServlet{
 				session.setAttribute("memberid", memberDTO.getMember_id());
 				session.setAttribute("nickname", memberDTO.getNick());
 				// 주소 변경하면서 이동 -> 가상주소 main.me 이동 
-				response.sendRedirect("main.camp");
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script type='text/javascript'>");
+				out.println("setTimeout(function() {\r\n"
+						+ "				    opener.location.reload(); //부모창 리프레쉬\r\n"
+						+ "				    self.close(); //현재창 닫기\r\n"
+						+ "				    });");
+				out.println("</script>");
+				/* out.close(); */
+				
+				 
 			}else {
 			// 아이디 비밀번호 틀림 -> 아이디 , 비밀번호 틀림 , 뒤로이동
 				System.out.println(memberDTO);

@@ -58,28 +58,6 @@ public class MypageService {
 		}
 		return count;
 	}//getLikeCount()
-
-
-	public void getHeartsCount(HttpServletRequest request) {
-		System.out.println("MypageService getHeartsCount()");
-		
-		try {
-			//request 한글 처리
-			request.setCharacterEncoding("utf-8");
-			
-			//request 파라미터 가져오기 -> int campid
-			int campId = Integer.parseInt(request.getParameter("campId"));
-			
-			//LikeDAO 객체 생성
-			//getHeartsCount(campid) 메서드 호출
-			likeDAO=new LikeDAO();
-			likeDAO.getHeartsCount(campId);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
 	
 	
 	public void insertLike(HttpServletRequest request) {

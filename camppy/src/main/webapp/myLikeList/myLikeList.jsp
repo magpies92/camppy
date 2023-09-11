@@ -1,6 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="camppy.main.action.PageDTO"%>
 <%@page import="camppy.mypage.LikeDTO"%>
+<%@page import="camppy.mypage.LikeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,6 +31,7 @@
   PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
   List<LikeDTO> likeList = (List<LikeDTO>)request.getAttribute("likeList");
   LikeDTO likeDTO = new LikeDTO();
+  LikeDAO likeDAO = new LikeDAO();
   String id=(String)session.getAttribute("id"); 
   
   request.setCharacterEncoding("UTF-8");
@@ -43,7 +45,7 @@
 		<!-- 	<input type="button" value="글쓰기" onclick="popupInsert();" -->
 		<!-- 		class="buttonInsert" /> -->
 		<button type="button" onclick="selectedDel();" class="selectDel">
-			<div>선택삭제</div> 
+			<div>선택해제</div> 
 		</button>
 		<label class="selectAll"> <b>전체선택</b>&nbsp;<input
 			type="checkbox" class="selectCheck" id="cboxAll">
@@ -75,13 +77,14 @@
             
               <div class="likeTitle">
               <img src="myLikeList/hearts.png" class=hearts>
-			  <div class="likeNum"><%=likeDTO.getMember_id()%></div>
+			  <div class="likeNum"><%=likeDAO.getlikecount(likeDTO.getCamp_id())%></div>
 			  </div>
 			  </div>
 <!-- 			  //선택삭제 -->
 			  <div class="eachCheck">
              <input type="checkbox" name="cbox" class="eachCheckbox"
-            value="<%=likeDTO.getCamp_id() %>"></div> 
+            value="<%=likeDTO.getCamp_like_id() %>"></div> 
+            
           
           
           <%
@@ -182,12 +185,12 @@
         });
 
         if (campLikeIds.length === 0) {
-            alert("삭제할 캠핑장을 선택하세요.");
+            alert("해제 할 캠핑장을 선택하세요.");
             return;
         }
 
         // 사용자에게 삭제 여부를 확인하는 대화 상자 표시
-        var confirmMessage = "선택한 캠핑장을 삭제하시겠습니까?";
+        var confirmMessage = "선택한 캠핑장을 해제 하시겠습니까?";
         if (confirm(confirmMessage)) {
             $.ajax({
                 type : "POST",
@@ -205,7 +208,7 @@
                         }
                         location.reload();
                     } else {
-                        alert("삭제 실패");
+                        alert("해제 실패");
                     }
                 },
                 error : function(xhr, status, error) {

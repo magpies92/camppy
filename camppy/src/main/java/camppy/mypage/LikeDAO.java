@@ -107,30 +107,7 @@ public class LikeDAO {
 	}//getLikeCount()
 	
 	
-	public void getHeartsCount(int campId) {
-		System.out.println("LikeDAO getHeartsCount()");
-		
-		
-		
-		try {
-			con = getConnection();
-			
-			String sql = "select count(member_id)\n"
-					+ "from camp_like\n"
-					+ "where camp_id=?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, campId);
-			
-			
-			
-			pstmt.executeQuery();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {dbClose();}
 	
-	}
-
 
 
 	public void insertLike(LikeDTO likeDTO) {
