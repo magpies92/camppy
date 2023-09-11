@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Pretendard-medium';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 .commu-insert, .commu-insert * {
 	box-sizing: border-box;
 }
@@ -77,7 +85,7 @@
 	top: 39.17px;
 	color: #000000;
 	text-align: center;
-	font: 500 31.33px "Inter", sans-serif;
+	font: 500 31.33px "Pretendard-medium", sans-serif;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -158,7 +166,7 @@
 .commu-insert__2 {
 	color: #b9b9b9;
 	text-align: left;
-	font: 700 31.33px "Inter", sans-serif;
+	font: 700 31.33px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 92.04px;
 	top: 154.71px;
@@ -174,7 +182,7 @@
 .commu-insert__3 {
 	color: #b9b9b9;
 	text-align: left;
-	font: 500 31.33px "Inter", sans-serif;
+	font: 500 31.33px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 92.04px;
 	top: 268.29px;
@@ -219,7 +227,7 @@
 .commu-insert__4 {
 	color: #4da385;
 	text-align: center;
-	font: 700 31.33px "Inter", sans-serif;
+	font: 700 31.33px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -247,7 +255,7 @@ background: #4da385;
 .commu-insert__5 {
 	color: #ffffff;
 	text-align: center;
-	font: 700 31.33px "Inter", sans-serif;
+	font: 700 31.33px "Pretendard-medium", sans-serif;
 	position: relative;
 	width: 141px;
 	display: flex;

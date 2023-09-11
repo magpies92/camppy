@@ -71,7 +71,7 @@
 .section-footer__link {
   color: #ffffff;
   text-align: center;
-  font: 400 12.73px/27.42px "NanumGothic", sans-serif;
+  font: 400 12.73px/27.42px "pretendard-medium", sans-serif;
   position: absolute;
   left: 15.18px;
   top: 3.92px;
@@ -144,7 +144,7 @@
 .section-footer__button {
   color: #d0d0d0;
   text-align: center;
-  font: 400 12.73px/37.21px "Inter", sans-serif;
+  font: 400 12.73px/37.21px "pretendard-medium", sans-serif;
   position: relative;
   width: 146.88px;
   height: 39.17px;
@@ -167,7 +167,7 @@
 .section-footer__ {
   color: #d0d0d0;
   text-align: center;
-  font: 400 12.73px/37.21px "Inter", sans-serif;
+  font: 400 12.73px/37.21px "pretendard-medium", sans-serif;
   position: relative;
   width: 146.88px;
   height: 37.21px;
@@ -206,7 +206,7 @@
 .section-footer___109-7 {
   color: #c0c0c0;
   text-align: left;
-  font: 400 12.73px/21.54px "NanumGothic", sans-serif;
+  font: 400 12.73px/21.54px "pretendard-medium", sans-serif;
   position: relative;
   width: 481.75px;
   height: 35.25px;
@@ -217,7 +217,7 @@
 .section-footer__email-camppy-itwillbs-co-kr {
   color: #c0c0c0;
   text-align: left;
-  font: 400 12.73px/21.54px "NanumGothic", sans-serif;
+  font: 400 12.73px/21.54px "pretendard-medium", sans-serif;
   position: absolute;
   left: 0px;
   top: 31.33px;
@@ -229,16 +229,16 @@
 }
 .section-footer-email-camppy-itwillbs-co-kr-span {
   color: #c0c0c0;
-  font: 400 12.73px/21.54px "NanumGothic", sans-serif;
+  font: 400 12.73px/21.54px "pretendard-medium", sans-serif;
 }
 .section-footer-email-camppy-itwillbs-co-kr-span2 {
   color: #c0c0c0;
-  font: 400 12.73px/21.54px "NanumGothic", sans-serif;
+  font: 400 12.73px/21.54px "pretendard-medium", sans-serif;
 }
 .section-footer__copyrights-c-2018-korea-tourism-organization-all-rights-reserved {
   color: #c0c0c0;
   text-align: left;
-  font: 400 12.73px/21.54px "NanumGothic", sans-serif;
+  font: 400 12.73px/21.54px "pretendard-medium", sans-serif;
   position: absolute;
   left: 0px;
   top: 61.69px;
@@ -251,7 +251,7 @@
 .section-footer___051-803-0909 {
   color: #c0c0c0;
   text-align: left;
-  font: 400 12.73px/21.54px "NanumGothic", sans-serif;
+  font: 400 12.73px/21.54px "pretendard-medium", sans-serif;
   position: absolute;
   left: 217.38px;
   top: 35.25px;
@@ -264,7 +264,7 @@
 .section-footer__tel-051-803-0909-10-00-18-00 {
   color: #c0c0c0;
   text-align: left;
-  font: 400 12.73px/21.54px "NanumGothic", sans-serif;
+  font: 400 12.73px/21.54px "pretendard-medium", sans-serif;
   position: absolute;
   left: 491.54px;
   top: -3.92px;
