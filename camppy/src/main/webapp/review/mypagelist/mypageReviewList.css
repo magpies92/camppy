@@ -664,30 +664,35 @@ div.tab.active {
 	flex-wrap: nowrap;
 	align-items: center;
 }
- .pagination {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-        left: 940px;
-    }
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px;
+	left: 940px;
+}
 
 .pagination a {
-        text-decoration: none;
-        padding: 8px 16px;
-        margin: 0 4px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        color: #333;
-        transition: background-color 0.3s, color 0.3s;
-    }
+	text-decoration: none;
+	padding: 8px 16px;
+	margin: 0 4px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	transition: background-color 0.3s, color 0.3s;
+}
 
-    .pagination a.active {
-        background-color: #333;
-        color: #fff;
-    }
+.pagination a.active {
+	background-color: #4da285;
+	color: white;
+}
 
-    .pagination a:hover {
-        background-color: #333;
-        color: #fff;
-          }
+.pagination a:hover {
+	background-color: #333;
+	color: #fff;
+}
+
+#tab3 {
+	color: lightseagreen;
+}
