@@ -2,6 +2,16 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="com.camppy.dto.DetailDTO"%>
+<%@page import="camppy.member.MemberDTO"%>
+<%@page import="camppy.member.MemberDAO"%>
+<%@page import="camppy.member.MemberService"%>
+<%@page import="camppy.mypage.MypageService"%>
+<%@page import="camppy.mypage.LikeDAO"%>
 
 <%@page import="com.camppy.dto.DetailDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -42,8 +52,17 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	String camp_addr = detailDTO.getCamp_addr();
 	String id = (String) session.getAttribute("id");
 // 	int camp_id= (int) request.getAttribute("camp_id");
-	int camp_id = 2;
+MemberDTO memberDTO = new MemberDTO();
+MemberService memberService = new MemberService();
+if (id != null){
+memberDTO = memberService.getMember(id);
+}
+MypageService mypageService= new MypageService();
+LikeDAO likeDAO = new LikeDAO();
+	int camp_id = detailDTO.getCamp_id();
 	%>
+	
+	
 
 	<!-- 페이지 전체 -->
 	<div class="campInfo">
@@ -57,8 +76,16 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				<div class="campReport"><%=detailDTO.getShort_intro()%></div>
 			</div>
 			<!-- 예약하기 버튼 -->
-			<input type="button" value="예약하기" class="bannerRsButton"
-				onclick="location.href='reserve_detail.re?campId=<%=detailDTO.getCamp_id()%>'">
+			<%
+if(id != null){
+	%>
+	<input type="button" value="예약하기" class="bannerRsButton"
+           onclick="location.href='reserve_detail.re?campId=<%=detailDTO.getCamp_id() %>'" >  
+	<%
+}
+	
+%>              
+   
 		</div>
 		<!-- 캠핑장명 및 예약하기 버튼 있는 헤더 닫기 -->
 
@@ -207,9 +234,22 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 							%>
 							<!-- </div> -->
 						</div>
-						<span class="unLikeButton" style="display: inline;"
-							onclick="likeButton(this)">찜하기</span> <span class="likeButton"
-							style="display: none;" onclick="unLikeButton(this)">찜하기</span>
+						<%
+if(id != null){
+	if(likeDAO.checklike(detailDTO.getCamp_id(), memberDTO.getMember_id()) == 0){
+	%>
+	<input type = "button" class="unLikeButton" style="display: inline;" onclick="likeButton(this)" value="찜 <%=likeDAO.getlikecount(detailDTO.getCamp_id()) %>">
+       <input type ="button" class="likeButton" style="display: none;" onclick="unLikeButton(this)" value="찜 <%=likeDAO.getlikecount(detailDTO.getCamp_id()) %>">
+	
+	<%}else{ %>
+	<input type ="button" class="unLikeButton" style="display: none;" onclick="likeButton(this)" value="찜 <%=likeDAO.getlikecount(detailDTO.getCamp_id()) %>">
+       <input type ="button" class="likeButton" style="display: inline;" onclick="unLikeButton(this)" value="찜 <%=likeDAO.getlikecount(detailDTO.getCamp_id()) %>">
+       
+    
+	<%}
+}
+	
+%>
 					</div>
 				</div>
 				<!--캠핑장 메인 정보 닫기-->
@@ -238,8 +278,8 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				%>
 				<div class="reviewTop">
 					<div class="reviewCount">이용후기</div>
-					<input type="button" value="글쓰기" onclick="location.href='insertReview.rv'"
-						class="buttonInsert" />
+					<!-- <input type="button" value="글쓰기" onclick="location.href='insertReview.rv'"
+						class="buttonInsert" /> -->
 				</div>
 				<%
 				int pageSize = 5; // 한 페이지에 표시될 레코드 수
@@ -351,41 +391,67 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	<jsp:include page="/inc/bottom.jsp"></jsp:include>
 	<!-- 푸터들어가는 곳 -->
 
-	<script type="text/javascript">
-					function likeButton(e){ // e -> (this)의 정보를 여기로 전달하겠다
-					 	var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
-					 	var id = "<%=id%>
-		";
-	<%-- String으로 들고 와서 "" 붙여야 됨 --%>
-		if (id == "null") {
-	<%-- String으로 들고 와서 "" 붙여야 됨 --%>
-		alert("로그인 후 사용할 수 있습니다");
-				location.href = "${sPath}/camppy/login.me";
+	
+					
+	<script type="text/javascript" src="script/jquery-3.7.0.js"></script>
+	 <script type="text/javascript">
+	 likecount = <%=likeDAO.getlikecount(detailDTO.getCamp_id()) %>;
+	 function likeButton(e){ // e -> (this)의 정보를 여기로 전달하겠다
+	 	var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+	 	var memberid = <%=memberDTO.getMember_id()%>;
+	 	var campid= <%=detailDTO.getCamp_id()%>;
+	 	likecount++;
+	 
+		
+	 			document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
+	 			document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
+	 			document.getElementsByClassName('unLikeButton')[i].value = "찜 "+likecount;
+	 			document.getElementsByClassName('likeButton')[i].value = "찜 "+likecount;
+	 			$.ajax({
+	 		         type : "POST",
+	 		         url : "insertLike.my",
+	 		         data: {'member_id':memberid,'camp_id':campid},
+	 		        /*  contentType: "application/json",
+	 		         dataType: "json",  */
+	 		          /* success : function (data, status) {
+	 		            alert(status);
+	 		         },
+	 		         error : function (status) {
+	 		            alert(status + "error!");
+	 		         }  */
+	 		     });
+	 
+	    }
+	 
+	 // 즐겨찾기 해제!!
+	 function unLikeButton(e){
+	    var i = $(".likeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+	    var memberid = <%=memberDTO.getMember_id()%>;
+	 	var campid= <%=detailDTO.getCamp_id()%>;
+	 	likecount--;
+	 	
+	    document.getElementsByClassName('unLikeButton')[i].style.display = "inline"; // 즐겨찾기 취소 버튼 비활성화
+	    document.getElementsByClassName('likeButton')[i].style.display = "none"; // 즐겨찾기 추가 버튼 활성화
+	    document.getElementsByClassName('unLikeButton')[i].value = "찜 "+likecount;
+			document.getElementsByClassName('likeButton')[i].value = "찜 "+likecount;
+	   $.ajax({
+	 		         type : "POST",
+	 		         url : "deleteLike.my",
+	 		         data: {'member_id':memberid,'camp_id':campid}, 
+	 		        /* success : function (data, status) {
+	 		            alert(status);
+	 		         },
+	 		         error : function (status) {
+	 		            alert(status + "error!");
+	 		         }  */
+	 		     }); 
+	 
+	    } 
 
-			} else {
-				alert("찜하기 목록으로 가시겠습니까?");
-				//document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
-				document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
-			}
-
-		}
-		// 즐겨찾기 해제
-		function unLikeButton(e) {
-			var i = $(".likeButton").index(e); // 같은 클래스 내 index 값을 가져옴
-			document.getElementsByClassName('unLikeButton')[i].style.display = "inline"; // 즐겨찾기 취소 버튼 비활성화
-			document.getElementsByClassName('likeButton')[i].style.display = "none"; // 즐겨찾기 추가 버튼 활성화
-		}
-
-		function popupInsert() {
-			var camp_id =<%=camp_id%>
-			var id =<%=id%>
-		; // JSP 변수를 JavaScript 변수로 가져옴
-			var url = "review/insert/reviewInsert.jsp?camp_id=" + camp_id;
-			var name = "reviewInsert";
-			var option = "width = 710, height = 730, top= 100, left= 500";
-			window.open(url, name, option);
-		}
-
+	 
+	 
+					
+					
 		function updateRow(button) {
 			var row = button.closest(".campinfoRow");
 			var contentsElement = row.querySelector(".reviewContents1");

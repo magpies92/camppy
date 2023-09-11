@@ -41,7 +41,9 @@ DetailDTO detailDTO=(DetailDTO)request.getAttribute("detailDTO");
 String id=(String)session.getAttribute("id");
 MemberDTO memberDTO = new MemberDTO();
 MemberService memberService = new MemberService();
+if (id != null){
 memberDTO = memberService.getMember(id);
+}
 MypageService mypageService= new MypageService();
 LikeDAO likeDAO = new LikeDAO();
 %>
@@ -242,7 +244,7 @@ if(id != null){
 
 <!-- 카테고리 링크 -->
  <div class="infoLinkList">
-   <div class="infoLink1">캠핑장소개<%=likeDAO.checklike(detailDTO.getCamp_id(), memberDTO.getMember_id()) %></div>
+   <div class="infoLink1">캠핑장소개</div>
    <!-- <div class="infoLink2">위치/주변정보</div> -->
    <input type="button" value="위치/주변정보" class="infoLink2"
            onclick="location.href='position.de?campId=<%=detailDTO.getCamp_id() %>'" >

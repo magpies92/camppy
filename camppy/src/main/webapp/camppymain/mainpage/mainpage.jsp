@@ -100,7 +100,8 @@
            
            //int res_id = Integer.parseInt(request.getParameter("res_id"));
             ReserveDetailDAO reserveDetailDAO = new ReserveDetailDAO();
-			//ReserveDetailDTO reserveDetailDTO = reserveDetailDAO.getDetailres(res_id);
+            CampRegDAO campregDAO = new CampRegDAO();
+		
            %>
 
 <jsp:include page="/inc/top.jsp"/>
@@ -117,7 +118,7 @@
             <div class="mainpage__div-search-title">
               <div class="mainpage__div-search-text">
                 <div class="mainpage___3657">
-                  캠피 는 관광사업자에 등록된 3657개의 캠핑장 정보를 볼 수
+                  캠피는 등록된 <%=campregDAO.getCampRegCount()%>개의 캠핑장 정보를 볼 수
                   있습니다.
                 </div>
                 <div class="mainpage__">캠핑장 정보</div>
