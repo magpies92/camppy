@@ -88,6 +88,7 @@ public class MypageController extends HttpServlet {
 			pageDTO.setPageSize(pageSize);
 			pageDTO.setPageNum(pageNum);
 			pageDTO.setCurrentPage(currentPage);
+			pageDTO.setMemberid(id);
 
 			// BoardService 객체 생성
 			mypageService = new MypageService();
@@ -95,7 +96,7 @@ public class MypageController extends HttpServlet {
 			List<LikeDTO> likeList = mypageService.getLikeList(pageDTO);
 
 			// DetailDTO = getDetail(request) 메서드 호출
-			mypageService.getHeartsCount(request);
+			//mypageService.getHeartsCount(request);
 
 			// 게시판 전체 글 개수 구하기
 			int count = mypageService.getLikeCount(pageDTO);

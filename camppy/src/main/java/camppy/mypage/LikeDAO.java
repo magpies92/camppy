@@ -41,7 +41,7 @@ public class LikeDAO {
 	}//dbClose()
 	
 
-	public List<LikeDTO> getLikeList(PageDTO pageDTO) {
+	public List<LikeDTO> getLikeList(PageDTO pageDTO, LikeDTO likeDTO) {
 		System.out.println("LikeDAO getLikeList()");
 		List<LikeDTO> likeList = null;
 		LikeDTO likeDTO = null;
@@ -58,8 +58,8 @@ public class LikeDAO {
 					+ "					limit ?, ?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, likeDTO.getMember_id());
-			pstmt.setInt(1, pageDTO.getStartRow()-1);//시작행-1
-			pstmt.setInt(2, pageDTO.getPageSize());//몇 개
+			pstmt.setInt(2, pageDTO.getStartRow()-1);//시작행-1
+			pstmt.setInt(3, pageDTO.getPageSize());//몇 개
 			rs=pstmt.executeQuery();
 			System.out.println("rs1"+rs);
 			likeList=new ArrayList<>();
