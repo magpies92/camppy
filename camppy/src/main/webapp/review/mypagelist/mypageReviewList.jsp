@@ -28,6 +28,36 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 <body>
 
+<!--  헤더 -->
+<jsp:include page="/inc/top.jsp"></jsp:include>
+<!--  헤더 -->
+<!-- 프로필 부분 -->
+<div class="mypageProfile">
+		<img class="mypageUserIcon" src="free-icon-user-8484069-2.png" />
+		<div class="profileNickname">발레하는 감자</div>
+		<button type="button" onclick="location.href = 'update.me'"
+			class="updateButton">
+			<div class="updateProfile">프로필수정</div>
+		</button>
+		<div class="mypageProfileNum">
+			<div class="myArticle">작성글</div>
+			<div class="myArticleNum">3</div>
+			<div class="myReply">댓글</div>
+			<div class="myReplyNum">6</div>
+		</div>
+	</div>
+	<div class="mypageNavi">
+		<div class="tab" id="tab1" onclick="location.href='likeList.my'" >찜 리스트</div>
+		<div class="tab" id="tab2" onclick="location.href='myCommutList.commu'">작성한 글</div>
+		<div class="tab" id="tab3" onclick="location.href='mypageReviewList.rv'">작성 리뷰</div>
+		<div class="tab" id="tab4" onclick="location.href='mypage_reserve.re'">예약 내역</div>
+	</div>
+	
+
+<!-- 프로필 부분 -->
+
+
+
 	<div class="reviewTop">
 		<div class="reviewCount">리뷰</div>
 		<!-- 	<input type="button" value="글쓰기" onclick="popupInsert();" -->
@@ -150,6 +180,18 @@ while (rs.next()) {
 
 				</div>
 
+
+<!-- 푸터 -->
+<jsp:include page="/inc/bottom.jsp"></jsp:include>
+
+<!-- 푸터 -->
+
+
+
+
+
+
+
 	<script>
 		// 	//글쓰기용 팝업버튼
 		// 	function popupInsert() {
@@ -214,7 +256,7 @@ while (rs.next()) {
 			}
 
 			$.ajax({
-				url : "../update/updateReviewList.jsp",
+				url : "review/update/updateReviewList.jsp",
 				method : "POST",
 				data : {
 					review_id : reviewId,

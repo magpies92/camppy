@@ -96,7 +96,6 @@ public class QuestionController extends HttpServlet{
 			}//
 			
 			
-			
 			if(sPath.equals("/write.qu")) {
 				HttpSession session = request.getSession();
 				String id = (String)session.getAttribute("id");
@@ -105,7 +104,7 @@ public class QuestionController extends HttpServlet{
 				MemberDTO  memberDTO =memberService.getMember(id);
 				request.setAttribute("memberDTO", memberDTO);
 				
-				// 주소변경없이 이동 notice/noticeInsert/noticeInsert.jsp
+				// 주소변경없이 이동 notice/questionInsert/questionInsert.jsp
 				dispatcher = request.getRequestDispatcher("notice/questionInsert/questionInsert.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -151,7 +150,7 @@ public class QuestionController extends HttpServlet{
 			}
 			if(sPath.equals("/updatePro.qu")) {
 				System.out.println("뽑은 가상주소 비교 : /updatePro.qu");
-				// noticeService 객체생성
+				// questionService 객체생성
 				questionService = new QuestionService();
 				questionService.updateQuestion(request);
 				response.sendRedirect("list.qu");
@@ -161,7 +160,7 @@ public class QuestionController extends HttpServlet{
 			
 			if(sPath.equals("/delete.qu")) {
 				System.out.println("뽑은 가상주소 비교 : /delete.qu");
-				// noticeService 객체생성
+				// questionService 객체생성
 				questionService = new QuestionService();
 				questionService.deleteQuestion(request);
 				response.sendRedirect("list.qu");

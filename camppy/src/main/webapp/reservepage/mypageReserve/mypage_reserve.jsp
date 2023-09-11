@@ -413,7 +413,9 @@ div.tab.active {
 display: contents;
 
     }
-  
+  #tab4 {
+	color: lightseagreen;
+}
   
 
 </style>
@@ -442,15 +444,11 @@ display: contents;
 	</div>
 	<div class="mypageNavi">
 		<div class="tab" id="tab1" onclick="location.href='likeList.my'" >찜 리스트</div>
-		<div class="tab" id="tab2">작성한 글</div>
-		<div class="tab" id="tab3">작성 리뷰</div>
+		<div class="tab" id="tab2" onclick="location.href='myCommutList.commu'">작성한 글</div>
+		<div class="tab" id="tab3" onclick="location.href='mypageReviewList.rv'">작성 리뷰</div>
 		<div class="tab" id="tab4" onclick="location.href='mypage_reserve.re'">예약 내역</div>
 	</div>
-	<div class="tabContents" id="contentContainer">
-		<!— The content from tab1 (star.html) will be displayed here by default —>
-
-	</div>
-
+	
 
 <%
  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 

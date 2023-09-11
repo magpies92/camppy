@@ -108,7 +108,7 @@ public class CampRegDAO {
 					+ "from camp join camp_addr\r\n"
 					+ "on camp.camp_id = camp_addr.camp_id\r\n"
 					+ "where  concat(camp.camp_type,camp.camp_type,camp.intro,camp.runtime,camp.season,camp.facility,camp.tel,camp.environment,camp.short_intro) like ? \r\n"
-					+ "and camp_addr.do_nm like ? and camp_addr.sigungu_nm like ?  order by camp.camp_id desc limit ?, ?";
+					+ "or camp_addr.do_nm like ? or camp_addr.sigungu_nm like ?  order by camp.camp_id desc limit ?, ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+pageDTO.getSearch()+"%");
 			pstmt.setString(2, "%"+pageDTO.getSido()+"%");//시작행-1

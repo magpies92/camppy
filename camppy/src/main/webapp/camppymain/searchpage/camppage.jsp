@@ -105,9 +105,7 @@ List<CampRegDTO> campregList
 
 PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 %>
-    <div class="mainpage">
-  <div class="mainpage__section-total">
-    <form action="listSearch.camp" method="post" class="mainpage__search-box-frame">
+<form action="listSearch.camp" method="post" class="mainpage__search-box-frame">
       <div class="mainpage__search-box">
         <div class="mainpage__searchbox-form">
           <div class="mainpage__form-1">
@@ -130,6 +128,10 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
         </div>
       </div>
     </form>
+    <div class="mainpage">
+     
+  <div class="mainpage__section-total">
+   
     <div class="mainpage__popular-info">
     <table>
     <tr>
@@ -151,20 +153,36 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
     }
     %>
     </table>
-      <div class="mainpage__list">
-        <img
+      
+  </div>
+ 
+    </div>
+  <div class="mainpage__list">
+       <!--  <img
           class="mainpage__item-link-btn-pre-00-png"
           src="camppymain/searchpage/item-link-btn-pre-00-png.png"
         /><img
           class="mainpage__item-link-btn-pre-01-png"
           src="camppymain/searchpage/item-link-btn-pre-01-png.png"
-        />
+        /> -->
+       
+       <!--   <div class="mainpage__item">
+          <div class="mainpage__link-1">1</div>
+        </div>
+        
+        <img
+          class="mainpage__item-link-btn-next-01-png"
+          src="camppymain/searchpage/item-link-btn-next-01-png.png"
+        /><img
+          class="mainpage__item-link-btn-next-00-png"
+          src="camppymain/searchpage/item-link-btn-next-00-png.png"
+        />-->
         <%
 // 시작페이지 1페이지 Prev 없음
 // 시작페이지 11,21,31 Prev 보임
 if(pageDTO.getStartPage() > pageDTO.getPageBlock()){
 	%>
-	<a href="list.camp?pageNum=<%=pageDTO.getStartPage()-pageDTO.getPageBlock()%>">Prev</a>
+	<a href="list.camp?pageNum=<%=pageDTO.getStartPage()-pageDTO.getPageBlock()%>" >Prev</a>
 	<%
 }
 %> 
@@ -185,23 +203,10 @@ if(pageDTO.getEndPage() < pageDTO.getPageCount()){
 	<%
 }
 %>
-       <!--  <div class="mainpage__item">
-          <div class="mainpage__link-1">1</div>
-        </div>
-        
-        <img
-          class="mainpage__item-link-btn-next-01-png"
-          src="camppymain/searchpage/item-link-btn-next-01-png.png"
-        /><img
-          class="mainpage__item-link-btn-next-00-png"
-          src="camppymain/searchpage/item-link-btn-next-00-png.png"
-        />
-      </div>
-      <!-- <div class="mainpage__5">인기순</div> -->
-    </div>
-  </div>
+      </div> 
+  
 </div>
-</div>
+ 
 
     <jsp:include page="/inc/bottom.jsp"/>
   </body>
