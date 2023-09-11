@@ -30,7 +30,8 @@
 	left: 340px;
 	border-bottom: solid;
 	border-width: 1px;
-	margin-bottom: 16px;
+	margin-bottom: 20px;
+	transform: scale(1.2);
 }
 
 .reviewCount {
@@ -117,6 +118,7 @@
 	position: relative;
 	margin-top: 10px;
 	left: 340px;
+	transform: scale(1.2);
 }
 
 .campinfoStar {
@@ -231,7 +233,7 @@
 	width: 930.21px;
 	height: 30.35px;
 	position: absolute;
-	left: 160px;
+	left: 205px;
 	top: 45px;
 }
 
@@ -282,7 +284,7 @@
 	flex-shrink: 0;
 	position: absolute;
 	left: 800px;
-	top: 10px;
+/* 	top: 10px; */
 }
 
 .buttonCancel {
@@ -294,7 +296,7 @@
 	flex-shrink: 0;
 	position: absolute;
 	left: 850px;
-	top: 10px;
+/* 	top: 10px; */
 	display: none;
 }
 
@@ -318,7 +320,7 @@
 	flex-shrink: 0;
 	position: absolute;
 	left: 1135px;
-	top: 35px;
+	top: 40px;
 }
 
 .moreList {
@@ -695,4 +697,7 @@ div.tab.active {
 
 #tab3 {
 	color: lightseagreen;
+}
+.reviewContents {
+	transform:scale(1.1)
 }
