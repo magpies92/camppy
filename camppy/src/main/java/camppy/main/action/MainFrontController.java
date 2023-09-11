@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+import com.notice.dto.NoticeDTO;
+import com.notice.dto.NoticePageDTO;
+import com.notice.service.NoticeService;
 
 //import camppy.main.action.CampRegDTO;
 import camppy.main.action.PageDTO;
@@ -49,6 +51,16 @@ public class MainFrontController extends HttpServlet {
 			HttpSession session = request.getSession();
 			// "id" 세션값 가져오기=> String id 변수 저장
 			String id = (String)session.getAttribute("id");
+			
+			NoticeService noticeService= new NoticeService();
+			NoticePageDTO noticepageDTO = new NoticePageDTO();
+			noticepageDTO.setPageSize(1);
+			noticepageDTO.setCurrentPage(1);
+			List<NoticeDTO> noticeList=noticeService.getNoticeList(noticepageDTO);
+			
+			request.setAttribute("noticeList", noticeList);
+			
+			
 			// member/login.jsp 주소변경 없이 이동
 			dispatcher 
 		    = request.getRequestDispatcher("camppymain/mainpage/mainpage.jsp");

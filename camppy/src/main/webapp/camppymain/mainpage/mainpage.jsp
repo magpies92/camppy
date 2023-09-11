@@ -1,3 +1,5 @@
+<%@page import="com.notice.dto.NoticeDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="camppy.main.action.CampRegDTO" %>
@@ -158,7 +160,7 @@
             
           </div>
         </div>
-        <div class="mainpage__section-notice" onclick="location.href='list.no'">
+        <div class="mainpage__section-notice" >
           <div class="mainpage__notice-left">
             <div class="mainpage__div-notice-head">
               <div class="mainpage__5">공지사항</div>
@@ -168,18 +170,38 @@
           <div class="mainpage__notice-center">
             <div class="mainpage__notice-contents">
               <div class="mainpage__item-link">
-                <div class="mainpage__6">
+                <%
+List<NoticeDTO> noticeList = (List<NoticeDTO>)request.getAttribute("noticeList");
+SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
+
+    for(int i=0; i<noticeList.size(); i++){
+        NoticeDTO noticeDTO = noticeList.get(i);
+		%>
+        	<tr><td class="mainpage__6">
+        	<a href="content.no?notice_id=<%=noticeDTO.getNotice_id() %>">
+            <%= noticeDTO.getTitle() %></a></td>
+            <td class="mainpage__notice-date-link">
+                <%= format.format(noticeDTO.getCreate_date()) %></td></tr>
+		<%
+   		 }
+
+		%>
+
+              
+             <!--    <div class="mainpage__6">
                   고캠핑 홈페이지 개인정보 처리방침 변경 안내
-                </div>
+                </div> -->
+                
+                
               </div>
             </div>
           </div>
           <div class="mainpage__notice-right">
             <div class="mainpage__notice-etc">
-              <div class="mainpage__notice-date-link">Thu Jul 20</div>
+              <!-- <div class="mainpage__notice-date-link">Thu Jul 20</div> -->
               <img
                 class="mainpage__free-icon-zoom-in-9546602-1"
-                src="camppymain/mainpage/free-icon-zoom-in-9546602-1.png"
+                src="camppymain/mainpage/free-icon-zoom-in-9546602-1.png"onclick="location.href='list.no'"
               />
             </div>
           </div>
