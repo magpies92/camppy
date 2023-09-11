@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 
@@ -41,10 +42,11 @@ public class LikeDAO {
 	}//dbClose()
 	
 
-	public List<LikeDTO> getLikeList(PageDTO pageDTO, LikeDTO likeDTO) {
+	public List<LikeDTO> getLikeList(PageDTO pageDTO) {
 		System.out.println("LikeDAO getLikeList()");
+		
 		List<LikeDTO> likeList = null;
-		LikeDTO likeDTO = null;
+		
 		try {
 			con=getConnection();
 			System.out.println("rs");
@@ -57,14 +59,15 @@ public class LikeDAO {
 					+ "					order by cl.camp_like_id desc\n"
 					+ "					limit ?, ?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, likeDTO.getMember_id());
+			System.out.println("memberid="+ pageDTO.getMemberid());
+			pstmt.setInt(1, pageDTO.getMemberid());
 			pstmt.setInt(2, pageDTO.getStartRow()-1);//시작행-1
 			pstmt.setInt(3, pageDTO.getPageSize());//몇 개
 			rs=pstmt.executeQuery();
 			System.out.println("rs1"+rs);
 			likeList=new ArrayList<>();
 			while(rs.next()) {
-				likeDTO = new LikeDTO();
+				LikeDTO likeDTO = new LikeDTO();
 				likeDTO.setCamp_like_id(rs.getInt("camp_like_id"));
 				likeDTO.setCamp_id(rs.getInt("camp_id"));
 				likeDTO.setMember_id(rs.getInt("member_id"));

@@ -69,7 +69,9 @@ public class MypageController extends HttpServlet {
 
 		if (sPath.equals("/likeList.my")) {
 			System.out.println("가상주소 비교: /likeList.my");
-
+			HttpSession session = request.getSession();
+			int memberid= (int)session.getAttribute("memberid");
+			System.out.println("memberid="+memberid);
 			// 한 페이지에서 보여지는 글 개수 설정
 			int pageSize = 5;
 
@@ -83,12 +85,12 @@ public class MypageController extends HttpServlet {
 
 			// 페이지 번호 -> 정수형 변경
 			int currentPage = Integer.parseInt(pageNum);
-
+			
 			PageDTO pageDTO = new PageDTO();
 			pageDTO.setPageSize(pageSize);
 			pageDTO.setPageNum(pageNum);
 			pageDTO.setCurrentPage(currentPage);
-			pageDTO.setMemberid(id);
+			pageDTO.setMemberid(memberid);
 
 			// BoardService 객체 생성
 			mypageService = new MypageService();

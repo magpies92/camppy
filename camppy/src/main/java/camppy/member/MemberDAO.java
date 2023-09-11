@@ -128,6 +128,7 @@ public class MemberDAO {
 				memberDTO.setId(rs.getString("id"));
 				memberDTO.setPass(rs.getString("pass"));
 				memberDTO.setName(rs.getString("name"));
+				memberDTO.setMember_id(rs.getInt("member_id"));
 			}else{
 				//false 아이디 비밀번호 틀림, 뒤로이동
 				// 열접근 못함 => MemberDTO null 담아서 리턴
