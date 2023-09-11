@@ -256,7 +256,7 @@ while (rs.next()) {
 			}
 
 			$.ajax({
-				url : "../update/updateReviewList.jsp",
+				url : "review/update/updateReviewList.jsp",
 				method : "POST",
 				data : {
 					review_id : reviewId,
