@@ -378,9 +378,14 @@
   font: 700 16px "Inter", sans-serif;
    text-align: center;
 }
-.page_control {
+.pageControl {
 	color: #000000;
     text-align: center;
     font: 400 19.58px/17.62px "Inter", sans-serif;
     position: relative;
+    display: flex;
+    position: relative;
+    left: 878px;
+    margin: 20px;
+    gap: 50px;
 }
