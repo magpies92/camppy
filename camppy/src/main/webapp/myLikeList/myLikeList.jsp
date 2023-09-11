@@ -60,7 +60,7 @@
 <!--   <input type="checkbox" name="all" class="allCheckbox" id="cboxAll" -->
 <!--          style="margin-left: 1vw;"></label> -->
 	<div class="reviewTop">
-		<div class="reviewCount">리뷰</div>
+		<div class="reviewCount">찜 리스트</div>
 		<!-- 	<input type="button" value="글쓰기" onclick="popupInsert();" -->
 		<!-- 		class="buttonInsert" /> -->
 		<button type="button" onclick="selectedDel();" class="selectDel">
@@ -143,8 +143,6 @@
 	}
 	%>
 
-
-             <input type="button" value="삭제" class="bannerRsButton" onclick="selectedDel()" > 
          
           </div>
     </div>
