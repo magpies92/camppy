@@ -87,7 +87,7 @@ NoticePageDTO noticePageDTO = (NoticePageDTO)request.getAttribute("noticePageDTO
 <input type="button" value="글쓰기" class="writebtn" onclick="location.href='write.no'">
 
 <div class="clear"></div>
-<div id="page_control">
+<div id="pageControl">
 <%
 // 시작페이지 1페이지 Prev 없음
 // 시작페이지 11, 21, 31 Prev 보임 
