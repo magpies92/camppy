@@ -45,7 +45,7 @@
   font: 800 32px/18px "NanumGothic", sans-serif;
   position: absolute;
   left: 60px;
-  top: 22px;
+  top: 30px;
   width: 183px;
   height: 69px;
   display: flex;
@@ -92,11 +92,12 @@
   text-align: left;
   font: 400 30px/18px "NanumGothic", sans-serif;
   position: relative;
-  width: 1419px;
-  height: 42px;
+  width: 1468px;
+  height: 129px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  border-bottom: solid;
 }
 .noticeContentsD {
   color: #000000;
@@ -121,15 +122,16 @@
 .noticeContentsE {
   color: #000000;
   text-align: left;
-  font: 400 30px/18px "NanumGothic", sans-serif;
+  font: 400 24px/18px "NanumGothic", sans-serif;
   position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 195px;
-  height: 38px;
+  left: 1134px;
+  top: -70px;
+  width: 72px;
+  height: 27px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  border-right: solid;
 }
 .noticeContentsIconBox {
   display: flex;
@@ -200,6 +202,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  top: -72px;
 }
 .noticeContentsH {
   color: #000000;
