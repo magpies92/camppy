@@ -53,11 +53,11 @@ public class LikeDAO {
 					+ "					on c.camp_id = cl.camp_id\n"
 					+ "					left join camp_addr ca\n"
 					+ "					on c.camp_id = ca.camp_id\n"
-					+ "					where cl.member_id = 2\n"
+					+ "					where cl.member_id = ?\n"
 					+ "					order by cl.camp_like_id desc\n"
 					+ "					limit ?, ?";
 			pstmt=con.prepareStatement(sql);
-			//pstmt.setInt(1, likeDTO.getMember_id());
+			pstmt.setInt(1, likeDTO.getMember_id());
 			pstmt.setInt(1, pageDTO.getStartRow()-1);//시작행-1
 			pstmt.setInt(2, pageDTO.getPageSize());//몇 개
 			rs=pstmt.executeQuery();
@@ -120,12 +120,58 @@ public class LikeDAO {
 			
 			
 			
+			pstmt.executeQuery();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {dbClose();}
+	
+	}
+
+
+
+	public void insertLike(LikeDTO likeDTO) {
+		try {
+			con=getConnection();
+			String sql = "insert into camp_like(cmap_like_id, member_id, camp_id) values(?,?,?)";
+			pstmt=con.prepareStatement(sql);
+			
+			pstmt.setInt(1, likeDTO.getCamp_like_id());
+			pstmt.setInt(2, likeDTO.getMember_id());
+			pstmt.setInt(3, likeDTO.getCamp_id());
+			
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			dbClose();
 		}
-	
+	}
+
+
+
+	public int getMaxLikeId() {
+		int likeId=0;
+		try {
+			
+			con=getConnection();
+			
+			String sql = "select max(camp_like_id) from camp_like";
+			pstmt=con.prepareStatement(sql);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				likeId=rs.getInt("max(num)");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return likeId;
 	}
 	
 	

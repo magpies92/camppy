@@ -57,7 +57,10 @@
   PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
   List<LikeDTO> likeList = (List<LikeDTO>)request.getAttribute("likeList");
   LikeDTO likeDTO = (LikeDTO)request.getAttribute("likeDTO");
-/*   String id=(String)session.getAttribute("id"); */
+  String id=(String)session.getAttribute("id"); 
+  
+  request.setCharacterEncoding("UTF-8");
+ 
   %>
   <label class="allCheck"> <b>전체선택</b>&nbsp;
   <input type="checkbox" name="all" class="allCheckbox" id="cboxAll"
@@ -89,7 +92,8 @@
 			  </div>
 			  </div>
 			  <div class="eachCheck">
-             <input type="checkbox" name="cbox" class="eachCheckbox"></div> 
+             <input type="checkbox" name="cbox" class="eachCheckbox"
+            value="<%=likeDTO.getCamp_id() %>"></div> 
           
           
           <%
@@ -140,7 +144,7 @@
     
     
     <script type="text/javascript">
-    $(document).ready(function() {
+     $(document).ready(function() {
 	    // 전체선택 체크박스 클릭 시
 	    $("#cboxAll").on("click", function() {
 	        $("input:checkbox[name=cbox]").prop("checked", this.checked);
@@ -218,8 +222,11 @@
                 }
             });
         }
-    }
+    } 
+    
     </script>
+
+    
     
 <!-- 푸터들어가는 곳 -->
 <jsp:include page="/inc/bottom.jsp"></jsp:include>
