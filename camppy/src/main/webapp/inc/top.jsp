@@ -360,6 +360,8 @@
 //로그인 하면 => 로그인한 정보를 세션 저장
 // 세션에 로그인 정보 가져오기
 String id=(String)session.getAttribute("id");
+String nickname=(String)session.getAttribute("nickname");
+//Integer memberid=(Integer)session.getAttribute("memberid");
 // 세션에 로그인 정보가 없으면(null) => 로그인login, 회원가입join
 // 세션에 로그인 정보가 있으면 => ..님 로그아웃logout 회원수정update
 if(id == null){
@@ -380,7 +382,7 @@ if(id == null){
 	<%
 } %>
 
-  <div class="logout___000"><%=id %>님</div>
+  <div class="logout___000"><%=nickname %>님</div>
   <!-- <img
     class="login__free-icon-user-8484069-5"
     src="free-icon-user-8484069-5.png"

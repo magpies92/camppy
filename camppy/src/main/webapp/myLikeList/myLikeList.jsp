@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="myContentsList/myContentsList.css" />
+    <link rel="stylesheet" href="myLikeList/myLikeList.css" />
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<style>
       a,button, input,select, h1,h2,h3,h4,h5,
@@ -21,43 +21,15 @@
   <body>
   
 <!-- 헤더들어가는 곳 -->
-<jsp:include page="/inc/top.jsp"></jsp:include>
+<jsp:include page="/inc/top.jsp"/> 
+<jsp:include page="/inc/mypageInc.jsp"/>
 <!-- 헤더들어가는 곳 -->
-
-
-<!-- 마이페이지 헤더 들어가는 곳 -->
-<div class="mypageProfile">
-		<img class="mypageUserIcon" src="free-icon-user-8484069-2.png" />
-		<div class="profileNickname">발레하는 감자</div>
-		<button type="button" onclick="location.href = 'update.me'"
-			class="updateButton">
-			<div class="updateProfile">프로필수정</div>
-		</button>
-		<div class="mypageProfileNum">
-			<div class="myArticle">작성글</div>
-			<div class="myArticleNum">3</div>
-			<div class="myReply">댓글</div>
-			<div class="myReplyNum">6</div>
-		</div>
-	</div>
-	<div class="mypageNavi">
-		<div class="tab" id="tab1" onclick="location.href='likeList.my'" >찜 리스트</div>
-<<<<<<< HEAD
-		<div class="tab" id="tab2" onclick="location.href='myCommuList.commu'">작성한 글</div>
-=======
-		<div class="tab" id="tab2" onclick="location.href='myCommutList.commu'">작성한 글</div>
->>>>>>> branch 'main' of https://github.com/magpies92/camppy.git
-		<div class="tab" id="tab3" onclick="location.href='mypageReviewList.rv'">작성 리뷰</div>
-		<div class="tab" id="tab4" onclick="location.href='mypage_reserve.re'">예약 내역</div>
-	</div>
-	
-<!-- 마이페이지 헤더 들어가는 곳 -->
 
   
   <%
   PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
   List<LikeDTO> likeList = (List<LikeDTO>)request.getAttribute("likeList");
-  LikeDTO likeDTO = (LikeDTO)request.getAttribute("likeDTO");
+  LikeDTO likeDTO = new LikeDTO();
   String id=(String)session.getAttribute("id"); 
   
   request.setCharacterEncoding("UTF-8");
@@ -156,6 +128,11 @@
           </div>
     </div>
     
+        
+      <!-- 푸터들어가는 곳 -->
+
+
+ 
     
     <script type="text/javascript">
      $(document).ready(function() {
@@ -240,12 +217,11 @@
     
     </script>
 
+
     
-    
-<!-- 푸터들어가는 곳 -->
-<jsp:include page="/inc/bottom.jsp"></jsp:include>
-<!-- 푸터들어가는 곳 --> 
 
     
   </body>
+  <jsp:include page="/inc/bottom.jsp"/>
+<!-- 푸터들어가는 곳 --> 
 </html>

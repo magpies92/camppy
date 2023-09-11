@@ -12,8 +12,8 @@ if (campLikeIdsParam == null || campLikeIdsParam.isEmpty()) {
         String dbUrl = "jdbc:mysql://itwillbs.com:3306/c1d2304t3?serverTimezone=Asia/Seoul";
         String dbUser = "c1d2304t3";
         String dbPass = "1234";
-        Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-
+        Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPass);               
+        
         // 배열을 순회하면서 각 리뷰를 삭제
         for (String campLikeIdParam : campLikeIdArray) {
             int campLikeId = Integer.parseInt(campLikeIdParam);

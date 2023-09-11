@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 
@@ -43,8 +44,9 @@ public class LikeDAO {
 
 	public List<LikeDTO> getLikeList(PageDTO pageDTO) {
 		System.out.println("LikeDAO getLikeList()");
+		
 		List<LikeDTO> likeList = null;
-		LikeDTO likeDTO = null;
+		
 		try {
 			con=getConnection();
 			System.out.println("rs");
@@ -57,14 +59,15 @@ public class LikeDAO {
 					+ "					order by cl.camp_like_id desc\n"
 					+ "					limit ?, ?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, likeDTO.getMember_id());
-			pstmt.setInt(1, pageDTO.getStartRow()-1);//시작행-1
-			pstmt.setInt(2, pageDTO.getPageSize());//몇 개
+			System.out.println("memberid="+ pageDTO.getMemberid());
+			pstmt.setInt(1, pageDTO.getMemberid());
+			pstmt.setInt(2, pageDTO.getStartRow()-1);//시작행-1
+			pstmt.setInt(3, pageDTO.getPageSize());//몇 개
 			rs=pstmt.executeQuery();
 			System.out.println("rs1"+rs);
 			likeList=new ArrayList<>();
 			while(rs.next()) {
-				likeDTO = new LikeDTO();
+				LikeDTO likeDTO = new LikeDTO();
 				likeDTO.setCamp_like_id(rs.getInt("camp_like_id"));
 				likeDTO.setCamp_id(rs.getInt("camp_id"));
 				likeDTO.setMember_id(rs.getInt("member_id"));
@@ -133,12 +136,12 @@ public class LikeDAO {
 	public void insertLike(LikeDTO likeDTO) {
 		try {
 			con=getConnection();
-			String sql = "insert into camp_like(cmap_like_id, member_id, camp_id) values(?,?,?)";
+			String sql = "insert into camp_like(member_id, camp_id) values(?,?)";
 			pstmt=con.prepareStatement(sql);
 			
-			pstmt.setInt(1, likeDTO.getCamp_like_id());
-			pstmt.setInt(2, likeDTO.getMember_id());
-			pstmt.setInt(3, likeDTO.getCamp_id());
+			/* pstmt.setInt(1, likeDTO.getCamp_like_id()); */
+			pstmt.setInt(1, likeDTO.getMember_id());
+			pstmt.setInt(2, likeDTO.getCamp_id());
 			
 			pstmt.executeUpdate();
 			
@@ -148,22 +151,69 @@ public class LikeDAO {
 			dbClose();
 		}
 	}
+	
+	public void deleteLike(LikeDTO likeDTO) {
+		try {
+			con=getConnection();
+			String sql = "DELETE FROM camp_like\r\n"
+					+ "    WHERE member_id = ? AND camp_id = ?";
+			pstmt=con.prepareStatement(sql);
+			
+			/* pstmt.setInt(1, likeDTO.getCamp_like_id()); */
+			pstmt.setInt(1, likeDTO.getMember_id());
+			pstmt.setInt(2, likeDTO.getCamp_id());
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+	}
+	
+	public int checklike(int campId, int memberid) {
+		System.out.println("LikeDAO checklike()");
+		int check = 0;
+		try {
+			con = getConnection();
+			
+			String sql = "select *\r\n"
+					+ "from camp_like\r\n"
+					+ "where member_id = ? and camp_id = ?;";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, memberid);
+			pstmt.setInt(2, campId);
+			
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				check=rs.getInt("camp_like_id");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {dbClose();}
+		return check;
+	
+	}
 
 
 
-	public int getMaxLikeId() {
-		int likeId=0;
+	public int getlikecount(int campId) {
+		int likecount=0;
 		try {
 			
 			con=getConnection();
 			
-			String sql = "select max(camp_like_id) from camp_like";
+			String sql = "select count(*) as likecount\r\n"
+					+ "from camp_like where camp_id = ?;";
 			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, campId);
 			
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
-				likeId=rs.getInt("max(num)");
+				likecount=rs.getInt("likecount");
 			}
 			
 		} catch (Exception e) {
@@ -171,7 +221,7 @@ public class LikeDAO {
 		}finally {
 			dbClose();
 		}
-		return likeId;
+		return likecount;
 	}
 	
 	

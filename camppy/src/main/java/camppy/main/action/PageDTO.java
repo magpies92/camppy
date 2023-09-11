@@ -12,7 +12,14 @@ public class PageDTO {
 	private int startPage;
 	private int endPage;
 	private int pageCount;
+	private int memberid;
 	
+	public int getMemberid() {
+		return memberid;
+	}
+	public void setMemberid(int memberid) {
+		this.memberid = memberid;
+	}
 	//검색어
 	private String search;
 	public String getSido() {
