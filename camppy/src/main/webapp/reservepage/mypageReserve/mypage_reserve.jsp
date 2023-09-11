@@ -507,8 +507,8 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
        </div>
 	<div><table class="table" style="
     position: relative;
-    left: 550px; transform: scale(1.3,1.3);
-    top: 80px;
+    left: 570px; transform: scale(1.3,1.3);
+    top: 21px; line-height: 170%; letter-spacing: 0.5px;
 ">
 	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
@@ -629,7 +629,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 	<%
 }
  %>
-<div class="room-pagination" style=" position: relative; left: 880px; top: 150px">
+<div class="room-pagination" style=" position: relative; left: 880px; top: 86px">
 <%
  for(int i=startPage;i<=endPage;i++){
 	%>
