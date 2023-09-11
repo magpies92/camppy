@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Pretendard-medium';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
 .camInfo,
 .campInfo * {
   box-sizing: border-box;
@@ -36,7 +43,7 @@
 .campName {
   color: #ffffff;
   text-align: center;
-  font: 400 3.5vw "Inter", sans-serif;
+  font: 400 3.5vw "Pretendard-medium", sans-serif;
   position: absolute;
   top: 40%;
   display: inline-grid;
@@ -46,7 +53,7 @@
 
 .campReport {
   color: #ffffff;
-  font: 400 1.5vw "NanumGothic", sans-serif;
+  font: 400 1.5vw "Pretendard-medium", sans-serif;
   position: relative;
 }
 
@@ -173,7 +180,7 @@
 
 .infoAddress {
   color: #000000;
-  font: 700 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   padding-left: 0.5207vw;
   align-items: center;
   height: 2.5521vw;
@@ -187,7 +194,7 @@
 .campAddress {
   color: #626262;
   text-align: left;
-  font: 400 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 400 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   position: absolute;
   left: 6.9vw;
   height: 2.5521vw;
@@ -198,7 +205,7 @@
 
 .infoTell {
   color: #000000;
-  font: 700 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   padding-left: 0.5207vw;
   align-items: center;
   height: 2.5521vw;
@@ -212,7 +219,7 @@
 .tellNum {
   color: #626262;
   text-align: left;
-  font: 400 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 400 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   position: absolute;
   left: 6.9vw;
   height: 2.5521vw;
@@ -223,7 +230,7 @@
 
 .infoSet {
   color: #000000;
-  font: 700 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   padding-left: 0.5207vw;
   align-items: center;
   height: 2.5521vw;
@@ -237,7 +244,7 @@
 .setBg {
   color: #626262;
   text-align: left;
-  font: 400 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 400 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   position: absolute;
   left: 6.9vw;
   height: 2.5521vw;
@@ -248,7 +255,7 @@
 
 .infoType {
   color: #000000;
-  font: 700 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   padding-left: 0.5207vw;
   align-items: center;
   height: 2.5521vw;
@@ -262,7 +269,7 @@
 .type {
   color: #626262;
   text-align: left;
-  font: 400 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 400 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   position: absolute;
   left: 6.9vw;
   height: 2.5521vw;
@@ -273,7 +280,7 @@
 
 .runSeason {
   color: #000000;
-  font: 700 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   padding-left: 0.5207vw;
   align-items: center;
   height: 2.5521vw;
@@ -287,7 +294,7 @@
 .season {
   color: #626262;
   text-align: left;
-  font: 400 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 400 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   position: absolute;
   left: 6.9vw;
   height: 2.5521vw;
@@ -298,7 +305,7 @@
 
 .runDay {
   color: #000000;
-  font: 700 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   padding-left: 0.5207vw;
   align-items: center;
   height: 2.5521vw;
@@ -312,7 +319,7 @@
 .week {
   color: #626262;
   text-align: left;
-  font: 400 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 400 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   position: absolute;
   left: 6.9vw;
   height: 2.5521vw;
@@ -323,7 +330,7 @@
 
 .homePage {
   color: #000000;
-  font: 700 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   padding-left: 0.5207vw;
   align-items: center;
   height: 2.5521vw;
@@ -337,7 +344,7 @@
 .pageLink {
   color: #626262;
   text-align: left;
-  font: 400 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 400 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   position: absolute;
   left: 6.9vw;
   height: 2.5521vw;
@@ -348,7 +355,7 @@
 
 .useSpace {
   color: #000000;
-  font: 700 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   padding-left: 0.5207vw;
   align-items: center;
   height: 2.5521vw;
@@ -361,7 +368,7 @@
 .space {
   color: #626262;
   text-align: left;
-  font: 400 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 400 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   position: absolute;
   left: 6.9vw;
   height: 2.5521vw;
@@ -372,7 +379,7 @@
 
 .rating {
   color: #000000;
-  font: 700 0.7293vw/1.3021vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.3021vw "Pretendard-medium", sans-serif;
   padding-left: 0.5207vw;
   align-items: center;
   height: 2.5521vw;
@@ -392,7 +399,7 @@
 
 .likeButton {
   color: #ffffff;
-  font: 700 0.7293vw/1.8vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.8vw "Pretendard-medium", sans-serif;
   text-align: center;
   border-radius: 0.2660vw;
   background: #e32242;
@@ -404,7 +411,7 @@
 
 .unLikeButton {
   color: #e32242;
-  font: 700 0.7293vw/1.6vw "NanumGothic", sans-serif;
+  font: 700 0.7293vw/1.6vw "Pretendard-medium", sans-serif;
   text-align: center;
   border-radius: 0.2660vw;
   border-style: solid;
@@ -434,7 +441,7 @@
 .infoLink1 {
   color: #8d8d8d;
   text-align: center;
-  font: 400 0.7814vw/2.7606vw "NanumGothic", sans-serif;
+  font: 400 0.7814vw/2.7606vw "Pretendard-medium", sans-serif;
   width: 12vw;
   background: #ffffff;
 }
@@ -442,7 +449,7 @@
 .infoLink2 {
   color: #ffffff;
   text-align: center;
-  font: 400 0.7814vw/2.7606vw "NanumGothic", sans-serif;
+  font: 400 0.7814vw/2.7606vw "Pretendard-medium", sans-serif;
   width: 12vw;
   background: #8d8d8d;
 }
@@ -469,7 +476,7 @@
 .comeRoad {
   color: #000000;
   text-align: left;
-  font: 400 1.0415vw/1.4064vw "NanumGothic", sans-serif;
+  font: 400 1.0415vw/1.4064vw "Pretendard-medium", sans-serif;
   left: 1.4064vw;
   top: 0.5207vw;
   width: 17.0314vw;

@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Pretendard-medium';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 .commu-contents-list, .commu-contents-list * {
 	box-sizing: border-box;
 }
@@ -71,7 +79,7 @@
 .commu-contents-list__best {
 	color: #000000;
 	text-align: center;
-	font: 800 31.86px/17.92px "NanumGothic", sans-serif;
+	font: 800 31.86px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 475.97px;
 	top: 0px;
@@ -96,7 +104,7 @@
 .commu-contents-list__ {
 	color: #000000;
 	text-align: center;
-	font: 800 36.84px/17.92px "NanumGothic", sans-serif;
+	font: 800 36.84px/17.92px "Pretendard-medium", sans-serif;
 	position: relative;
 	width: 248.94px;
 	height: 59.75px;
@@ -128,7 +136,7 @@
 .commu-contents-list__user {
 	color: #000000;
 	text-align: center;
-	font: 400 23.9px/17.92px "NanumGothic", sans-serif;
+	font: 400 23.9px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 36.84px;
 	top: 269.85px;
@@ -160,7 +168,7 @@
 .commu-contents-list___51 {
 	color: #000000;
 	text-align: center;
-	font: 400 23.9px/17.92px "NanumGothic", sans-serif;
+	font: 400 23.9px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 201.14px;
 	top: 269.85px;
@@ -224,7 +232,7 @@
 .commu-contents-list___82 {
 	color: #000000;
 	text-align: center;
-	font: 400 23.9px/17.92px "NanumGothic", sans-serif;
+	font: 400 23.9px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 206.12px;
 	top: 270.85px;
@@ -250,7 +258,7 @@
 .commu-contents-list___1 {
 	color: #000000;
 	text-align: center;
-	font: 800 36.84px/17.92px "NanumGothic", sans-serif;
+	font: 800 36.84px/17.92px "Pretendard-medium", sans-serif;
 	position: relative;
 	width: 248.94px;
 	height: 59.75px;
@@ -282,7 +290,7 @@
 .commu-contents-list___512 {
 	color: #000000;
 	text-align: center;
-	font: 400 23.9px/17.92px "NanumGothic", sans-serif;
+	font: 400 23.9px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 203.14px;
 	top: 271.84px;
@@ -305,7 +313,7 @@
 .commu-contents-list__user2 {
 	color: #000000;
 	text-align: center;
-	font: 400 23.9px/17.92px "NanumGothic", sans-serif;
+	font: 400 23.9px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 39.83px;
 	top: 269.85px;
@@ -360,7 +368,7 @@
 .commu-contents-list__user3 {
 	color: #000000;
 	text-align: center;
-	font: 400 23.9px/17.92px "NanumGothic", sans-serif;
+	font: 400 23.9px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 31.86px;
 	top: 268.86px;
@@ -383,7 +391,7 @@
 .commu-contents-list___513 {
 	color: #000000;
 	text-align: center;
-	font: 400 23.9px/17.92px "NanumGothic", sans-serif;
+	font: 400 23.9px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 205.13px;
 	top: 270.85px;
@@ -420,7 +428,7 @@
 .commu-contents-list__2 {
 	color: #000000;
 	text-align: center;
-	font: 800 39.83px/17.92px "NanumGothic", sans-serif;
+	font: 800 39.83px/17.92px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -476,13 +484,13 @@
 	position: relative;
 	color: #ffffff;
 	text-align: center;
-	font: 700 24.89px/24.89px "Inter", sans-serif;
+	font: 700 24.89px/24.89px "Pretendard-medium", sans-serif;
 }
 
 .commu-contents-list__3 {
 	color: #ffffff;
 	text-align: center;
-	font: 700 24.89px/24.89px "Inter", sans-serif;
+	font: 700 24.89px/24.89px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 5.97px;
 	top: -7.47px;
@@ -512,7 +520,7 @@
 	overflow: hidden;
 	color: #757575;
 	text-align: left;
-	font: 400 19.92px "Inter", sans-serif;
+	font: 400 19.92px "Pretendard-medium", sans-serif;
 }
 
 .commu-contents-list__div-sc-camp:hover::placeholder {
@@ -535,7 +543,7 @@
 	overflow: hidden;
 	color: #757575;
 	text-align: center;
-	font: 400 19.92px "Inter", sans-serif;
+	font: 400 19.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 92.61px;
 	top: 17.43px;
@@ -549,7 +557,7 @@
 .commu-contents-list__4 {
 	color: #757575;
 	text-align: center;
-	font: 400 19.92px "Inter", sans-serif;
+	font: 400 19.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 92.61px;
 	top: 17.43px;
@@ -584,7 +592,7 @@
 .commu-contents-list___00 {
 color: #000000;
     text-align: center;
-    font: 800 31.86px/17.92px "NanumGothic", sans-serif;
+    font: 800 31.86px/17.92px "Pretendard-medium", sans-serif;
     position: relative;
     left: 13.94px;
     width: 281.86px;
@@ -605,7 +613,7 @@ color: #000000;
 .commu-contents-list__user-1 {
 color: #000000;
     text-align: left;
-    font: 400 29.87px/17.92px "NanumGothic", sans-serif;
+    font: 400 29.87px/17.92px "Pretendard-medium", sans-serif;
     position: relative;
     left: 75.71px;
     width: 96.63px;
@@ -624,7 +632,7 @@ color: #000000;
 .commu-contents-list__5 {
 	    color: #000000;
     text-align: left;
-    font: 400 19.92px/21.91px "NanumGothic", sans-serif;
+    font: 400 19.92px/21.91px "Pretendard-medium", sans-serif;
     position: relative;
     left: 45.81px;
     width: 1323.47px;
@@ -654,7 +662,7 @@ width: 1305.41px;
 .commu-contents-list___25 {
 	color: #000000;
     text-align: center;
-    font: 400 24.89px/17.92px "NanumGothic", sans-serif;
+    font: 400 24.89px/17.92px "Pretendard-medium", sans-serif;
     position: relative;
     left: 81.76px;
     width: 35.63px;
@@ -667,7 +675,7 @@ width: 1305.41px;
 .commu-contents-list___12 {
 	color: #000000;
     text-align: center;
-    font: 400 26.89px/17.92px "NanumGothic", sans-serif;
+    font: 400 26.89px/17.92px "Pretendard-medium", sans-serif;
     position: relative;
     left: 1208.86px;
     width: 86.63px;
@@ -681,7 +689,7 @@ width: 1305.41px;
 .commu-contents-list___13 {
 	color: #000000;
     text-align: center;
-    font: 400 27.89px/17.92px "NanumGothic", sans-serif;
+    font: 400 27.89px/17.92px "Pretendard-medium", sans-serif;
     position: relative;
     left: 1299.57px;
     width: 71.63px;
@@ -695,7 +703,7 @@ width: 1305.41px;
 .commu-contents-list___3 {
 	    color: #000000;
     text-align: center;
-    font: 400 24.89px/17.92px "NanumGothic", sans-serif;
+    font: 400 24.89px/17.92px "Pretendard-medium", sans-serif;
     position: relative;
     left: 158.39px;
     width: 41.77px;
@@ -727,7 +735,7 @@ width: 1305.41px;
 .commu-contents-list___003 {
 	color: #000000;
 	text-align: center;
-	font: 800 31.86px/17.92px "NanumGothic", sans-serif;
+	font: 800 31.86px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 16.93px;
 	top: 3.98px;
@@ -757,7 +765,7 @@ width: 1305.41px;
 .commu-contents-list__user-2 {
 	color: #000000;
 	text-align: center;
-	font: 400 29.87px/17.92px "NanumGothic", sans-serif;
+	font: 400 29.87px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 67.71px;
 	top: 97.59px;
@@ -771,7 +779,7 @@ width: 1305.41px;
 .commu-contents-list__6 {
 	color: #000000;
 	text-align: left;
-	font: 400 19.92px/21.91px "NanumGothic", sans-serif;
+	font: 400 19.92px/21.91px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 45.8px;
 	top: 147.37px;
@@ -792,7 +800,7 @@ width: 1305.41px;
 .commu-contents-list___2 {
 	color: #000000;
 	text-align: center;
-	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
+	font: 400 24.89px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 1208.86px;
 	top: 530.74px;
@@ -806,7 +814,7 @@ width: 1305.41px;
 .commu-contents-list___22 {
 	color: #000000;
 	text-align: center;
-	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
+	font: 400 24.89px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 1275.57px;
 	top: 530.74px;
@@ -838,7 +846,7 @@ width: 1305.41px;
 .commu-contents-list___005 {
 	color: #000000;
 	text-align: center;
-	font: 800 31.86px/17.92px "NanumGothic", sans-serif;
+	font: 800 31.86px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 17.92px;
 	top: 4.98px;
@@ -852,7 +860,7 @@ width: 1305.41px;
 .commu-contents-list__user-3 {
 	color: #000000;
 	text-align: center;
-	font: 400 29.87px/17.92px "NanumGothic", sans-serif;
+	font: 400 29.87px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 67.71px;
 	top: 97.58px;
@@ -874,7 +882,7 @@ width: 1305.41px;
 .commu-contents-list___11 {
 	color: #000000;
 	text-align: center;
-	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
+	font: 400 24.89px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 56.76px;
 	top: 533.73px;
@@ -888,7 +896,7 @@ width: 1305.41px;
 .commu-contents-list___32 {
 	color: #000000;
 	text-align: center;
-	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
+	font: 400 24.89px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 1208.86px;
 	top: 530.74px;
@@ -902,7 +910,7 @@ width: 1305.41px;
 .commu-contents-list___33 {
 	color: #000000;
 	text-align: center;
-	font: 400 24.89px/17.92px "NanumGothic", sans-serif;
+	font: 400 24.89px/17.92px "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: 1275.57px;
 	top: 530.74px;
@@ -982,7 +990,7 @@ width: 1305.41px;
 .commu-contents-list__link-1 {
 	color: #626262;
 	text-align: center;
-	font: 400 13.94px/27.88px "NanumGothic", sans-serif;
+	font: 400 13.94px/27.88px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -992,7 +1000,7 @@ width: 1305.41px;
 .commu-contents-list__link-2 {
 	color: #626262;
 	text-align: center;
-	font: 400 13.94px/27.88px "NanumGothic", sans-serif;
+	font: 400 13.94px/27.88px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -1002,7 +1010,7 @@ width: 1305.41px;
 .commu-contents-list__link-3 {
 	color: #626262;
 	text-align: center;
-	font: 400 13.94px/27.88px "NanumGothic", sans-serif;
+	font: 400 13.94px/27.88px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -1012,7 +1020,7 @@ width: 1305.41px;
 .commu-contents-list__link-4 {
 	color: #626262;
 	text-align: center;
-	font: 400 13.94px/27.88px "NanumGothic", sans-serif;
+	font: 400 13.94px/27.88px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -1022,7 +1030,7 @@ width: 1305.41px;
 .commu-contents-list__link-5 {
 	color: #626262;
 	text-align: center;
-	font: 400 13.94px/27.88px "NanumGothic", sans-serif;
+	font: 400 13.94px/27.88px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -1032,7 +1040,7 @@ width: 1305.41px;
 .commu-contents-list__link-6 {
 	color: #626262;
 	text-align: center;
-	font: 400 13.94px/27.88px "NanumGothic", sans-serif;
+	font: 400 13.94px/27.88px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -1042,7 +1050,7 @@ width: 1305.41px;
 .commu-contents-list__link-7 {
 	color: #626262;
 	text-align: center;
-	font: 400 13.94px/27.88px "NanumGothic", sans-serif;
+	font: 400 13.94px/27.88px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -1052,7 +1060,7 @@ width: 1305.41px;
 .commu-contents-list__link-8 {
 	color: #626262;
 	text-align: center;
-	font: 400 13.94px/27.88px "NanumGothic", sans-serif;
+	font: 400 13.94px/27.88px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -1062,7 +1070,7 @@ width: 1305.41px;
 .commu-contents-list__link-9 {
 	color: #626262;
 	text-align: center;
-	font: 400 13.94px/27.88px "NanumGothic", sans-serif;
+	font: 400 13.94px/27.88px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -1083,7 +1091,7 @@ width: 1305.41px;
 .commu-contents-list__link-10 {
 	color: #626262;
 	text-align: center;
-	font: 400 13.94px/27.88px "NanumGothic", sans-serif;
+	font: 400 13.94px/27.88px "Pretendard-medium", sans-serif;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -1122,5 +1130,5 @@ width: 1305.41px;
 	overflow: hidden;
 	color: #ffffff;
 	text-align: center;
-	font: 700 23.33px "Inter", sans-serif;
+	font: 700 23.33px "Pretendard-medium", sans-serif;
 }

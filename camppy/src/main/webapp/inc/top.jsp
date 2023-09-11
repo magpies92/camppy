@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,10 +7,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Insert title here</title>
 </head>
 <style>
+
+@font-face {
+    font-family: 'Pretendard-medium';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
 .section-login,
 .section-login * {
   box-sizing: border-box;
@@ -39,7 +49,7 @@
 .section-login__ {
   color: #000000;
   text-align: center;
-  font: 400 20px/22px "NanumGothic", sans-serif;
+  font: 400 20px/22px "Pretendard-medium", sans-serif;
   position: absolute;
   left:0px;
   top: 0px;
@@ -57,7 +67,7 @@
 .section-login__1 {
   color: #000000;
   text-align: center;
-  font: 400 20px/22px "NanumGothic", sans-serif;
+  font: 400 20px/22px "Pretendard-medium", sans-serif;
   position: absolute;
    left:100px;
   top: 0px;
@@ -166,7 +176,7 @@
 .section-navi__link {
   color: #000000;
   text-align: center;
-  font: 400 24px/28px "NanumGothic", sans-serif;
+  font: 400 24px/28px "Pretendard-medium", sans-serif;
   position: absolute;
   left: calc(50% - 80px);
   top: 4px;
@@ -198,7 +208,7 @@
 .section-navi__link2 {
   color: #000000;
   text-align: center;
-  font: 400 24px/28px "NanumGothic", sans-serif;
+  font: 400 24px/28px "Pretendard-medium", sans-serif;
   position: absolute;
   left: calc(50% - 80px);
   top: 5px;
@@ -275,7 +285,7 @@
 .logout___000 {
   color: #000000;
   text-align: left;
-  font: 400 20px/22px "NanumGothic", sans-serif;
+  font: 400 20px/22px "Pretendard-medium", sans-serif;
   position: absolute;
   left: 61px;
   top: 13px;
@@ -305,7 +315,7 @@
   left: 170px;
   color: #ffffff;
   text-align: center;
-  font: 700 15px/44px "Inter", sans-serif;
+  font: 700 15px/44px "Pretendard-medium", sans-serif;
 }
 .logout__button:hover { /* a태그에 마우스를 올렸을 때 */
   cursor: pointer; 
@@ -321,7 +331,7 @@
   left: 270px;
   color: #ffffff;
   text-align: center;
-  font: 700 15px/44px "Inter", sans-serif;
+  font: 700 15px/44px "Pretendard-medium", sans-serif;
 }
 .logout__button1:hover { /* a태그에 마우스를 올렸을 때 */
   cursor: pointer; 
@@ -409,12 +419,6 @@ if(id == null){
   </div>
 </div>
 <script type="text/javascript">
-function popupInsert() {
-    var url = "reservapage/popupReserve/popupReserve.jsp";
-    var name = "popupInsert";
-    var option = "width = 710, height = 730, top= 100, left= 500";
-    window.open(url, name, option);
-}
 
 </script>
 </body>

@@ -11,6 +11,12 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
 a, button, input, select, h1, h2, h3, h4, h5, * {
 	margin: 0;
 	padding: 0;
@@ -47,7 +53,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .profileNickname {
 	color: #000000;
 	text-align: left;
-	font: 400 40px/28px "NanumGothic", sans-serif;
+	font: 400 40px/28px "pretendard-medium", sans-serif;
 	position: absolute;
 	left: 546px;
 	top: 75px;
@@ -80,7 +86,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .updateProfile {
 	color: #ffffff;
 	text-align: center;
-	font: 700 30px/28px "NanumGothic", sans-serif;
+	font: 700 30px/28px "pretendard-medium", sans-serif;
 	position: absolute;
 	left: calc(50% - 94.5px);
 	top: 0px;
@@ -108,7 +114,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .myVisit {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
 	position: absolute;
 	left: 0px;
 	top: 10px;
@@ -122,7 +128,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .visitNum {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
 	position: absolute;
 	left: 180px;
 	top: 10px;
@@ -138,7 +144,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .myArticle {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
 	position: absolute;
 	left: 360px;
 	top: 10px;
@@ -152,7 +158,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .myArticleNum {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
 	position: absolute;
 	left: 540px;
 	top: 10px;
@@ -168,7 +174,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .myReply {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
 	position: absolute;
 	left: 720px;
 	top: 10px;
@@ -182,7 +188,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .myReplyNum {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
 	position: absolute;
 	left: 900px;
 	top: 10px;
@@ -217,7 +223,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .mypageLike {
 	color: #000000;
 	text-align: center;
-	font: 400 30px/28px "NanumGothic", sans-serif;
+	font: 400 30px/28px "pretendard-medium", sans-serif;
 	position: relative;
 	width: 380px;
 	height: 160px;
@@ -229,7 +235,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .mypageArticle {
 	color: #000000;
 	text-align: center;
-	font: 400 30px/28px "NanumGothic", sans-serif;
+	font: 400 30px/28px "pretendard-medium", sans-serif;
 	position: relative;
 	width: 380px;
 	height: 160px;
@@ -241,7 +247,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .mypageReply {
 	color: #000000;
 	text-align: center;
-	font: 400 30px/28px "NanumGothic", sans-serif;
+	font: 400 30px/28px "pretendard-medium", sans-serif;
 	position: relative;
 	width: 380px;
 	height: 160px;
@@ -253,7 +259,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .mypageReserve {
 	color: #000000;
 	text-align: center;
-	font: 400 30px/28px "NanumGothic", sans-serif;
+	font: 400 30px/28px "pretendard-medium", sans-serif;
 	position: relative;
 	width: 380px;
 	height: 160px;
@@ -279,7 +285,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 .del {
 	color: #ffffff;
 	text-align: center;
-	font: 700 25px/45px "NanumGothic", sans-serif;
+	font: 700 25px/45px "pretendard-medium", sans-serif;
 	position: absolute;
 	left: calc(50% - 49px);
 	top: 13px;
@@ -317,7 +323,7 @@ div.tab.active {
 .tab {
 	color: grey;
 	text-align: center;
-	font: 400 30px/28px "NanumGothic", sans-serif;
+	font: 400 30px/28px "pretendard-medium", sans-serif;
 	position: relative;
 	width: 380px;
 	height: 160px;

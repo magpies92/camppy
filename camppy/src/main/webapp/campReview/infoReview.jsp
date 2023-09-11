@@ -238,7 +238,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				%>
 				<div class="reviewTop">
 					<div class="reviewCount">이용후기</div>
-					<input type="button" value="글쓰기" onclick="popupInsert();"
+					<input type="button" value="글쓰기" onclick="location.href='insertReview.rv'"
 						class="buttonInsert" />
 				</div>
 				<%

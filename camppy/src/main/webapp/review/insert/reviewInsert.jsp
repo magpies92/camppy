@@ -204,11 +204,11 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 <body>
 	<%
 	//세션에서 로그인정보, 예약정보 가져오기
-	String id = request.getParameter("id");
-	int camp_id = request.getParameter("camp_id");
+	String id = (String)session.getAttribute("id");
+// 	int camp_id = (int)session.getAttribute("camp_id");
 	
 	%>
-	<form action="reviewInsertPro.jsp" method="post" class="writeReview"
+	<form action="reviewInsertPro.rv" method="post" class="writeReview"
 		id="reviewForm">
 		<div class="writeBody">
 			<div class="writeReviewLogo">
@@ -240,15 +240,14 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					readonly>
 			</div>d
 			<div class="campidBox">
-				캠프장아이디 : (주석해제로 가릴 예정) <input type="text" name="camp_id" value="<%=camp_id%>"
+				캠프장아이디 : (주석해제로 가릴 예정) <input type="text" name="camp_id" value="2"
 					readonly>
 			</div>
 
 			<textarea name="content" placeholder="후기를 입력하세요" maxlength="100"
 				class="reviewTextarea"></textarea>
 			<div class="submitButton">
-				<input type='submit' value="글쓰기" class="submitReply"
-					onclick="validateForm()">
+				<input type='submit' value="글쓰기" class="submitReply">
 			</div>
 		</div>
 	</form>
