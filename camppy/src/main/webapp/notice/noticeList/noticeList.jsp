@@ -55,7 +55,7 @@ NoticePageDTO noticePageDTO = (NoticePageDTO)request.getAttribute("noticePageDTO
                 <div class="noticeList8">조회</div>
               </div>
             </div>
-            
+            <input type="button" value="글쓰기" class="writebtn" onclick="location.href='write.no'">
             
     <%
     for(int i=0; i<noticeList.size(); i++){
@@ -84,9 +84,9 @@ NoticePageDTO noticePageDTO = (NoticePageDTO)request.getAttribute("noticePageDTO
     				
 <%} %>
 
-<input type="button" value="글쓰기" class="writebtn" onclick="location.href='write.no'">
 
-<div class="clear"></div>
+
+
 <div id="pageControl">
 <%
 // 시작페이지 1페이지 Prev 없음
