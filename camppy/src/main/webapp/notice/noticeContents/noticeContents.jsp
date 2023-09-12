@@ -48,7 +48,7 @@ List<NoticeDTO> noticeList = (List<NoticeDTO>)request.getAttribute("noticeList")
 				</div>
 
 				<div class="noticeContentsName">
-					<div class="noticeContentsE"><%=noticeDTO.getCreated_by()%></div>
+					<div class="noticeContentsE"><%=noticeDTO.getCreated_by()%> &nbsp; </div>
 				</div>
 
 				<div class="noticeContentsDateNbutton">

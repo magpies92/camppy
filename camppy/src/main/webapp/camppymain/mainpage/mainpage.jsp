@@ -354,6 +354,5 @@ SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
         </div>
       </div>
     </div>
-    <jsp:include page="/inc/bottom.jsp"/>
   </body>
 </html>

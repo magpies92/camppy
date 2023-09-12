@@ -81,7 +81,7 @@
   text-align: center;
   font: 400 27.42px/27.42px "Pretendard-medium", sans-serif;
   position: absolute;
-  left: calc(50% - 356.42px);
+  left: 335px;
   top: 59.73px;
   display: flex;
   align-items: center;
@@ -92,7 +92,7 @@
   text-align: center;
   font: 400 55.81px/27.42px "Pretendard-medium", sans-serif;
   position: absolute;
-  left: calc(50% - 336.83px);
+  left: 290px;
   top: 0px;
   width: 315.29px;
   display: flex;
@@ -104,7 +104,7 @@
   text-align: center;
   font: 400 39.17px/27.42px "Pretendard-medium", sans-serif;
   position: absolute;
-  left: calc(50% - 21.54px);
+  left: 540px;
   top: 2.94px;
   width: 394.6px;
   display: flex;
@@ -322,9 +322,7 @@
 }
 .mainpage__section-notice {
   background: #ffffff;
-  border-style: solid;
-  border-color: #dedede;
-  border-width: 0px 0px 0.98px 0px;
+
   padding: 0px 9.79px 0px 9.79px;
   display: flex;
   flex-direction: row;
@@ -472,11 +470,11 @@
   width: 69.52px;
   height: fit-content;
   position: absolute;
-  right: 13.71px;
-  top: 0.98px;
+  right: 0px;
+  top: 3px;
 }
 .mainpage__section-category {
-  background: #e1e3e9;
+  background: ghostwhite;
   padding: 70.5px 9.79px 19.58px 0.98px;
   display: flex;
   flex-direction: row;
@@ -519,7 +517,7 @@
   position: absolute;
   left: 0px;
   bottom: 0px;
-  top: 33px;
+  top: 80px;
   overflow: hidden;
   width: 300px;
   height: 300px;
@@ -540,7 +538,7 @@
   position: absolute;
   left: 470px;
   bottom: 0px;
-  top: 33px;
+  top: 80px;
   overflow: hidden;
   width: 300px;
   height: 300px;
@@ -562,7 +560,7 @@
   position: absolute;
   left: 940px;
   bottom: 0px;
-  top: 33px;
+  top: 80px;
   overflow: hidden;
   width: 300px;
   height: 300px;
@@ -584,7 +582,7 @@
   position: absolute;
   left: 1410px;
   bottom: 0px;
-  top: 33px;
+  top: 80px;
   overflow: hidden;
   width: 300px;
   height: 300px;
@@ -682,7 +680,7 @@
   justify-content: center;
 }
 .mainpage__section-best {
-  background: #c0c0c0;
+  background: lavender;
   padding: 9.79px 9.79px 9.79px 0px;
   display: flex;
   flex-direction: row;
@@ -721,9 +719,10 @@
 .mainpage__div-best-num-1 {
   flex-shrink: 0;
   width: 274.17px;
-  height: 430.83px;
+  height: 400px;
   position: relative;
   overflow: hidden;
+  top: 40px;
 }
 .mainpage__best-num-1-contents {
   color: #000000;
@@ -762,9 +761,10 @@
 .mainpage__div-best-num-2 {
   flex-shrink: 0;
   width: 274.17px;
-  height: 430.83px;
+  height: 400px;
   position: relative;
   overflow: hidden;
+  top:40px;
 }
 .mainpage__best-num-2-contents {
   color: #000000;
@@ -803,9 +803,10 @@
 .mainpage__div-best-num-3 {
   flex-shrink: 0;
   width: 274.17px;
-  height: 430.83px;
+  height: 400px;
   position: relative;
   overflow: hidden;
+  top:40px;
 }
 .mainpage__best-num-3-contents {
   color: #000000;
@@ -844,9 +845,10 @@
 .mainpage__div-best-num-4 {
   flex-shrink: 0;
   width: 274.17px;
-  height: 430.83px;
+  height: 400px;
   position: relative;
   overflow: hidden;
+  top:40px;
 }
 .mainpage__best-num-4-contents {
   color: #000000;
@@ -885,9 +887,10 @@
 .mainpage__div-best-num-5 {
   flex-shrink: 0;
   width: 274.17px;
-  height: 430.83px;
+  height: 400px;
   position: relative;
   overflow: hidden;
+  top:40px;
 }
 .mainpage__best-num-5-contents {
   color: #000000;

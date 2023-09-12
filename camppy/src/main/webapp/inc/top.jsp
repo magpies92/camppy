@@ -131,7 +131,7 @@
   box-sizing: border-box;
 }
 .section-navi {
-  background: #e1e3e9;
+  background: ghostwhite;
   padding: 17px 10px 17px 10px;
   display: flex;
   flex-direction: row;

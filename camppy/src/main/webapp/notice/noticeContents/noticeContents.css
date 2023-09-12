@@ -124,14 +124,15 @@
   text-align: left;
   font: 400 24px/18px "NanumGothic", sans-serif;
   position: absolute;
-  left: 1134px;
+  left: 1117px;
   top: -70px;
-  width: 72px;
+  width: 90px;
   height: 27px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   border-right: solid;
+  border-width: 2px;
 }
 .noticeContentsIconBox {
   display: flex;
@@ -189,7 +190,7 @@
   width: 462px;
   position: absolute;
   left: 1297px;
-  top: 107px;
+  top: 35px;
 }
 .noticeContents2023 {
   color: #000000;
@@ -202,7 +203,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  top: -72px;
+  
 }
 .noticeContentsH {
   color: #000000;
@@ -212,7 +213,7 @@
   left: 288px;
   top: 16px;
   width: 87px;
-  height: 23px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -225,7 +226,7 @@
   left: 375px;
   top: 16px;
   width: 87px;
-  height: 23px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -410,7 +411,7 @@
   left: 458px;
   top: 16px;
   width: 87px;
-  height: 23px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
