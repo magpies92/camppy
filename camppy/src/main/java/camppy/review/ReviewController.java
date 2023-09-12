@@ -1,6 +1,7 @@
 package camppy.review;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -8,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import camppy.review.ReviewDTO;
 import camppy.review.ReviewService;
@@ -71,6 +73,19 @@ public class ReviewController extends HttpServlet{
 			dispatcher.forward(request, response);
 		}
 		if(sPath.equals("/mypageReviewList.rv")) {
+			HttpSession session = request.getSession();
+			String id=(String)session.getAttribute("id");
+			if(id == null) {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script type='text/javascript'>");
+				out.println("alert('로그인을 해주세요')");
+				out.println("parent.location.replace('main.camp')");
+				out.println("</script>");
+				out.close();
+			}
+			else {
+				int memberid = (int)session.getAttribute("memberid");
 			// BoardService 객체생성
 			reviewService =new ReviewService();
 			// List<BoardDTO> boardList  = getBoardList()
@@ -82,6 +97,7 @@ public class ReviewController extends HttpServlet{
 			dispatcher 
 		    = request.getRequestDispatcher("review/mypagelist/mypageReviewList.jsp");
 			dispatcher.forward(request, response);
+			}
 		}//
 //		// http://localhost:8080/MVCProject/content.bo?num=1
 //		if(sPath.equals("/content.bo")) {

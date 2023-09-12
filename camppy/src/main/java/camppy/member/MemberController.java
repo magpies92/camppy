@@ -139,7 +139,13 @@ public class MemberController extends HttpServlet{
 			// 세션 내장객체 전체 삭제(기억장소 해제)
 			session.invalidate();
 			// 주소 변경하면서 이동  main.me 이동
-			response.sendRedirect("main.camp");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("location.href=document.referrer;");
+			out.println("</script>");
+			out.close();
+			
 		}
 		
 		// info.me 비교 일치 -> 처리 -> member/info.jsp

@@ -61,7 +61,7 @@ MemberDTO  memberDTO =(MemberDTO)request.getAttribute("memberDTO");
 					<div class="noticeInsertLine1"></div>
 
 					<!--            제목을 입력해 주세요 -->
-					<textarea class="noticeInsert2" name="title" ></textarea>
+					<input type = "text" maxlength="30" class="noticeInsert2" name="title" >
 
 					<!--             문의 내용을 입력해 주세요 -->
 					<textarea class="noticeInsert3" name="content"></textarea>
