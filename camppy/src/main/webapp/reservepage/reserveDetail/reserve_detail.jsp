@@ -787,7 +787,9 @@ $(document).ready(function(){
     	 var test = getDateDiff(test1, test2);
     	 var price = <%=campRegDTO.getCampprice()%>;
     	 var tprice = price * test;
+    	 if (isNaN(tprice)==false){
     	 document.getElementById("price").value =tprice+"원 /"+test+"박";
+    	 }
     	 
      });
      
@@ -798,7 +800,9 @@ $(document).ready(function(){
     	 var test = getDateDiff(test1, test2);
     	 var price = <%=campRegDTO.getCampprice()%>;
     	 var tprice = price * test;
-    	 document.getElementById("price").value =tprice+"원 /"+test+"박";
+    	 if (isNaN(tprice)==false){
+        	 document.getElementById("price").value =tprice+"원 /"+test+"박";
+        	 }
     	 /* alert(tprice); */
      });
      
