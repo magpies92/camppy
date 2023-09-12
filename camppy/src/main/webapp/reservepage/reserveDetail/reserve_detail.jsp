@@ -1,6 +1,13 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="camppy.reserve.action.ReserveService"%>
 <%@page import="camppy.reserve.dao.ReserveDetailDTO"%>
+<%@page import="camppy.reserve.dao.ReserveDetailDAO"%>
 <%@page import="camppy.member.MemberDTO"%>
 <%@page import="camppy.main.action.CampRegDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="java.text.ParseException"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -540,6 +547,14 @@ ul {
 <%
 MemberDTO memberDTO =(MemberDTO)request.getAttribute("memberDTO");
 CampRegDTO campRegDTO = (CampRegDTO)request.getAttribute("campRegDTO");
+ReserveDetailDTO reservedto = new ReserveDetailDTO();
+ReserveDetailDAO reservedao = new ReserveDetailDAO();
+ReserveService reserveservice = new ReserveService();
+List<ReserveDetailDTO> datelist = new ArrayList<ReserveDetailDTO>();
+datelist = reservedao.getDatelist(campRegDTO.getCampid());
+
+
+
 %>
 
 
@@ -560,7 +575,7 @@ CampRegDTO campRegDTO = (CampRegDTO)request.getAttribute("campRegDTO");
 					<div class="ap-services">
 					<input type="hidden" name="camp_id" value="<%=campRegDTO.getCampid() %>"><br>
 					<input type="hidden" name="camp_price" value="<%=campRegDTO.getCampprice() %>"><br>
-						펜션이름 : <input type="text" readonly name="camp_name" value="<%=campRegDTO.getCampname()%>"><br>
+						캠핑장 이름 : <input type="text" readonly name="camp_name" value="<%=campRegDTO.getCampname()%>"><br>
 						
 					
 					<div class="ui-grid-b">
@@ -571,16 +586,16 @@ CampRegDTO campRegDTO = (CampRegDTO)request.getAttribute("campRegDTO");
     </div>
     <div class="ui-grid-b">
     <div class="ui-block-a">
-            <label>입실일</label>
+            <label>체크인</label>
         </div>
         <div class="ui-block-a">
-            <input type="text" id="datepicker_start" name="checkin_date" readonly="readonly">
+            <input type="text" id="datepicker_start" name="checkin_date" placeholder="체크인 날짜를 선택해주세요" readonly="readonly">
         </div>
         <div class="ui-block-b">
-            <label>퇴실일</label>
+            <label>체크아웃</label>
         </div>
         <div class="ui-block-b">
-            <input type="text" id="datepicker_end" name="checkout_date" readonly="readonly">
+            <input type="text" id="datepicker_end" name="checkout_date" placeholder="체크아웃 날짜를 선택해주세요" readonly="readonly">
         </div>
         <!-- <div class="ui-block-c">
             <button id="date_search">날짜검색</button>
@@ -610,6 +625,8 @@ CampRegDTO campRegDTO = (CampRegDTO)request.getAttribute("campRegDTO");
 				</fieldset>
 			</form>
 			
+			
+			
 		</div>
 		
 		
@@ -617,12 +634,67 @@ CampRegDTO campRegDTO = (CampRegDTO)request.getAttribute("campRegDTO");
 	</article>
 	
 <script>
+disabledDates=[];
+<%for(int i=0; i< datelist.size() ; i++){
+ReserveDetailDTO reservedetailDTO=datelist.get(i);
+String checkindate = reservedetailDTO.getCheckin_date();
+checkindate = "'"+checkindate.substring(0,10)+"'";
+String checkoutdate = reservedetailDTO.getCheckout_date();
+checkoutdate = "'"+checkoutdate.substring(0,10)+"'";
+%>
+disabledDates.push(getDatesStartToLast(<%=checkindate%>, <%=checkoutdate%>));
+getDatesStartToLast(<%=checkindate%>, <%=checkoutdate%>);
+<%}
+%>
+
+disabledDates1=[];
+<%for(int i=0; i< datelist.size() ; i++){
+ReserveDetailDTO reservedetailDTO=datelist.get(i);
+String checkindate = reservedetailDTO.getCheckin_date();
+checkindate = "'"+checkindate.substring(0,10)+"'";
+String checkoutdate = reservedetailDTO.getCheckout_date();
+checkoutdate = "'"+checkoutdate.substring(0,10)+"'";
+%>
+disabledDates.push(getDatesStartToLast(<%=checkindate%>, <%=checkoutdate%>));
+getDatesStartToLast1(<%=checkindate%>, <%=checkoutdate%>);
+<%}
+%>
+
+function getDatesStartToLast(startDate, lastDate) {
+	var regex = RegExp(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/);
+	if(!(regex.test(startDate) && regex.test(lastDate))) return "Not Date Format";
+	//var result = [];
+	var curDate = new Date(startDate);
+	while(curDate < new Date(lastDate)) {
+		disabledDates.push(curDate.toISOString().split("T")[0]);
+		curDate.setDate(curDate.getDate() + 1);
+	}
+	//return result;
+}
+
+function getDatesStartToLast1(startDate, lastDate) {
+	var regex = RegExp(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/);
+	if(!(regex.test(startDate) && regex.test(lastDate))) return "Not Date Format";
+	//var result = [];
+	var curDate = new Date(startDate);
+	curDate.setDate(curDate.getDate() + 1)
+	while(curDate <= new Date(lastDate)) {
+		disabledDates1.push(curDate.toISOString().split("T")[0]);
+		curDate.setDate(curDate.getDate() + 1);
+	}
+	//return result;
+}
+		
+
+
+
 $(function() {
     fn_default_datepicker();
 });
     
 function fn_default_datepicker()
 {
+	
 var start = $( "#datepicker_start" ).datepicker({
     dateFormat: 'yy-mm-dd' //Input Display Format 변경
     ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
@@ -639,7 +711,17 @@ var start = $( "#datepicker_start" ).datepicker({
     ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
     ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
     ,minDate: "today" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-    ,maxDate: "3M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)                
+    ,maxDate: "3M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+    	,
+        beforeShowDay: function(date) {
+     	    var day = date.getDay();
+     	    var dateString = $.datepicker.formatDate('yy-mm-dd', date); // 날짜를 형식에 맞게 문자열로 변환
+
+     	    var isDisabled = ($.inArray(dateString, disabledDates) !== -1);//비활성화될 데이터들 데이터 변환해서 최종적으로 일자 보여주기전에 비활성화해서 반환
+     	    return [(!isDisabled)]; // 일요일(0)과 토요일(6)을 제외한 날짜만 선택 가능
+     	  }
+   
+    
 });
     
 var end = $( "#datepicker_end" ).datepicker({
@@ -660,12 +742,21 @@ var end = $( "#datepicker_end" ).datepicker({
     ,minDate: "+1D" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
     ,maxDate: "3M+1D" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
        ,defaultDate: "+1w"
+        ,
+       beforeShowDay: function(date) {
+    	    var day = date.getDay();
+    	    var dateString = $.datepicker.formatDate('yy-mm-dd', date); // 날짜를 형식에 맞게 문자열로 변환
+
+    	    var isDisabled = ($.inArray(dateString, disabledDates1) !== -1);//비활성화될 데이터들 데이터 변환해서 최종적으로 일자 보여주기전에 비활성화해서 반환
+    	    return [(!isDisabled)]; // 일요일(0)과 토요일(6)을 제외한 날짜만 선택 가능
+    	  } 
   });
 
 //초기값을 오늘 날짜로 설정
-$('#datepicker_start').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+/* $('#datepicker_start').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
 $('#datepicker_end').datepicker('setDate', 'today+1D'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-}
+ */}
+
 
 function getDate( element ) {
 var date;
@@ -683,6 +774,7 @@ $(document).ready(function(){
 	
     
     $("#datepicker_start").on("click",function(){
+    	
         
     });
     
@@ -690,16 +782,24 @@ $(document).ready(function(){
      $("#datepicker_start").on("change",function(e){
     	 var addoneday = addOneDay(getDate(e.target));
          var end = $( "#datepicker_end" ).datepicker( "option", "minDate",addoneday);
+    	 var test1 = $("#datepicker_start").val();
+    	 var test2 = $("#datepicker_end").val();
+    	 var test = getDateDiff(test1, test2);
+    	 var price = <%=campRegDTO.getCampprice()%>;
+    	 var tprice = price * test;
+    	 document.getElementById("price").value =tprice+"원 /"+test+"박";
+    	 
      });
      
      $("#datepicker_end").on("change",function(e){
-    	 
-    	 document.getElementById("price").value =start+"원 /1박";
-    	 const oldDate = new Date($("#datepicker_start").val());
-    	 const newDate = new Date($("#datepicker_end").val());
-    	 let diff = Math.abs(newDate.getTime() - oldDate.getTime());
-    	 diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    	 alert(diff);
+    	 //var start = $("#datepicker_start").val();
+    	 var test1 = $("#datepicker_start").val();
+    	 var test2 = $("#datepicker_end").val();
+    	 var test = getDateDiff(test1, test2);
+    	 var price = <%=campRegDTO.getCampprice()%>;
+    	 var tprice = price * test;
+    	 document.getElementById("price").value =tprice+"원 /"+test+"박";
+    	 /* alert(tprice); */
      });
      
     /*  $("#date_search").on("click",function(){
@@ -712,6 +812,15 @@ function addOneDay(date = new Date()) {
 	  date.setDate(date.getDate() + 1);
 
 	  return date;
+	}
+	
+const getDateDiff = (d1, d2) => {
+	  const date1 = new Date(d1);
+	  const date2 = new Date(d2);
+	  
+	  const diffDate = date1.getTime() - date2.getTime();
+	  
+	  return Math.abs(diffDate / (1000 * 60 * 60 * 24)); // 밀리세컨 * 초 * 분 * 시 = 일
 	}
  
 </script>

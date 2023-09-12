@@ -180,8 +180,9 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		
 		</div>
 	</div>
-
-			<div>FDSAFDFAFS
+	<%=pageDTO.getStartPage() %>
+	<%=pageDTO.getEndPage()%>
+			<div>
 				<%
 				// 시작 페이지 1페이지 Prev 없음
 				// 시작 페이지 11, 21, 31 Prev 보임

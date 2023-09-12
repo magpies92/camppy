@@ -52,7 +52,8 @@ public class CommuController extends HttpServlet {
 		// 글쓰기
 		if (sPath.equals("/commuInsertPro.commu")) {
 			System.out.println("/commuInsertPro.commu");
-
+			HttpSession session = request.getSession();
+			String id = (String) session.getAttribute("id");
 			commuService = new CommuService();
 
 			commuService.commuInsert(request);

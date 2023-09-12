@@ -168,7 +168,7 @@ $(document).ready(function(){
 </div>
 
         <div class="edit-profile__button-withdraw">        
- <button type="button" onclick="location.href='delete.me'" class="edit-profile__7">회원 탈퇴</button>
+ <button type="button" onclick="location.href='delete.me?id=<%=memberDTO.getId() %>'" class="edit-profile__7">회원 탈퇴</button>
         </div>
       </div>
     </div>

@@ -36,12 +36,8 @@ public class ReserveService {
 			
 			int member_id =Integer.parseInt(request.getParameter("member_id"));  
 			int res_status = 0; 
-			String checkin_date1 = (String)request.getParameter("checkin_date"); // 입실일
-			String checkin_date = checkin_date1.substring(0, 4) + "-" +
-			checkin_date1.substring(4, 6) + "-" + checkin_date1.substring(6, 8);
-			String checkout_date1 = (String)request.getParameter("checkout_date"); // 입실일
-			String checkout_date = checkout_date1.substring(0, 4) + "-" +
-			checkout_date1.substring(4, 6) + "-" + checkout_date1.substring(6, 8);
+			String checkin_date = (String)request.getParameter("checkin_date"); // 입실일
+			String checkout_date = (String)request.getParameter("checkout_date"); // 입실일
 			Timestamp res_time = new Timestamp(System.currentTimeMillis()); 
 			int camp_id = Integer.parseInt(request.getParameter("camp_id"));
 			int camp_price = Integer.parseInt(request.getParameter("camp_price"));
