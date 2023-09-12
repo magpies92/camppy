@@ -30,7 +30,7 @@
   align-items: flex-start;
   justify-content: flex-end;
   flex-shrink: 0;
-  width: 97.9167vw;
+  width: 99.14vw;
   height: 4.3229vw;
   position: relative;
 }
@@ -95,7 +95,7 @@
   justify-content: center;
   flex-wrap: wrap;
   flex-shrink: 0;
-  width: 97.8146vw;
+  width: 99.14vw;
   height: 14.5193vw;
   position: relative;
   overflow: hidden;
@@ -108,7 +108,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-shrink: 0;
-  width: 97.5089vw;
+  width: 99.14vw;
   height: 11.7172vw;
   position: relative;
   cursor: pointer; 
@@ -140,7 +140,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   flex-shrink: 0;
-  width: 97.9167vw;
+  width: 99.14vw;
   height: 5.6771vw;
   position: relative;
   overflow: hidden;
