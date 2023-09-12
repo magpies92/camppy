@@ -80,9 +80,6 @@
       <div class="popup-login__main-logo">
         <img class="popup-login__camppy-2" src="member/join/images/camppy-2.png" />
       </div>
-      <div class="popup-login__button">
-        <div class="popup-login__x">X</div>
-      </div>
     </div>
     </form>
   </body>

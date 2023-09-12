@@ -369,7 +369,7 @@ if(id == null){
 <div class="section-login">
   <div class="section-login__login">
     <button type="button" onclick="location.href='insert.me'" class="section-login__">회원가입</button>
-    <button type="button" onclick="window.open('login.me', 'ReviewPopup', 'width=800, height=900 max-width: 100% max-height: 100% overflow: auto'); return fals" class="section-login__1">로그인</button>
+    <button type="button" onclick="window.open('login.me', 'ReviewPopup', 'width=700, height=850 max-width: 100% max-height: 100% overflow: auto'); return fals" class="section-login__1">로그인</button>
   </div>
 </div>
 	<%
