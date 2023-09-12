@@ -224,36 +224,36 @@ public class CommuService {
 		try {
 			HttpSession session = request.getSession();
 			String id = (String) session.getAttribute("id");
-		
+
 //			memberService = new MemberService();
 //			MemberDTO memberDTO = memberService.getMember(id);
-			
+
 			request.setCharacterEncoding("utf-8");
-			
+
 			String uploadPath = request.getRealPath("/uploadFile");
-			
+
 			int maxSize = 10 * 1024 * 1024;
-			
+
 			MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "utf-8",
 					new DefaultFileRenamePolicy());
-		
+
 			int post_id = Integer.parseInt(multi.getParameter("post_id"));
-	         System.out.println(post_id);
-			
+			System.out.println(post_id);
+
 			String title = multi.getParameter("title");
-			
+
 			String content = multi.getParameter("content");
-			
+
 			Timestamp create_date = new Timestamp(System.currentTimeMillis());
-			
+
 			Timestamp last_modified_date = new Timestamp(System.currentTimeMillis());
-			
+
 			String created_by = multi.getParameter("created_by");
-			
+
 			String last_modified_by = multi.getParameter("last_modified_by");
-			
+
 			String post_type = multi.getParameter("post_type");
-			
+
 //			int member_id = memberDTO.getMember_id();
 
 			String img_url = multi.getFilesystemName("img_url");
@@ -285,5 +285,79 @@ public class CommuService {
 			e.printStackTrace();
 		}
 	}// updateCommu()
+
+	////////////////////////////////////////////////////////////////////////////////
+	// post안에 있는 목록을 가져 오는 기능
+	public List<CommuDTO> getmyCommuList(PageDTO pageDTO) {
+		System.out.println("commuService getLikeList");
+		List<CommuDTO> myCommuList = null;
+		try {
+			// 시작하는 행부터 10개 추출
+			int startRow = (pageDTO.getCurrentPage() - 1) * pageDTO.getPageSize() + 1;
+
+			// 시작하는 행부터 끝나는 행까지 추출
+			int endRow = startRow + pageDTO.getPageSize() - 1;
+
+			// pageDTO 저장 startRow, endRow
+			pageDTO.setStartRow(startRow);
+			pageDTO.setEndRow(endRow);
+
+			// LikeDAO 객체 생성
+			commuDAO = new CommuDAO();
+			// likeList = likeDAO.getLikeList() 메서드 호출
+			myCommuList = commuDAO.getmyCommuList(pageDTO);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return myCommuList;
+	}
+
+	// 커뮤니티 글 총 개수
+	public int getMyCommuCount(PageDTO pageDTO) {
+		System.out.println("CommuService getmyCommuCount");
+		int count = 0;
+		try {
+			commuDAO = new CommuDAO();
+
+			count = commuDAO.getmyCommuCount(pageDTO);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public void myCommuInsert(HttpServletRequest request) {
+		System.out.println("CommuService myCommuInsert()");
+		try {
+
+			commuDAO = new CommuDAO();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void myContentsListDelete(HttpServletRequest request) {
+		System.out.println("CommuService myContentsListDelete()");
+		try {
+			int post_id =Integer.parseInt(request.getParameter("post_id"));
+//			int post_image_id=Integer.parseInt(request.getParameter("post_image_id"));
+			System.out.println(post_id);
+//			System.out.println(post_image_id);
+			
+			CommuDTO commuDTO = new CommuDTO();
+			commuDTO.setPost_id(post_id);
+//			commuDTO.setPost_image_id(post_image_id);
+			
+			commuDAO = new CommuDAO();
+			commuDAO.myContentsListDelete(commuDTO);
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 }

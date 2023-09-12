@@ -218,7 +218,8 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		
 		<div class="commu-contents-list__page-list">
 			<div id="page_control" class="commu-contents-list__list">
-				<%
+			
+	<%
 				 
 				if (pageDTO.getStartPage() > pageDTO.getPageBlock()) {
 				%>
@@ -248,6 +249,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				<%
 }
 %>
+
 
 			</div>
 		</div>
