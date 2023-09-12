@@ -1,6 +1,7 @@
 package camppy.review;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -53,9 +54,15 @@ public class ReviewController extends HttpServlet{
 			// insertBoard(request) 메서드 호출
 			reviewService.insertReview(request);
 			// 주소 변경없이 list.bo 이동 
-			dispatcher 
-		    = request.getRequestDispatcher("review/camp.reviewlist/campReviewList.jsp");
-			dispatcher.forward(request, response);
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('작성이 완료되었습니다')");
+			out.println("setTimeout(function() {\r\n"
+					+ "				    opener.location.reload(); //부모창 리프레쉬\r\n"
+					+ "				    self.close(); //현재창 닫기\r\n"
+					+ "				    });");
+			out.println("</script>");
 		}//if
 		if(sPath.equals("/campReviewList.rv")) {
 			// BoardService 객체생성

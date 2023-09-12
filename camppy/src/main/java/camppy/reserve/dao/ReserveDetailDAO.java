@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 
 import camppy.reserve.dao.ReserveDetailDTO;
 //import products.SalesDTO;
+import camppy.review.ReviewDTO;
 
 public class ReserveDetailDAO {
 	Connection con=null;
@@ -298,7 +299,48 @@ public ReserveDetailDTO getDetailres(int res_id) {
 	return dto;
 }//getDetailres()
 
+
+
+
+
+
+	
+	
+	
+	
+	
+	// 후기 삭제
+	public void deleteReview(int ano) {
+		System.out.println("ReviewDAO deleteReview()");
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			String sql = "delete from review where ano = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, ano);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(con != null) try {con.close();} catch (Exception e2) {}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+		}
+	} // deleteReview()
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
 
 
 	

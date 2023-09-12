@@ -570,10 +570,10 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 	    
 		
 <%-- 		<td><button type="button" id="reviewBtn" class="btn btn-outline-success" onclick="location.href='insertReview.rv?res_id=<%=rdto.getRes_id()%>&camp_id=<%=rdto.getCamp_id()%>'">리뷰 작성</button></td> --%>
-			<td>
+			
   <td>
-  <a href="DetailList.re?res_id=<%=rdto.getRes_id()%>&camp_id=<%=rdto.getCamp_id()%>"
-     onclick="window.open(this.href, 'ReviewPopup', 'width=700, height=700 max-width: 100% max-height: 100% overflow: auto'); return false;"
+  <a href="reviewInsert.rv?res_id=<%=rdto.getRes_id()%>&camp_id=<%=rdto.getCamp_id()%>"
+     onclick="window.open(this.href, 'ReviewPopup', 'width=700, height=700, left=100, top=50, max-width: 100% max-height: 100% overflow: auto'); return false;"
      class="btn btn-outline-success"
      role="button">
     리뷰 작성

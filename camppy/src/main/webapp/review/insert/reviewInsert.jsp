@@ -1,12 +1,25 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="camppy.reserve.dao.ReserveDetailDTO" %>
+<%@ page import="camppy.reserve.dao.ReserveDetailDAO" %>
+<%@ page import="camppy.review.ReviewDAO" %>
+<%@ page import="camppy.review.ReviewDTO" %>
+<%@page import="camppy.member.MemberDTO"%>
+<%@page import="camppy.member.MemberDAO"%>
+<%@page import="camppy.member.MemberService"%>
+<%@page import="camppy.main.action.CampRegDTO"%>
+<%@page import="camppy.main.action.CampRegDAO"%>
+<%@page import="camppy.main.action.CampRegService"%>
+<%@ page import="java.util.ArrayList" %>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="reviewInsert.css" />
+<link rel="stylesheet" href="review/insert/reviewInsert.css" />
 
 <style>
 a, button, input, select, h1, h2, h3, h4, h5, * {
@@ -202,12 +215,33 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 
 <body>
+
+
+
 	<%
 	//세션에서 로그인정보, 예약정보 가져오기
 	String id = (String)session.getAttribute("id");
+	MemberDTO memberDTO = new MemberDTO();
+	MemberService memberService = new MemberService();
+	int camp_id =  Integer.parseInt(request.getParameter("camp_id"));
+	int res_id =  Integer.parseInt(request.getParameter("res_id"));
+	if (id != null){
+	memberDTO = memberService.getMember(id);
+	}
+	CampRegService campregService = new CampRegService();
+	CampRegDTO campregDTO = new CampRegDTO();
+	campregDTO = campregService.getCampReg(camp_id);
+	
 // 	int camp_id = (int)session.getAttribute("camp_id");
+	//ReserveDetailDTO rdto = new ReserveDetailDTO();
+	//ReserveDetailDTO rdto = (ReserveDetailDTO)request.getAttribute("rdto");
+// 	int member_id = rdto.getMember_id();
+// 	String camp_name = rdto.getCamp_name();
+	ReviewDTO vdto = new ReviewDTO();
 	
 	%>
+	
+	
 	<form action="reviewInsertPro.rv" method="post" class="writeReview"
 		id="reviewForm">
 		<div class="writeBody">
@@ -229,18 +263,21 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 						type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
 					<label for="1-star" class="star">★</label>
 				</div>
-
+		
+		
+		
+		
 			</div>
 			<div class="nameBox">
-				닉네임 : <input type="text" name="created_by" value="<%=id%>"
+				닉네임 : <input type="text" name="created_by" value="<%=memberDTO.getNick()%>"
 					class="nickname" readonly>
 			</div>
 			<div class="idBox">
-				아이디 : (주석해제로 가릴 예정) <input type="text" name="member_id" value="1"
+				아이디 : <input type="text" name="member_id" value="<%=id%>" class="id"
 					readonly>
-			</div>d
+			</div>
 			<div class="campidBox">
-				캠프장아이디 : (주석해제로 가릴 예정) <input type="text" name="camp_id" value="2"
+				캠프장 이름 : <input type="text" name="camp_id" value="<%=campregDTO.getCampname()%>" class="camp_id"
 					readonly>
 			</div>
 
@@ -250,6 +287,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				<input type='submit' value="글쓰기" class="submitReply">
 			</div>
 		</div>
+		
 	</form>
 
 </body>

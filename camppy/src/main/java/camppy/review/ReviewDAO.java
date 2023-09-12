@@ -41,21 +41,30 @@ import camppy.review.ReviewDTO;
 		}
 		
 //		insertReview(reviewDTO)
-		public void insertReview(ReviewDTO reviewDTO) {
+		public void insertReview(ReviewDTO reviewDTO) {		
+			System.out.println("ReviewDAO insertReview()");
 			try {
 				// 1단계 JDBC 프로그램 가져오기 
 				// 2단계 디비 연결
 				con=getConnection();
-				
+				int review_id = 1;
+				String sql = "select max(review_id) from review";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					review_id = rs.getInt("max(review_id)") + 1;
+				}
 				// 3단계 문자열 -> sql구문 변경  //(물음표 순서,값)
-				String sql = "insert into review(review_id,member_id,content,rating,created_by,created_date) values(?,?,?,?,?,?)";
+				sql = "insert into review(review_id, member_id, camp_id, res_id, rating, content, created_date)"
+					    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1, reviewDTO.getReview_id());     
 				pstmt.setInt(2, reviewDTO.getMember_id()); 
-				pstmt.setString(3, reviewDTO.getContent());
-				pstmt.setInt(4, reviewDTO.getRating());
-				pstmt.setString(5, reviewDTO.getCreated_by());				
-				pstmt.setTimestamp(6, reviewDTO.getCreated_date());
+				pstmt.setInt(3, reviewDTO.getCamp_id()); 
+				pstmt.setInt(4, reviewDTO.getRes_id()); 
+				pstmt.setString(5, reviewDTO.getContent());
+				pstmt.setInt(6, reviewDTO.getRating());
+				pstmt.setTimestamp(7, reviewDTO.getCreated_date());
 				// 4단계 sql구문 실행
 				pstmt.executeUpdate();
 				
@@ -67,33 +76,44 @@ import camppy.review.ReviewDTO;
 				dbClose();
 			}
 		}//insertBoard()
-
-		public int getMaxReview_id() {
-			int review_id = 0;
+		
+		
+		
+		// 후기 내용 받아오기
+		public ReviewDTO getReview(int res_id) {
+			System.out.println("ReviewDTO getReview()");
+			ReviewDTO rdto = null;			
 			try {
-				// 1단계 JDBC 프로그램 가져오기 
-				// 2단계 디비 연결
-				con=getConnection();
-				// 3단계 문자열 -> sql구문 변경
-				String sql = "select max(review_id) from review;";
-				pstmt=con.prepareStatement(sql);
-				//4단계 sql구문 실행 => 실행결과 ResultSet 내장객체에 저장
-				rs =pstmt.executeQuery();
-				//5단계 : if  행 접근 -> 데이터 있으면 true 
-				if(rs.next()) {
-					review_id = rs.getInt("max(review_id)");
+				con = getConnection();
+				String sql = "select * from review where res_id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, res_id);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					rdto = new ReviewDTO();
+					rdto.setRes_id(rs.getInt("res_id"));
+					rdto.setReview_id(rs.getInt("review_id"));
+					rdto.setContent(rs.getString("content"));
+					rdto.setRating(rs.getInt("rating"));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-			}finally {
-				// 예외 상관 없이 마무리 작업 
-				//  => con, pstmt, rs 기억장소 해제
-				dbClose();
+			} finally {
+				if(con != null) try {con.close();} catch (Exception e2) {}
+				if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+				if(rs != null) try {rs.close();} catch (SQLException e) {}
 			}
-			return review_id;
-		}
-
+			return rdto;
+		} // getReview()
+		
+		
+		
+		
+		
+		
+		// 리뷰 리스트
 		public List<ReviewDTO> getReviewList() {
+			System.out.println("ReviewDAO getReviewList()");
 			List<ReviewDTO> reviewList = null;
 			try {
 				// 1단계 JDBC 프로그램 가져오기 
@@ -155,49 +175,124 @@ import camppy.review.ReviewDTO;
 //			}
 //			return reviewDTO;
 //		}
-//
-
-		public void updateReview(ReviewDTO reviewDTO) {
+//	
+		
+		
+		public boolean checkReview(int res_id) {
+			System.out.println("ReviewDTO ReviewCheck()");
+			boolean checkReview = true;
 			try {
-				// => BoardDAO updateBoard() 1,2 디비연결,
-				// 1단계 JDBC 프로그램 가져오기 
-				// 2단계 디비 연결
-				con=getConnection();
-				//    3 sql구문 update board  set subject,content수정 where num =
-				String sql = "update review set rating=?,content=? where review_id=?";
-				pstmt=con.prepareStatement(sql);
-				pstmt.setInt(1, reviewDTO.getRating());
-				pstmt.setString(2, reviewDTO.getContent());
-				pstmt.setInt(3, reviewDTO.getReview_id());      //(물음표 순서,값)
-				//    4 실행
-				pstmt.executeUpdate();
+				con = getConnection();
+				String sql = "select * from review where res_id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, res_id);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					checkReview = true;
+				} else {
+					checkReview = false;
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
-			}finally {
-				dbClose();
-			}
-		}
-
-		public void deleteReview(int review_id) {
-			try {
-			//  BoardDAO => deleteBoard() 메서드 정의
-			//             1,2 디비연결, 3sql delete 4실행
-				// 1단계 JDBC 프로그램 가져오기 
-				// 2단계 디비 연결
-				con=getConnection();
-				// 3
-				String sql = "delete from review where review_id=?";
-				pstmt=con.prepareStatement(sql);
-				pstmt.setInt(1, review_id);  
-				// 4
-				pstmt.executeUpdate();
 				
+			} finally {
+				if(con != null) try {con.close();} catch (Exception e2) {}
+				if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+				if(rs != null) try {rs.close();} catch (SQLException e) {}
+			}
+			return checkReview;
+		
+		} // ReviewCheck()
+		
+		
+		
+		
+		
+
+//		public void updateReview(ReviewDTO reviewDTO) {
+//			try {
+//				// => BoardDAO updateBoard() 1,2 디비연결,
+//				// 1단계 JDBC 프로그램 가져오기 
+//				// 2단계 디비 연결
+//				con=getConnection();
+//				//    3 sql구문 update board  set subject,content수정 where num =
+//				String sql = "update review set rating=?,content=? where review_id=?";
+//				pstmt=con.prepareStatement(sql);
+//				pstmt.setInt(1, reviewDTO.getRating());
+//				pstmt.setString(2, reviewDTO.getContent());
+//				pstmt.setInt(3, reviewDTO.getReview_id());      //(물음표 순서,값)
+//				//    4 실행
+//				pstmt.executeUpdate();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}finally {
+//				dbClose();
+//			}
+//		}
+		
+		
+		
+		// 후기 수정
+		public void updateReview(ReviewDTO rdto) {
+			System.out.println("ReviewDAO updateReivew()");
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			try {
+				con = getConnection();
+				String sql = "update review set rating=?,content=? where review_id=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, rdto.getRating());
+				pstmt.setString(2, rdto.getContent());
+				pstmt.setInt(3, rdto.getReview_id());
+				pstmt.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
-			}finally {
-				dbClose();
+			} finally {
+				if(con != null) try {con.close();} catch (Exception e2) {}
+				if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
 			}
-		}
+		} // updateReview()
+		
+		
+		
+		
+		
+		
+		
+		// 후기 삭제
+		public void deleteReview(int res_id) {
+			System.out.println("ReviewDAO deleteReview()");
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			try {
+				con = getConnection();
+				String sql = "delete from review where res_id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, res_id);
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(con != null) try {con.close();} catch (Exception e2) {}
+				if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+			}
+		} // deleteReview()
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		public boolean deleteSelectedReviews(int[] reviewIds) {
 	        try {
@@ -224,4 +319,7 @@ import camppy.review.ReviewDTO;
 	            dbClose();
 	        }
 	    }
+		
+		
+		
 	}//class

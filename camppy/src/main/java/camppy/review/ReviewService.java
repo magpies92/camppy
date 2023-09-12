@@ -27,7 +27,7 @@ public class ReviewService {
 			// BoardDAO 객체생성
 			reviewDAO = new ReviewDAO();
 			
-			review_id = reviewDAO.getMaxReview_id() + 1;
+			//review_id = reviewDAO.getMaxReview_id() + 1;
 			
 		
 			// ReviewDTO 객체생성
