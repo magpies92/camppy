@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import camppy.main.action.CampRegDTO;
+
 import camppy.commu.db.PageDTO;
 
 public class CommuDAO {
@@ -153,7 +154,7 @@ public class CommuDAO {
 			String sql = "select p.create_date, p.last_modified_date, p.created_by, p.last_modified_by, p.comment_cnt, p.content, p.like_cnt, p.post_type, p.title, p.member_id, i.post_image_id, i.created_date, i.post_id, i.member_id, i.last_modified_date, i.created_by, i.last_modified_by, i.img_url from post p left "
 					+ "join post_image i on (p.post_id = i.post_id) order by post_id desc limit ?,?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, pageDTO.getStartRow() -1);
+			pstmt.setInt(1, pageDTO.getStartRow() - 1);
 			pstmt.setInt(2, pageDTO.getPageSize());
 
 			rs = pstmt.executeQuery();
@@ -255,11 +256,10 @@ public class CommuDAO {
 			if (pageDTO.getSearchType().equals("제목+내용")) {
 				System.out.println(pageDTO.getSearchType());
 				sql = "select count(*) as count from post p where concat(p.title, p.content) like ?";
-			}else if(pageDTO.getSearchType().equals("제목 내용")){
+			} else if (pageDTO.getSearchType().equals("제목 내용")) {
 				System.out.println(pageDTO.getSearchType());
 				sql = "select count(*) as count from post p where concat(p.title, p.content) like ?";
-			} 
-			else if(pageDTO.getSearchType().equals("아이디")) {
+			} else if (pageDTO.getSearchType().equals("아이디")) {
 				System.out.println(pageDTO.getSearchType());
 				sql = "select count(*) as count from post p join members m on (p.member_id = m.member_id) where m.id like ?";
 			}
@@ -279,8 +279,6 @@ public class CommuDAO {
 		}
 		return count;
 	}
-	
-	
 
 	public List<CommuDTO> getCommuRank() {
 		List<CommuDTO> commuRankList = null;
@@ -322,14 +320,14 @@ public class CommuDAO {
 			String sql = "DELETE FROM post where post_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, post_id);
-			
+
 			pstmt.executeUpdate();
-			
+
 			String sql2 = "DELETE FROM post_image where post_id=?";
-			pstmt2 = con.prepareStatement(sql2);			
+			pstmt2 = con.prepareStatement(sql2);
 			pstmt2.setInt(1, post_id);
 			pstmt2.executeUpdate();
-		
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -345,11 +343,9 @@ public class CommuDAO {
 			con = getConnection();
 
 //			String sql = "select * from post p join post_image i on( p.post_id = i.post_id) where p.post_id = ?";
-			String sql ="SELECT p.post_id,p.create_date,p.last_modified_date,p.created_by,p.last_modified_by,p.comment_cnt,"
+			String sql = "SELECT p.post_id,p.create_date,p.last_modified_date,p.created_by,p.last_modified_by,p.comment_cnt,"
 					+ "p.content,p.like_cnt,p.post_type,p.title,p.member_id,i.post_image_id,i.created_date,i.img_url "
-					+ "FROM post AS p "
-					+ "LEFT JOIN post_image AS i ON p.post_id = i.post_id "
-					+ "WHERE p.post_id = ?";
+					+ "FROM post AS p " + "LEFT JOIN post_image AS i ON p.post_id = i.post_id " + "WHERE p.post_id = ?";
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setInt(1, post_id);
@@ -389,19 +385,19 @@ public class CommuDAO {
 
 			String sql = "update post set  last_modified_date=now(), created_by=?, last_modified_by=?, content=?, post_type=?, title=? where post_id=?";
 			pstmt = con.prepareStatement(sql);
-			
+
 			pstmt.setString(1, commuDTO.getCreated_by());
 			pstmt.setString(2, commuDTO.getLast_modified_by());
 			pstmt.setString(3, commuDTO.getContent());
 			pstmt.setString(4, commuDTO.getPost_type());
 			pstmt.setString(5, commuDTO.getTitle());
 			pstmt.setInt(6, commuDTO.getPost_id());
-			
+
 			pstmt.executeUpdate();
 
 			String sql2 = "update post_image set last_modified_date=now(), img_url=? where post_id=?";
 			pstmt2 = con.prepareStatement(sql2);
-			
+
 			pstmt2.setString(1, commuDTO.getImg_url());
 			pstmt2.setInt(2, commuDTO.getPost_id());
 
@@ -413,4 +409,91 @@ public class CommuDAO {
 			dbclose();
 		}
 	}
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public List<CommuDTO> getmyCommuList(PageDTO pageDTO) {
+		System.out.println("commuDAO getmyCommuList()");
+		List<CommuDTO> myCommuList = null;
+		CommuDTO commuDTO = null;
+		try {
+			con = getConnection();
+
+			String sql = "select p.post_id,p.content,p.like_cnt,p.title,p.member_id,i.post_image_id,i.img_url"
+					+ "       from post p left join post_image i" + "       on p.post_id = i.post_id"
+					+ "       where p.member_id =?" + "       order by post_id desc" + "       limit ?,?";
+
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setInt(1, pageDTO.getMemberid());
+			pstmt.setInt(2, pageDTO.getStartRow() - 1);// 시작행-1
+			pstmt.setInt(3, pageDTO.getPageSize());// 몇 개
+
+			rs = pstmt.executeQuery();
+
+			myCommuList = new ArrayList<>();
+
+			while (rs.next()) {
+				commuDTO = new CommuDTO();
+				commuDTO.setPost_id(rs.getInt("post_id"));
+				commuDTO.setContent(rs.getString("content"));
+				commuDTO.setLike_cnt(rs.getInt("like_cnt"));
+				commuDTO.setTitle(rs.getString("title"));
+				commuDTO.setMember_id(rs.getInt("member_id"));
+				commuDTO.setImg_url(rs.getString("img_url"));
+
+				myCommuList.add(commuDTO);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+		}
+		return myCommuList;
+	}// getLikeList()
+	
+
+	public int getmyCommuCount(PageDTO pageDTO) {
+		System.out.println("CommuDAO getmyCommuCount()");
+		int count = 0;
+		try {
+			con = getConnection();
+
+			String sql = "select count(*) from post p left join post_image i on p.post_id=i.post_id";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+		}
+		return count;
+	}
+
+	public void myContentsListDelete(CommuDTO commuDTO) {
+		try {
+			con=getConnection();
+			
+			String sql = "DELETE FROM post where post_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, commuDTO.getPost_id());
+
+			pstmt.executeUpdate();
+
+			String sql2 = "DELETE FROM post_image where post_id=?";
+			pstmt2 = con.prepareStatement(sql2);
+			pstmt2.setInt(1,commuDTO.getPost_id());
+			
+			pstmt2.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbclose();
+		}
+	}
+
 }

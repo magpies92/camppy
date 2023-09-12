@@ -15,6 +15,7 @@ public class PageDTO {
  
  private String search;
  private String searchType;
+ private int Memberid;
  
  
  
@@ -102,6 +103,12 @@ public String getSearchType() {
 }
 public void setSearchType(String searchType) {
 	this.searchType = searchType;
+}
+public int getMemberid() {
+	return Memberid;
+}
+public void setMemberid(int memberid) {
+	Memberid = memberid;
 }
 private int pageCount;
 

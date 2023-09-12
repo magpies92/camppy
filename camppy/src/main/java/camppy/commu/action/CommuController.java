@@ -132,7 +132,7 @@ public class CommuController extends HttpServlet {
 			request.setCharacterEncoding("utf-8");
 
 			String search = request.getParameter("search");
-			String searchtype= request.getParameter("searchtype");
+			String searchtype = request.getParameter("searchtype");
 
 			HttpSession session = request.getSession();
 			String id = (String) session.getAttribute("id");
@@ -159,16 +159,15 @@ public class CommuController extends HttpServlet {
 			pageDTO.setPageSize(pageSize);
 			pageDTO.setPageNum(pageNum);
 			pageDTO.setCurrentPage(currentPage);
-			
+
 			pageDTO.setSearch(search);
 			pageDTO.setSearchType(searchtype);
-			   System.out.println("문제123456789"+searchtype);
-		  
+			System.out.println("문제123456789" + searchtype);
 
 			commuService = new CommuService();
 			List<CommuDTO> commuRankList = commuService.getCommuRank();
 			List<CommuDTO> commuList = commuService.getCommuListSearch(pageDTO);
-			   System.out.println("문제1111"+searchtype);
+			System.out.println("문제1111" + searchtype);
 			// 게시판 전체 글 개수 구하기
 			int count = commuService.getCommuCountSearch(pageDTO);
 			// 한 화면에 보여줄 페이지개수 설정
@@ -194,7 +193,7 @@ public class CommuController extends HttpServlet {
 			System.out.println("문제8" + pageDTO);
 			System.out.println("문제9" + commuRankList);
 			System.out.println("문제10" + memberDTO);
-			
+
 			request.setAttribute("commuList", commuList);
 			request.setAttribute("pageDTO", pageDTO);
 			request.setAttribute("commuRankList", commuRankList);
@@ -214,7 +213,7 @@ public class CommuController extends HttpServlet {
 			// request 검색어 뽑아오기
 			String search = request.getParameter("search");
 			String searchType = request.getParameter("searchtype");
-			
+
 			System.out.println(search);
 			System.out.println(searchType);
 			// 현재 보이는 페이지 설정
@@ -286,36 +285,115 @@ public class CommuController extends HttpServlet {
 			response.sendRedirect("commuContentsList.commu");
 
 		}
-		
-		if(sPath.equals("/commuUpdate.commu")) {
+
+		if (sPath.equals("/commuUpdate.commu")) {
 			System.out.println("뽑은 가상주소 비교 : /commuUpdate.commu");
-			
+
 			commuService = new CommuService();
-			
+
 			CommuDTO commuDTO = commuService.getCommu(request);
-			
+
 			request.setAttribute("commudDTO", commuDTO);
-			
-			dispatcher 
-			= request.getRequestDispatcher("commuUpdate/commuUpdate.jsp");
+
+			dispatcher = request.getRequestDispatcher("commuUpdate/commuUpdate.jsp");
 			dispatcher.forward(request, response);
-		}//
-		
-		if(sPath.equals("/commuUpdatePro.commu")) {
+		} //
+
+		if (sPath.equals("/commuUpdatePro.commu")) {
 			System.out.println("뽑은 가상주소 비교 : /commuUpdatePro.commu");
-			
+
 			commuService = new CommuService();
-			
+
 			commuService.updateCommu(request);
-			
+
 			response.sendRedirect("commuContentsList.commu");
 		}
-		if(sPath.equals("/myCommuList.commu")) {
-			
-			
-		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
+		if (sPath.equals("/myContentsList.commu")) {
+			System.out.println("가상주소 비교: /myContentsList.commu");
 
-	}// doProcess()
+			HttpSession session = request.getSession();
+			String id = (String) session.getAttribute("id");
+//			int memberid=(int)session.getAttribute("memberid");
 
-}
+			
+				int memberid=(int)session.getAttribute("memberid");
+				
+				System.out.println("문제 memberid=" + memberid);
+
+				int pageSize = 5;
+
+				String pageNum = request.getParameter("pageNum");
+
+				// 페이지 번호가 없으면 1페이지 설정
+				if (pageNum == null) {
+					pageNum = "1";
+				}
+
+				// 페이지 번호 -> 정수형 변경
+				int currentPage = Integer.parseInt(pageNum);
+
+				PageDTO pageDTO = new PageDTO();
+				pageDTO.setPageSize(pageSize);
+				pageDTO.setPageNum(pageNum);
+				pageDTO.setCurrentPage(currentPage);
+				pageDTO.setMemberid(memberid);
+
+				commuService = new CommuService();
+
+				// 게시판 목록 리스트 가져오기
+				List<CommuDTO> myCommuList = commuService.getmyCommuList(pageDTO);
+
+				// 게시판 총 개수 구하기
+				int count = commuService.getMyCommuCount(pageDTO);
+
+				// 한 화면에 보여 줄 페이지 개수 설정
+				int pageBlock = 10;
+
+				// 시작하는 페이지 번호
+				int startPage = (currentPage - 1) / pageBlock * pageBlock + 1;
+
+				// 끝나는 페이지 번호
+				int endPage = startPage + pageBlock - 1;
+
+				// 계산한 값
+				int pageCount = count / pageSize + (count % pageSize == 0 ? 0 : 1);
+				if (endPage > pageCount) { // endPage > 전체 페이지
+					endPage = pageCount; // endPage = 전체 페이지;
+
+				}
+				// pageDTO 저장
+				pageDTO.setCount(count);
+				pageDTO.setPageBlock(pageBlock);
+				pageDTO.setStartPage(startPage);
+				pageDTO.setEndPage(endPage);
+				pageDTO.setPageCount(pageCount);
+
+				// request에 "likeList", likeList 저장
+				request.setAttribute("myCommuList", myCommuList);
+				request.setAttribute("pageDTO", pageDTO);
+				request.setAttribute("startPage", startPage);
+				request.setAttribute("pageBlock", pageBlock);
+				request.setAttribute("endPage", endPage);
+				request.setAttribute("pageCount", pageCount);
+
+				// 주소 변경 없이 이동 (myLikeList/myLikeList.jsp)
+				dispatcher = request.getRequestDispatcher("myContentsList/myContentsList.jsp");
+				dispatcher.forward(request, response);
+			} // likeList.my
+
+			if (sPath.equals("/myContentsListDelete.commu")) {
+				System.out.println("주소 비교: /myContentsListDelete.commu");
+
+				request.setCharacterEncoding("utf-8");
+                
+				commuService = new CommuService();
+
+				commuService.myContentsListDelete(request);
+			}
+
+		}
+	}
+

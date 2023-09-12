@@ -58,7 +58,7 @@ NoticeDTO noticeDTO = (NoticeDTO)request.getAttribute("noticeDTO");
             <div class="noticeupdateLine1">            </div>
 
             <!--            제목을 입력해 주세요 -->
-            <textarea class="noticeupdate2" name="title"><%=noticeDTO.getTitle() %></textarea>
+            <input type = "text" maxlength="30" class="noticeupdate2" name="title"><%=noticeDTO.getTitle() %>
 			<!--            문의 내용을 입력해 주세요 -->
             <textarea class="noticeupdate3" name="content"><%=noticeDTO.getContent() %></textarea>
 	</div>

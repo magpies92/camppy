@@ -77,7 +77,7 @@ public class MypageController extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('로그인을 해주세요')");
-				out.println("history.back();");
+				out.println("parent.location.replace('main.camp')");
 				out.println("</script>");
 				out.close();
 			}
