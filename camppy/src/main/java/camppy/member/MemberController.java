@@ -82,6 +82,7 @@ public class MemberController extends HttpServlet{
 		dispatcher.forward(request, response);
 		}//
 		
+		
 		if(sPath.equals("/loginPro.me")) {
 			System.out.println("주소 비교 : /loginPro.me");
 			//실제페이지 자바파일 처리메서드()

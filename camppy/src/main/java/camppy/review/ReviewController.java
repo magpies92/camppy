@@ -48,12 +48,13 @@ public class ReviewController extends HttpServlet{
 		    = request.getRequestDispatcher("review/insert/reviewInsert.jsp");
 			dispatcher.forward(request, response);
 		}//if
+		
 		if(sPath.equals("/reviewInsertPro.rv")) {
 			request.setCharacterEncoding("utf-8");
 			// BoardService 객체생성
 			reviewService = new ReviewService();
 			// insertBoard(request) 메서드 호출
-			reviewService.insertReview(request);
+			reviewService.insertReview(request);			
 			// 주소 변경없이 list.bo 이동 
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();

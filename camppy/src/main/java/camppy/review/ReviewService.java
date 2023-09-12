@@ -15,11 +15,15 @@ public class ReviewService {
 	public void insertReview(HttpServletRequest request) {
 		try {
 			// request => name Rate Reply 가져오기 => 변수저장
-			String created_by = request.getParameter("created_by");
+			System.out.println(request.getParameter("camp_id"));
+			
+			String camp_name = request.getParameter("camp_name");
+			int camp_id = Integer.parseInt(request.getParameter("camp_id"));
+//			System.out.println(request.getParameter("camp_id"));
 			int rating = Integer.parseInt(request.getParameter("rating"));
+			int res_id = Integer.parseInt(request.getParameter("res_id"));
 			String content = request.getParameter("content");
-			
-			
+			int member_id = Integer.parseInt(request.getParameter("member_id"));		
 			// 변수저장
 			Timestamp created_date = new Timestamp(System.currentTimeMillis());
 			
@@ -33,8 +37,11 @@ public class ReviewService {
 			// ReviewDTO 객체생성
 			ReviewDTO reviewDTO = new ReviewDTO();   
 			// set 메서드 호출 변수값 저장
+			reviewDTO.setRes_id(res_id);
+			reviewDTO.setCamp_name(camp_name);
+			reviewDTO.setCamp_id(camp_id);
 			reviewDTO.setReview_id(review_id);
-			reviewDTO.setCreated_by(created_by);
+			reviewDTO.setMember_id(member_id);
 			reviewDTO.setRating(rating);
 			reviewDTO.setContent(content);			
 			reviewDTO.setCreated_date(created_date);

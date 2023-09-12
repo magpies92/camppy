@@ -23,8 +23,7 @@ import camppy.review.ReviewDTO;
 		public Connection getConnection() throws Exception {
 			
 			Context init = new InitialContext();
-			DataSource ds=
-			(DataSource)init.lookup("jdbc:mysql://itwillbs.com:3306/c1d2304t3?serverTimezone=Asia/Seoul");
+			DataSource ds= (DataSource)init.lookup("java:comp/env/c1d2304t3");
 			Connection con=ds.getConnection();
 			return con;
 			// 작업 속도가 빨라짐(1,2 단계 생략)=> 성능향상
@@ -47,24 +46,23 @@ import camppy.review.ReviewDTO;
 				// 1단계 JDBC 프로그램 가져오기 
 				// 2단계 디비 연결
 				con=getConnection();
-				int review_id = 1;
-				String sql = "select max(review_id) from review";
-				pstmt = con.prepareStatement(sql);
-				rs = pstmt.executeQuery();
-				if(rs.next()) {
-					review_id = rs.getInt("max(review_id)") + 1;
-				}
+//				int review_id = 1;
+//				String sql = "select max(review_id) from review";
+//				pstmt = con.prepareStatement(sql);
+//				rs = pstmt.executeQuery();
+//				if(rs.next()) {
+////					int review_id = rs.getInt("max(review_id)") + 1;
+//				}
 				// 3단계 문자열 -> sql구문 변경  //(물음표 순서,값)
-				sql = "insert into review(review_id, member_id, camp_id, res_id, rating, content, created_date)"
-					    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "insert into review(member_id, camp_id, res_id, rating, content, created_date)"
+					    + "values(?, ?, ?, ?, ?, ?)";
 				pstmt=con.prepareStatement(sql);
-				pstmt.setInt(1, reviewDTO.getReview_id());     
-				pstmt.setInt(2, reviewDTO.getMember_id()); 
-				pstmt.setInt(3, reviewDTO.getCamp_id()); 
-				pstmt.setInt(4, reviewDTO.getRes_id()); 
+				pstmt.setInt(1, reviewDTO.getMember_id());
+				pstmt.setInt(2, reviewDTO.getCamp_id()); 
+				pstmt.setInt(3, reviewDTO.getRes_id()); 
+				pstmt.setInt(4, reviewDTO.getRating());
 				pstmt.setString(5, reviewDTO.getContent());
-				pstmt.setInt(6, reviewDTO.getRating());
-				pstmt.setTimestamp(7, reviewDTO.getCreated_date());
+				pstmt.setTimestamp(6, reviewDTO.getCreated_date());
 				// 4단계 sql구문 실행
 				pstmt.executeUpdate();
 				
@@ -130,7 +128,7 @@ import camppy.review.ReviewDTO;
 				while(rs.next()) {
 					ReviewDTO reviewDTO =new ReviewDTO();
 					reviewDTO.setReview_id(rs.getInt("review_id"));
-					reviewDTO.setCreated_by(rs.getString("created_by"));
+					reviewDTO.setMember_id(rs.getInt("member_id"));
 					reviewDTO.setRating(rs.getInt("rating"));
 					reviewDTO.setContent(rs.getString("content"));
 					reviewDTO.setCreated_date(rs.getTimestamp("created_date"));

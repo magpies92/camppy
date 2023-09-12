@@ -1,3 +1,4 @@
+<%@page import="camppy.reserve.action.ReserveService"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -225,12 +226,21 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	MemberService memberService = new MemberService();
 	int camp_id =  Integer.parseInt(request.getParameter("camp_id"));
 	int res_id =  Integer.parseInt(request.getParameter("res_id"));
+	
+	
 	if (id != null){
 	memberDTO = memberService.getMember(id);
 	}
 	CampRegService campregService = new CampRegService();
 	CampRegDTO campregDTO = new CampRegDTO();
 	campregDTO = campregService.getCampReg(camp_id);
+	
+	
+	
+	ReserveDetailDTO reserveDetailDTO = new ReserveDetailDTO();
+	ReserveService reserveService = new ReserveService();
+	reserveDetailDTO = reserveService.getReserve(res_id);
+	
 	
 // 	int camp_id = (int)session.getAttribute("camp_id");
 	//ReserveDetailDTO rdto = new ReserveDetailDTO();
@@ -273,13 +283,25 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					class="nickname" readonly>
 			</div>
 			<div class="idBox">
-				아이디 : <input type="text" name="member_id" value="<%=id%>" class="id"
+				아이디 : <input type="text" name="id" value="<%=id%>" class="id"
 					readonly>
 			</div>
+			
+			<div class="resBox">
+				예약 번호 : <input type="text" name="res_id" value="<%=reserveDetailDTO.getRes_id()%>" class="res_id"
+					readonly>
+			</div>
+			
+			
 			<div class="campidBox">
-				캠프장 이름 : <input type="text" name="camp_id" value="<%=campregDTO.getCampname()%>" class="camp_id"
-					readonly>
+				캠프장 이름 : <input type="text" name="camp_name" value="<%=campregDTO.getCampname()%>" class="camp_id"
+				readonly>
 			</div>
+
+			<input type="hidden" name="camp_id" value="<%=campregDTO.getCampid()%>">
+			
+			<input type="hidden" name="member_id" value="<%=memberDTO.getMember_id()%>">
+			
 
 			<textarea name="content" placeholder="후기를 입력하세요" maxlength="100"
 				class="reviewTextarea"></textarea>

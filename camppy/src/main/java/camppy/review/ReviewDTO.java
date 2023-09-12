@@ -3,20 +3,41 @@ package camppy.review;
 import java.sql.Timestamp;
 
 	public class ReviewDTO {
-	    private int review_id;
-	    private String content;
-	    private String image_url;
-	    private String like_cnt;
-	    private String created_by;
-	    private String last_modified_by;
-	    private int member_id;
-	    private int camp_id;
-	    private int res_id;
-	    private int rating;
-	    private Timestamp created_date;
-	    private Timestamp last_modified_date;
+	    private int review_id; // 리뷰 아이디
+	    private String content; // 내용 
+	    private String image_url; // 이미지
+	    private String like_cnt; // 
+	    private String created_by; // 작성자
+	    private String last_modified_by; //마지막 수정한 사람
+	    private int member_id; // 멤버아이디
+	    private int camp_id; // 캠프 아이디
+	    private int res_id; // 예약 번호
+	    private int rating; // 별점
+	    private Timestamp created_date; // 만든 날짜
+	    private Timestamp last_modified_date; // 마지막 수정한 날짜
+	    private String camp_name;
+	    private String id;
 	    
-	    public int getReview_id() {
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
+		public String getCamp_name() {
+			return camp_name;
+		}
+		public void setCamp_name(String camp_name) {
+			this.camp_name = camp_name;
+		}
+		public int getReview_id() {
 			return review_id;
 		}
 		public void setReview_id(int review_id) {
