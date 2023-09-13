@@ -1,3 +1,5 @@
+<%@page import="camppy.member.MemberDAO"%>
+<%@page import="camppy.member.MemberDTO"%>
 <%@page import="camppy.commu.db.CommuDAO"%>
 <%@page import="camppy.commu.db.CommuDTO"%>
 <%@page import="java.util.List"%>
@@ -109,10 +111,13 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		}
 	</script>
 	<%
+	String id = (String) session.getAttribute("id");
+	MemberDTO memberDTO = new MemberDTO();
+	MemberDAO memberDAO = new MemberDAO();
+	memberDTO = memberDAO.getMember(id);
 	PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");
 	List<CommuDTO> myCommuList = (List<CommuDTO>) request.getAttribute("myCommuList");
 	CommuDTO commuDTO = new CommuDTO();
-	String id = (String) session.getAttribute("id");
 	int memberid = (int) session.getAttribute("memberid");
 
 	CommuDAO commuDAO = new CommuDAO();
@@ -124,8 +129,8 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	<!-- 헤더들어가는 곳 -->
 
 	<div class="mypageProfile">
-		<img class="mypageUserIcon" src="free-icon-user-8484069-2.png" />
-		<div class="profileNickname">발레하는 감자</div>
+		<img class="mypageUserIcon" src="memberimg/<%=memberDTO.getMember_img() %>" />
+		<div class="profileNickname"><%=memberDTO.getNick() %></div>
 		<button type="button" onclick="location.href = 'update.me'"
 			class="updateButton">
 			<div class="updateProfile">프로필수정</div>

@@ -154,7 +154,7 @@ $(document).ready(function(){
         <div class="edit-profile__picture">
           <img
             class="edit-profile__free-icon-user-8484069-2"
-            src="member/join/images/free-icon-user-8484069-2.png"
+            src="memberimg/<%=memberDTO.getMember_img()%>"
           />
           <div class="edit-profile__input-button">
           <input type="file" name="memberimg" required class="edit-profile__5">

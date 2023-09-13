@@ -1,3 +1,5 @@
+<%@page import="camppy.member.MemberDAO"%>
+<%@page import="camppy.member.MemberDTO"%>
 <%@page import="camppy.commu.db.CommuDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -33,11 +35,16 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 <jsp:include page="/inc/top.jsp"></jsp:include>
 <!--  헤더 -->
 <!-- 프로필 부분 -->
-<%String nickname=(String)session.getAttribute("nickname");
+<%
+String id = (String) session.getAttribute("id");
+MemberDTO memberDTO = new MemberDTO();
+MemberDAO memberDAO = new MemberDAO();
+memberDTO = memberDAO.getMember(id);
+String nickname=(String)session.getAttribute("nickname");
 int memberid= (int)session.getAttribute("memberid");
 CommuDAO commuDAO = new CommuDAO();%>
 <div class="mypageProfile">
-		<img class="mypageUserIcon" src="member/join/images/free-icon-user-8484069-2.png" />
+		<img class="mypageUserIcon" src="memberimg/<%=memberDTO.getMember_img() %>" />
 		<div class="profileNickname"><%=nickname %></div>
 <button type="button"
 			onclick="openCenteredPopup('update.me', 'ReviewPopup', 850, 650)"
@@ -78,7 +85,6 @@ CommuDAO commuDAO = new CommuDAO();%>
 
 	<%
 //세션에서 로그인 정보를 가져오기
-String id = (String) session.getAttribute("id");
 // String id = "ksb"; // 임의의 id 값 "ksb" 설정
 
 int pageSize = 5; // 한 페이지에 표시될 레코드 수
