@@ -35,8 +35,8 @@ String nickname=(String)session.getAttribute("nickname");
 		<img class="mypageUserIcon" src="member/join/images/free-icon-user-8484069-2.png" />
 		<div class="profileNickname"><%=nickname %></div>
 <button type="button" onclick="openCenteredPopup('update.me', 'ReviewPopup', 1000, 850)" class="updateButton">
-			<div class="updateProfile">프로필수정</div>
-		</button>
+<div class="updateProfile">프로필수정</div>
+</button>
 		<div class="mypageProfileNum">
 			<div class="myArticle">작성글</div>
 			<div class="myArticleNum">3</div>
