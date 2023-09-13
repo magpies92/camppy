@@ -541,13 +541,13 @@
   justify-content: center;
 }
 
-.mainpage__list {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 20px;
-	left: 560px;
-}
+/* .mainpage__list { */
+/* 	display: flex; */
+/* 	justify-content: center; */
+/* 	align-items: center; */
+/* 	margin: 20px; */
+/* 	left: 560px; */
+/* } */
 
 .mainpage__list a {
 	text-decoration: none;

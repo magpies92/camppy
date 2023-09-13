@@ -26,18 +26,15 @@
 <meta charset="UTF-8">
 <title>Camppy</title>
 <style type="text/css">
-#sidebar   width: 13.0208vw; 
-   height: 36.4583vw;   
-   float: left;
-}
+
 .art{
  	font-family: 'NanumSquareNeo';
-    width: 31.2500vw;
+    width: 45.2500vw;
     height: 31.2500vw;
   	padding-left: 2.6042vw;
 /*     margin-bottom: 15.6250vw; */
     margin-left: 200;
- 
+
 }
 .table thead.thead-primary{
 	background: #99b19c;
@@ -69,7 +66,8 @@ left: 20.8333vw;
 .res{
 height: 7.8125vw;
 position: relative; 
-left: 20.8333vw;
+left: 14.1667vw;
+top: 3vw;
 }
 
 	  a,
@@ -89,12 +87,6 @@ left: 20.8333vw;
         appearance: none; 
         background: none;
       }
-       table {
-    /* width: 20.8333vw;
-    height: 10.4167vw; */
-    margin-left: auto;
-    margin-right: auto;
-  }
   
   
   .mypageProfile {
@@ -412,14 +404,53 @@ div.tab.active {
 	align-items: center;
 }
 
-.pagination {
-display: contents;
 
-    }
   #tab4 {
 	color: lightseagreen;
 }
-  
+.table {
+     position: relative;
+    left: 471px;
+    transform: scale(1.4,1.4);
+    top: 21px;
+    line-height: 190%;
+    letter-spacing: -1.5px;
+    width: 865px;
+    text-align: center;
+}
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1.5vw;
+	top: 5vw;
+	left: 24vw;
+	position:relative;
+	
+}
+
+.pagination a {
+	text-decoration: none;
+	padding: 0.4167vw 0.8333vw;
+	margin: 0 0.2083vw;
+	border: 0.0521vw solid #ccc;
+	border-radius: 0.2083vw;
+	color: #333;
+	transition: background-color 0.3s, color 0.3s;
+	top: 0vw;
+	left: 0vw;
+}
+
+.pagination a.active {
+	background-color: #4da285;
+	color: white;
+}
+
+
+.pagination a:hover {
+	background-color: #333;
+	color: #fff;
+}
 
 </style>
 </head>
@@ -515,11 +546,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
       	  
        </div>
        </div>
-	<div><table class="table" style="
-    position: relative;
-    left: 570px; transform: scale(1.3,1.3);
-    top: 21px; line-height: 170%; letter-spacing: 0.5px;
-">
+	<div><table class="table"s>
 	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
  	<tr><td> 예약번호 </td><td> 펜션명 </td><td> 예약상태 </td> 
@@ -620,7 +647,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 	<%
 }
  %>
-<div class="room-pagination" style=" position: relative; left: 880px; top: 86px">
+<div class="pagination">
 <%
  for(int i=startPage;i<=endPage;i++){
 	%>
