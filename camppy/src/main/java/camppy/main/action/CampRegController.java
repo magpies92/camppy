@@ -95,9 +95,9 @@ public class CampRegController extends HttpServlet {
 			
 			campregService = new CampRegService();
 			
-			CampRegDTO campRegDTO  = campregService.getCampRegUp(request);
+			CampRegDTO campregDTO  = campregService.getCampRegUp(request);
 			
-			request.setAttribute("campRegDTO", campRegDTO);
+			request.setAttribute("campregDTO", campregDTO);
 			
 			// 주소변경없이 이동 center/fwrite.jsp
 			HttpSession session = request.getSession();
@@ -124,6 +124,16 @@ public class CampRegController extends HttpServlet {
 			}*/
 			
 			}//("/campupdate.campreg")
+		
+		if(sPath.equals("/campregPro.campreg")) {
+			System.out.println("뽑은 가상주소 비교 : /campregPro.campreg");
+			
+			campregService = new CampRegService();
+			
+			campregService.updateCampReg(request);
+			
+			response.sendRedirect("detail.de");
+		}//("/campregPro.campreg")
 		
 
 		 

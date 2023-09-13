@@ -67,7 +67,7 @@ String camp_id=(String)session.getAttribute("camp_id");
 
 	<form action="campregPro.campreg" method="post" enctype="multipart/form-data">
 		캠핑장 이름 : <input type="text"  name="campname" value="<%=campregDTO.getCampname() %>" required><br>
-		한줄 소개 : <input type="text" name="shortintro" required><br>
+		한줄 소개 : <input type="text" name="shortintro" value="<%=campregDTO.getShortintro() %>" required><br>
 		<h3>캠핑장 태그를 선택해주세요</h3>
 		<input type="checkbox"
        name="camptagall" 
@@ -104,34 +104,36 @@ String camp_id=(String)session.getAttribute("camp_id");
        <br>
        
 		
-		캠핑장 대표 사진 : <input type="file" name="campimg" required><br>
+		캠핑장 대표 사진 기존: <img src="<%=campregDTO.getCampimg() %>" alt="대표 이미지">
+		캠핑장 대표 사진 수정: <input type="file" name="campimg" value="<%=campregDTO.getCampimg() %>"><br>
 		주소 : <input type="text" id="sample4_postcode" placeholder="우편번호" name="postAddr1"  readonly required>
 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" required><br>
-<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="postAddr2" size="60"  readonly required><br>
+<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="postAddr2" value="<%=campregDTO.getCampaddr() %>" size="60"  readonly required><br>
 <input type="hidden" id="sample4_jibunAddress" placeholder="지번주소"  size="60" required>
 <span id="guide" style="color:#999;display:none" ></span>
 <input type="text" id="sample4_detailAddress" placeholder="상세주소" name="postAddr3" size="60"><br>
 <input type="hidden" id="sample4_extraAddress" placeholder="참고항목"  size="60" required>
 <input type="hidden" id="sample4_engAddress" placeholder="영문주소"  size="60" required><br>
 
-		문의처 : <input type="text" name="tel" required><br>
-		캠핑장 환경 : <input type="text" name="environment" required><br>
-		캠핑장 유형 : <input type="text" name="camptype" required><br>
-		운영기간 : <input type="text" name="season" required><br>
-		운영일 : <input type="text" name="runtime" required><br>
-		홈페이지 : <input type="text" name="homepage" required><br>
-		주변이용가능시설 : <input type="text" name="facility" required><br>
-		소개 : <input type="text" name="intro" required><br>
+		문의처 : <input type="text" name="tel" value="<%=campregDTO.getTel() %>" required><br>
+		캠핑장 환경 : <input type="text" name="environment" value="<%=campregDTO.getEnvironment() %>" required><br>
+		캠핑장 유형 : <input type="text" name="camptype" value="<%=campregDTO.getCamptype() %>" required><br>
+		운영기간 : <input type="text" name="season" value="<%=campregDTO.getSeason() %>" required><br>
+		운영일 : <input type="text" name="runtime" value="<%=campregDTO.getRuntime() %>" required><br>
+		홈페이지 : <input type="text" name="homepage" value="<%=campregDTO.getHomepage() %>" required><br>
+		주변이용가능시설 : <input type="text" name="facility" value="<%=campregDTO.getFacility() %>" required><br>
+		소개 : <input type="text" name="intro" value="<%=campregDTO.getIntro() %>" required><br>
 		<h3>캠핑장 사진들(최대 5개)</h3>
+		기존 사진: <img src="<%=campregDTO.getCamppic() %>" alt="추가 이미지">
 <input type="button" value="사진 추가" onclick="javascript:addInputBox();">  <input type="button" value="추가한 사진 삭제" onclick="javascript:subtractInputBox();"><br>
 <table id="dynamic_table" border="1">
 </table>
-		은행명 : <input type="text" name="bankname" required><br>
-		계좌번호 : <input type="text" name="bankaccount" required><br>
-		캠핑장 가격 : <input type="text" name="campprice" required><br>
+		은행명 : <input type="text" name="bankname" value="<%=campregDTO.getBankname() %>" required><br>
+		계좌번호 : <input type="text" name="bankaccount" value="<%=campregDTO.getBankaccount() %>" required><br>
+		캠핑장 가격 : <input type="text" name="campprice" value="<%=campregDTO.getCampprice() %>" required><br>
 
 
-<input type="submit" value="캠핑장 정보 등록" onclick="if(!confirm('정말로 등록 하시겠습니까??')){return false;}" />
+<input type="submit" value="캠핑장 정보 수정" onclick="location.href='detail.de?camp_id=<%=campregDTO.getCampid() %>'" onsubmit="return confirmSubmit();" />
 	
 	
 <br>
@@ -251,11 +253,11 @@ function sample4_execDaumPostcode() {
 
 </script>
 
-<input type="text" id="doo" placeholder="도"  size="60" name="doo" readonly><br>
-<input type="text" id="sigungu" placeholder="시군구"  size="60" name="sigungu" readonly><br>
-<input type="text" id="mapx" placeholder="X좌표"  name="mapx" size="60" readonly><br>
-<input type="text" id="mapy" placeholder="Y좌표"  name="mapy" size="60" readonly><br>
-<input type="text" id="rowscount" placeholder="rowscount"  name="rowscount" size="60" readonly><br>
+<input type="text" id="doo" placeholder="도"  size="60" name="doo" value="<%=campregDTO.getSido() %>" readonly><br>
+<input type="text" id="sigungu" placeholder="시군구"  size="60" name="sigungu" value="<%=campregDTO.getSigungu() %>" readonly><br>
+<input type="text" id="mapx" placeholder="X좌표"  name="mapx" size="60" value="<%=campregDTO.getMapx() %>" readonly><br>
+<input type="text" id="mapy" placeholder="Y좌표"  name="mapy" size="60" value="<%=campregDTO.getMapy() %>" readonly><br>
+<input type="text" id="rowscount" placeholder="rowscount"  name="rowscount" size="60"><br>
 </form>
 
 <script type="text/javascript">
@@ -316,6 +318,12 @@ function subtractInputBox() {
 </script>
 
 
+<script>
+function confirmSubmit() {
+    var confirmed = confirm('정말로 수정 하시겠습니까??');
+    return confirmed;
+}
+</script>
 
 
 

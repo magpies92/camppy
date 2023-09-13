@@ -20,6 +20,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 
@@ -330,6 +331,130 @@ public class CampRegService {
 			e.printStackTrace();
 		}
 		return campregDTO;
+	}//getCampRegUp
+
+	public void updateCampReg(HttpServletRequest request) {
+		System.out.println("CampRegService updateCampReg()");
+		try {
+			HttpSession session = request.getSession();
+			String id = (String) session.getAttribute("id");
+			
+			// MultipartRequest 객체생성 사용 => 폴더에 파일업로드, 파라미터정보저장
+//			import com.oreilly.servlet.MultipartRequest;
+			// 생성자 1) request 2)업로드할 파일경로 3) 파일크기 4) 한글처리 5) 파일이름변경
+			//업로드 폴더 만들기 webapp - upload 폴더만들기
+			// 업로드 폴더 경로=> 물리적 경로
+			String uploadPath=request.getRealPath("campimg");
+			// 이클립스에 실행하면 이클립스 가상경로 
+			System.out.println(uploadPath);
+			//파일 최대크기 지정  10M
+			int maxSize=10*1024*1024; 
+			// 파일 업로드 했을때 폴더내 파일이름 동일하면 파일이름 변경하는 프로그램
+			//import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+			// new DefaultFileRenamePolicy()
+			MultipartRequest multi 
+			= new MultipartRequest(request, uploadPath, maxSize,"utf-8", new DefaultFileRenamePolicy()); 
+			
+			int camp_id = Integer.parseInt(multi.getParameter("camp_id"));
+			String camp_name = multi.getParameter("camp_name");
+			String short_intro = multi.getParameter("short_intro");
+			String camp_addr = multi.getParameter("camp_addr");
+			String tel = multi.getParameter("tel");
+			String environment = multi.getParameter("environment");
+			String camp_type = multi.getParameter("camp_type");
+			String season = multi.getParameter("season");
+			String runtime = multi.getParameter("runtime");
+			String homepage = multi.getParameter("homepage");
+			String facility = multi.getParameter("facility");
+			String intro = multi.getParameter("intro");
+			String camp_img = multi.getParameter("camp_img");
+			String bank_name = multi.getParameter("bank_name");
+			String bank_account = multi.getParameter("bank_account");
+			int camp_price= Integer.parseInt(multi.getParameter("camp_price"));
+			String  addr1= multi.getParameter("postAddr1");
+			String  addr2= multi.getParameter("postAddr2");
+			String  addr3= multi.getParameter("postAddr3");
+			String do_nm = multi.getParameter("do_nm");
+			String sigungu_nm = multi.getParameter("sigungu_nm");
+			String mapx = multi.getParameter("mapx");
+			String mapy = multi.getParameter("mapy");
+			String campaddr;
+			if (addr3.equalsIgnoreCase("")){
+			campaddr = addr2;
+			}
+			else
+			{
+				campaddr = addr2+" "+addr3;
+				
+			}
+			
+			int i = 0;
+            int j =0;
+            String[] camppic= new String[5];
+          
+            
+            for(i=0; i<5; i++){
+           	 j = i+1;
+                String name = "camppic"+String.valueOf(j);
+                camppic[i] = multi.getFilesystemName(name); 
+             
+            }	
+            
+            
+//첨부파일이름 가져오기
+			
+			
+			// num, readcount, date => 변수저장
+			//int readcount = 0; //조회수
+			//Timestamp date = new Timestamp(System.currentTimeMillis());
+			// CampRegDAO 객체생성
+			campregDAO = new CampRegDAO();
+			//int num = campregDAO.getMaxNum() + 1;
+			
+			
+			// CampRegDTO 객체생성
+			CampRegDTO campregDTO = new CampRegDTO();
+			// set메서드 호출 파라미터값 저장
+			campregDTO.setCampname(camp_name);
+			campregDTO.setShortintro(short_intro);
+			
+			campregDTO.setCampaddr(camp_addr);
+			campregDTO.setTel(tel);
+			campregDTO.setEnvironment(environment);
+			campregDTO.setCamptype(camp_type);
+			campregDTO.setSeason(season);
+			campregDTO.setRuntime(runtime);
+			campregDTO.setHomepage(homepage);
+			campregDTO.setFacility(facility);
+			campregDTO.setCampimg(camp_img);
+			/* campregDTO.setCamppic(camppic); */
+			campregDTO.setBankaccount(bank_account);
+			campregDTO.setBankname(bank_name);
+			campregDTO.setIntro(intro);
+			campregDTO.setCampprice(camp_price);
+			campregDTO.setSido(do_nm);
+			campregDTO.setSigungu(sigungu_nm);
+			campregDTO.setMapx(mapx);
+			campregDTO.setMapy(mapy);
+			campregDTO.setCamppic(camppic);
+             
+			
+			//첨부파일
+			//campregDTO.setFile(file);
+			
+			
+			
+			
+			// 리턴할형없음 updateCampReg(campregDTO) 호출
+			campregDAO.updateCampReg(campregDTO);
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}//getCampRegUp
 	
 	
