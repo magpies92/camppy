@@ -423,6 +423,29 @@ public class CommuDAO {
 			dbclose();
 		}
 	}
+	
+	public int getpostid() {
+		int Post_id = 0;
+		try {
+			con = getConnection();
+
+			String sql = "select * from post order by post_id desc";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+
+			if (rs.next()) {
+			Post_id = rs.getInt("post_id");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+		}
+		return Post_id;
+	}
+	
+	
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public List<CommuDTO> getmyCommuList(PageDTO pageDTO) {
@@ -510,25 +533,31 @@ public class CommuDAO {
 		}
 	}
 	
-	public int getpostid() {
-		int Post_id = 0;
+	
+	public int myCountids(int memberid) {
+		int count = 0;
 		try {
 			con = getConnection();
-
-			String sql = "select * from post order by post_id desc";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
 			
-
-			if (rs.next()) {
-			Post_id = rs.getInt("post_id");
+			String sql ="select count(*) from post where member_id =? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, memberid);
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt("count(*)");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			// TODO: handle exception
 		} finally {
 			dbclose();
 		}
-		return Post_id;
+		 return count;
+		
 	}
+
+	
+	
+	
 
 }

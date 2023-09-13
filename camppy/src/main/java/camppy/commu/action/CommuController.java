@@ -348,7 +348,8 @@ public class CommuController extends HttpServlet {
 
 				// 게시판 목록 리스트 가져오기
 				List<CommuDTO> myCommuList = commuService.getmyCommuList(pageDTO);
-
+                
+                
 				// 게시판 총 개수 구하기
 				int count = commuService.getMyCommuCount(pageDTO);
 				System.out.println(count);
@@ -375,7 +376,6 @@ public class CommuController extends HttpServlet {
 				pageDTO.setEndPage(endPage);
 				pageDTO.setPageCount(pageCount);
 
-				// request에 "likeList", likeList 저장
 				request.setAttribute("myCommuList", myCommuList);
 				request.setAttribute("pageDTO", pageDTO);
 				request.setAttribute("startPage", startPage);
@@ -383,11 +383,13 @@ public class CommuController extends HttpServlet {
 				request.setAttribute("endPage", endPage);
 				request.setAttribute("pageCount", pageCount);
 
-				// 주소 변경 없이 이동 (myLikeList/myLikeList.jsp)
+				
 				dispatcher = request.getRequestDispatcher("myContentsList/myContentsList.jsp");
 				dispatcher.forward(request, response);
 			} // likeList.my
 
+		
+		
 			if (sPath.equals("/myContentsListDelete.commu")) {
 				System.out.println("주소 비교: /myContentsListDelete.commu");
 
