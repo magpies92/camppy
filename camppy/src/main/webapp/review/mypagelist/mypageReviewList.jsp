@@ -1,3 +1,4 @@
+<%@page import="camppy.commu.db.CommuDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -32,7 +33,9 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 <jsp:include page="/inc/top.jsp"></jsp:include>
 <!--  헤더 -->
 <!-- 프로필 부분 -->
-<%String nickname=(String)session.getAttribute("nickname"); %>
+<%String nickname=(String)session.getAttribute("nickname");
+int memberid= (int)session.getAttribute("memberid");
+CommuDAO commuDAO = new CommuDAO();%>
 <div class="mypageProfile">
 		<img class="mypageUserIcon" src="member/join/images/free-icon-user-8484069-2.png" />
 		<div class="profileNickname"><%=nickname %></div>
@@ -41,7 +44,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 </button>
 		<div class="mypageProfileNum">
 			<div class="myArticle">작성글</div>
-			<div class="myArticleNum">3</div>
+			<div class="myArticleNum"><%=commuDAO.myCountids(memberid)%></div>
 			<div class="myReply">댓글</div>
 			<div class="myReplyNum">6</div>
 		</div>

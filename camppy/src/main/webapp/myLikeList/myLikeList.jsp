@@ -1,3 +1,4 @@
+<%@page import="camppy.commu.db.CommuDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="camppy.main.action.PageDTO"%>
 <%@page import="camppy.mypage.LikeDTO"%>
@@ -34,6 +35,8 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	<%
 	//세션에서 로그인정보, 예약정보 가져오기
 	String nickname = (String) session.getAttribute("nickname");
+	int memberid= (int)session.getAttribute("memberid");
+	CommuDAO commuDAO = new CommuDAO();
 	%>
 
 	<div class="mypageProfile">
@@ -47,7 +50,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		</button>
 		<div class="mypageProfileNum">
 			<div class="myArticle">작성글</div>
-			<div class="myArticleNum">3</div>
+			<div class="myArticleNum"><%=commuDAO.myCountids(memberid) %></div>
 			<div class="myReply">댓글</div>
 			<div class="myReplyNum">6</div>
 		</div>

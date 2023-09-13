@@ -132,7 +132,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		</button>
 		<div class="mypageProfileNum">
 			<div class="myArticle">작성글</div>
-			<div class="myArticleNum"><%//=commuDAO.myCountids(memberid) %></div>
+			<div class="myArticleNum"><%=commuDAO.myCountids(memberid) %></div>
 			<div class="myReply">댓글</div>
 			<div class="myReplyNum">6</div>
 		</div>
