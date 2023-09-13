@@ -99,12 +99,26 @@ public class CommuDAO {
 
 			pstmt.executeUpdate();
 
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+		}
+
+	}
+	
+	public void commuInsert1(CommuDTO commuDTO,int Post_id) {
+		try {
+			con = getConnection();
+			
+			
+
 			String sql2 = "insert into post_image(created_date,post_id,member_id,last_modified_date,created_by,last_modified_by,img_url) values(?,?,?,?,?,?,?)";
 			pstmt2 = con.prepareStatement(sql2);
 
 			pstmt2.setTimestamp(1, commuDTO.getCreate_date());
-			System.out.println("getpostid=" + commuDTO.getPost_id());
-			pstmt2.setInt(2, commuDTO.getPost_id());
+			pstmt2.setInt(2, Post_id);
 			pstmt2.setInt(3, commuDTO.getMember_id());
 			pstmt2.setTimestamp(4, commuDTO.getLast_modified_date());
 			pstmt2.setString(5, commuDTO.getCreated_by());
@@ -494,6 +508,27 @@ public class CommuDAO {
 		}finally {
 			dbclose();
 		}
+	}
+	
+	public int getpostid() {
+		int Post_id = 0;
+		try {
+			con = getConnection();
+
+			String sql = "select * from post order by post_id desc";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+
+			if (rs.next()) {
+			Post_id = rs.getInt("post_id");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+		}
+		return Post_id;
 	}
 
 }
