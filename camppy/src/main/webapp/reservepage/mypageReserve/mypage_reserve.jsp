@@ -450,7 +450,7 @@ CommuDAO commuDAO = new CommuDAO();%>
 			<div class="myArticle">작성글</div>
 			<div class="myArticleNum"><%=commuDAO.myCountids(memberid) %></div>
 			<div class="myReply">댓글</div>
-			<div class="myReplyNum">6</div>
+			<div class="myReplyNum"><%=commuDAO.myCountrv(memberid) %></div>
 		</div>
 	</div>
 	<div class="mypageNavi">
