@@ -47,7 +47,7 @@
         </svg>
 
         <div class="popup-login__sign-in-with-google">Sign in with Google</div>
-        <img class="popup-login__google-image" src="member/join/images/images/google-image.png" />
+        <img class="popup-login__google-image" src="member/join/images/google-image.png" />
       </div>
       <div class="popup-login__logi-naver">
         <svg
@@ -61,7 +61,7 @@
           <path d="M0 0H483V69H0V0Z" fill="#CCEBC7" />
         </svg>
 
-        <img class="popup-login__naver-image" src="member/join/images/images/naver-image.png" />
+        <img class="popup-login__naver-image" src="member/join/images/naver-image.png" />
         <div class="popup-login__sign-in-with-naver">Sign in with Naver</div>
       </div>
       <div class="popup-login__function">
