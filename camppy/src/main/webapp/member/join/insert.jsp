@@ -58,7 +58,7 @@ $(document).ready(function(){
 		var idReg = /^[A-Za-z0-9]{5,20}$/;
 
 		if (!idReg.test(id)) {
-		    alert("아이디는 영문자,숫자만 사용가능하고 5~20자 사이여야합니다.");
+		    alert("아이디는 영문자와 숫자를 포함한 5~20자 사이입니다.");
 		    $('.id').focus();
 		    return false;
 		}
@@ -85,13 +85,13 @@ $(document).ready(function(){
 			return false;
 		}
 		var nick = $('.nick').val();
-    	var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
+		var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
 
-    	if (!nickReg.test(nick)) {
-    		alert("닉네임은 한글,영문자,숫자만 사용가능하고 2~8자 사이여야 합니다.");
-    	    $('.nick').focus();
-    	    return false;
-    	}
+		if (!nickReg.test(nick)) {
+		    alert("닉네임은 한글, 영문자, 숫자를 포함한 2~8자 사이입니다.");
+		    $('.nick').focus();
+		    return false;
+		}
 		clicked4 = true;
 		$.ajax({
 			url:'nickCheck.me',
@@ -119,7 +119,7 @@ $(document).ready(function(){
 		var idReg = /^[A-Za-z0-9]{5,20}$/;
 
 		if (!idReg.test(id)) {
-		    alert("아이디는 영문자,숫자만 사용가능하고 5~20자 사이여야합니다.");
+		    alert("아이디는 영문자와 숫자를 포함한 5~20자 사이입니다.");
 		    $('.id').focus();
 		    return false;
 		}
@@ -155,13 +155,13 @@ $(document).ready(function(){
 			return false;
 		}
 		var nick = $('.nick').val();
-    	var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
+		var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
 
-    	if (!nickReg.test(nick)) {
-    		alert("닉네임은 한글,영문자,숫자만 사용가능하고 2~8자 사이여야 합니다.");
-    	    $('.nick').focus();
-    	    return false;
-    	}
+		if (!nickReg.test(nick)) {
+		    alert("닉네임은 한글, 영문자, 숫자를 포함한 2~8자 사이입니다.");
+		    $('.nick').focus();
+		    return false;
+		}
 		if (!clicked4) {
 			alert("닉네임 중복확인 눌러주세요");
 	        return false;

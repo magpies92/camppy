@@ -275,6 +275,7 @@ a:hover { text-decoration:none !important }
   top: 6.7708vw;;
 }
 .mainpage__button {
+  cursor : pointer !important;
   background: #4da385;
   border-radius: 0.2552vw;
   width: 4.8448vw;
@@ -295,6 +296,7 @@ a:hover { text-decoration:none !important }
   
 }
 .mainpage__button1 {
+  cursor : pointer !important;
   background: #4da385;
   border-radius: 0.2552vw;
   width: 4.8448vw;
