@@ -209,7 +209,13 @@ public class MemberController extends HttpServlet{
 		    session.removeAttribute("nickname");
 		    session.setAttribute("pass", updatedMemberDTO.getPass());
 		    session.setAttribute("nickname", updatedMemberDTO.getNick());
-		    response.sendRedirect("main.camp");    
+		    PrintWriter out = response.getWriter();
+		    out.println("<script type='text/javascript'>");
+			out.println("setTimeout(function() {\r\n"
+					+ "				    opener.location.reload(); //부모창 리프레쉬\r\n"
+					+ "				    self.close(); //현재창 닫기\r\n"
+					+ "				    });");
+			out.println("</script>");
 		}	
 		
 		if(sPath.equals("/list.me")) {
@@ -288,8 +294,13 @@ List<MemberDTO> memberList = memberService.getMemberList();
 			// 팝업 메시지를 보여주는 코드 추가
 		    response.setContentType("text/html; charset=UTF-8");
 		    PrintWriter out = response.getWriter();
-		    out.println("<script>alert('회원 탈퇴가 완료되었습니다.'); location.href='main.camp';</script>");
-		    out.flush();
+		    out.println("<script type='text/javascript'>");
+		    out.println("alert('회원 탈퇴가 완료되었습니다.');"); // 팝업 메시지 출력
+		    out.println("setTimeout(function() {");
+		    out.println("    opener.location.href = 'main.camp'; // 부모창을 main.camp로 이동");
+		    out.println("    self.close(); // 현재창 닫기");
+		    out.println("});");
+		    out.println("</script>");
 		}	
 		
 	}//doProcess() 메서드

@@ -434,9 +434,11 @@ CommuDAO commuDAO = new CommuDAO();%>
 <div class="mypageProfile">
 		<img class="mypageUserIcon" src="member/join/images/free-icon-user-8484069-2.png" />
 		<div class="profileNickname"><%=nickname %></div>
-<button type="button" onclick="openCenteredPopup('update.me', 'ReviewPopup', 1000, 850)" class="updateButton">
-<div class="updateProfile">프로필수정</div>
-</button>
+<button type="button"
+			onclick="openCenteredPopup('update.me', 'ReviewPopup', 850, 650)"
+			class="updateButton">
+			<div class="updateProfile">프로필수정</div>
+		</button>
 		<div class="mypageProfileNum">
 			<div class="myArticle">작성글</div>
 			<div class="myArticleNum"><%=commuDAO.myCountids(memberid) %></div>
