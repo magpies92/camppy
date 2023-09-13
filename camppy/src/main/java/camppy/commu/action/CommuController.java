@@ -72,6 +72,7 @@ public class CommuController extends HttpServlet {
 			memberDTO = new MemberDTO();
 //			MemberDTO memberDTO2 = memberService.getMember3(memder_id);
 			memberDTO = memberService.getMember(id);
+			System.out.println(memberDTO);
 
 			// 한페이지에서 보여지는 글개수 설정
 			int pageSize = 3;
@@ -199,6 +200,7 @@ public class CommuController extends HttpServlet {
 			request.setAttribute("pageDTO", pageDTO);
 			request.setAttribute("commuRankList", commuRankList);
 			request.setAttribute("memberDTO", memberDTO);
+			System.out.println(memberDTO.getMember_id());
 //			request.setAttribute("memberDTO2", memberDTO2);	
 
 			dispatcher = request.getRequestDispatcher("commuContentsList/commuContentsListSearch.jsp");

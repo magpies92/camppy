@@ -301,7 +301,7 @@ public class CommuDAO {
 
 			String sql = " select p.title,p.like_cnt,p.member_id,i.img_url,m.nickname "
 					+ " from post p left join post_image i" + " on (p.post_id = i.post_id)" + "  left join members m "
-					+ " on (m.member_id = i.member_id)" + " order by like_cnt desc" + " limit 0,4";
+					+ " on (m.member_id = p.member_id)" + " order by like_cnt desc" + " limit 0,4";
 			pstmt = con.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();

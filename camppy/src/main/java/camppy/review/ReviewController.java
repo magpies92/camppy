@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import camppy.review.ReviewDTO;
 import camppy.review.ReviewService;
 
@@ -54,17 +55,33 @@ public class ReviewController extends HttpServlet{
 			// BoardService 객체생성
 			reviewService = new ReviewService();
 			// insertBoard(request) 메서드 호출
-			reviewService.insertReview(request);			
-			// 주소 변경없이 list.bo 이동 
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script type='text/javascript'>");
-			out.println("alert('작성이 완료되었습니다')");
-			out.println("setTimeout(function() {\r\n"
-					+ "				    opener.location.reload(); //부모창 리프레쉬\r\n"
-					+ "				    self.close(); //현재창 닫기\r\n"
-					+ "				    });");
-			out.println("</script>");
+			String ratingcheck = request.getParameter("rating");
+			
+			
+			System.out.println(ratingcheck);
+			if(ratingcheck == null) {
+				
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script type='text/javascript'>");
+				out.println("alert('별점을 입력해 주세요')");
+				out.println("history.back()");				
+				 //부모창 리프레쉬\r\n"
+				out.println("</script>");
+			}else {
+				reviewService.insertReview(request);
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script type='text/javascript'>");
+				out.println("alert('작성이 완료되었습니다')");
+				out.println("setTimeout(function() {\r\n"
+						+ "				    opener.location.reload(); //부모창 리프레쉬\r\n"
+						+ "				    self.close(); //현재창 닫기\r\n"
+						+ "				    });");
+				out.println("</script>");
+			}
+			
+			
 		}//if
 		if(sPath.equals("/campReviewList.rv")) {
 			// BoardService 객체생성
@@ -106,6 +123,42 @@ public class ReviewController extends HttpServlet{
 			dispatcher.forward(request, response);
 			}
 		}//
+		
+		
+		
+		if(sPath.equals("/update.rv")) {
+			System.out.println("뽑은 가상주소 비교 : /update.rv");
+			
+			//ReviewService 객체 생성
+			reviewService=new ReviewService();
+			
+			//ReviewDTO reviewDTO=getReview(request)
+			ReviewDTO reviewDTO = reviewService.getReview(request);
+			
+			//request에 "reviewDTO" reviewDTO 담기
+			request.setAttribute("reviewDTO", reviewDTO);
+			
+			//review/update/reviewUpdate.jsp 주소 변경 없이 이동
+			dispatcher = request.getRequestDispatcher("review/update/reviewUpdate.jsp");
+			dispatcher.forward(request, response);
+		}//("/update.rv")
+		
+		
+		if(sPath.equals("/updatePro.rv")) {
+			System.out.println("뽑은 가상주소 비교 : /updatePro.bo");
+			
+			//ReviewService 객체 생성
+			reviewService=new ReviewService();
+			
+			// updateBoard(request) 메서드 호출
+			reviewService.updateReview(request);
+			
+			// 글목록 mypage_reserve.re 주소 변경되면서 이동
+			response.sendRedirect("mypage_reserve.re");
+		}
+		
+		
+		
 //		// http://localhost:8080/MVCProject/content.bo?num=1
 //		if(sPath.equals("/content.bo")) {
 //			// BoardService 객체생성

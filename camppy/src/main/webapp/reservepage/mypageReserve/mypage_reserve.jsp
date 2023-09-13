@@ -443,7 +443,7 @@ display: contents;
 	</div>
 	<div class="mypageNavi">
 		<div class="tab" id="tab1" onclick="location.href='likeList.my'" >찜 리스트</div>
-		<div class="tab" id="tab2" onclick="location.href='myCommutList.commu'">작성한 글</div>
+		<div class="tab" id="tab2" onclick="location.href='myContentstList.commu'">작성한 글</div>
 		<div class="tab" id="tab3" onclick="location.href='mypageReviewList.rv'">작성 리뷰</div>
 		<div class="tab" id="tab4" onclick="location.href='mypage_reserve.re'">예약 내역</div>
 	</div>
@@ -512,7 +512,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
  	<tr><td> 예약번호 </td><td> 펜션명 </td><td> 예약상태 </td> 
- 	<td> 예약일자 </td><td>총 금액</td><td>리뷰</td><td> 예약취소 </td></tr> 
+ 	<td> 예약일자 </td><td>총 금액</td><td>후기작성</td><td> 예약취소 </td></tr> 
  	</thead>
  	<% 
 //  	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
@@ -574,9 +574,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
   <a href="reviewInsert.rv?res_id=<%=rdto.getRes_id()%>&camp_id=<%=rdto.getCamp_id()%>"
      onclick="window.open(this.href, 'ReviewPopup', 'width=700, height=700, left=100, top=50, max-width: 100% max-height: 100% overflow: auto'); return false;"
      class="btn btn-outline-success"
-     role="button">
-    리뷰 작성
-  </a>
+     role="button">작성</a>
 </td>
 						
 	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='MyReservePro.re?res_id=<%=rdto.getRes_id()%>'">Cancel</button></td></tr>

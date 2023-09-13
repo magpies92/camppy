@@ -1,3 +1,4 @@
+<%@page import="camppy.member.MemberService"%>
 <%@page import="camppy.commu.action.CommuService"%>
 <%@page import="camppy.commu.db.PageDTO"%>
 <%@page import="camppy.commu.db.CommuDTO"%>
@@ -38,9 +39,9 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	List<CommuDTO> commuRankList = (List<CommuDTO>) request.getAttribute("commuRankList");
 	List<CommuDTO> commuList = (List<CommuDTO>) request.getAttribute("commuList");
 	PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");
+	
 	%>
-
-	<div class="commu-contents-list">
+   	<div class="commu-contents-list">
 		<div class="commu-contents-list__section-body">
 			<div class="commu-contents-list__best-contents">
 				<div class="commu-contents-list__contents-box">
@@ -67,7 +68,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 								{ 
 								%>
 							    <img class="commu-contents-list__rectangle-7"
-								src="upload/5.png>" id="picture3">
+								 src="upload/5.png" id="picture3">
 								<%
 								}
 								%>
@@ -176,10 +177,34 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					
 
 					<!--              좋아요 아이콘  -->
-					<button type="button" id="bodyLikeIcon">
+					<%
+				if(id != null){
+					if(CommuDAO.checklike(CommuDTO.getPost_id(),memberDTO.getId()) ==0){
+					%>
+					<button type="button" id="bodyLikeIcon" style="display:inline"  onclick="likeButton(this)" value="좋아요">
 						<img class="commu-contents-list__like-1"
 							src="commuContentsList/like-1.png">
 					</button>
+					<button type="button" id="bodyLikeIcon" style="display:none" onclick="likeButton(this)" value="좋아요">
+						<img class="commu-contents-list__like-1"
+							src="commuContentsList/like-1.png">
+					</button>
+					<%
+					}else{
+					%>
+					<button type="button" id="bodyLikeIcon" style="display:inline"  onclick="likeButton(this)" value="좋아요">
+						<img class="commu-contents-list__like-1"
+							src="commuContentsList/like-1.png">
+					</button>
+					<button type="button" id="bodyLikeIcon" style="display:none" onclick="likeButton(this)" value="좋아요">
+						<img class="commu-contents-list__like-1"
+							src="commuContentsList/like-1.png">
+					</button>
+					<%
+					}
+					%>
+					
+					
 
 					<!--              좋아요 수  -->
 					<div class="commu-contents-list___25" id="bodyLikeCount"><%=commuDTO.getLike_cnt()%></div>
@@ -198,14 +223,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					}
 					}
 					%>
-					<!--             댓글 -->
-<%-- 					<div id="commentNum" class="commu-contents-list___3"><%=commuDTO.getComment_cnt()%></div> --%>
 
-					<!--            댓글 이미지 -->
-<!-- 					<button type="button" id="bodycomment"> -->
-<!-- 						<img class="commu-contents-list__text-box-1" -->
-<!-- 							src="commuContentsList/text-box-1.png" /> -->
-<!-- 					</button> -->
 				</div>
 
 			</form>
