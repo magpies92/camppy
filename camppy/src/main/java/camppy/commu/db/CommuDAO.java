@@ -555,6 +555,28 @@ public class CommuDAO {
 		 return count;
 		
 	}
+	
+	public int myCountrv(int memberid) {
+		int count = 0;
+		try {
+			con = getConnection();
+			
+			String sql ="select count(*) from review where member_id =? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, memberid);
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			dbclose();
+		}
+		 return count;
+		
+	}
 
 	
 	
