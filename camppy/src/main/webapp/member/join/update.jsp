@@ -125,6 +125,7 @@ $(document).ready(function(){
     <title>Document</title>
   </head>
   <body>
+  <div class="proUpdate">
 <%MemberDTO memberDTO=(MemberDTO)request.getAttribute("memberDTO");%>
 <form action="updatePro.me" id="join" method="post">
     <div class="edit-profile">
@@ -164,7 +165,7 @@ $(document).ready(function(){
 </div>
         <div class="edit-profile__button-withdraw">        
 <button type="button" onclick="confirmDelete()" class="edit-profile__7">회원 탈퇴</button>
-
+</div>
 <script>
 function confirmDelete() {
     if (confirm("회원 탈퇴 하시겠습니까?")) {

@@ -389,7 +389,7 @@ if(id == null){
 	%>
 <div class="section-login">
   <div class="section-login__login">
-<button type="button" onclick="openCenteredPopup('insert.me', 'ReviewPopup', 800, 1000)" class="section-login__">회원가입</button>
+<button type="button" onclick="openCenteredPopup('insert.me', 'ReviewPopup', 780, 920)" class="section-login__">회원가입</button>
 <button type="button" onclick="openCenteredPopup('login.me', 'ReviewPopup', 700, 850)" class="section-login__1">로그인</button>
   </div>
 </div>
