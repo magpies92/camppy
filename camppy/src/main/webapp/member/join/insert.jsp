@@ -58,7 +58,7 @@ $(document).ready(function(){
 		var idReg = /^[A-Za-z0-9]{5,20}$/;
 
 		if (!idReg.test(id)) {
-		    alert("아이디는 영문자와 숫자를 포함한 5~20자 사이입니다.");
+		    alert("아이디는 5~20자이며 영문자,숫자만 사용 가능합니다.");
 		    $('.id').focus();
 		    return false;
 		}
@@ -88,7 +88,7 @@ $(document).ready(function(){
 		var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
 
 		if (!nickReg.test(nick)) {
-		    alert("닉네임은 한글, 영문자, 숫자를 포함한 2~8자 사이입니다.");
+		    alert("닉네임은 2~8자이며 영문자,한글,숫자만 사용 가능합니다.");
 		    $('.nick').focus();
 		    return false;
 		}
@@ -119,7 +119,7 @@ $(document).ready(function(){
 		var idReg = /^[A-Za-z0-9]{5,20}$/;
 
 		if (!idReg.test(id)) {
-		    alert("아이디는 영문자와 숫자를 포함한 5~20자 사이입니다.");
+		    alert("아이디는 5~20자이며 영문자,숫자만 사용 가능합니다.");
 		    $('.id').focus();
 		    return false;
 		}
@@ -134,13 +134,8 @@ $(document).ready(function(){
 		}
 		var password = $('.pass').val();
 		var regex1 = /^[a-zA-Z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,16}$/;
-		var regex2 = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/;
 		if (!regex1.test(password)) {
-		    alert("비밀번호는 8~16자의 영문 대/소문자, 숫자, 특수문자만 사용해 주세요.");
-		    $('.pass').focus();
-		    return false;
-		} else if (!regex2.test(password)) {
-		    alert("비밀번호는 영문 대/소문자, 숫자, 특수문자를 모두 포함해야 합니다.");
+		    alert("비밀번호는 8~16자이며 영문 대/소문자, 숫자, 특수문자를 모두 포함해야 합니다.");
 		    $('.pass').focus();
 		    return false;
 		}
@@ -158,7 +153,7 @@ $(document).ready(function(){
 		var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
 
 		if (!nickReg.test(nick)) {
-		    alert("닉네임은 한글, 영문자, 숫자를 포함한 2~8자 사이입니다.");
+		    alert("닉네임은 2~8자이며 영문자,한글,숫자만 사용 가능합니다.");
 		    $('.nick').focus();
 		    return false;
 		}
