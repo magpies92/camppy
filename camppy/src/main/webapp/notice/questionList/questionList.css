@@ -141,6 +141,7 @@
   justify-content: flex-start;
 }
 .questionListList2 {
+  cursor : pointer !important;
   border-style: solid;
   border-color: #b3b3b3;
   border-width: 0.0000vw 0.0000vw 0.0510vw 0.0000vw;
@@ -365,6 +366,7 @@
   justify-content: center;
 }
 .writebtn {
+  cursor : pointer !important;
   border-radius: 0.2552vw;
   border-style: solid;
   border-color: #4da385;

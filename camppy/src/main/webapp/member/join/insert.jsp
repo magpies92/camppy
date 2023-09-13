@@ -58,7 +58,7 @@ $(document).ready(function(){
 		var idReg = /^[A-Za-z0-9]{5,20}$/;
 
 		if (!idReg.test(id)) {
-		    alert("아이디는 영문자,숫자만 사용가능하고 5~20자 사이여야합니다.");
+		    alert("아이디는 5~20자이며 영문자,숫자만 사용 가능합니다.");
 		    $('.id').focus();
 		    return false;
 		}
@@ -85,13 +85,13 @@ $(document).ready(function(){
 			return false;
 		}
 		var nick = $('.nick').val();
-    	var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
+		var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
 
-    	if (!nickReg.test(nick)) {
-    		alert("닉네임은 한글,영문자,숫자만 사용가능하고 2~8자 사이여야 합니다.");
-    	    $('.nick').focus();
-    	    return false;
-    	}
+		if (!nickReg.test(nick)) {
+		    alert("닉네임은 2~8자이며 영문자,한글,숫자만 사용 가능합니다.");
+		    $('.nick').focus();
+		    return false;
+		}
 		clicked4 = true;
 		$.ajax({
 			url:'nickCheck.me',
@@ -119,7 +119,7 @@ $(document).ready(function(){
 		var idReg = /^[A-Za-z0-9]{5,20}$/;
 
 		if (!idReg.test(id)) {
-		    alert("아이디는 영문자,숫자만 사용가능하고 5~20자 사이여야합니다.");
+		    alert("아이디는 5~20자이며 영문자,숫자만 사용 가능합니다.");
 		    $('.id').focus();
 		    return false;
 		}
@@ -134,13 +134,8 @@ $(document).ready(function(){
 		}
 		var password = $('.pass').val();
 		var regex1 = /^[a-zA-Z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,16}$/;
-		var regex2 = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/;
 		if (!regex1.test(password)) {
-		    alert("비밀번호는 8~16자의 영문 대/소문자, 숫자, 특수문자만 사용해 주세요.");
-		    $('.pass').focus();
-		    return false;
-		} else if (!regex2.test(password)) {
-		    alert("비밀번호는 영문 대/소문자, 숫자, 특수문자를 모두 포함해야 합니다.");
+		    alert("비밀번호는 8~16자이며 영문 대/소문자, 숫자, 특수문자를 모두 포함해야 합니다.");
 		    $('.pass').focus();
 		    return false;
 		}
@@ -155,13 +150,13 @@ $(document).ready(function(){
 			return false;
 		}
 		var nick = $('.nick').val();
-    	var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
+		var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
 
-    	if (!nickReg.test(nick)) {
-    		alert("닉네임은 한글,영문자,숫자만 사용가능하고 2~8자 사이여야 합니다.");
-    	    $('.nick').focus();
-    	    return false;
-    	}
+		if (!nickReg.test(nick)) {
+		    alert("닉네임은 2~8자이며 영문자,한글,숫자만 사용 가능합니다.");
+		    $('.nick').focus();
+		    return false;
+		}
 		if (!clicked4) {
 			alert("닉네임 중복확인 눌러주세요");
 	        return false;

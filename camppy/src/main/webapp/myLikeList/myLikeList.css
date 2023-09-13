@@ -279,6 +279,7 @@
 }
 
 .updateButton {
+	cursor : pointer !important;
 	background: #4da385;
 	border-radius: 5px;
 	padding: 0px 9px 0px 9px;

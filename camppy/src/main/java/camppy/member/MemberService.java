@@ -4,10 +4,14 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 
 import camppy.member.MemberDAO;
 import camppy.member.MemberDTO;
-
 public class MemberService {
 	MemberDAO memberDAO = null;
 	
@@ -129,21 +133,35 @@ public class MemberService {
 	}//getMember()
 
 	public MemberDTO updateMember(HttpServletRequest request) {
-	    MemberDTO updatedMemberDTO = null;
+	    MemberDTO memberDTO = null;
 	    try {
-	        String id = request.getParameter("id");
-	        String pass = request.getParameter("pass");
-	        String nick = request.getParameter("nick");
-	        updatedMemberDTO = new MemberDTO();
-	        updatedMemberDTO.setId(id);
-	        updatedMemberDTO.setPass(pass);
-	        updatedMemberDTO.setNick(nick);
-	        memberDAO = new MemberDAO(); 
-	        memberDAO.updateMember(updatedMemberDTO);
+	    	String uploadPath=request.getRealPath("memberimg");
+			// 이클립스에 실행하면 이클립스 가상경로 
+			System.out.println(uploadPath);
+			//파일 최대크기 지정  10M
+			int maxSize=10*1024*1024; 
+			// 파일 업로드 했을때 폴더내 파일이름 동일하면 파일이름 변경하는 프로그램
+			//import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+			// new DefaultFileRenamePolicy()
+			MultipartRequest multi 
+			= new MultipartRequest(request, uploadPath, maxSize,"utf-8", new DefaultFileRenamePolicy()); 
+			String memberimg = multi.getFilesystemName("memberimg");
+		
+			
+			memberDAO = new MemberDAO();
+			String id = multi.getParameter("id");
+	        String pass = multi.getParameter("pass");
+	        String nick = multi.getParameter("nick");
+	        memberDTO = new MemberDTO();
+	        memberDTO.setId(id);
+	        memberDTO.setPass(pass);
+	        memberDTO.setNick(nick);
+	        memberDTO.setMember_img(memberimg);
+	        memberDAO.updateMember(memberDTO);
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
-	    return updatedMemberDTO;
+	    return memberDTO;
 	}
 
 
@@ -184,6 +202,8 @@ public class MemberService {
 		}
 		return memberList;
 	}//getMemberList()
+	
+	
 
 	
 	

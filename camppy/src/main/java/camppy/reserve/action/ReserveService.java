@@ -113,6 +113,34 @@ public class ReserveService {
 		return reserveList;
 	}
 	
+	public List<ReserveDetailDTO> getReserveList1(PageDTO pageDTO) {
+		List<ReserveDetailDTO> reserveList = null;
+		System.out.println("ReserveService getReserveList()");
+		try {
+			
+			int startRow = (pageDTO.getCurrentPage() - 1) * pageDTO.getPageSize() + 1;
+			// 시작하는 행부터 끝나는 행까지 뽑아오기
+//			startRow  pageSize => endRow
+//			    1         10   =>   1+10-1 =>10
+//			    11        10   =>   11+10-1 =>20
+//		        21        10   =>   21+10-1 =>30
+
+			int endRow = startRow + pageDTO.getPageSize() - 1;
+			// pageDTO 저장 <= startRow, endRow
+			pageDTO.setStartRow(startRow);
+			pageDTO.setEndRow(endRow);
+			
+			reserveDetailDAO = new ReserveDetailDAO();
+			reserveList =reserveDetailDAO.getReserveList1(pageDTO);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return reserveList;
+	}
+	
 	
 	
 //	public List<MyReserveDTO> getMyReserveList1(int res_id) {
@@ -218,6 +246,20 @@ public class ReserveService {
 		}
 		return count;
 	}// getBoardCount
+	
+	public int getReserveCount1(PageDTO pageDTO) {
+		System.out.println("ReserveService getReserveCount()");
+		int count = 0;
+		try {
+			// BoardDAO 객체생성
+			myreserveDAO = new MyReserveDAO();
+			// count = getBoardCount() 호출
+			count = myreserveDAO.getReserveCount1(pageDTO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
 
 	public MyReserveDTO getReserve(HttpServletRequest request) {
 		System.out.println("ReserveService getReserve()");
@@ -267,6 +309,23 @@ public class ReserveService {
 		}
 		return reserveDetailDTO;
 	}//getMember()
+	
+	public void resstch(HttpServletRequest request) {
+		System.out.println("ReserveService deleteReserve()");
+		try {
+			// 한글처리
+			request.setCharacterEncoding("utf-8");
+			// num 파라미터 값 가져오기
+			int res_id = Integer.parseInt(request.getParameter("res_id"));
+			// BoardDAO 객체생성
+			MyReserveDAO myResreveDAO = new MyReserveDAO();
+			// deleteBoard(num) 메서드 호출
+			myResreveDAO.resstch(res_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 	
 	
 	

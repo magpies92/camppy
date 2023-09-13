@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import camppy.main.action.CampRegService;
 import camppy.member.MemberDTO;
 import camppy.member.MemberService;
 
@@ -152,12 +153,13 @@ public class MemberController extends HttpServlet{
 			// 세션 내장객체 전체 삭제(기억장소 해제)
 			session.invalidate();
 			// 주소 변경하면서 이동  main.me 이동
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("location.href=document.referrer;");
-			out.println("</script>");
-			out.close();
+			/* response.setContentType("text/html; charset=UTF-8"); */
+			response.sendRedirect("main.camp");
+			/*
+			 * PrintWriter out = response.getWriter(); out.println("<script>");
+			 * out.println("location.href=document.referrer;"); out.println("</script>");
+			 * out.close();
+			 */
 			
 		}
 		
@@ -193,6 +195,7 @@ public class MemberController extends HttpServlet{
 			// MemberDTO memberDTO = getMember(id) 메서드 호출
 			MemberDTO memberDTO=memberService.getMember(id);
 			
+			
 			//update.jsp이동할때 request에 담아서 이동
 			request.setAttribute("memberDTO", memberDTO);
 			
@@ -203,19 +206,22 @@ public class MemberController extends HttpServlet{
 		}
 		if(sPath.equals("/updatePro.me")) {
 		    request.setCharacterEncoding("utf-8");
+		    MemberService memeberService = new MemberService();		   
 		    MemberDTO updatedMemberDTO = memberService.updateMember(request);
-		    HttpSession session = request.getSession();
+		    HttpSession session = request.getSession();		    
 		    session.removeAttribute("pass");
 		    session.removeAttribute("nickname");
 		    session.setAttribute("pass", updatedMemberDTO.getPass());
 		    session.setAttribute("nickname", updatedMemberDTO.getNick());
-		    PrintWriter out = response.getWriter();
-		    out.println("<script type='text/javascript'>");
+		    response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
 			out.println("setTimeout(function() {\r\n"
 					+ "				    opener.location.reload(); //부모창 리프레쉬\r\n"
 					+ "				    self.close(); //현재창 닫기\r\n"
 					+ "				    });");
 			out.println("</script>");
+		        
 		}	
 		
 		if(sPath.equals("/list.me")) {
@@ -303,7 +309,9 @@ List<MemberDTO> memberList = memberService.getMemberList();
 		    out.println("</script>");
 		}	
 		
+		
 	}//doProcess() 메서드
+
 
 	
 }//클래스
