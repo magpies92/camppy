@@ -105,7 +105,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			likeDTO = likeList.get(i);
 		%>
 				<img class="likeListPhoto" src="campimg/<%=likeDTO.getCamp_img()%>" />
-<!-- 				<div class="likeList2"> -->
+				<div class="likeList2">
 					<div class="likeListTitle"><%=likeDTO.getCamp_name()%></div>
 					<div class="likeListAdd">
 						<%=likeDTO.getCamp_addr()%>
@@ -115,20 +115,21 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					</div>
 					<div class="likeListTell"><%=likeDTO.getTel()%></div>
 
-					<div class="likeTitle">
+					
 						<img src="myLikeList/hearts.png" class=hearts>
 						<div class="likeNum"><%=likeDAO.getlikecount(likeDTO.getCamp_id())%></div>
-					</div>
-<!-- 				</div> -->
+					
+				
 				<!-- 			  //선택삭제 -->
 				<div class="eachCheck">
 					<input type="checkbox" name="cbox" class="eachCheckbox"
 						value="<%=likeDTO.getCamp_like_id()%>">
-				</div>
+				</div></div>
+<!-- 				</div> -->
 				<%
 				}
 				%>			
-			</div>
+			
 			<%
 			// 시작 페이지 1페이지 Prev 없음
 			// 시작 페이지 11, 21, 31 Prev 보임
