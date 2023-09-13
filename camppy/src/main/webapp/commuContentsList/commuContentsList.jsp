@@ -41,7 +41,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");
 	
 	%>
-   	<div class="commu-contents-list">
+	<div class="commu-contents-list">
 		<div class="commu-contents-list__section-body">
 			<div class="commu-contents-list__best-contents">
 				<div class="commu-contents-list__contents-box">
@@ -57,19 +57,15 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 						<div class="commu-contents-list__"><%=commuDTO.getTitle()%></div>
 						<div class="commu-contents-list__frame-189">
 							<a href="commuContentsList?post_id=<%=commuDTO.getPost_id()%>">
-							<%
-							if(commuDTO.getImg_url() != null){
-							%>
-								<img class="commu-contents-list__rectangle-7"
-								src="upload/<%=commuDTO.getImg_url()%>" id="picture3">
 								<%
+							if(commuDTO.getImg_url() != null){
+							%> <img class="commu-contents-list__rectangle-7"
+								src="upload/<%=commuDTO.getImg_url()%>" id="picture3"> <%
 							    }
 								else
 								{ 
-								%>
-							    <img class="commu-contents-list__rectangle-7"
-								 src="upload/5.png" id="picture3">
-								<%
+								%> <img class="commu-contents-list__rectangle-7"
+								src="upload/5.png" id="picture3"> <%
 								}
 								%>
 							</a>
@@ -121,7 +117,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				</div>
 			</form>
 
-		
+
 			<%
 			for (int i = 0; i < commuList.size(); i++) {
 				//commuList.size()
@@ -157,8 +153,10 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					<!--              내용이미지  -->
 					<%
 					if(commuDTO.getImg_url() != null){ 
+						
 					%>
-					<a href="commuContentsListSearch.commu?post_id=<%=commuDTO.getPost_id()%>">
+					<a
+						href="commuContentsListSearch.commu?post_id=<%=commuDTO.getPost_id()%>">
 						<img class="commu-contents-list___002"
 						src="upload/<%=commuDTO.getImg_url()%>" id="bodyContentsImage">
 					</a>
@@ -168,47 +166,22 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					{ 
 					%>
 					<a href="commuContents.commu?post_id=<%=commuDTO.getPost_id()%>">
-						<img class="commu-contents-list___002"
-						src="upload/5.png" id="bodyContentsImage">
+						<img class="commu-contents-list___002" src="upload/5.png"
+						id="bodyContentsImage">
 					</a>
-                     <%
+					<%
 					}
                      %>
-					
+
 
 					<!--              좋아요 아이콘  -->
-					<%
-				if(id != null){
-					if(CommuDAO.checklike(CommuDTO.getPost_id(),memberDTO.getId()) ==0){
-					%>
-					<button type="button" id="bodyLikeIcon" style="display:inline"  onclick="likeButton(this)" value="좋아요">
-						<img class="commu-contents-list__like-1"
-							src="commuContentsList/like-1.png">
-					</button>
-					<button type="button" id="bodyLikeIcon" style="display:none" onclick="likeButton(this)" value="좋아요">
-						<img class="commu-contents-list__like-1"
-							src="commuContentsList/like-1.png">
-					</button>
-					<%
-					}else{
-					%>
-					<button type="button" id="bodyLikeIcon" style="display:inline"  onclick="likeButton(this)" value="좋아요">
-						<img class="commu-contents-list__like-1"
-							src="commuContentsList/like-1.png">
-					</button>
-					<button type="button" id="bodyLikeIcon" style="display:none" onclick="likeButton(this)" value="좋아요">
-						<img class="commu-contents-list__like-1"
-							src="commuContentsList/like-1.png">
-					</button>
-					<%
-					}
-					%>
-					
-					
+			
+
+
 
 					<!--              좋아요 수  -->
 					<div class="commu-contents-list___25" id="bodyLikeCount"><%=commuDTO.getLike_cnt()%></div>
-				   
+
 					<%
 					if (id != null) {
 						//if (id.equals(memberDTO.getId())) {
@@ -232,12 +205,12 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			%>
 
 		</div>
-		
-		
+
+
 		<div class="commu-contents-list__page-list">
 			<div id="page_control" class="commu-contents-list__list">
-			
-	<%
+
+				<%
 				 
 				if (pageDTO.getStartPage() > pageDTO.getPageBlock()) {
 				%>
@@ -265,8 +238,11 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				<a
 					href="commuContentsList.commu?pageNum=<%=pageDTO.getStartPage() + pageDTO.getPageBlock()%>">Next</a>
 				<%
-}
-%>
+				}
+				%>
+				
+
+
 
 
 			</div>

@@ -1,3 +1,4 @@
+<%@page import="camppy.commu.db.CommuDAO"%>
 <%@page import="camppy.commu.db.CommuDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="camppy.commu.db.PageDTO"%>
@@ -107,7 +108,17 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			}
 		}
 	</script>
-
+    <%
+	PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");
+	List<CommuDTO> myCommuList = (List<CommuDTO>) request.getAttribute("myCommuList");
+	CommuDTO commuDTO = new CommuDTO();
+	String id = (String) session.getAttribute("id");
+	int memberid= (int)session.getAttribute("memberid");
+	
+    CommuDAO commuDAO = new CommuDAO();
+	request.setCharacterEncoding("UTF-8");
+	%>
+	
 	<!-- 헤더들어가는 곳 -->
 	<jsp:include page="/inc/top.jsp" />
 	<!-- 헤더들어가는 곳 -->
@@ -121,7 +132,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		</button>
 		<div class="mypageProfileNum">
 			<div class="myArticle">작성글</div>
-			<div class="myArticleNum">3</div>
+			<div class="myArticleNum"><%=commuDAO.myCountids(memberid) %></div>
 			<div class="myReply">댓글</div>
 			<div class="myReplyNum">6</div>
 		</div>
@@ -132,15 +143,6 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		<div class="tab" id="tab3" onclick="location.href='mypageReviewList.rv'">작성 리뷰</div>
 		<div class="tab" id="tab4" onclick="location.href='mypage_reserve.re'">예약 내역</div>
 	</div>
-
-	<%
-	PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");
-	List<CommuDTO> myCommuList = (List<CommuDTO>) request.getAttribute("myCommuList");
-	CommuDTO commuDTO = new CommuDTO();
-	String id = (String) session.getAttribute("id");
-
-	request.setCharacterEncoding("UTF-8");
-	%>
 
 	<div class="reviewTop">
 		<div class="reviewCount">글 리스트</div>
