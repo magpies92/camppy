@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 <%@page import="java.time.LocalDate"%>
-=======
 <%@page import="camppy.member.MemberDAO"%>
 <%@page import="camppy.member.MemberDTO"%>
->>>>>>> branch 'main' of https://github.com/magpies92/camppy.git
 <%@page import="camppy.commu.db.CommuDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
