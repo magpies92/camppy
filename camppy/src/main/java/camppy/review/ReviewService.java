@@ -66,38 +66,48 @@ public class ReviewService {
 		return reviewList;
 	}
 
-//	public ReviewDTO getReview(HttpServletRequest request) {
-//		ReviewDTO reviewDTO=null;
-//		try {
-//			// request에 num 파라미터 값 가져오기
-//     int review_id = Integer.parseInt(request.getParameter("review_id"));
-//			// BoardDAO 객체생성 
-//     reviewDAO = new ReviewDAO();
-//			// boardDTO = getBoard(num);
-//     reviewDTO=reviewDAO.getReview(review_id);
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return reviewDTO;
-//	}
+	public ReviewDTO getReview(HttpServletRequest request) {
+		System.out.println("ReviewService getReview()");
+		ReviewDTO reviewDTO = null;
+		try {
+			// request 한글 처리
+			request.setCharacterEncoding("utf-8");
+			
+			//request 파라미터 가져오기 -> int review_id 저장
+			int res_id = Integer.parseInt(request.getParameter("res_id"));
+			
+			//ReviewDAO 객체 생성
+			reviewDAO =new ReviewDAO();
+			
+			//ReviewDTO reviewDAO.getReview(res_id)메서드 호출
+			reviewDTO = reviewDAO.getReview(res_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return reviewDTO;
+	}
 
 
 	public void updateReview(HttpServletRequest request) {
 		try {
-			// => request 한글처리, request 값 가져오기, BoardDTO 값저장
-		    //    BoardDAO 객체생성 updateBoard(boardDTO) 호출
+			//한글 처리
 			request.setCharacterEncoding("utf-8");
-			int review_id=Integer.parseInt(request.getParameter("review_id"));
+			
+			// res_id, rating, content 파라미터 값 가져오기
+			int res_id=Integer.parseInt(request.getParameter("res_id"));
 			int rating=Integer.parseInt(request.getParameter("rating"));
 			String content =request.getParameter("content");
 			
+			//ReviewDTo
 			ReviewDTO reviewDTO =new ReviewDTO();
-			reviewDTO.setReview_id(review_id);
+			// set 메서드 호출 파라미터값 저장
+			reviewDTO.setRes_id(res_id);
 			reviewDTO.setRating(rating);
 			reviewDTO.setContent(content);
 			
+			//ReviewDAO 객체생성
 			reviewDAO =new ReviewDAO();
+			//updateReview(reviewDTO) 메서드 호출
 			reviewDAO.updateReview(reviewDTO);
 			
 		} catch (Exception e) {
@@ -116,5 +126,7 @@ public class ReviewService {
 			e.printStackTrace();
 		}
 	}
+
+
 	
 }//class

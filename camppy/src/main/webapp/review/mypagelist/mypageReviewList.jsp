@@ -32,13 +32,13 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 <jsp:include page="/inc/top.jsp"></jsp:include>
 <!--  헤더 -->
 <!-- 프로필 부분 -->
+<%String nickname=(String)session.getAttribute("nickname"); %>
 <div class="mypageProfile">
-		<img class="mypageUserIcon" src="free-icon-user-8484069-2.png" />
-		<div class="profileNickname">발레하는 감자</div>
-		<button type="button" onclick="location.href = 'update.me'"
-			class="updateButton">
-			<div class="updateProfile">프로필수정</div>
-		</button>
+		<img class="mypageUserIcon" src="member/join/images/free-icon-user-8484069-2.png" />
+		<div class="profileNickname"><%=nickname %></div>
+<button type="button" onclick="openCenteredPopup('update.me', 'ReviewPopup', 1000, 850)" class="updateButton">
+<div class="updateProfile">프로필수정</div>
+</button>
 		<div class="mypageProfileNum">
 			<div class="myArticle">작성글</div>
 			<div class="myArticleNum">3</div>

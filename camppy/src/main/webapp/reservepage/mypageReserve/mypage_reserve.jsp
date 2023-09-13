@@ -427,14 +427,13 @@ display: contents;
 	<jsp:include page="/inc/top.jsp"/>
 <!-- 헤더들어가는 곳 -->
 
-
+<%String nickname=(String)session.getAttribute("nickname"); %>
 <div class="mypageProfile">
-		<img class="mypageUserIcon" src="free-icon-user-8484069-2.png" />
-		<div class="profileNickname">발레하는 감자</div>
-		<button type="button" onclick="location.href = 'update.me'"
-			class="updateButton">
-			<div class="updateProfile">프로필수정</div>
-		</button>
+		<img class="mypageUserIcon" src="member/join/images/free-icon-user-8484069-2.png" />
+		<div class="profileNickname"><%=nickname %></div>
+<button type="button" onclick="openCenteredPopup('update.me', 'ReviewPopup', 1000, 850)" class="updateButton">
+<div class="updateProfile">프로필수정</div>
+</button>
 		<div class="mypageProfileNum">
 			<div class="myArticle">작성글</div>
 			<div class="myArticleNum">3</div>
@@ -513,7 +512,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
  	<tr><td> 예약번호 </td><td> 펜션명 </td><td> 예약상태 </td> 
- 	<td> 예약일자 </td><td>총 금액</td><td>리뷰</td><td> 예약취소 </td></tr> 
+ 	<td> 예약일자 </td><td>총 금액</td><td>후기작성</td><td> 예약취소 </td></tr> 
  	</thead>
  	<% 
 //  	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
@@ -575,9 +574,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
   <a href="reviewInsert.rv?res_id=<%=rdto.getRes_id()%>&camp_id=<%=rdto.getCamp_id()%>"
      onclick="window.open(this.href, 'ReviewPopup', 'width=700, height=700, left=100, top=50, max-width: 100% max-height: 100% overflow: auto'); return false;"
      class="btn btn-outline-success"
-     role="button">
-    리뷰 작성
-  </a>
+     role="button">작성</a>
 </td>
 						
 	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='MyReservePro.re?res_id=<%=rdto.getRes_id()%>'">Cancel</button></td></tr>

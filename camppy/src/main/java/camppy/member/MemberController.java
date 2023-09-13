@@ -202,29 +202,15 @@ public class MemberController extends HttpServlet{
 			dispatcher.forward(request, response);
 		}
 		if(sPath.equals("/updatePro.me")) {
-			System.out.println("주소 비교 : /updatePro.me");
-			//한글처리
-			request.setCharacterEncoding("utf-8");
-			// MemberService 객체생성
-			memberService = new MemberService();
-			// MemberDTO memberDTO = userCheck(request) 메서드 호출
-			MemberDTO memberDTO = memberService.userCheck2(request);
-			if(memberDTO != null) {
-				// memberDTO != null
-				// 아이디 비밀번호 일치 -> 수정 -> main.me 이동
-				//     수정  updateMember(request) 메서드 호출
-				memberService.updateMember(request);
-				//     main.me 이동
-				response.sendRedirect("main.camp");
-			}else {
-				// else => memberDTO == null
-				//     아이디 비밀번호 틀림 -> member/msg.jsp 이동
-				dispatcher 
-			    = request.getRequestDispatcher("member/join/msg.jsp");
-				dispatcher.forward(request, response);
-			}
-		}//
-				
+		    request.setCharacterEncoding("utf-8");
+		    MemberDTO updatedMemberDTO = memberService.updateMember(request);
+		    HttpSession session = request.getSession();
+		    session.removeAttribute("pass");
+		    session.removeAttribute("nickname");
+		    session.setAttribute("pass", updatedMemberDTO.getPass());
+		    session.setAttribute("nickname", updatedMemberDTO.getNick());
+		    response.sendRedirect("main.camp");    
+		}	
 		
 		if(sPath.equals("/list.me")) {
 			System.out.println("주소 비교 : /list.me");

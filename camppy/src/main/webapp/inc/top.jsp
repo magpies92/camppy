@@ -287,9 +287,9 @@
   text-align: left;
   font: 400 1.0417vw/1.1458vw "Pretendard-medium", sans-serif;
   position: absolute;
-  left: 3.1771vw;
+  left: 0.5vw;
   top: 0.6771vw;
-  width: 8.5938vw;
+  width: fit-content;
   height: 1.6146vw;
   display: flex;
   align-items: center;
