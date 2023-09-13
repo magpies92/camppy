@@ -59,15 +59,22 @@ LikeDAO likeDAO = new LikeDAO();
     <div class="campName"><%=detailDTO.getCamp_name() %>
     <div class="campReport"><%=detailDTO.getShort_intro() %></div>
    
-   
+  
    </div>
 <!-- 예약하기 버튼 -->
 <%
 if(id != null){
-	%>
+	if(id.equals("admin")){%>
+	<input type="button" value="캠핑장 정보 수정" class="bannerRsButton1"
+           onclick="location.href='campupdate.campreg'" > 
+           <input type="button" value="예약하기" class="bannerRsButton"
+           onclick="location.href='reserve_detail.re?campId=<%=detailDTO.getCamp_id() %>'" >  
+	
+	<%}else{%>
+	
 	<input type="button" value="예약하기" class="bannerRsButton"
            onclick="location.href='reserve_detail.re?campId=<%=detailDTO.getCamp_id() %>'" >  
-	<%
+	<%}
 }
 	
 %>              

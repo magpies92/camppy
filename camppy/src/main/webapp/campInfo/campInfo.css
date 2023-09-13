@@ -69,6 +69,22 @@
   left: 91.5vw;
   top: 16vw
 }
+.bannerRsButton1 {
+  color: #ffffff;
+  font: 1vw "pretendard-medium", sans-serif;
+  text-align: center;
+  background: #4da385;
+  border-radius: 0.2660vw;
+  flex-direction: row;
+  gap: 0.0000vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 7vw;
+  height: 2.4vw;
+  position: absolute;
+  left: 91.5vw;
+  top: 13vw
+}
 
 .infoSectionBody {
   flex-shrink: 0;

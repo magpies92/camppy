@@ -89,6 +89,33 @@ public class CampRegController extends HttpServlet {
 		  campregService = new CampRegService(); // 리턴할형없음 finsertCampReg(request) 메서드 호출
 		  campregService.finsertCampReg(request); // list.bo 주소 변경 되면서 이동
 		response.sendRedirect("main.camp"); }
+		
+		if (sPath.equals("/campupdate.campreg")) {
+			// 주소변경없이 이동 center/fwrite.jsp
+			HttpSession session = request.getSession();
+			// 세션에서 로그인 정보 가져오기
+			String id=(String)session.getAttribute("id");
+			/*if(id == null){
+				 response.setContentType("text/html; charset=utf-8");
+			        PrintWriter w = response.getWriter();
+			        w.write("<script>alert('관리자 계정으로 로그인 먼저 해주세요');history.go(-1);</script>");
+			        w.flush();
+			        w.close();			        
+		       
+		    } */
+			
+				dispatcher = request.getRequestDispatcher("camppymain/campreg/campupdate.jsp");
+				dispatcher.forward(request, response);
+			/*else {
+				response.setContentType("text/html; charset=utf-8");
+		        PrintWriter w = response.getWriter();
+		        w.write("<script>alert('관리자 계정이 아닙니다');history.go(-1);</script>");
+		        w.flush();
+		        w.close();
+				
+			}*/
+			
+			}
 		 
 
 	}// doProcess()

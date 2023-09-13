@@ -1,3 +1,5 @@
+<%@page import="camppy.member.MemberDAO"%>
+<%@page import="camppy.member.MemberDTO"%>
 <%@page import="camppy.commu.db.CommuDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="camppy.main.action.PageDTO"%>
@@ -35,13 +37,19 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	<%
 	//세션에서 로그인정보, 예약정보 가져오기
 	String nickname = (String) session.getAttribute("nickname");
+	String id = (String) session.getAttribute("id");
 	int memberid= (int)session.getAttribute("memberid");
 	CommuDAO commuDAO = new CommuDAO();
+	MemberDTO memberDTO = new MemberDTO();
+	MemberDAO memberDAO = new MemberDAO();
+	memberDTO = memberDAO.getMember(id);
+	
+	
 	%>
 
 	<div class="mypageProfile">
 		<img class="mypageUserIcon"
-			src="member/join/images/free-icon-user-8484069-2.png" />
+			src="memberimg/<%=memberDTO.getMember_img() %>" />
 		<div class="profileNickname"><%=nickname%></div>
 		<button type="button"
 			onclick="openCenteredPopup('update.me', 'ReviewPopup', 850, 650)"
@@ -73,7 +81,6 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	List<LikeDTO> likeList = (List<LikeDTO>) request.getAttribute("likeList");
 	LikeDTO likeDTO = new LikeDTO();
 	LikeDAO likeDAO = new LikeDAO();
-	String id = (String) session.getAttribute("id");
 
 	request.setCharacterEncoding("UTF-8");
 	%>
@@ -91,7 +98,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	</div>
 
 
-	
+	<div class="allbody">
 		<div class="likeList">
 		<%
 		for (int i = 0; i < likeList.size(); i++) {
