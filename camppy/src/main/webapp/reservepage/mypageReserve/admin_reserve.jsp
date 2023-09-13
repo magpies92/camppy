@@ -399,6 +399,7 @@ div.tab.active {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	left : 750px
 }
 
 .tabContents {
@@ -409,15 +410,53 @@ div.tab.active {
 	align-items: center;
 }
 
-.pagination {
-display: contents;
 
-    }
   #tab4 {
 	color: lightseagreen;
 }
-  
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1.5vw;
+	top: 7vw;
+	left: 31vw;
+	position:relative;
+	
+}
 
+.pagination a {
+	text-decoration: none;
+	padding: 0.4167vw 0.8333vw;
+	margin: 0 0.2083vw;
+	border: 0.0521vw solid #ccc;
+	border-radius: 0.2083vw;
+	color: #333;
+	transition: background-color 0.3s, color 0.3s;
+	top: 0vw;
+	left: 0vw;
+}
+
+.pagination a.active {
+	background-color: #4da285;
+	color: white;
+}
+
+
+.pagination a:hover {
+	background-color: #333;
+	color: #fff;
+}
+.table {
+     position: relative;
+    left: 471px;
+    transform: scale(1.4,1.4);
+    top: 21px;
+    line-height: 190%;
+    letter-spacing: -1.5px;
+    width: 810px;
+    text-align: center;
+}
 </style>
 </head>
 <body>
@@ -429,11 +468,8 @@ display: contents;
 
 <%String nickname=(String)session.getAttribute("nickname"); %>
 
-	<div class="mypageNavi">
-		
-		<div class="tab" id="tab4" onclick="location.href='admin_reserve.re'">회원 예약 내역</div>
-	</div>
-	
+<div class="tab" id="tab4" onclick="location.href='admin_reserve.re'">회원 예약 내역</div>
+
 
 <%
  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
@@ -454,16 +490,8 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 
 <div id="wrap">
  <article class="art">	
-  <div class="res">  
-       <div class="col-lg-12" >  
-      
-       </div>
-       </div>
-	<div><table class="table" style="
-    position: relative;
-    left: 570px; transform: scale(1.3,1.3);
-    top: 21px; line-height: 170%; letter-spacing: 0.5px;
-">
+  
+	<div><table class="table">
 	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
  	<tr><td> 예약번호 </td><td> 펜션명 </td><td> 예약상태 </td> 
@@ -547,7 +575,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 	<%
 }
  %>
-<div class="room-pagination" style=" position: relative; left: 880px; top: 86px">
+<div class="pagination" >
 <%
  for(int i=startPage;i<=endPage;i++){
 	%>
