@@ -14,12 +14,34 @@ public class ReserveDetailDTO {
 	private int camp_price; // 캠프 가격
 	private int sprice; // 총가격
 	private String camp_name; // 캠프 이름
+	private int review_check;
+	private String bankname;
+	private String bankaccount;
 	
 	
 	
 	
 	
 	
+	
+	public String getBankname() {
+		return bankname;
+	}
+	public void setBankname(String bankname) {
+		this.bankname = bankname;
+	}
+	public String getBankaccount() {
+		return bankaccount;
+	}
+	public void setBankaccount(String bankaccount) {
+		this.bankaccount = bankaccount;
+	}
+	public int getReview_check() {
+		return review_check;
+	}
+	public void setReview_check(int review_check) {
+		this.review_check = review_check;
+	}
 	public String getCamp_name() {
 		return camp_name;
 	}

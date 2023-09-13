@@ -13,11 +13,17 @@ public class MyReserveDTO {
 	private int member_id;
 	private int camp_price;
 	private int sprice;
+	private int review_check;
 	
 	
 	
 	
-	
+	public int getReview_check() {
+		return review_check;
+	}
+	public void setReview_check(int review_check) {
+		this.review_check = review_check;
+	}
 	public int getSprice() {
 		return sprice;
 	}
