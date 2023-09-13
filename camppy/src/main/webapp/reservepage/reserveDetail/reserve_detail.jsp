@@ -723,9 +723,14 @@ var start = $( "#datepicker_start" ).datepicker({
 ,
 onSelect: function (date) {
     // 체크인 날짜 선택 시 체크아웃 날짜 선택기 업데이트
-    var selectedDate = new Date(date);
-    selectedDate.setDate(selectedDate.getDate()); // 다음 날짜로 설정
-    /* $("#datepicker_start").datepicker("option", "minDate", selectedDate); */
+  /*   const minCheckoutDate = new Date(selectedDate);
+      minCheckoutDate.setDate(minCheckoutDate.getDate() + 1); // 체크인 다음 날부터 선택 가능
+      $("#checkout").datepicker("option", "minDate", minCheckoutDate);
+       */
+    const selectedDate = new Date(date);
+    selectedDate.setDate(selectedDate.getDate() + 1); // 다음 날짜로 설정
+    //var addoneday = addOneDay(selectedDate);
+    $("#datepicker_end").datepicker("option", "minDate", selectedDate);
 
     // 체크인과 체크아웃 날짜 사이의 비활성화된 날짜 검사
     var checkoutDate = $("#datepicker_end").datepicker("getDate");
@@ -742,8 +747,20 @@ onSelect: function (date) {
         }
         if (isDisabledDateBetween) {
             alert("체크인과 체크아웃 사이에 비활성화된 날짜가 있습니다.");
-            $("#datepicker_start").val("체크인 날짜를 선택해주세요"); // 체크아웃 날짜를 초기화
+            $("#datepicker_start").val(""); // 체크아웃 날짜를 초기화
         }
+        /* var addoneday = addOneDay(setDate(selectedDate.getDate()));
+        $( "#datepicker_end" ).datepicker( "option", "minDate",addoneday); */
+	    
+        
+        var test1 = $("#datepicker_start").val();
+   	 var test2 = $("#datepicker_end").val();
+   	 var test = getDateDiff(test1, test2);
+   	 var price = <%=campRegDTO.getCampprice()%>;
+   	 var tprice = price * test;
+   	 if (isNaN(tprice)==false){
+   	 document.getElementById("price").value =tprice+"원 /"+test+"박";
+   	 }
     }
 }
      	 
@@ -781,10 +798,13 @@ var end = $( "#datepicker_end" ).datepicker({
     	    return [(!isDisabled)]; // 일요일(0)과 토요일(6)을 제외한 날짜만 선택 가능
     	  },
     	  onSelect: function (date) {
-    		    // 체크인 날짜 선택 시 체크아웃 날짜 선택기 업데이트
+    		 
+    		  
+    		   // 체크인 날짜 선택 시 체크아웃 날짜 선택기 업데이트
     		    var selectedDate = new Date(date);
     		    selectedDate.setDate(selectedDate.getDate()); // 다음 날짜로 설정
-    		    /* $("#datepicker_start").datepicker("option", "minDate", selectedDate); */
+    		    
+    		    
 
     		    // 체크인과 체크아웃 날짜 사이의 비활성화된 날짜 검사
     		var currentDate = selectedDate;
@@ -803,9 +823,19 @@ var end = $( "#datepicker_end" ).datepicker({
     		        }
     		        if (isDisabledDateBetween) {
     		            alert("체크인과 체크아웃 사이에 비활성화된 날짜가 있습니다.");
-    		            $("#datepicker_end").val("체크인 날짜를 선택해주세요"); // 체크아웃 날짜를 초기화
+    		            $("#datepicker_end").val(""); // 체크아웃 날짜를 초기화
     		        }
     		    }
+    		    
+    		    
+    		    var test1 = $("#datepicker_start").val();
+    	    	 var test2 = $("#datepicker_end").val();
+    	    	 var test = getDateDiff(test1, test2);
+    	    	 var price = <%=campRegDTO.getCampprice()%>;
+    	    	 var tprice = price * test;
+    	    	 if (isNaN(tprice)==false){
+    	        	 document.getElementById("price").value =tprice+"원 /"+test+"박";
+    	        	 }
     	  }
 
   });
@@ -827,7 +857,7 @@ try {
 return date;
 }
  
-    
+     
 $(document).ready(function(){
 	
     
@@ -838,29 +868,14 @@ $(document).ready(function(){
     
  
      $("#datepicker_start").on("change",function(e){
-    	 var addoneday = addOneDay(getDate(e.target));
-         var end = $( "#datepicker_end" ).datepicker( "option", "minDate",addoneday);
-    	 var test1 = $("#datepicker_start").val();
-    	 var test2 = $("#datepicker_end").val();
-    	 var test = getDateDiff(test1, test2);
-    	 var price = <%=campRegDTO.getCampprice()%>;
-    	 var tprice = price * test;
-    	 if (isNaN(tprice)==false){
-    	 document.getElementById("price").value =tprice+"원 /"+test+"박";
-    	 }
+    	 
+    	 
     	 
      });
      
      $("#datepicker_end").on("change",function(e){
     	 
-    	 var test1 = $("#datepicker_start").val();
-    	 var test2 = $("#datepicker_end").val();
-    	 var test = getDateDiff(test1, test2);
-    	 var price = <%=campRegDTO.getCampprice()%>;
-    	 var tprice = price * test;
-    	 if (isNaN(tprice)==false){
-        	 document.getElementById("price").value =tprice+"원 /"+test+"박";
-        	 }
+    	
      //}
     	 /* alert(tprice); */
      });
