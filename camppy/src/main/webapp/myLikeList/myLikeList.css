@@ -526,16 +526,13 @@ div.tab.active {
 	align-items: center;
 }
 
-/* .pagination { */
-/* display: contents; */
 
-/*     } */
 .pagination {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 1.0417vw;
-	left: 48.9583vw;
+	margin: 1.5vw;
+	
 }
 
 .pagination a {
@@ -555,7 +552,7 @@ div.tab.active {
 	color: white;
 }
 
-;
+
 .pagination a:hover {
 	background-color: #333;
 	color: #fff;

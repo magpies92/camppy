@@ -194,10 +194,10 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 						내용 :<%=commuDTO.getContent()%></div>
 					<!-- 					<div class="likeListTell">전화번호</div> -->
 
-					<div class="likeTitle">
+					
 						<img src="myContentsList/like-1.png" class=hearts>
 						<div class="likeNum"><%=commuDTO.getLike_cnt()%></div>
-					</div>
+					
 				
 				<!-- 			  //선택삭제 -->
 

@@ -3,23 +3,12 @@
 }
 
 .allbody {
-	width: 85vw;
-	position: relative;
-	padding-left: 11vw;
-	top: -3vw;
-	transform: scale(0.93);
+
 }
 
 .likeListBody {
-	background: #ffffff;
-	flex-direction: row;
-	gap: 0.5207vw;
-	align-items: flex-start;
-	justify-content: flex-start;
-	flex-wrap: wrap;
-	height: 100vw;
 	position: relative;
-	overflow: hidden;
+	left: 13.3vw;
 }
 
 .reviewTop {
@@ -116,31 +105,34 @@
 	width: 15.5000vw;
 	height: 12.5000vw;
 	position: relative;
-	bottom: 0.5vw;
+	left: 12.8vw;
+	margin: 0.5vw;
+}
 }
 
 .likeListTitle {
-  color: #000000;
-  text-align: left;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-  position: relative;
-  left: 14.5vw;
-  top: 0.0000vw;
-  width: 46.8750vw;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+	color: #000000;
+	text-align: left;
+	font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+	position: relative;
+	left: 17vw;
+	top: -13.5vw;
+	width: 46.8750vw;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
 }
 .likeListAdd {
-  color: #000000;
-  text-align: left;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-  position: relative;
-  left: 14.5vw;
-  width: 46.8750vw;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+	color: #000000;
+	text-align: left;
+	font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+	position: relative;
+	left: 17vw;
+	top: -13vw; width : 46.8750vw;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 46.8750vw;
 }
 .likeListTag {
   color: #000000;
