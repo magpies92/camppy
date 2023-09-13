@@ -167,7 +167,7 @@ String keywordsearch = request.getParameter("keywordsearch");
   </div>
  
     </div>
-  <div class="mainpage__list" id="pagination">
+  <div class="mainpage__list" >
        <!--  <img
           class="mainpage__item-link-btn-pre-00-png"
           src="camppymain/searchpage/item-link-btn-pre-00-png.png"

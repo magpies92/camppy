@@ -540,15 +540,15 @@
   justify-content: center;
 }
 
-#pagination {
+.mainpage__list {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin: 20px;
-	left: 940px;
+	left: 560px;
 }
 
-#pagination a {
+.mainpage__list a {
 	text-decoration: none;
 	padding: 8px 16px;
 	margin: 0 4px;
@@ -558,12 +558,12 @@
 	transition: background-color 0.3s, color 0.3s;
 }
 
-#pagination a.active {
+.mainpage__list a.active {
 	background-color: #4da285;
 	color: white;
 }
 
-#pagination a:hover {
+.mainpage__list a:hover {
 	background-color: #333;
 	color: #fff;
 }
