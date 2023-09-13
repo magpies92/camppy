@@ -720,6 +720,36 @@ var start = $( "#datepicker_start" ).datepicker({
      	    var isDisabled = ($.inArray(dateString, disabledDates) !== -1);//비활성화될 데이터들 데이터 변환해서 최종적으로 일자 보여주기전에 비활성화해서 반환
      	    return [(!isDisabled)]; // 일요일(0)과 토요일(6)을 제외한 날짜만 선택 가능
      	  }
+,
+onSelect: function (date) {
+    // 체크인 날짜 선택 시 체크아웃 날짜 선택기 업데이트
+    var selectedDate = new Date(date);
+    selectedDate.setDate(selectedDate.getDate()); // 다음 날짜로 설정
+    /* $("#datepicker_start").datepicker("option", "minDate", selectedDate); */
+
+    // 체크인과 체크아웃 날짜 사이의 비활성화된 날짜 검사
+    var checkoutDate = $("#datepicker_end").datepicker("getDate");
+    if (checkoutDate !== null) {
+        var currentDate = selectedDate;
+        var isDisabledDateBetween = false;
+        while (currentDate < checkoutDate) {
+            var dateString = $.datepicker.formatDate('yy-mm-dd', currentDate);
+            if (disabledDates.indexOf(dateString) !== -1) {
+                isDisabledDateBetween = true;
+                break;
+            }
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+        if (isDisabledDateBetween) {
+            alert("체크인과 체크아웃 사이에 비활성화된 날짜가 있습니다.");
+            $("#datepicker_start").val("체크인 날짜를 선택해주세요"); // 체크아웃 날짜를 초기화
+        }
+    }
+}
+     	 
+     	  
+
+
    
     
 });
@@ -749,7 +779,35 @@ var end = $( "#datepicker_end" ).datepicker({
 
     	    var isDisabled = ($.inArray(dateString, disabledDates1) !== -1);//비활성화될 데이터들 데이터 변환해서 최종적으로 일자 보여주기전에 비활성화해서 반환
     	    return [(!isDisabled)]; // 일요일(0)과 토요일(6)을 제외한 날짜만 선택 가능
-    	  } 
+    	  },
+    	  onSelect: function (date) {
+    		    // 체크인 날짜 선택 시 체크아웃 날짜 선택기 업데이트
+    		    var selectedDate = new Date(date);
+    		    selectedDate.setDate(selectedDate.getDate()); // 다음 날짜로 설정
+    		    /* $("#datepicker_start").datepicker("option", "minDate", selectedDate); */
+
+    		    // 체크인과 체크아웃 날짜 사이의 비활성화된 날짜 검사
+    		var currentDate = selectedDate;
+    		    var checkinDate = $("#datepicker_start").datepicker("getDate");
+    		    checkinDate.setDate(checkinDate.getDate() + 1);
+    		    if (checkinDate !== null) {
+    		        
+    		        var isDisabledDateBetween = false;
+    		        while (checkinDate < currentDate) {
+    		            var dateString = $.datepicker.formatDate('yy-mm-dd', checkinDate);
+    		            if (disabledDates1.indexOf(dateString) !== -1) {
+    		                isDisabledDateBetween = true;
+    		                break;
+    		            }
+    		            checkinDate.setDate(checkinDate.getDate() + 1);
+    		        }
+    		        if (isDisabledDateBetween) {
+    		            alert("체크인과 체크아웃 사이에 비활성화된 날짜가 있습니다.");
+    		            $("#datepicker_end").val("체크인 날짜를 선택해주세요"); // 체크아웃 날짜를 초기화
+    		        }
+    		    }
+    	  }
+
   });
 
 //초기값을 오늘 날짜로 설정
@@ -794,7 +852,7 @@ $(document).ready(function(){
      });
      
      $("#datepicker_end").on("change",function(e){
-    	 //var start = $("#datepicker_start").val();
+    	 
     	 var test1 = $("#datepicker_start").val();
     	 var test2 = $("#datepicker_end").val();
     	 var test = getDateDiff(test1, test2);
@@ -803,13 +861,11 @@ $(document).ready(function(){
     	 if (isNaN(tprice)==false){
         	 document.getElementById("price").value =tprice+"원 /"+test+"박";
         	 }
+     //}
     	 /* alert(tprice); */
      });
      
-    /*  $("#date_search").on("click",function(){
-         var start = $("#datepicker_start").val();
-         var end = $("#datepicker_end").val();
-     });  */   
+      
 });
 
 function addOneDay(date = new Date()) {
