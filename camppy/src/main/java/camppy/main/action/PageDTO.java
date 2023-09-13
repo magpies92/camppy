@@ -1,4 +1,4 @@
-package camppy.main.action;
+	package camppy.main.action;
 
 public class PageDTO {
 	private int pageSize;

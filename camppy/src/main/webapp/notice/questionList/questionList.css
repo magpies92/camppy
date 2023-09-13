@@ -365,6 +365,7 @@
   justify-content: center;
 }
 .writebtn {
+  cursor : pointer !important;
   border-radius: 0.2552vw;
   border-style: solid;
   border-color: #4da385;

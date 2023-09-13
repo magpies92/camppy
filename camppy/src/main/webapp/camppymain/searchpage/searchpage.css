@@ -224,6 +224,7 @@
     
 	}
 .mainpage__3 {
+  cursor : pointer !important;
   color: #ffffff;
   text-align: center;
   font: 700 0.7651vw/2.2437vw "Pretendard-medium", sans-serif;
