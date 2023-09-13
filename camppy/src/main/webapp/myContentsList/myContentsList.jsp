@@ -10,7 +10,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="myContentsList/myContentsList.css"/>
+<link rel="stylesheet" href="myContentsList/myContentsList.css" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -108,21 +108,21 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			}
 		}
 	</script>
-    <%
+	<%
 	PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");
 	List<CommuDTO> myCommuList = (List<CommuDTO>) request.getAttribute("myCommuList");
 	CommuDTO commuDTO = new CommuDTO();
 	String id = (String) session.getAttribute("id");
-	int memberid= (int)session.getAttribute("memberid");
-	
-    CommuDAO commuDAO = new CommuDAO();
+	int memberid = (int) session.getAttribute("memberid");
+
+	CommuDAO commuDAO = new CommuDAO();
 	request.setCharacterEncoding("UTF-8");
 	%>
-	
+
 	<!-- 헤더들어가는 곳 -->
 	<jsp:include page="/inc/top.jsp" />
 	<!-- 헤더들어가는 곳 -->
-	
+
 	<div class="mypageProfile">
 		<img class="mypageUserIcon" src="free-icon-user-8484069-2.png" />
 		<div class="profileNickname">발레하는 감자</div>
@@ -132,16 +132,20 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		</button>
 		<div class="mypageProfileNum">
 			<div class="myArticle">작성글</div>
-			<div class="myArticleNum"><%=commuDAO.myCountids(memberid) %></div>
+			<div class="myArticleNum"><%=commuDAO.myCountids(memberid)%></div>
 			<div class="myReply">댓글</div>
 			<div class="myReplyNum">6</div>
 		</div>
 	</div>
 	<div class="mypageNavi">
-		<div class="tab" id="tab1" onclick="location.href='likeList.my'" >찜 리스트</div>
-		<div class="tab" id="tab2" onclick="location.href='myContentsList.commu'">작성한 글</div>
-		<div class="tab" id="tab3" onclick="location.href='mypageReviewList.rv'">작성 리뷰</div>
-		<div class="tab" id="tab4" onclick="location.href='mypage_reserve.re'">예약 내역</div>
+		<div class="tab" id="tab1" onclick="location.href='likeList.my'">찜
+			리스트</div>
+		<div class="tab" id="tab2"
+			onclick="location.href='myContentsList.commu'">작성한 글</div>
+		<div class="tab" id="tab3"
+			onclick="location.href='mypageReviewList.rv'">작성 리뷰</div>
+		<div class="tab" id="tab4" onclick="location.href='mypage_reserve.re'">예약
+			내역</div>
 	</div>
 
 	<div class="reviewTop">
@@ -151,8 +155,8 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			<div>선택 삭제</div>
 		</button>
 
-		<label class="selectAll"> <b>전체 선택</b>&nbsp; <input
-			type="checkbox" class="selectCheck" id="cboxAll">
+		<label class="selectAll"> <b>전체 선택</b> <input type="checkbox"
+			class="selectCheck" id="cboxAll">
 		</label>
 	</div>
 
@@ -164,18 +168,19 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				commuDTO = myCommuList.get(i);
 			%>
 			<div class="likeList">
-				<%
-				if (commuDTO.getImg_url() != null) {
-				%>
-				<img class="likeListPhoto" src="upload/<%=commuDTO.getImg_url()%>" />
-				<%
-				} else {
-				%>
-				<img class="likeListPhoto" src="upload/5.png" />
-				<%
-				}
-				%>
-				<div class="likeList2">
+				
+					<%
+					if (commuDTO.getImg_url() != null) {
+					%>
+					<img class="likeListPhoto" src="upload/<%=commuDTO.getImg_url()%>" />
+					<%
+					} else {
+					%>
+					<img class="likeListPhoto" src="upload/5.png" />
+					<%
+					}
+					%>
+
 					<div class="likeListAdd">
 						회원번호:<%=commuDTO.getMember_id()%></div>
 					<div class="likeListTitle">
@@ -188,7 +193,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 						<img src="myContentsList/like-1.png" class=hearts>
 						<div class="likeNum"><%=commuDTO.getLike_cnt()%></div>
 					</div>
-				</div>
+				
 				<!-- 			  //선택삭제 -->
 
 				<div class="eachCheck">
@@ -199,47 +204,45 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			<%
 			}
 			%>
-		
+
 		</div>
 	</div>
-	<%=pageDTO.getStartPage() %>
-	<%=pageDTO.getEndPage()%>
-			<div class="pagination">
-				<%
-				// 시작 페이지 1페이지 Prev 없음
-				// 시작 페이지 11, 21, 31 Prev 보임
-				if (pageDTO.getStartPage() > pageDTO.getPageBlock()) {
-				%>
-				<a
-					href="myContentsList.commu?pageNum=<%=pageDTO.getStartPage() - pageDTO.getPageBlock()%>">Prev</a>
-				<%
-				} 
-				%>
+	<div class="pagination">
+		<%
+		// 시작 페이지 1페이지 Prev 없음
+		// 시작 페이지 11, 21, 31 Prev 보임
+		if (pageDTO.getStartPage() > pageDTO.getPageBlock()) {
+		%>
+		<a
+			href="myContentsList.commu?pageNum=<%=pageDTO.getStartPage() - pageDTO.getPageBlock()%>">Prev</a>
+		<%
+		}
+		%>
 
 
-				<%
-				// for(int i=시작하는 페이지 번호; i<=끝나는 페이지 번호; i++)
-				for (int i = pageDTO.getStartPage(); i <= pageDTO.getEndPage(); i++) {
-				%>
-				
-				<a href="myContentsList.commu?pageNum=<%=i%>" class="page"><%=i%>ﾠ
-				</a>
-			
-				<%
-				}
-				%>
+		<%
+		// for(int i=시작하는 페이지 번호; i<=끝나는 페이지 번호; i++)
+		for (int i = pageDTO.getStartPage(); i <= pageDTO.getEndPage(); i++) {
+		%>
+
+		<a href="myContentsList.commu?pageNum=<%=i%>" class="page"><%=i%>ﾠ
+		</a>
+
+		<%
+		}
+		%>
 
 
-				<%
-				// 끝페이지번호 전체페이지수 비교 -> 전체페이지수 클 때 -> Next 보임
-				if (pageDTO.getEndPage() < pageDTO.getPageCount()) {
-				%>
-				<a
-					href="myContentsList.commu?pageNum=<%=pageDTO.getStartPage() + pageDTO.getPageBlock()%>">Next</a>
-				<%
-				}
-				%>
-</div>
+		<%
+		// 끝페이지번호 전체페이지수 비교 -> 전체페이지수 클 때 -> Next 보임
+		if (pageDTO.getEndPage() < pageDTO.getPageCount()) {
+		%>
+		<a
+			href="myContentsList.commu?pageNum=<%=pageDTO.getStartPage() + pageDTO.getPageBlock()%>">Next</a>
+		<%
+		}
+		%>
+	</div>
 
 
 	<jsp:include page="/inc/bottom.jsp"></jsp:include>

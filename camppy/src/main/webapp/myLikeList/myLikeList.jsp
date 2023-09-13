@@ -91,7 +91,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	</div>
 
 
-	<div class="allbody">
+	
 		<div class="likeList">
 		<%
 		for (int i = 0; i < likeList.size(); i++) {

@@ -23,17 +23,16 @@
 <meta charset="UTF-8">
 <title>Camppy</title>
 <style type="text/css">
-#sidebar{
-   width: 250px; 
-   height: 700px;   
+#sidebar   width: 13.0208vw; 
+   height: 36.4583vw;   
    float: left;
 }
 .art{
  	font-family: 'NanumSquareNeo';
-    width: 600px;
-    height: 600px;
-  	padding-left: 50px;
-/*     margin-bottom: 300px; */
+    width: 31.2500vw;
+    height: 31.2500vw;
+  	padding-left: 2.6042vw;
+/*     margin-bottom: 15.6250vw; */
     margin-left: 200;
  
 }
@@ -43,15 +42,15 @@
 	color: #FFFFFF;	
 }
 .heading-section {
-    font-size: 28px;
+    font-size: 1.4583vw;
     color: #393939;
-	height: 30px;
+	height: 1.5625vw;
     font-weight: 400;
     font-family: "Poppins", Arial, sans-serif;
     font-weight: bold;
     text-align: center;
     position: relative;
-    left: 195px
+    left: 10.1563vw
      
 }
 .table td.a{
@@ -62,12 +61,12 @@ font-weight: bold;
 .count{
 float: right;
 position: relative;
-left: 400px;	
+left: 20.8333vw;	
 }
 .res{
-height: 150px;
+height: 7.8125vw;
 position: relative; 
-left: 400px;
+left: 20.8333vw;
 }
 
 	  a,
@@ -88,47 +87,47 @@ left: 400px;
         background: none;
       }
        table {
-    /* width: 400px;
-    height: 200px; */
+    /* width: 20.8333vw;
+    height: 10.4167vw; */
     margin-left: auto;
     margin-right: auto;
   }
   
   
   .mypageProfile {
-	padding: 10px 100px 10px 100px;
+	padding: 0.5208vw 5.2083vw 0.5208vw 5.2083vw;
 	display: flex;
 	flex-direction: row;
-	gap: 136px;
+	gap: 7.0833vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	flex-shrink: 0;
-	width: 1920px;
-	height: 314px;
+	width: 83.5vw;
+	height: 16.3542vw;
 	position: relative;
-	left: 1px;
+	left: 0.0521vw;
 	overflow: hidden;
 }
 
 .mypageUserIcon {
 	flex-shrink: 0;
-	width: 217px;
-	height: 217px;
+	width: 11.3021vw;
+	height: 11.3021vw;
 	position: absolute;
-	left: 277px;
-	top: 51px;
+	left: 14.4271vw;
+	top: 2.6563vw;
 }
 
 .profileNickname {
 	color: #000000;
 	text-align: left;
-	font: 400 40px/28px "NanumGothic", sans-serif;
+	font: 400 2.0833vw/1.4583vw "NanumGothic", sans-serif;
 	position: absolute;
-	left: 546px;
-	top: 75px;
-	width: 642px;
-	height: 80px;
+	left: 28.4375vw;
+	top: 3.9063vw;
+	width: 33.4375vw;
+	height: 4.1667vw;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
@@ -136,19 +135,19 @@ left: 400px;
 
 .updateButton {
 	background: #4da385;
-	border-radius: 5px;
-	padding: 0px 9px 0px 9px;
+	border-radius: 0.2604vw;
+	padding: 0.0000vw 0.4688vw 0.0000vw 0.4688vw;
 	display: flex;
 	flex-direction: row;
-	gap: 10px;
+	gap: 0.5208vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
-	width: 207px;
-	height: 70px;
+	width: 10.7813vw;
+	height: 3.6458vw;
 	position: absolute;
-	left: 1258px;
-	top: 80px;
+	left: 65.5208vw;
+	top: 4.1667vw;
 	overflow: hidden;
 	border: none;
 }
@@ -156,12 +155,12 @@ left: 400px;
 .updateProfile {
 	color: #ffffff;
 	text-align: center;
-	font: 700 30px/28px "NanumGothic", sans-serif;
+	font: 700 1.5625vw/1.4583vw "NanumGothic", sans-serif;
 	position: absolute;
-	left: calc(50% - 94.5px);
-	top: 0px;
-	width: 189px;
-	height: 70px;
+	left: calc(50% - 4.9219vw);
+	top: 0.0000vw;
+	width: 9.8438vw;
+	height: 3.6458vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -170,26 +169,26 @@ left: 400px;
 .mypageProfileNum {
 	display: flex;
 	flex-direction: row;
-	gap: 136px;
+	gap: 7.0833vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
-	width: 1040px;
-	height: 70px;
+	width: 54.1667vw;
+	height: 3.6458vw;
 	position: absolute;
-	left: 135px;
-	top: 160px;
+	left: 7.0313vw;
+	top: 8.3333vw;
 }
 
 .myVisit {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 1.3021vw/1.4583vw "NanumGothic", sans-serif;
 	position: absolute;
-	left: 0px;
-	top: 10px;
-	width: 180px;
-	height: 50px;
+	left: 0.0000vw;
+	top: 0.5208vw;
+	width: 9.3750vw;
+	height: 2.6042vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -198,28 +197,28 @@ left: 400px;
 .visitNum {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 1.3021vw/1.4583vw "NanumGothic", sans-serif;
 	position: absolute;
-	left: 180px;
-	top: 10px;
-	width: 100px;
-	height: 50px;
+	left: 9.3750vw;
+	top: 0.5208vw;
+	width: 5.2083vw;
+	height: 2.6042vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-left: solid 1px;
+	border-left: solid 0.0521vw;
 	border-left-color: grey;
 }
 
 .myArticle {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 1.3021vw/1.4583vw "NanumGothic", sans-serif;
 	position: absolute;
-	left: 360px;
-	top: 10px;
-	width: 180px;
-	height: 50px;
+	left: 18.7500vw;
+	top: 0.5208vw;
+	width: 9.3750vw;
+	height: 2.6042vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -228,28 +227,28 @@ left: 400px;
 .myArticleNum {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 1.3021vw/1.4583vw "NanumGothic", sans-serif;
 	position: absolute;
-	left: 540px;
-	top: 10px;
-	width: 100px;
-	height: 50px;
+	left: 28.1250vw;
+	top: 0.5208vw;
+	width: 5.2083vw;
+	height: 2.6042vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-left: solid 1px;
+	border-left: solid 0.0521vw;
 	border-left-color: grey;
 }
 
 .myReply {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 1.3021vw/1.4583vw "NanumGothic", sans-serif;
 	position: absolute;
-	left: 720px;
-	top: 10px;
-	width: 180px;
-	height: 50px;
+	left: 37.5000vw;
+	top: 0.5208vw;
+	width: 9.3750vw;
+	height: 2.6042vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -258,45 +257,45 @@ left: 400px;
 .myReplyNum {
 	color: #000000;
 	text-align: center;
-	font: 400 25px/28px "NanumGothic", sans-serif;
+	font: 400 1.3021vw/1.4583vw "NanumGothic", sans-serif;
 	position: absolute;
-	left: 900px;
-	top: 10px;
-	width: 100px;
-	height: 50px;
+	left: 46.8750vw;
+	top: 0.5208vw;
+	width: 5.2083vw;
+	height: 2.6042vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-left: solid 1px;
+	border-left: solid 0.0521vw;
 	border-left-color: grey;
 }
 
 .mypageNavi {
 	border-style: solid;
 	border-color: #000000;
-	border-width: 1px 0px 1px 0px;
+	border-width: 0.0521vw 0.0000vw 0.0521vw 0.0000vw;
 	display: flex;
 	flex-direction: row;
-	gap: 30px;
+	gap: 1.5625vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	flex-shrink: 0;
-	width: 1920px;
-	height: 163px;
+	width: 83.5vw;
+	height: 8.4896vw;
 	position: relative;
-	/*   left: calc(50% - 960px); */
-	padding-right: 150px;
-	padding-left: 150px;
+	/*   left: calc(50% - 50.0000vw); */
+	padding-right: 7.8125vw;
+	padding-left: 7.8125vw;
 }
 
 .mypageLike {
 	color: #000000;
 	text-align: center;
-	font: 400 30px/28px "NanumGothic", sans-serif;
+	font: 400 1.5625vw/1.4583vw "NanumGothic", sans-serif;
 	position: relative;
-	width: 380px;
-	height: 160px;
+	width: 19.7917vw;
+	height: 8.3333vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -305,10 +304,10 @@ left: 400px;
 .mypageArticle {
 	color: #000000;
 	text-align: center;
-	font: 400 30px/28px "NanumGothic", sans-serif;
+	font: 400 1.5625vw/1.4583vw "NanumGothic", sans-serif;
 	position: relative;
-	width: 380px;
-	height: 160px;
+	width: 19.7917vw;
+	height: 8.3333vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -317,10 +316,10 @@ left: 400px;
 .mypageReply {
 	color: #000000;
 	text-align: center;
-	font: 400 30px/28px "NanumGothic", sans-serif;
+	font: 400 1.5625vw/1.4583vw "NanumGothic", sans-serif;
 	position: relative;
-	width: 380px;
-	height: 160px;
+	width: 19.7917vw;
+	height: 8.3333vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -329,10 +328,10 @@ left: 400px;
 .mypageReserve {
 	color: #000000;
 	text-align: center;
-	font: 400 30px/28px "NanumGothic", sans-serif;
+	font: 400 1.5625vw/1.4583vw "NanumGothic", sans-serif;
 	position: relative;
-	width: 380px;
-	height: 160px;
+	width: 19.7917vw;
+	height: 8.3333vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -341,26 +340,26 @@ left: 400px;
 /* .buttonDel { */
 /* 	display: flex; */
 /* 	flex-direction: column; */
-/* 	gap: 0px; */
+/* 	gap: 0.0000vw; */
 /* 	align-items: flex-start; */
 /* 	justify-content: flex-start; */
-/* 	width: 138px; */
-/* 	height: 61px; */
+/* 	width: 7.1875vw; */
+/* 	height: 3.1771vw; */
 /* 	position: relative; */
-/* 	left: 1555px; */
+/* 	left: 80.9896vw; */
 /* 	background: #4da385; */
-/* 	border-radius: 5px; */
+/* 	border-radius: 0.2604vw; */
 /* 	border: none; */
 /* } */
 .del {
 	color: #ffffff;
 	text-align: center;
-	font: 700 25px/45px "NanumGothic", sans-serif;
+	font: 700 1.3021vw/2.3438vw "NanumGothic", sans-serif;
 	position: absolute;
-	left: calc(50% - 49px);
-	top: 13px;
-	width: 100px;
-	height: 30px;
+	left: calc(50% - 2.5521vw);
+	top: 0.6771vw;
+	width: 5.2083vw;
+	height: 1.5625vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -374,36 +373,36 @@ div.tab.active {
 .mypageNavi {
 	border-style: solid;
 	border-color: #000000;
-	border-width: 1px 0px 1px 0px;
+	border-width: 0.0521vw 0.0000vw 0.0521vw 0.0000vw;
 	display: flex;
 	flex-direction: row;
-	gap: 30px;
+	gap: 1.5625vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	flex-shrink: 0;
-	width: 1920px;
-	height: 163px;
+	width: 83.5vw;
+	height: 8.4896vw;
 	position: relative;
-	/*   left: calc(50% - 960px); */
-	padding-right: 150px;
-	padding-left: 150px;
+	/*   left: calc(50% - 50.0000vw); */
+	padding-right: 7.8125vw;
+	padding-left: 7.8125vw;
 }
 
 .tab {
 	color: grey;
 	text-align: center;
-	font: 400 30px/28px "NanumGothic", sans-serif;
+	font: 400 1.5625vw/1.4583vw "NanumGothic", sans-serif;
 	position: relative;
-	width: 380px;
-	height: 160px;
+	width: 19vw;
+	height: 8.3333vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .tabContents {
-	margin-top: 20px;
+	margin-top: 1.0417vw;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
