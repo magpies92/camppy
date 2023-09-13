@@ -414,19 +414,31 @@
 	</div>
 
 	<script type="text/javascript">
-		$(window).scroll(function() {
-			if ($(this).scrollTop() > 300) {
-				$('.btn_gotop').show();
-			} else {
-				$('.btn_gotop').hide();
-			}
-		});
-		$('.btn_gotop').click(function() {
-			$('html, body').animate({
-				scrollTop : 0
-			}, 400);
-			return false;
-		});
+		 
+	// 상단으로 버튼
+	 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // 초기에는 버튼을 숨김
+            $('.btn_gotop').hide();
+
+            // 스크롤 이벤트 핸들러
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 300) {
+                    $('.btn_gotop').show(); // 스크롤 위치가 300보다 크면 버튼을 보여줍니다.
+                } else {
+                    $('.btn_gotop').hide(); // 그렇지 않으면 버튼을 숨깁니다.
+                }
+            });
+
+            // 버튼 클릭 시 상단으로 스크롤
+            $('.btn_gotop').click(function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 400);
+                return false;
+            });
+        });
 	</script>
 </body>
 </html>
