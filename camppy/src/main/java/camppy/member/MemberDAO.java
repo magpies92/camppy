@@ -272,29 +272,20 @@ public class MemberDAO {
 		}//getMember()
 
 	public void updateMember(MemberDTO memberDTO) {
-		System.out.println("MemberDAO updateMember()");
 		try {
-			// 1단계 JDBC 프로그램 가져오기 
-			// 2단계 디비 연결
 			con=getConnection();
-			
-			// 3단계 문자열 -> sql구문 변경
 			String sql = "update members set nickname = ?, pass = ? where id = ?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, memberDTO.getNick());
 			pstmt.setString(2, memberDTO.getPass());
-			pstmt.setString(3, memberDTO.getId());      //(물음표 순서,값)
-			
-			// 4단계 sql구문 실행
+			pstmt.setString(3, memberDTO.getId());
 			pstmt.executeUpdate();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			dbClose();
 		}
-		
-	}//updateMember()
+	}
 
 	public void deleteMember(MemberDTO memberDTO) {
 		System.out.println("MemberDAO deleteMember()");
