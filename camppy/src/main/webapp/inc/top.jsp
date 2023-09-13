@@ -336,6 +336,22 @@
 .logout__button1:hover { /* a태그에 마우스를 올렸을 때 */
   cursor: pointer; 
 }
+.logout__button2 {
+  background: #4da385;
+  border-radius: 0.5208vw;
+  flex-shrink: 0;
+  width: 4.9479vw;
+  height: 2.2917vw;
+  position: absolute;
+  top: 0.3646vw;
+  left: -5.0625vw;
+  color: #ffffff;
+  text-align: center;
+  font: 700 0.7813vw/2.2917vw "Pretendard-medium", sans-serif;
+}
+.logout__button2:hover { /* a태그에 마우스를 올렸을 때 */
+  cursor: pointer; 
+}
 
 .logout__ {
   
@@ -400,6 +416,7 @@ if(id == null){
 <div class="logout">
 <%if(id.equals("admin")){%>
 <button type="button" onclick="location.href='campreg.campreg'" class="logout__button1">캠핑장 등록</button>
+<button type="button" onclick="location.href='admin_reserve.re'" class="logout__button2">예약 관리</button>
 	<%
 } %>
 

@@ -1,4 +1,7 @@
 <%@page import="camppy.member.MemberDTO"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.List"%>
+<%@page import="java.text.Normalizer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -125,9 +128,8 @@ $(document).ready(function(){
     <title>Document</title>
   </head>
   <body>
-  <div class="proUpdate">
 <%MemberDTO memberDTO=(MemberDTO)request.getAttribute("memberDTO");%>
-<form action="updatePro.me" id="join" method="post">
+<form action="updatePro.me" id="join" method="post" enctype="multipart/form-data">
     <div class="edit-profile">
       <div class="edit-profile__edit-header">
         <div class="edit-profile__">프로필 편집</div>
@@ -155,7 +157,8 @@ $(document).ready(function(){
             src="member/join/images/free-icon-user-8484069-2.png"
           />
           <div class="edit-profile__input-button">
-            <div class="edit-profile__5">사진 등록</div>
+          <input type="file" name="memberimg" required class="edit-profile__5">
+           
           </div>
         </div>
       </div>
@@ -165,7 +168,7 @@ $(document).ready(function(){
 </div>
         <div class="edit-profile__button-withdraw">        
 <button type="button" onclick="confirmDelete()" class="edit-profile__7">회원 탈퇴</button>
-</div>
+
 <script>
 function confirmDelete() {
     if (confirm("회원 탈퇴 하시겠습니까?")) {

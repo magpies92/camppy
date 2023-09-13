@@ -13,9 +13,16 @@ public class MemberDTO {
 	private String nick;
 	private String phone;
 	private int member_id;
+	private String member_img;
 	
 	
 	
+	public String getMember_img() {
+		return member_img;
+	}
+	public void setMember_img(String member_img) {
+		this.member_img = member_img;
+	}
 	public int getMember_id() {
 		return member_id;
 	}

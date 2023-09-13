@@ -14,6 +14,7 @@ import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
+import camppy.main.action.CampRegDTO;
 import camppy.member.MemberDTO;
 
 public class MemberDAO {
@@ -222,6 +223,7 @@ public class MemberDAO {
 			memberDTO.setPhone(rs.getString("phonenum")); 
 			memberDTO.setNick(rs.getString("nickname")); 
 			memberDTO.setMember_id(rs.getInt("member_id"));
+			memberDTO.setMember_img(rs.getString("img_url"));
 			
 			}
 		} catch (Exception e) {
@@ -274,11 +276,12 @@ public class MemberDAO {
 	public void updateMember(MemberDTO memberDTO) {
 		try {
 			con=getConnection();
-			String sql = "update members set nickname = ?, pass = ? where id = ?";
+			String sql = "update members set nickname = ?, pass = ?, img_url = ? where id = ?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, memberDTO.getNick());
 			pstmt.setString(2, memberDTO.getPass());
-			pstmt.setString(3, memberDTO.getId());
+			pstmt.setString(3, memberDTO.getMember_img()); 
+			pstmt.setString(4, memberDTO.getId());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -331,7 +334,6 @@ public class MemberDAO {
 				// => MemberDTO 객체생성 -> 기억장소 할당
 				// -> 멤버변수에 rs 열에서 가져온값을 저장
 				MemberDTO memberDTO = new MemberDTO();
-				System.out.println("회원한명 : "+memberDTO);
 				memberDTO.setId(rs.getString("id"));
 				memberDTO.setPass(rs.getString("pass"));
 				memberDTO.setName(rs.getString("name"));
@@ -347,6 +349,7 @@ public class MemberDAO {
 		}
 		return memberList;
 	}//getMemberList()
+	
 	
 	
 	

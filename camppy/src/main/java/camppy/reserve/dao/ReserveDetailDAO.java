@@ -74,6 +74,38 @@ public class ReserveDetailDAO {
 		return list;
 	}
 	
+	public List<ReserveDetailDTO> getReserveList1(PageDTO pageDTO){
+		String SQL = "select * from reservation order by res_id desc limit ?,?";
+		List<ReserveDetailDTO> list = new ArrayList<ReserveDetailDTO>();
+		try {
+			con = getConnection();
+			PreparedStatement pstmt = con.prepareStatement(SQL);
+			 
+			 pstmt.setInt(1, pageDTO.getStartRow()-1);
+			 pstmt.setInt(2, pageDTO.getPageSize());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ReserveDetailDTO reserveDetailDTO = new ReserveDetailDTO();
+				reserveDetailDTO.setMember_id(rs.getInt("member_id"));
+				reserveDetailDTO.setRes_id(rs.getInt("res_id"));
+				reserveDetailDTO.setRes_status(rs.getInt("res_status"));
+				reserveDetailDTO.setRes_time(rs.getTimestamp("res_time"));
+				reserveDetailDTO.setCamp_price(rs.getInt("camp_price"));
+				reserveDetailDTO.setCheckin_date(rs.getString("checkin_date"));
+				reserveDetailDTO.setCheckout_date(rs.getString("checkout_date"));
+				reserveDetailDTO.setCamp_id(rs.getInt("camp_id"));
+				reserveDetailDTO.setCamp_name(rs.getString("camp_name"));
+				reserveDetailDTO.setSprice(rs.getInt("sprice"));
+				list.add(reserveDetailDTO);	
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return list;
+	}
+	
 	public ReserveDetailDTO getDetailList(int camp_id){
 		System.out.println("ReserveDetailDTO getReserveList2");
 		ReserveDetailDTO dto=null;
@@ -112,7 +144,7 @@ public class ReserveDetailDAO {
 			//1,2 디비연결
 			con=getConnection();
 			//3 sql select count(*) from board
-			String sql = "select count(*) from reservation where member_id = ?;";
+			String sql = "select count(*) from reservation where member_id = ?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, pageDTO.getMember_id());
 			//4 실행 => 결과저장
@@ -128,6 +160,28 @@ public class ReserveDetailDAO {
 		}
 		return count;
 	}//getBoardCount()
+	
+	public int getReserveCount1(PageDTO pageDTO) {
+		int count = 0;
+		try {
+			//1,2 디비연결
+			con=getConnection();
+			//3 sql select count(*) from board
+			String sql = "select count(*) from reservation";
+			pstmt=con.prepareStatement(sql);
+			//4 실행 => 결과저장
+			rs = pstmt.executeQuery();
+			//5 결과 행접근 => 열접근 => count변수 저장
+			if(rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return count;
+	}
 	
 	// 예약취소
 		public void deleteReserveDetail(int res_id) {

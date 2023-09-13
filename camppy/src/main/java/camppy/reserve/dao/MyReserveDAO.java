@@ -352,6 +352,28 @@ public class MyReserveDAO {
 			return count;
 		}//getBoardCount()
 		
+		public int getReserveCount1(PageDTO pageDTO) {
+			int count = 0;
+			try {
+				//1,2 디비연결
+				con=getConnection();
+				//3 sql select count(*) from board
+				String sql = "select count(*) from reservation;";
+				pstmt=con.prepareStatement(sql);
+				//4 실행 => 결과저장
+				rs = pstmt.executeQuery();
+				//5 결과 행접근 => 열접근 => count변수 저장
+				if(rs.next()) {
+					count = rs.getInt("count(*)");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbClose();
+			}
+			return count;
+		}
+		
 		
 		
 		public MyReserveDTO getReserve(int res_id) {
@@ -495,6 +517,24 @@ public class MyReserveDAO {
 				if(con!=null) try { con.close();} catch (Exception e2) {}
 			}
 		}//deleteReserve()
+		
+		
+		public void resstch(int res_id) {
+			Connection con =null;
+			PreparedStatement pstmt2=null;
+			try {
+				con=getConnection();
+				String sql2="update reservation set res_status = true where res_id=?";
+				pstmt2=con.prepareStatement(sql2);
+				pstmt2.setInt(1, res_id);  //set 문자열 (1번째 물음표, 값 id)
+				pstmt2.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if(pstmt2!=null) try { pstmt2.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+		}
 		
 		
 		

@@ -94,8 +94,9 @@ public class LikeDAO {
 		try {
 			con=getConnection();
 			
-			String sql="select count(*) from camp_like";
+			String sql="select count(*) from camp_like where member_id =?";
 			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, pageDTO.getMemberid());
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				count=rs.getInt("count(*)");
