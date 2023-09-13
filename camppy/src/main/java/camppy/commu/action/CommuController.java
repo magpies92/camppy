@@ -349,6 +349,7 @@ public class CommuController extends HttpServlet {
 
 				// 게시판 총 개수 구하기
 				int count = commuService.getMyCommuCount(pageDTO);
+				System.out.println(count);
 
 				// 한 화면에 보여 줄 페이지 개수 설정
 				int pageBlock = 10;
