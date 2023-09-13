@@ -38,11 +38,6 @@ $(document).ready(function(){
         if ($('.nick').val() === originalNick) {
             // 닉네임이 기존과 같으면 중복 검사를 하지 않습니다.
             // 비밀번호 검사를 진행합니다.
-        	if($('.nick').val()==""){
-    			alert("닉네임을 입력하세요");
-    			$('.nick').focus();
-    			return false;
-    		}
         	if($('.pass').val()==""){
     			alert("비밀번호 입력하세요");
     			$('.pass').focus();
@@ -72,6 +67,14 @@ $(document).ready(function(){
     			alert("닉네임을 입력하세요");
     			$('.nick').focus();
     			return false;
+    		}
+        	var nick = $('.nick').val();
+    		var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
+
+    		if (!nickReg.test(nick)) {
+    		    alert("닉네임은 한글, 영문자, 숫자를 포함한 2~8자 사이입니다.");
+    		    $('.nick').focus();
+    		    return false;
     		}
         	$.ajax({
                 url:'nickCheck.me',
