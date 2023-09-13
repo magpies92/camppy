@@ -17,6 +17,7 @@ import java.sql.Timestamp;
 	    private Timestamp last_modified_date; // 마지막 수정한 날짜
 	    private String camp_name;
 	    private String id;
+	
 	    
 	    
 	    

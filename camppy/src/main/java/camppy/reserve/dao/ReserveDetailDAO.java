@@ -43,7 +43,7 @@ public class ReserveDetailDAO {
 	
 	
 	public List<ReserveDetailDTO> getReserveList(PageDTO pageDTO){
-		String SQL = "select * from reservation where member_id=? order by res_id desc limit ?,?";
+		String SQL = "select * from reservation r left join camp c on (r.camp_id = c.camp_id) where r.member_id=? order by r.res_id desc limit ?,?;";
 		List<ReserveDetailDTO> list = new ArrayList<ReserveDetailDTO>();
 		try {
 			con = getConnection();
@@ -64,6 +64,9 @@ public class ReserveDetailDAO {
 				reserveDetailDTO.setCamp_id(rs.getInt("camp_id"));
 				reserveDetailDTO.setCamp_name(rs.getString("camp_name"));
 				reserveDetailDTO.setSprice(rs.getInt("sprice"));
+				reserveDetailDTO.setReview_check(rs.getInt("review_check"));
+				reserveDetailDTO.setBankname(rs.getString("bank_name"));
+				reserveDetailDTO.setBankaccount(rs.getString("bank_account"));
 				list.add(reserveDetailDTO);	
 			}
 		} catch (Exception e) {
@@ -127,6 +130,7 @@ public class ReserveDetailDAO {
 				dto.setCamp_id(rs.getInt("camp_id"));
 				dto.setCamp_name(rs.getString("camp_name"));
 				dto.setSprice(rs.getInt("sprice"));
+				
 				//list.add(reserveDetailDTO);	
 			}
 		} catch (Exception e) {
