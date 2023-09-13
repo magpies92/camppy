@@ -467,7 +467,6 @@
 }
 
 .commu-contents-list__options {
-	cursor : pointer !important;
 	background: #4da385;
 	border-radius: 0.2594vw;
 	border-style: solid;
@@ -489,7 +488,6 @@
 }
 
 .commu-contents-list__3 {
-	cursor : pointer !important;
 	color: #ffffff;
 	text-align: center;
 	font: 700 1.2964vw/1.2964vw "Pretendard-medium", sans-serif;
@@ -1164,4 +1162,3 @@ width: 67.9901vw;
 	background-color: #333;
 	color: #fff;
 }
-
