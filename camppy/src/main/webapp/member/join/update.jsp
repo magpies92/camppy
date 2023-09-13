@@ -135,19 +135,19 @@ $(document).ready(function(){
         <div class="edit-profile__">프로필 편집</div>
       </div>
       <div class="edit-profile__deit-contents">
-        <div class="edit-profile__pass-check">
-          <div class="edit-profile__4">비밀번호 확인</div>
-<input type="password" class="check" name="check">
-        </div>
         <div class="edit-profile__pass">
           <div class="edit-profile__4">비밀번호</div>
 <input type="password" id="pass" class="pass" name="pass">
         </div>
-        <div class="edit-profile__id">
+        <div class="edit-profile__pass-check">
+          <div class="edit-profile__4">비밀번호 확인</div>
+<input type="password"  class="check" name="check">
+        </div>
+        <div class="edit-profile__nickname">
           <div class="edit-profile__4">아이디</div>
 <input type="text" class="edit-profile__input-id" name="id" value="<%=memberDTO.getId() %>" readonly>
         </div>
-        <div class="edit-profile__nickname">
+        <div class="edit-profile__id">
           <div class="edit-profile__4">닉네임</div>
 <input type="text" id="nick" class="nick" name="nick" value="<%=memberDTO.getNick() %>">
         </div>
@@ -157,7 +157,7 @@ $(document).ready(function(){
             src="memberimg/<%=memberDTO.getMember_img()%>"
           />
           <div class="edit-profile__input-button">
-          <input type="file" name="memberimg" required class="edit-profile__5">
+          <input type="file" name="memberimg" class="edit-profile__5">
            
           </div>
         </div>
