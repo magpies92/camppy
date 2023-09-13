@@ -239,6 +239,7 @@
   position: relative;
 }
 .edit-profile__6 {
+  cursor : pointer !important;
   color: #ffffff;
   text-align: center;
   font: 700 1.535rem/2.70125rem "Inter", sans-serif;
@@ -260,6 +261,7 @@
   position: relative;
 }
 .edit-profile__7 {
+  cursor : pointer !important;
   color: #ffffff;
   text-align: center;
   font: 700 1.535rem/2.70125rem "Inter", sans-serif;

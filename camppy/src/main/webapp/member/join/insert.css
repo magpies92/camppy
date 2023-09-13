@@ -432,6 +432,7 @@
   overflow: hidden;
 }
 .slide-16-9-1__3 {
+  cursor : pointer !important;
   color: #ffffff;
   text-align: center;
   font: 700 36px/28px "NanumGothic", sans-serif;

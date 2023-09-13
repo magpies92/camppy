@@ -127,6 +127,7 @@
   top: 28.8125rem;
 }
 .popup-login__2 {
+  cursor : pointer !important;
   color: #a3c8a0;
   text-align: center;
   font: 400 2rem/1.75rem "Pretendard-medium", sans-serif;
