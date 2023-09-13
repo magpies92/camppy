@@ -125,7 +125,7 @@ public class CampRegController extends HttpServlet {
 			
 			}//("/campupdate.campreg")
 		
-		if(sPath.equals("/campregPro.campreg")) {
+		if(sPath.equals("/campupdatePro.campreg")) {
 			System.out.println("뽑은 가상주소 비교 : /campregPro.campreg");
 			
 			campregService = new CampRegService();
