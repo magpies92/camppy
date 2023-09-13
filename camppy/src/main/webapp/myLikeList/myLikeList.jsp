@@ -23,8 +23,34 @@
   
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="/inc/top.jsp"/> 
-<jsp:include page="/inc/mypageInc.jsp"/>
+
 <!-- 헤더들어가는 곳 -->
+
+<%
+	//세션에서 로그인정보, 예약정보 가져오기
+String nickname=(String)session.getAttribute("nickname");	
+	%>
+
+<div class="mypageProfile">
+		<img class="mypageUserIcon" src="member/join/images/free-icon-user-8484069-2.png" />
+		<div class="profileNickname"><%=nickname %></div>
+<button type="button" onclick="openCenteredPopup('update.me', 'ReviewPopup', 1000, 850)" class="updateButton">
+<div class="updateProfile">프로필수정</div>
+</button>
+		<div class="mypageProfileNum">
+			<div class="myArticle">작성글</div>
+			<div class="myArticleNum">3</div>
+			<div class="myReply">댓글</div>
+			<div class="myReplyNum">6</div>
+		</div>
+	</div>
+	<div class="mypageNavi">
+		<div class="tab" id="tab1" onclick="location.href='likeList.my'" >찜 리스트</div>
+		<div class="tab" id="tab2" onclick="location.href='myCommutList.commu'">작성한 글</div>
+		<div class="tab" id="tab3" onclick="location.href='mypageReviewList.rv'">작성 리뷰</div>
+		<div class="tab" id="tab4" onclick="location.href='mypage_reserve.re'">예약 내역</div>
+	</div>
+	
 
   
   <%
@@ -37,13 +63,10 @@
   request.setCharacterEncoding("UTF-8");
  
   %>
-<!--   <label class="allCheck"> <b>전체선택</b>&nbsp; -->
-<!--   <input type="checkbox" name="all" class="allCheckbox" id="cboxAll" -->
-<!--          style="margin-left: 1vw;"></label> -->
+<
 	<div class="reviewTop">
 		<div class="reviewCount">찜 리스트</div>
-		<!-- 	<input type="button" value="글쓰기" onclick="popupInsert();" -->
-		<!-- 		class="buttonInsert" /> -->
+		
 		<button type="button" onclick="selectedDel();" class="selectDel">
 			<div>선택해제</div> 
 		</button>

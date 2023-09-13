@@ -38,11 +38,6 @@ $(document).ready(function(){
         if ($('.nick').val() === originalNick) {
             // 닉네임이 기존과 같으면 중복 검사를 하지 않습니다.
             // 비밀번호 검사를 진행합니다.
-        	if($('.nick').val()==""){
-    			alert("닉네임을 입력하세요");
-    			$('.nick').focus();
-    			return false;
-    		}
         	if($('.pass').val()==""){
     			alert("비밀번호 입력하세요");
     			$('.pass').focus();
@@ -72,6 +67,14 @@ $(document).ready(function(){
     			alert("닉네임을 입력하세요");
     			$('.nick').focus();
     			return false;
+    		}
+        	var nick = $('.nick').val();
+    		var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
+
+    		if (!nickReg.test(nick)) {
+    		    alert("닉네임은 한글, 영문자, 숫자를 포함한 2~8자 사이입니다.");
+    		    $('.nick').focus();
+    		    return false;
     		}
         	$.ajax({
                 url:'nickCheck.me',
@@ -129,13 +132,6 @@ $(document).ready(function(){
         <div class="edit-profile__">프로필 편집</div>
       </div>
       <div class="edit-profile__deit-contents">
-        <div class="edit-profile__tel">
-          <div class="edit-profile__2">전화번호</div>
-          <div class="edit-profile__input-tel"></div>
-          <div class="edit-profile__phone-certify">
-            <div class="edit-profile__3">인증하기</div>
-          </div>
-        </div>
         <div class="edit-profile__pass-check">
           <div class="edit-profile__4">비밀번호 확인</div>
 <input type="password" class="check" name="check">
@@ -166,9 +162,16 @@ $(document).ready(function(){
         <div class="edit-profile__button-update">
     <input type="submit" class="edit-profile__6" value="수정">
 </div>
-
         <div class="edit-profile__button-withdraw">        
- <button type="button" onclick="location.href='delete.me?id=<%=memberDTO.getId() %>'" class="edit-profile__7">회원 탈퇴</button>
+<button type="button" onclick="confirmDelete()" class="edit-profile__7">회원 탈퇴</button>
+
+<script>
+function confirmDelete() {
+    if (confirm("회원 탈퇴 하시겠습니까?")) {
+        location.href='delete.me?id=<%=memberDTO.getId() %>';
+    }
+}
+</script>
         </div>
       </div>
     </div>

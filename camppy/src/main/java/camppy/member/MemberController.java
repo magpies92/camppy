@@ -71,8 +71,20 @@ public class MemberController extends HttpServlet{
 			// insertMember() 메서드 정의
 			memberService.insertMember(request);
 			
-			// 로그인 주소가 변경되면서 이동(가상주소 login.me)
-			response.sendRedirect("main.camp");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("setTimeout(function() {");
+			out.println("    alert('회원가입 축하드립니다'); // 팝업 메시지 띄우기");
+			out.println("    opener.location.reload(); // 부모창 리프레쉬");
+			out.println("    self.close(); // 현재창 닫기");
+			out.println("});");
+			out.println("</script>");
+
+			/* out.close(); */
+			
+			 
+		
 		}//
 		
 		if(sPath.equals("/login.me")) {
@@ -190,29 +202,15 @@ public class MemberController extends HttpServlet{
 			dispatcher.forward(request, response);
 		}
 		if(sPath.equals("/updatePro.me")) {
-			System.out.println("주소 비교 : /updatePro.me");
-			//한글처리
-			request.setCharacterEncoding("utf-8");
-			// MemberService 객체생성
-			memberService = new MemberService();
-			// MemberDTO memberDTO = userCheck(request) 메서드 호출
-			MemberDTO memberDTO = memberService.userCheck2(request);
-			if(memberDTO != null) {
-				// memberDTO != null
-				// 아이디 비밀번호 일치 -> 수정 -> main.me 이동
-				//     수정  updateMember(request) 메서드 호출
-				memberService.updateMember(request);
-				//     main.me 이동
-				response.sendRedirect("main.camp");
-			}else {
-				// else => memberDTO == null
-				//     아이디 비밀번호 틀림 -> member/msg.jsp 이동
-				dispatcher 
-			    = request.getRequestDispatcher("member/join/msg.jsp");
-				dispatcher.forward(request, response);
-			}
-		}//
-				
+		    request.setCharacterEncoding("utf-8");
+		    MemberDTO updatedMemberDTO = memberService.updateMember(request);
+		    HttpSession session = request.getSession();
+		    session.removeAttribute("pass");
+		    session.removeAttribute("nickname");
+		    session.setAttribute("pass", updatedMemberDTO.getPass());
+		    session.setAttribute("nickname", updatedMemberDTO.getNick());
+		    response.sendRedirect("main.camp");    
+		}	
 		
 		if(sPath.equals("/list.me")) {
 			System.out.println("주소 비교 : /list.me");
@@ -287,9 +285,12 @@ List<MemberDTO> memberList = memberService.getMemberList();
 			memberService.deleteMember(request);
 			HttpSession session = request.getSession();
 			session.invalidate();
-			response.sendRedirect("main.camp");
-			
-		}//		
+			// 팝업 메시지를 보여주는 코드 추가
+		    response.setContentType("text/html; charset=UTF-8");
+		    PrintWriter out = response.getWriter();
+		    out.println("<script>alert('회원 탈퇴가 완료되었습니다.'); location.href='main.camp';</script>");
+		    out.flush();
+		}	
 		
 	}//doProcess() 메서드
 

@@ -128,30 +128,23 @@ public class MemberService {
 		return memberDTO;
 	}//getMember()
 
-//	memberService.updateMember(request);
-	public void updateMember(HttpServletRequest request) {
-		System.out.println("MemberService updateMember()");
-		try {
-			// request id, pass,name 가져와서 => 변수 저장
-			String id = request.getParameter("id");
-			String pass = request.getParameter("pass");
-			String nick = request.getParameter("nick");
-			
-			// MemberDTO memberDTO 객체생성
-			MemberDTO memberDTO = new MemberDTO();
-			// set메서드 호출 id, pass,name 저장
-			memberDTO.setId(id);
-			memberDTO.setPass(pass);
-			memberDTO.setNick(nick);
-			
-			// MemberDAO memberDAO 객체생성
-			memberDAO = new MemberDAO(); 
-			// updateMember(memberDTO) 메서드 호출
-			memberDAO.updateMember(memberDTO);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}//updateMember()
+	public MemberDTO updateMember(HttpServletRequest request) {
+	    MemberDTO updatedMemberDTO = null;
+	    try {
+	        String id = request.getParameter("id");
+	        String pass = request.getParameter("pass");
+	        String nick = request.getParameter("nick");
+	        updatedMemberDTO = new MemberDTO();
+	        updatedMemberDTO.setId(id);
+	        updatedMemberDTO.setPass(pass);
+	        updatedMemberDTO.setNick(nick);
+	        memberDAO = new MemberDAO(); 
+	        memberDAO.updateMember(updatedMemberDTO);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return updatedMemberDTO;
+	}
 
 
 	public void deleteMember(HttpServletRequest request) {

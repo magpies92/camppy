@@ -1,4 +1,3 @@
-<%@page import="java.sql.Timestamp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,6 +9,9 @@
     <link rel="stylesheet" href="member/join/insert.css" />
 
     <style>
+    body {
+    overflow-x: hidden;
+}
       a,
       button,
       input,
@@ -28,8 +30,7 @@
         background: none;
       }
     </style>
-    <script type="text/javascript" 
-        src="script/jquery-3.7.0.js"></script>
+<script type="text/javascript" src="script/jquery-3.7.0.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.phone').attr('maxlength', 11);
@@ -48,8 +49,16 @@ $(document).ready(function(){
 	var clicked3 = false;
 	var clicked4 = false;
 	$('.phone-certify2').click(function(){
-		if ($('.id').val().length < 5 || $('.id').val().length > 20) {
-		    alert("아이디는 5~20자 사이여야 합니다.");
+		if($('.id').val()==""){
+			alert("아이디 입력하세요");
+			$('.id').focus();
+			return false;
+		}
+		var id = $('.id').val();
+		var idReg = /^[A-Za-z0-9]{5,20}$/;
+
+		if (!idReg.test(id)) {
+		    alert("아이디는 영문자와 숫자를 포함한 5~20자 사이입니다.");
 		    $('.id').focus();
 		    return false;
 		}
@@ -70,6 +79,19 @@ $(document).ready(function(){
 		});//ajax()
 	});//click()
 	$('.phone-certify3').click(function(){
+		if($('.nick').val()==""){
+			alert("닉네임을 입력하세요");
+			$('.nick').focus();
+			return false;
+		}
+		var nick = $('.nick').val();
+		var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
+
+		if (!nickReg.test(nick)) {
+		    alert("닉네임은 한글, 영문자, 숫자를 포함한 2~8자 사이입니다.");
+		    $('.nick').focus();
+		    return false;
+		}
 		clicked4 = true;
 		$.ajax({
 			url:'nickCheck.me',
@@ -93,8 +115,11 @@ $(document).ready(function(){
 			$('.id').focus();
 			return false;
 		}
-		if ($('.id').val().length < 5 || $('.id').val().length > 20) {
-		    alert("아이디는 5~20자 사이여야 합니다.");
+		var id = $('.id').val();
+		var idReg = /^[A-Za-z0-9]{5,20}$/;
+
+		if (!idReg.test(id)) {
+		    alert("아이디는 영문자와 숫자를 포함한 5~20자 사이입니다.");
 		    $('.id').focus();
 		    return false;
 		}
@@ -129,20 +154,47 @@ $(document).ready(function(){
 			$('.nick').focus();
 			return false;
 		}
+		var nick = $('.nick').val();
+		var nickReg = /^[A-Za-z0-9가-힣]{2,8}$/;
+
+		if (!nickReg.test(nick)) {
+		    alert("닉네임은 한글, 영문자, 숫자를 포함한 2~8자 사이입니다.");
+		    $('.nick').focus();
+		    return false;
+		}
 		if (!clicked4) {
 			alert("닉네임 중복확인 눌러주세요");
 	        return false;
 	    }
-		if($('.name').val()==""){
-			alert("이름을 입력하세요");
-			$('.name').focus();
-			return false;
+		var name = $('.name').val();
+		var nameReg = /^[가-힣]{2,5}$/;
+
+		if (!nameReg.test(name)) {
+		    alert("이름은 한글로만 이루어진 2~5자 사이입니다.");
+		    $('.name').focus();
+		    return false;
 		}
-		if ($('.phone').val().length != 11) {
-		    alert("휴대전화 번호는 11자여야 합니다.");
+		var phone = $('.phone').val();
+		var phoneReg = /^01([0|1|6|7|8|9]?)([0-9]{4})([0-9]{4})$/;
+
+		if (!phoneReg.test(phone)) {
+		    alert("휴대전화 번호를 올바르게 입력해 주세요");
 		    $('.phone').focus();
 		    return false;
 		}
+// 		if($("#email").val() == ""){
+// 		    alert("이메일을 입력해주세요.");
+// 		    $("#email").focus();
+// 		    return false;
+// 		}
+// 		var email = $("#email").val();
+// 		var emailRegEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+// 		if(!emailRegEx.test(email)){
+// 		    alert("유효한 이메일 주소를 입력해주세요.");
+// 		    $("#email").focus();
+// 		    return false;
+// 		}
 		if (!$('#large-checkbox').is(':checked')) {
 		    alert("약관동의에 체크해주세요.");
 		    $('#large-checkbox').focus();
@@ -186,56 +238,60 @@ $(document).ready(function(){
 		});
 	});
 </script>
-   
-    
-    <title>Document</title>	
+    <title>Document</title>
   </head>
   <body>
-  <form action="insertPro.me" id="join" method="post">
-    <div class="member-sign">
-      
-        <div class="member-sign__sign-box">
-          <div class="member-sign__id-box">
-   <input type="text" id="id" class="id" name="id" placeholder="아이디">
-   <div class="phone-certify">
-<input type="button" value="중복확인" class="phone-certify2">  
-</div>
-          </div>
-          <div class="member-sign__pass-box">
-   <input type="password" id="pass" class="pass" name="pass" placeholder="비밀번호">
-          </div>
-          <div class="member-sign__pass-check-box">
-   <input type="password" id="memberSingCh" class="check" name="check" placeholder="비밀번호 확인">
-          </div>
-          <div class="member-sign__nick-box">
-   <input type="text" id="nick" class="nick" name="nick" placeholder="닉네임">
-<div class="phone-certify">
-<input type="button" value="중복확인" class="phone-certify3">  
-</div>         
-          </div>
-          <div class="member-sign__name-box">
-   <input type="text" id="name" class="name" name="name" placeholder="이름">
-          </div>
-          <div class="member-sign__phone-box">
-          <label for="memberSingPhone"></label>
-   <input type="tel" id="phone" class="phone" name="phone" placeholder="휴대전화">
-            <div class="member-sign__phone-certify">
-              <div class="member-sign__4">인증하기</div>
-            </div>
-          </div>
-          <div class="member-sign__join-box">
-<input type="submit" value="가입하기" class="member-sign__5">
-          </div>
-          <div class="member-sign__terms-box">  
-          <label for="terms" class="member-sign__2">
-    [필수] 약관 전체 동의
-    <input type="checkbox" id="large-checkbox" name="large-checkbox" style="display: inline-block; margin-left: 5px;">
-</label>
-                
-<!--             <div class="member-sign__2">[필수] 약관 전체 동의</div> -->
-          </div>
+<form action="insertPro.me" id="join" method="post">
+    <div class="slide-16-9-1">
+    <div class="slide-16-9-1__id-box">
+<input type="text" id="id" class="id" name="id" placeholder="아이디">
+        <div class="slide-16-9-1__id-check">
+<input type="button" value="중복확인" class="phone-certify2">
         </div>
       </div>
-    </form>
+      <div class="slide-16-9-1__pass-box">
+<input type="password" id="pass" class="pass" name="pass" placeholder="비밀번호">
+      </div>
+      <div class="slide-16-9-1__passcheck-box">
+<input type="password" id="memberSingCh" class="check" name="check" placeholder="비밀번호 확인">
+      </div>
+      <div class="slide-16-9-1__nickname-box">
+<input type="text" id="nick" class="nick" name="nick" placeholder="닉네임">
+        <div class="slide-16-9-1__nick-check">
+<input type="button" value="중복확인" class="phone-certify3">
+        </div>
+      </div>
+      <div class="slide-16-9-1__name-box">
+<input type="text" id="name" class="name" name="name" placeholder="이름">
+      </div>
+      <div class="slide-16-9-1__phone-box">
+<input type="tel" id="phone" class="phone" name="phone" placeholder="휴대전화">
+      </div>
+      
+<!--       <div class="slide-16-9-1__email-box"> -->
+<!-- <input type="text" id="email" class="email" name="email" placeholder="이메일"> -->
+<!--         <div class="slide-16-9-1__email-check"> -->
+<!-- <input type="button" class="emailcheck" name="email2" value="인증하기"> -->
+<!--         </div> -->
+<!--       </div> -->
+<!--       <div class="slide-16-9-1__checknumber-box"> -->
+<!-- <input type="number" id="number" class="number" name="number" placeholder="인증번호"> -->
+<!--         <div class="slide-16-9-1__number-check"> -->
+<!-- <input type="button" class="numcheck" name="email3" value="인증확인"> -->
+<!--         </div> -->
+<!--       </div> -->
+      
+<img class="slide-16-9-1__camppy-2" src="member/join/images/camppy-2.png" />
+
+      <div class="slide-16-9-1__terms-box">
+<div class="slide-16-9-1__">[필수] 약관 전체 동의
+<input type="checkbox" id="large-checkbox" name="large-checkbox" style="display: inline-block; margin-left: 5px;">
+</div>
+      </div>
+      <div class="slide-16-9-1__join-box">
+<input type="submit" value="가입하기" class="slide-16-9-1__3">
+      </div>
+    </div>
+   </form>
   </body>
 </html>
