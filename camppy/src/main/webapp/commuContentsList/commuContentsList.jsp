@@ -67,7 +67,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 								{ 
 								%>
 							    <img class="commu-contents-list__rectangle-7"
-								src="upload/5.png" id="picture3">
+								 src="upload/5.png" id="picture3">
 								<%
 								}
 								%>

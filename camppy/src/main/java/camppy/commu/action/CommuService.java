@@ -68,12 +68,9 @@ public class CommuService {
 			commuDTO.setImg_url(img_url);
 			System.out.println(img_url);
 			commuDAO = new CommuDAO();
-			int post_id = commuDAO.getMaxNum() + 1;
-			commuDTO.setPost_id(post_id);
 
 			commuDAO.commuInsert(commuDTO);
-
-			System.out.println(post_id);
+			commuDAO.commuInsert1(commuDTO,commuDAO.getpostid());
 
 			/*
 			 * commuDTO.setCreate_date(last_modified_date); commuDTO.setPost_id(post_id); //
@@ -325,7 +322,7 @@ public class CommuService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return 0;
+		return count;
 	}
 
 	public void myCommuInsert(HttpServletRequest request) {
