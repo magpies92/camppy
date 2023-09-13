@@ -98,7 +98,7 @@ Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
 
 String countSql = "SELECT COUNT(*) AS total FROM review WHERE created_by = ?";
 PreparedStatement countStmt = con.prepareStatement(countSql);
-countStmt.setString(1, id);
+countStmt.setString(1, nickname);
 ResultSet countRs = countStmt.executeQuery();
 countRs.next();
 int totalRecords = countRs.getInt("total");
@@ -108,7 +108,7 @@ String sql = "SELECT * FROM review WHERE created_by = ? ORDER BY review_id DESC 
 int startRecord = (currentPage - 1) * pageSize;
 
 PreparedStatement pstmt = con.prepareStatement(sql);
-pstmt.setString(1, id);
+pstmt.setString(1, nickname);
 pstmt.setInt(2, startRecord);
 pstmt.setInt(3, pageSize);
 
@@ -137,12 +137,12 @@ while (rs.next()) {
 			<div class="reviewDate1"><%=rs.getTimestamp("created_date")%></div>
 		</div>
 		<button type="button" onclick="updateRow(this);" class="buttonUpdate"
-			<%if (!id.equals(rs.getString("created_by"))) {%>
+			<%if (!nickname.equals(rs.getString("created_by"))) {%>
 			style="display: none;" <%}%>>
 			<div class="update">수정</div>
 		</button>
 		<button type="button" onclick="deleteRow(this);" class="buttonDel"
-			<%if (!id.equals(rs.getString("created_by"))) {%>
+			<%if (!nickname.equals(rs.getString("created_by"))) {%>
 			style="display: none;" <%}%>>
 			<div class="del">삭제</div>
 		</button>

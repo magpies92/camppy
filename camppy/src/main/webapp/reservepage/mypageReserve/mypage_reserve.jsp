@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+<%@page import="java.time.LocalDate"%>
+=======
 <%@page import="camppy.member.MemberDAO"%>
 <%@page import="camppy.member.MemberDTO"%>
+>>>>>>> branch 'main' of https://github.com/magpies92/camppy.git
 <%@page import="camppy.commu.db.CommuDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
@@ -511,8 +515,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 <%--        endPage<%=endPage %> --%>
 <%--        pageCount<%=pageCount %> --%>
       	 <h3 class="heading-section">Reservation</h3><br> 
-      	  <a class="count">계좌번호 : 아이티윌뱅크 202304201023<br>
-             	예금주 : (주)Camppy</a>
+      	  
        </div>
        </div>
 	<div><table class="table" style="
@@ -523,17 +526,26 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
  	<tr><td> 예약번호 </td><td> 펜션명 </td><td> 예약상태 </td> 
- 	<td> 예약일자 </td><td>총 금액</td><td>후기작성</td><td> 예약취소 </td></tr> 
+ 	<td> 예약일자 </td><td>총 금액</td><td>은행</td><td>계좌번호</td><td>후기작성</td><td> 예약취소 </td></tr> 
  	</thead>
  	<% 
 //  	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
  	for(int i=0;i<reserveList.size();i++){
  		//배열 한칸에 내용 가져오기 
  		ReserveDetailDTO rdto=reserveList.get(i);
-//  		MyReserveDTO mdto = new MyReserveDTO();
- 
-//  		CampRegDAO cdao = new CampRegDAO();
-//  		CampRegDTO cdto = new CampRegDTO();
+ 		
+ 		  String appointIndateSt = rdto.getCheckin_date(); // 체크인 날짜
+ 	      String appointOutdateSt = rdto.getCheckout_date(); // 체크아웃 날짜
+
+ 	      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+ 	      Date appointIndate = format.parse(appointIndateSt);
+ 	      Date appointOutdate = format.parse(appointOutdateSt);
+ 	     String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+ 	      SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+ 	      Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
+ 	     int resultIn = appointIndate.compareTo(today);
+ 	      int resultOut = appointOutdate.compareTo(today);
+
  		%> 
  	<tr><td onclick="location.href='DetailList.re?res_id=<%=rdto.getRes_id()%>'"><%=rdto.getRes_id()%> </td>
  	
@@ -546,7 +558,7 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
   	    }%> </td>
 	    <td> <%=dateFormat.format(rdto.getRes_time()) %> </td>
 	    <td>
-	    
+	    <%=rdto.getSprice()/rdto.getCamp_price()%>박
 	     
 	     <script type="text/javascript">
           var num = <%=rdto.getSprice()%>;
@@ -556,24 +568,17 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 
          <%
 %>
-<% 
+ 
 
-// int campPrice = rdto.getCamp_price();
-%>
-<%-- <%= campPrice %>박 --%>
-<!--  int campPrice = rdto.getCamp_price()/rdto.getCamp_price(); -->
-<!--   if (campPrice != 0) { -->
-<!--       out.print(campPrice + "박"); -->
-<!--   } else { -->
-<!--       out.print("박"); -->
-<!--   } -->
-<%
-// int campPrice = rdto.getCamp_price();
-// int sprice = rdto.getSprice();
-// String result = campPrice == 0 ? "박" : (sprice / campPrice) + "박";
-%>
-<%-- <%= result %> --%>
-         <%=rdto.getSprice()/rdto.getCamp_price()%>박
+<td> <%=rdto.getBankname() %> </td>
+<td> <%=rdto.getBankaccount() %> </td>
+
+
+
+
+
+
+       
 <%-- 			  <%=rdto.getCamp_price()%>박 --%>
 				
 	    </td>
@@ -582,14 +587,26 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 <%-- 		<td><button type="button" id="reviewBtn" class="btn btn-outline-success" onclick="location.href='insertReview.rv?res_id=<%=rdto.getRes_id()%>&camp_id=<%=rdto.getCamp_id()%>'">리뷰 작성</button></td> --%>
 			
   <td>
+  <%if(rdto.getReview_check() == 0){
+	   if(resultOut > 0 || rdto.getRes_status() == 0) {
+                  // 퇴실일 지나기전 후기 작성 불가
+                 %> <div class="btn btn-outline-success">불가</div>
+                  <%
+               }else{%>
   <a href="reviewInsert.rv?res_id=<%=rdto.getRes_id()%>&camp_id=<%=rdto.getCamp_id()%>"
      onclick="window.open(this.href, 'ReviewPopup', 'width=700, height=700, left=100, top=50, max-width: 100% max-height: 100% overflow: auto'); return false;"
      class="btn btn-outline-success"
      role="button">작성</a>
+     <%}
+     }else{ %>
+     <a class="btn btn-outline-success"
+     >완료</a><%} %>
 </td>
-						
-	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='MyReservePro.re?res_id=<%=rdto.getRes_id()%>'">Cancel</button></td></tr>
-		<%
+		<%if(rdto.getRes_status() == 0){ %>				
+	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='MyReservePro.re?res_id=<%=rdto.getRes_id()%>'">가능</button></td></tr>
+		 <%}else{ %>
+		 <td><div class="btn btn-outline-secondary">불가</div></td></tr>
+		  <%} %><%
  	}
  	%> 
  	
@@ -597,50 +614,6 @@ PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
 	</div>
 <!-- <h1>page</h1> -->
 <%
-// 한 화면에 보여줄 페이지 개수 설정
-// int pageBlock=10;
-// 시작하는 페이지 번호 구하기
-// currentPage			pageBlock	=> startPage
-// 		1~  10(0~9)			10		=>	(-1)/10*10+1 => 0*10+1 => 0+1 => 1
-// 		11~ 20(10~19)		10		=>	(-1)/10*10+1 => 1*10+1 => 10+1 => 11
-// 		21~ 30(20~29)		10		=>	(-1)/10*10+1 => 2*10+1 => 20+1 => 21
-
-// int startPage=(currentPage-1)/pageBlock*pageBlock+1;
-// 끝나는 페이지 번호 구하기
-// startPage pageBlock => endPage
-//	1			10	   =>	1+10-1  => 10
-//	11			10	   =>	11+10-1 => 20
-//	21			10	   =>	21+10-1 => 30
-// int endPage=startPage+pageBlock-1;
-//전체글 개수 select count(*) from Appointment
-// int 리턴할형 getAppointmentCount() 메서드 정의
-// getAppointmentCount() 메서드 호출
-// int count = dao2.getAppointmentCount(no);
-//끝나는 페이지(endPage) = 10  <=  전체페이지(pageCount) = 2
-//전체페이지(pageCount) 구하기
-//=> 전체글의 개수 13 /글개수 10 => 1 페이지 +(0.3 글 남아있으면 1페이지 추가)
-//
-// int pageCount=count/pageSize+(count%pageSize==0?0:1);
-// if(endPage > pageCount){
-// 	endPage = pageCount;
-// }
-//10페이지 이전
-
-// PageDTO pageDTO=(PageDTO)request.getAttribute("pageDTO");
-// 시작페이지 1페이지 Prev 없음
-// 시작페이지 11,21,31 Prev 보임
-// if(pageDTO.getStartPage() > pageDTO.getPageBlock()){
-	
-// 	PageDTO pageDTO = (PageDTO)session.getAttribute("pageDTO");
-	
-
-
-// if (pageDTO != null) {
-//     int startPage = pageDTO.getStartPage();
-//     int pageBlock = pageDTO.getPageBlock();
-//     int endPage = pageDTO.getEndPage();
-//     int pageCount = pageDTO.getPageCount();
-
 
 
 

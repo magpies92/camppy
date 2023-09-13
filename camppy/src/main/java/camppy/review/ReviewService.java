@@ -19,6 +19,8 @@ public class ReviewService {
 			
 			String camp_name = request.getParameter("camp_name");
 			int camp_id = Integer.parseInt(request.getParameter("camp_id"));
+			String created_by = request.getParameter("created_by");
+			
 //			System.out.println(request.getParameter("camp_id"));
 			int rating = Integer.parseInt(request.getParameter("rating"));
 			int res_id = Integer.parseInt(request.getParameter("res_id"));
@@ -45,6 +47,7 @@ public class ReviewService {
 			reviewDTO.setRating(rating);
 			reviewDTO.setContent(content);			
 			reviewDTO.setCreated_date(created_date);
+			reviewDTO.setCreated_by(created_by);
 			
 			
 			// insertBoard(boardDTO) 메서드호출

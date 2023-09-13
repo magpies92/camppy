@@ -17,6 +17,7 @@ import camppy.review.ReviewDTO;
 	public class ReviewDAO {
 		Connection con=null;
 		PreparedStatement pstmt=null;
+		PreparedStatement pstmt1=null;
 		ResultSet rs =null;
 		
 		//1,2 단계 디비 연결 메서드  정의 => 필요로 할때 호출 사용
@@ -54,8 +55,8 @@ import camppy.review.ReviewDTO;
 ////					int review_id = rs.getInt("max(review_id)") + 1;
 //				}
 				// 3단계 문자열 -> sql구문 변경  //(물음표 순서,값)
-				String sql = "insert into review(member_id, camp_id, res_id, rating, content, created_date)"
-					    + "values(?, ?, ?, ?, ?, ?)";
+				String sql = "insert into review(member_id, camp_id, res_id, rating, content, created_date, created_By)"
+					    + "values(?, ?, ?, ?, ?, ?,?)";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1, reviewDTO.getMember_id());
 				pstmt.setInt(2, reviewDTO.getCamp_id()); 
@@ -63,8 +64,18 @@ import camppy.review.ReviewDTO;
 				pstmt.setInt(4, reviewDTO.getRating());
 				pstmt.setString(5, reviewDTO.getContent());
 				pstmt.setTimestamp(6, reviewDTO.getCreated_date());
+				pstmt.setString(7, reviewDTO.getCreated_by());
 				// 4단계 sql구문 실행
 				pstmt.executeUpdate();
+				
+				
+				String sql1 = "update reservation SET review_check = true where res_id = ?";
+				
+				pstmt1=con.prepareStatement(sql1);
+				pstmt1.setInt(1, reviewDTO.getRes_id());
+			
+				// 4단계 sql구문 실행
+				pstmt1.executeUpdate();
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -118,7 +129,7 @@ import camppy.review.ReviewDTO;
 				// 2단계 디비 연결
 				con=getConnection();
 				// 3단계  num 기준으로 내림차순
-				String sql = "select * from review order by num desc";
+				String sql = "select * from review order by review_id desc";
 				pstmt=con.prepareStatement(sql);
 				// //4단계 sql구문 실행 => 실행결과 ResultSet 내장객체에 저장
 				rs =pstmt.executeQuery();
@@ -132,6 +143,7 @@ import camppy.review.ReviewDTO;
 					reviewDTO.setRating(rs.getInt("rating"));
 					reviewDTO.setContent(rs.getString("content"));
 					reviewDTO.setCreated_date(rs.getTimestamp("created_date"));
+					reviewDTO.setCreated_by(rs.getString("created_by"));
 					//배열 한칸 저장
 					reviewList.add(reviewDTO);
 				}
