@@ -38,6 +38,7 @@
         text-decoration: none;
         appearance: none;
         background: none;
+        
       }
     </style>
 <title>Insert title here</title>
@@ -131,12 +132,10 @@
               <div class="mainpage__div-searchbox-form">
                 <div class="mainpage__div-form-1-2">             
  <select name="sido" class="mainpage__options-1">
-          <!-- <option class="mainpage__3"   >전체/도</option> -->
-          
+          <!-- <option class="mainpage__3"   >전체/도</option> -->  
         </select>
                       <select name="gungu"  class="mainpage__options-2">
           <!-- <option class="mainpage__3" >전체/시/군</option> -->
-        
         </select>
                  </div>
                        <div class="mainpage__div-form-1-3">
@@ -261,7 +260,7 @@ SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
             
             
           </div>
-        
+     
           
         </div>
          <%
@@ -354,5 +353,6 @@ SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
         </div>
       </div>
     </div>
+      <jsp:include page="/inc/bottom.jsp"/>
   </body>
 </html>

@@ -24,39 +24,42 @@
 <style type="text/css">
 	.wrap {
 		font-family: 'NanumSquareNeo';
-		max-width: 800px;
-		height: 800px;
-		margin: 0 auto;
-		padding: 20px;
+		height: 36.4583vw;
+		margin: 0 5.2083vw;
+		padding: 1.0417vw;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		box-sizing: border-box;
+		width: 46.8750vw;
 	}
 	
 	#myList {
-		margin-left: 130px;
+		display: flex;
 	}
  	
  	#myList h3 {
  		font-family: 'NanumSquareNeoBold';
-		margin: 10px;
+		margin: 0.5208vw;
+		position: absolute;
+ 		left: 46.3542vw;
  	}
  	
  	#myList h5 {
  		font-family: 'NanumSquareNeoBold';
-		margin: 10px;
+		margin: 0.5208vw;
 		text-align: center;
  	}
  	
  	#myList ul {
- 		margin: 50px 0px 40px 0px;
+ 	margin: 2.6042vw 0.0000vw 2.6042vw 0.0000vw;	
+ 	list-style: none;
+ 	
  	}
  	
- 	#myList ul li {
- 		list-style: none;
- 		text-align: center;
- 	}
+#myList ul li {
+	border-bottom-color: lightgrey;
+}
 
 	#myList #hrefImg {
 		float: left;
@@ -67,22 +70,84 @@
 	#myList #hrefImg:hover {
 	  	opacity: .5;
 	}
+	#list1{
+	list-style: none;
+ 	position: absolute;
+    left: 37.2396vw;
+    top: 31.5104vw;
+    width: 44.7917vw;
+    height: 2.6042vw;
+    border: solid;
+    border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
+    text-align: initial;
+    line-height: 2.6042vw;
 	
- 	#myList #timecheck {
- 		margin: 10px 20px 15px 10px;
+	}
+	#list2{
+	list-style: none;
+ 	position: absolute;
+    left: 37.2396vw;
+    top: 34.3750vw;
+    width: 44.7917vw;
+    height: 2.6042vw;
+    border: solid;
+    border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
+    text-align: initial;
+    line-height: 2.6042vw;
+	
+	}
+	#list3{
+	list-style: none;
+ 	position: absolute;
+    left: 37.2396vw;
+    top: 37.2396vw;
+    width: 44.7917vw;
+    height: 2.6042vw;
+    border: solid;
+    border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
+    text-align: initial;
+    line-height: 2.6042vw;
+	
+	}
+	
+ 	#timecheckin {
+ 	list-style: none;
+ 	position: absolute;
+    left: 37.2396vw;
+    top: 40.1042vw;
+    width: 44.7917vw;
+    height: 2.6042vw;
+    border: solid;
+    border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
+    text-align: initial;
+    line-height: 2.6042vw;
+	
+ 	}
+ 	#timecheckout {
+ 	list-style: none;
+ 	position: absolute;
+    left: 37.2396vw;
+    top: 42.9688vw;
+    width: 44.7917vw;
+    height: 2.6042vw;
+    border: solid;
+    border-width: 0.0000vw 0.0000vw 0.0521vw 0.0000vw;
+    text-align: initial;
+    line-height: 2.6042vw;
+	
  	}
  	
  	#myList ul button {
- 		margin-top: 10px;
+ 		margin-top: 0.5208vw;
  	}
  	
  	#myList ul #btns {
- 		width: 150px;
+ 		width: 7.8125vw;
         margin: 0 auto;
  	}
  	
  	footer {
- 		padding-top: 50px;
+ 		padding-top: 2.6042vw;
  	}
  	
  	  a,
@@ -103,14 +168,24 @@
         background: none;
       }
        table {
-    /* width: 400px;
-    height: 200px; */
+    /* width: 20.8333vw;
+    height: 10.4167vw; */
     margin-left: auto;
     margin-right: auto;
   }
  	
+ 	#map {
+ 	border-color: lightgrey; 
+    border-style: solid;
+    border-width: 0.1042vw;
+    padding: 1.0417vw;	}
  	
- 	
+ 	#pic {
+ 	position: absolute;
+    left: 13.0208vw;
+    width: 23.4375vw;
+    height: 23.4375vw;
+    }
  	
 </style>
 </head>
@@ -143,7 +218,7 @@
 
 <div class="wrap">
 	<form name="myListForm.me" id="myList" method="post">
-	<h3>내 이용 내역</h3>
+	<h3>예약 상세 내역</h3>
 	
 <% 
 	// 예약 내역 확인
@@ -182,18 +257,27 @@
 	
 	<ul>
 <!-- 		<hr> -->
-			<li><img src="campimg/<%=camp_img%>" width="450px" height="450px"></li>
-		<li>예약일자 : <%=reservedate %></li>
-		<h5><%=camp_name %></h5>
-		<li>주소 : <%=camp_addr %><li>
-		<li id="timecheck">체크인 <%=dateFormat.format(reserveIndate) %> </li>
-		<li id="timecheck">체크아웃 <%=dateFormat.format(reserveOutdate) %></li>
+		<img src="campimg/<%=camp_img%>" id="pic">
+		<li id=list1>예약일자 : &nbsp;&nbsp;&nbsp;&nbsp;
+		<%=reservedate %></li>
+		<li id=list2>이름 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<%=camp_name %></li>
+		<li id=list3>주소 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%=camp_addr %><li>
+		<li id="timecheckin">체크인 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%=dateFormat.format(reserveIndate) %> </li>
+		<li id="timecheckout">체크아웃 : &nbsp;&nbsp;&nbsp;&nbsp;
+		<%=dateFormat.format(reserveOutdate) %></li>
 <%-- 		<%=checkin_date.substring(0, 2) %>시 <%=checkin_date.substring(3) %>분 --%>
 <%-- 		 <%=checkout_date.substring(0, 2) %>시 <%=checkout_date.substring(3) %>분 --%>
 		</ul>
 		</form>
 		</div>
-		 <div id="map" style="width:70%;height:350px; left:250px; bottom:3vw; position: relative;"></div>
+		 <div id="map" style="width:70%;height:18.2292vw; left:13.0208vw; bottom:3vw; position: relative;"></div>
+		
+		
+		<jsp:include page="/inc/bottom.jsp" />
+		
 		<script type="text/javascript" src="script/jquery-3.7.0.js"></script>             
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5cbf788470a637f86f3a750ad4f9d949&libraries=services"></script>
 <script>
@@ -219,7 +303,7 @@ geocoder.addressSearch(addr, function(result, status) {
     });
     // 인포윈도우로 장소에 대한 설명을 표시합니다
     var infowindow = new kakao.maps.InfoWindow({
-        content: '<div style="width:150px;text-align:center;padding:6px 0;">여기</div>'
+        content: '<div style="width:7.8125vw;text-align:center;padding:0.3125vw 0;">여기</div>'
     });
     infowindow.open(map, marker);
     // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다

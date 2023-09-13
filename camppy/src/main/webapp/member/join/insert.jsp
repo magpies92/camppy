@@ -190,6 +190,14 @@ $(document).ready(function(){
     
     <title>Document</title>	
   </head>
+  
+  
+  <!-- 헤더들어가는 곳 -->
+<jsp:include page="/inc/top.jsp"/> 
+
+<!-- 헤더들어가는 곳 -->
+  
+  
   <body>
   <form action="insertPro.me" id="join" method="post">
     <div class="member-sign">

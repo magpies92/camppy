@@ -180,7 +180,7 @@
   position: absolute;
   left: calc(50% - 4.1667vw);
   top: 0.2083vw;
-  width: 8.3333vw;
+  width: 9.3333vw;
   height: 2.6042vw;
   display: flex;
   align-items: center;
