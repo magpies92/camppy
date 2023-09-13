@@ -1,26 +1,25 @@
-.likeListBody,
-.likeListBody * {
-  box-sizing: border-box;
+.likeListBody, .likeListBody * {
+	box-sizing: border-box;
 }
 
-.allbody{
+.allbody {
 	width: 85vw;
-    position: relative;
-    padding-left: 11vw;
-    top: -3vw;
-    transform: scale(0.93);
+	position: relative;
+	padding-left: 11vw;
+	top: -3vw;
+	transform: scale(0.93);
 }
 
 .likeListBody {
-  background: #ffffff;
-  flex-direction: row;
-  gap: 0.5207vw;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  height: 100vw;
-  position: relative;
-  overflow: hidden;
+	background: #ffffff;
+	flex-direction: row;
+	gap: 0.5207vw;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	height: 100vw;
+	position: relative;
+	overflow: hidden;
 }
 
 .reviewTop {
@@ -77,50 +76,48 @@
 }
 
 .allCheck {
-  color: #000000;
-  text-align: center;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-  position: relative;
-  height: 2.5000vw;
-  display: flex;
-  left: 79.5vw;
-  width: 10vw;
-  top: 3vw;
+	color: #000000;
+	text-align: center;
+	font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+	position: relative;
+	height: 2.5000vw;
+	display: flex;
+	left: 79.5vw;
+	width: 10vw;
+	top: 3vw;
 }
 
 .likeList {
-    border-style: solid;
-    border-color: #000000;
-    border-width: 0vw 0vw 0.0521vw 0vw;
-    display: inline;
-    flex-direction: row;
-    gap: 3.125vw;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    position: relative;
-    top: 3vw;
+	border-style: solid;
+	border-color: #000000;
+	border-width: 0vw 0vw 0.0521vw 0vw;
+	display: inline;
+	flex-direction: row;
+	gap: 3.125vw;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	position: relative;
+	top: 3vw;
 }
 
-.likeList2{
-    position: relative;
-    display: inline-block;
-    bottom: 1vw;
-    padding-left: 1vw;
-    width: 61vw;
-    font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+.likeList2 {
+	position: relative;
+	display: inline-block;
+	bottom: 1vw;
+	padding-left: 1vw;
+	width: 61vw;
+	font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
 }
-
 
 .likeListPhoto {
-  background: #d9d9d9;
-  flex-shrink: 0;
-  width: 15.5000vw;
-  height: 12.5000vw;
-  position: relative;
-  bottom:0.5vw;
+	background: #d9d9d9;
+	flex-shrink: 0;
+	width: 15.5000vw;
+	height: 12.5000vw;
+	position: relative;
+	bottom: 0.5vw;
 }
-
 
 /*.likeListTitle {
   color: #000000;
@@ -167,76 +164,74 @@
   align-items: center;
   justify-content: flex-start;
 }*/
-
 .likeTitle {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-  position: relative;
+	color: #000000;
+	font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+	position: relative;
 }
 
 .hearts {
-  width: 2vw;
-  padding-top: 0.2vw;
+	width: 2vw;
+	padding-top: 0.2vw;
 }
-
 
 .likeNum {
-  color: #000000;
-  font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
-  position: absolute;
-  left: 3vw;
-  top: 0vw;
+	color: #000000;
+	font: 400 1.3021vw/2.3436vw "NanumGothic", sans-serif;
+	position: absolute;
+	left: 3vw;
+	top: 0vw;
 }
 
-
 .each {
-  border-radius: 0.0000vw;
-  flex-shrink: 0;
-  position: absolute;
-  right: 0.0000vw;
-  top: 4.3750vw;
-  overflow: visible;
-  
+	border-radius: 0.0000vw;
+	flex-shrink: 0;
+	position: absolute;
+	right: 0.0000vw;
+	top: 4.3750vw;
+	overflow: visible;
 }
 
 .eachCheck {
-  color: #000000;
-  text-align: center;
-  font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
-  position: relative;
-  height: 1vw;
-  width: 1vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 75.9vw;
-  bottom: 9vw;
-}
-.eachCheckbox{
-	width:15.6px;
-	height:15.6px;
-}
-.bannerRsButton {
-  color: #ffffff;
-  font: 700 0.6915vw "Inter", sans-serif;
-  text-align: center;
-  background: #4da385;
-  border-radius: 0.2660vw;
-  flex-direction: row;
-  gap: 0.0000vw;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 4.9468vw;
-  height: 1.7553vw;
-  position: absolute;
-  left: 72.5vw;
-  top: 17vw;
+	color: #000000;
+	text-align: center;
+	font: 400 1.5628vw/2.3436vw "NanumGothic", sans-serif;
+	position: relative;
+	height: 1vw;
+	width: 1vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	left: 75.9vw;
+	bottom: 9vw;
 }
 
-.page{
+.eachCheckbox {
+	width: 15.6px;
+	height: 15.6px;
+}
+
+.bannerRsButton {
+	color: #ffffff;
+	font: 700 0.6915vw "Inter", sans-serif;
+	text-align: center;
+	background: #4da385;
+	border-radius: 0.2660vw;
+	flex-direction: row;
+	gap: 0.0000vw;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 4.9468vw;
+	height: 1.7553vw;
+	position: absolute;
+	left: 72.5vw;
+	top: 17vw;
+}
+
+.page {
 	position: relative;
-    left: 38vw;
-    top: 5vw;
+	left: 38vw;
+	top: 5vw;
 }
 
 .mypageProfile {
@@ -559,33 +554,368 @@ div.tab.active {
 
 /*     } */
 
- .pagination {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 20px;
-        left: 940px;
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+a, button, input, select, h1, h2, h3, h4, h5, * {
+	margin: 0;
+	padding: 0;
+	border: none;
+	text-decoration: none;
+	background: none;
+}
+
+.mypageProfile {
+	padding: 10px 100px 10px 100px;
+	display: flex;
+	flex-direction: row;
+	gap: 136px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	width: 1920px;
+	height: 314px;
+	position: relative;
+	left: 1px;
+	overflow: hidden;
+}
+
+.mypageUserIcon {
+	flex-shrink: 0;
+	width: 217px;
+	height: 217px;
+	position: absolute;
+	left: 277px;
+	top: 51px;
+}
+
+.profileNickname {
+	color: #000000;
+	text-align: left;
+	font: 400 40px/28px "pretendard-medium", sans-serif;
+	position: absolute;
+	left: 546px;
+	top: 75px;
+	width: 642px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.updateButton {
+	background: #4da385;
+	border-radius: 5px;
+	padding: 0px 9px 0px 9px;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-shrink: 0;
+	width: 207px;
+	height: 70px;
+	position: absolute;
+	left: 1258px;
+	top: 80px;
+	overflow: hidden;
+	border: none;
+}
+
+.updateProfile {
+	color: #ffffff;
+	text-align: center;
+	font: 700 30px/28px "pretendard-medium", sans-serif;
+	position: absolute;
+	left: calc(50% - 94.5px);
+	top: 0px;
+	width: 189px;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageProfileNum {
+	display: flex;
+	flex-direction: row;
+	gap: 136px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-shrink: 0;
+	width: 1040px;
+	height: 70px;
+	position: absolute;
+	left: 135px;
+	top: 160px;
+}
+
+.myVisit {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
+	position: absolute;
+	left: 0px;
+	top: 10px;
+	width: 180px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.visitNum {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
+	position: absolute;
+	left: 180px;
+	top: 10px;
+	width: 100px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: solid 1px;
+	border-left-color: grey;
+}
+
+.myArticle {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
+	position: absolute;
+	left: 360px;
+	top: 10px;
+	width: 180px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.myArticleNum {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
+	position: absolute;
+	left: 540px;
+	top: 10px;
+	width: 100px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: solid 1px;
+	border-left-color: grey;
+}
+
+.myReply {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
+	position: absolute;
+	left: 720px;
+	top: 10px;
+	width: 180px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.myReplyNum {
+	color: #000000;
+	text-align: center;
+	font: 400 25px/28px "pretendard-medium", sans-serif;
+	position: absolute;
+	left: 900px;
+	top: 10px;
+	width: 100px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: solid 1px;
+	border-left-color: grey;
+}
+
+.mypageNavi {
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px 0px 1px 0px;
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	width: 1920px;
+	height: 163px;
+	position: relative;
+	/*   left: calc(50% - 960px); */
+	padding-right: 150px;
+	padding-left: 150px;
+}
+
+.mypageLike {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "pretendard-medium", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageArticle {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "pretendard-medium", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageReply {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "pretendard-medium", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mypageReserve {
+	color: #000000;
+	text-align: center;
+	font: 400 30px/28px "pretendard-medium", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* .buttonDel { */
+/* 	display: flex; */
+/* 	flex-direction: column; */
+/* 	gap: 0px; */
+/* 	align-items: flex-start; */
+/* 	justify-content: flex-start; */
+/* 	width: 138px; */
+/* 	height: 61px; */
+/* 	position: relative; */
+/* 	left: 1555px; */
+/* 	background: #4da385; */
+/* 	border-radius: 5px; */
+/* 	border: none; */
+/* } */
+.del {
+	color: #ffffff;
+	text-align: center;
+	font: 700 25px/45px "pretendard-medium", sans-serif;
+	position: absolute;
+	left: calc(50% - 49px);
+	top: 13px;
+	width: 100px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+div.tab.active {
+	color: black;
+	font-weight: bold;
+}
+
+.mypageNavi {
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px 0px 1px 0px;
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	width: 1920px;
+	height: 163px;
+	position: relative;
+	/*   left: calc(50% - 960px); */
+	padding-right: 150px;
+	padding-left: 150px;
+}
+
+.tab {
+	color: grey;
+	text-align: center;
+	font: 400 30px/28px "pretendard-medium", sans-serif;
+	position: relative;
+	width: 380px;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tabContents {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.pagination {
+display: contents;
+
     }
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px;
+	left: 940px;
+}
 
 .pagination a {
-        text-decoration: none;
-        padding: 8px 16px;
-        margin: 0 4px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        color: #333;
-        transition: background-color 0.3s, color 0.3s;
-    }
+	text-decoration: none;
+	padding: 8px 16px;
+	margin: 0 4px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	transition: background-color 0.3s, color 0.3s;
+}
 
-    .pagination a.active {
-      background-color: #4da285;
-      color: white;
-};
-       
-    .pagination a:hover {
-        background-color: #333;
-        color: #fff;
-          }
-#tab1 {
+.pagination a.active {
+	background-color: #4da285;
+	color: white;
+}
+
+;
+.pagination a:hover {
+	background-color: #333;
+	color: #fff;
+}
+
+#tab2 {
 	color: lightseagreen;
 }
