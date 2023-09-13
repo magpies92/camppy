@@ -405,12 +405,7 @@
 					051-803-0909</div>
 				<div class="section-footer__tel-051-803-0909-10-00-18-00">TEL
 					: 051-803-0909(상담시간 : 평일 10:00~18:00)</div>
-				<div class="section-footer__sns">
-					<img class="section-footer__item-link" src="images/item-link.png" />
-					<img class="section-footer__item-link2" src="images/item-link2.png" />
-					<img class="section-footer__item-link3" src="images/item-link3.png" />
-					<img class="section-footer__item-link4" src="images/item-link4.png" />
-				</div>
+				
 			</div>
 			<a href="#" class="btn_gotop"> 
 			<img src="images/free-icon-up-arrow-5181252-1.png" >
