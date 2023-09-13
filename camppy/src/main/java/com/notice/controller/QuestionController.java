@@ -1,6 +1,7 @@
 package com.notice.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -97,16 +98,23 @@ public class QuestionController extends HttpServlet{
 			
 			
 			if(sPath.equals("/write.qu")) {
-				HttpSession session = request.getSession();
-				String id = (String)session.getAttribute("id");
-				
-				memberService = new MemberService();
-				MemberDTO  memberDTO =memberService.getMember(id);
-				request.setAttribute("memberDTO", memberDTO);
-				
-				// 주소변경없이 이동 notice/questionInsert/questionInsert.jsp
-				dispatcher = request.getRequestDispatcher("notice/questionInsert/questionInsert.jsp");
-				dispatcher.forward(request, response);
+			    HttpSession session = request.getSession();
+			    String id = (String)session.getAttribute("id");
+
+			    if(id == null) {
+			        response.setContentType("text/html; charset=UTF-8");
+			        PrintWriter out = response.getWriter();
+			        out.println("<script>alert('로그인 후 사용 가능합니다'); history.back();</script>");
+			        out.flush();
+			    } else {
+			        memberService = new MemberService();
+			        MemberDTO  memberDTO =memberService.getMember(id);
+			        request.setAttribute("memberDTO", memberDTO);
+
+			        // 주소변경없이 이동 notice/questionInsert/questionInsert.jsp
+			        dispatcher = request.getRequestDispatcher("notice/questionInsert/questionInsert.jsp");
+			        dispatcher.forward(request, response);
+			    }
 			}
 			if(sPath.equals("/writePro.qu")) {
 				System.out.println("뽑은 가상주소 비교 : /writePro.qu");

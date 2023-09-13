@@ -453,6 +453,7 @@ a:hover { text-decoration:none !important }
   top: 0.1021vw;
 }
 .mainpage__notice-etc {
+  cursor : pointer !important;
   display: flex;
   flex-direction: row;
   gap: 3.1109vw;
