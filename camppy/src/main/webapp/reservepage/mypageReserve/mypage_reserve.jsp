@@ -1,3 +1,5 @@
+<%@page import="camppy.member.MemberDAO"%>
+<%@page import="camppy.member.MemberDTO"%>
 <%@page import="camppy.commu.db.CommuDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
@@ -427,11 +429,16 @@ display: contents;
 	<jsp:include page="/inc/top.jsp"/>
 <!-- 헤더들어가는 곳 -->
 
-<%String nickname=(String)session.getAttribute("nickname");
+<%
+String id = (String) session.getAttribute("id");
+MemberDTO memberDTO = new MemberDTO();
+MemberDAO memberDAO = new MemberDAO();
+memberDTO = memberDAO.getMember(id);
+String nickname=(String)session.getAttribute("nickname");
 int memberid= (int)session.getAttribute("memberid");
 CommuDAO commuDAO = new CommuDAO();%>
 <div class="mypageProfile">
-		<img class="mypageUserIcon" src="member/join/images/free-icon-user-8484069-2.png" />
+		<img class="mypageUserIcon" src="memberimg/<%=memberDTO.getMember_img() %>" />
 		<div class="profileNickname"><%=nickname %></div>
 <button type="button"
 			onclick="openCenteredPopup('update.me', 'ReviewPopup', 850, 650)"
@@ -454,7 +461,7 @@ CommuDAO commuDAO = new CommuDAO();%>
 	
 
 <%
- String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
+ //id 세션값 불러오기 
 
 //  ArrayList<AppointmentDTO> AppointmentList=(ArrayList<AppointmentDTO>)request.getAttribute("AppointmentList");
 
