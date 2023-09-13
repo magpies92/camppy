@@ -740,6 +740,7 @@
   position: absolute;
   left: calc(50% - 6.1198vw);
   top: 2.8047vw;
+  border-radius : 50%
 }
 .mainpage__best-num-1-img:hover {
 
@@ -782,6 +783,7 @@
   position: absolute;
   left: calc(50% - 6.1198vw);
   top: 2.8047vw;
+  border-radius : 50%
 }
 .mainpage__best-num-2-img:hover {
 
@@ -824,6 +826,7 @@
   position: absolute;
   left: calc(50% - 6.1198vw);
   top: 2.8047vw;
+  border-radius : 50%
 }
 .mainpage__best-num-3-img:hover {
 
@@ -866,6 +869,7 @@
   position: absolute;
   left: calc(50% - 6.1198vw);
   top: 2.8047vw;
+  border-radius : 50%
 }
 .mainpage__best-num-4-img:hover {
 
@@ -908,6 +912,7 @@
   position: absolute;
   left: calc(50% - 6.1198vw);
   top: 2.8047vw;
+  border-radius : 50%
 }
 .mainpage__best-num-5-img:hover {
 
