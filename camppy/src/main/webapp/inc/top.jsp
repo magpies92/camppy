@@ -355,6 +355,27 @@
 
 
 </style>
+
+<script type="text/javascript">
+function openCenteredPopup(url, name, width, height) {
+    // 화면 중앙에 창이 위치하도록 left와 top 값을 계산합니다.
+    var left = (1880/2)-(width/2);
+    var top = (screen.height/2)-(height/2);
+
+    // 팝업창을 엽니다.
+    window.open(url, name, 'width=820, height=' + height + ', left=' + left + ', top=' + top);
+}
+function openCenteredPopup(url, name, width, height) {
+    // 화면 중앙보다 조금 위에 창이 위치하도록 left와 top 값을 계산합니다.
+    var left = (screen.width/2)-(width/2);
+    var top = (screen.height/2)-(height/2) - 50; // 50px만큼 위로 올립니다.
+
+    // 팝업창을 엽니다.
+    window.open(url, name, 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top);
+}
+
+</script>
+
 <body>
 <%
 //로그인 하면 => 로그인한 정보를 세션 저장
@@ -368,8 +389,8 @@ if(id == null){
 	%>
 <div class="section-login">
   <div class="section-login__login">
-    <button type="button" onclick="location.href='insert.me'" class="section-login__">회원가입</button>
-    <button type="button" onclick="window.open('login.me', 'ReviewPopup', 'width=700, height=850 max-width: 100% max-height: 100% overflow: auto'); return fals" class="section-login__1">로그인</button>
+<button type="button" onclick="openCenteredPopup('insert.me', 'ReviewPopup', 800, 1000)" class="section-login__">회원가입</button>
+<button type="button" onclick="openCenteredPopup('login.me', 'ReviewPopup', 700, 850)" class="section-login__1">로그인</button>
   </div>
 </div>
 	<%

@@ -1,11 +1,4 @@
 @charset "UTF-8";
-@font-face {
-    font-family: 'Pretendard-medium';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-}
-
 .edit-profile,
 .edit-profile * {
   box-sizing: border-box;
@@ -38,7 +31,7 @@
 .edit-profile__ {
   color: #000000;
   text-align: center;
-  font: 400 3.07rem/2.70125rem "Pretendard-medium", sans-serif;
+  font: 400 3.07rem/2.70125rem "Inter", sans-serif;
   position: relative;
   width: 34.933125rem;
   height: 5.4025rem;
@@ -65,7 +58,7 @@
 .edit-profile__2 {
   color: #000000;
   text-align: left;
-  font: 700 1.350625rem/2.70125rem "Pretendard-medium", sans-serif;
+  font: 700 1.350625rem/2.70125rem "Inter", sans-serif;
   position: absolute;
   left: 0rem;
   top: 0.920625rem;
@@ -96,7 +89,7 @@
 .edit-profile__3 {
   color: #ffffff;
   text-align: center;
-  font: 700 1.535rem/2.70125rem "Pretendard-medium", sans-serif;
+  font: 700 1.535rem/2.70125rem "Inter", sans-serif;
   position: absolute;
   left: calc(50% - 4.051875rem);
   top: calc(50% - 1.013125rem);
@@ -119,7 +112,7 @@
 .edit-profile__4 {
   color: #000000;
   text-align: left;
-  font: 700 1.350625rem/2.70125rem "Pretendard-medium", sans-serif;
+  font: 700 1.350625rem/2.70125rem "Inter", sans-serif;
   position: relative;
   width: 12.27875rem;
   height: 2.7625rem;
@@ -216,7 +209,7 @@
 .edit-profile__5 {
   color: #ffffff;
   text-align: center;
-  font: 700 1.535rem/2.70125rem "Pretendard-medium", sans-serif;
+  font: 700 1.535rem/2.70125rem "Inter", sans-serif;
   position: absolute;
   left: calc(50% - 3.929375rem);
   top: calc(50% - 1.16625rem);
@@ -248,7 +241,7 @@
 .edit-profile__6 {
   color: #ffffff;
   text-align: center;
-  font: 700 1.535rem/2.70125rem "Pretendard-medium", sans-serif;
+  font: 700 1.535rem/2.70125rem "Inter", sans-serif;
   position: absolute;
   left: calc(50% - 2.885625rem);
   top: calc(50% - 1.3rem);
@@ -269,7 +262,7 @@
 .edit-profile__7 {
   color: #ffffff;
   text-align: center;
-  font: 700 1.535rem/2.70125rem "Pretendard-medium", sans-serif;
+  font: 700 1.535rem/2.70125rem "Inter", sans-serif;
   position: absolute;
   left: calc(50% - 3.499375rem);
   top: calc(50% - 1.289375rem);
