@@ -89,7 +89,7 @@ QuestionPageDTO questionPageDTO = (QuestionPageDTO)request.getAttribute("questio
 
 
 <div class="clear"></div>
-<div id="pageControl">
+<div id="pageControl" class="pagination">
 <%
 // 시작페이지 1페이지 Prev 없음
 // 시작페이지 11, 21, 31 Prev 보임 

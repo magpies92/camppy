@@ -274,7 +274,7 @@
   left: 5.4688vw;
   top: 0.1531vw;
 }
-}
+
 .questionList5 {
   color: #000000;
   text-align: center;
@@ -380,14 +380,42 @@
   font: 700 0.8333vw "Inter", sans-serif;
    text-align: center;
 }
-#pageControl {
-	color: #000000;
-    text-align: center;
-    font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
-    position: relative;
-    display: flex;
-    position: relative;
-    left: 43.2292vw;
-    margin: 1.5625vw;
-    gap: 2.6042vw;
+/* #pageControl { */
+/* 	color: #000000; */
+/*     text-align: center; */
+/*     font: 400 1.0198vw/0.9177vw "Inter", sans-serif; */
+/*     position: relative; */
+/*     display: flex; */
+/*     position: relative; */
+/*     left: 43.2292vw; */
+/*     margin: 1.5625vw; */
+/*     gap: 2.6042vw; */
+    
+/* } */
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px;
+	left: 940px;
+}
+
+.pagination a {
+	text-decoration: none;
+	padding: 8px 16px;
+	margin: 0 4px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a.active {
+	background-color: #4da285;
+	color: white;
+}
+
+.pagination a:hover {
+	background-color: #333;
+	color: #fff;
 }

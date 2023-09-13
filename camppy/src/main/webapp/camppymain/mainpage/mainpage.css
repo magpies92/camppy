@@ -1,3 +1,6 @@
+a { text-decoration:none !important }
+a:hover { text-decoration:none !important }
+
 .mainpage,
 .mainpage * {
   box-sizing: border-box;
@@ -418,6 +421,10 @@
   overflow: hidden;
   width: 52.0833vw;
   font: 400 1.0198vw/3.4677vw "Pretendard-medium", sans-serif;
+
+}
+.mainpage__item-link > a {
+	  text-decoration : none;
 }
 .mainpage__6 {
   color: #000000;
