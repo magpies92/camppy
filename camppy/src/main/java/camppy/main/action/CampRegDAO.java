@@ -473,6 +473,60 @@ public class CampRegDAO {
 		}
 		return checksResID;
 	}
+	public CampRegDTO getCampRegUp(int camp_id) {
+		CampRegDTO campregDTO = null;
+		try {
+			con = getConnection();
+			
+			String sql = "select camp.*, camp_ad.*, camp_pic.*\n"
+					+ "from camp camp left join camp_addr camp_ad\n"
+					+ "on camp.camp_id = camp_ad.camp_id\n"
+					+ "left join camp_pic camp_pic\n"
+					+ "on camp.camp_id = camp_pic.camp_id\n"
+					+ "where camp.camp_id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, camp_id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				campregDTO=new CampRegDTO();
+				campregDTO.setCampid(rs.getInt("camp_id"));
+				campregDTO.setCampname(rs.getString("camp_name"));
+				campregDTO.setShortintro(rs.getString("short_intro"));
+				campregDTO.setCampaddr(rs.getString("camp_addr"));
+				campregDTO.setTel(rs.getString("tel"));
+				campregDTO.setEnvironment(rs.getString("environment"));
+				campregDTO.setCamptype(rs.getString("camp_type"));
+				campregDTO.setSeason(rs.getString("season"));
+				campregDTO.setRuntime(rs.getString("runtime"));
+				campregDTO.setHomepage(rs.getString("homepage"));
+				campregDTO.setFacility(rs.getString("facility"));
+				campregDTO.setIntro(rs.getString("intro"));
+				campregDTO.setCampimg(rs.getString("camp_img"));
+				
+				// rs가 ResultSet이라고 가정합니다.
+			//	String[] camppic = new String[5]; // 배열 초기화
+
+				//for (int i = 0; i < 5; i++) {
+				  //  camppic[i] = rs.getString("pic" + (i + 1)); // 열 이름이 pic1, pic2와 같은 형태라고 가정합니다.
+				//}
+				//campregDTO.setCamppic(camppic); // DTO에 배열 설정
+				
+				campregDTO.setBankname(rs.getString("bank_name"));
+				campregDTO.setBankaccount(rs.getString("bank_account"));
+				campregDTO.setCampprice(rs.getInt("camp_price"));
+				campregDTO.setSido(rs.getString("do_nm"));
+				campregDTO.setGungu(rs.getString("sigungu_nm"));
+				campregDTO.setMapx(rs.getString("mapx"));
+				campregDTO.setMapy(rs.getString("mapy"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return campregDTO;
+	}
 
 	
 

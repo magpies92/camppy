@@ -52,7 +52,9 @@
 
 <meta charset="UTF-8">
 <title>캠핑장 등록</title>
-<% CampRegDTO campregDTO = new CampRegDTO();
+<% 
+//CampRegDTO campregDTO = new CampRegDTO();
+CampRegDTO campregDTO = (CampRegDTO)request.getAttribute("campregDTO");
 CampRegDAO campregDAO = new CampRegDAO();
 String camp_id=(String)session.getAttribute("camp_id");
 %>
@@ -64,7 +66,7 @@ String camp_id=(String)session.getAttribute("camp_id");
 	<h2>캠핑장 정보 등록</h2>
 
 	<form action="campregPro.campreg" method="post" enctype="multipart/form-data">
-		캠핑장 이름 : <input type="text" name="campname" required><br>
+		캠핑장 이름 : <input type="text"  name="campname" value="<%=campregDTO.getCampname() %>" required><br>
 		한줄 소개 : <input type="text" name="shortintro" required><br>
 		<h3>캠핑장 태그를 선택해주세요</h3>
 		<input type="checkbox"

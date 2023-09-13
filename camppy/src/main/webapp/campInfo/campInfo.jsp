@@ -66,7 +66,7 @@ LikeDAO likeDAO = new LikeDAO();
 if(id != null){
 	if(id.equals("admin")){%>
 	<input type="button" value="캠핑장 정보 수정" class="bannerRsButton1"
-           onclick="location.href='campupdate.campreg'" > 
+           onclick="location.href='campupdate.campreg?camp_id=<%=detailDTO.getCamp_id()%>'" > 
            <input type="button" value="예약하기" class="bannerRsButton"
            onclick="location.href='reserve_detail.re?campId=<%=detailDTO.getCamp_id() %>'" >  
 	

@@ -314,6 +314,23 @@ public class CampRegService {
 		}
 	}//finsertCampReg
 
+	public CampRegDTO getCampRegUp(HttpServletRequest request) {
+		System.out.println("CampRegService getCampRegUp()");
+		CampRegDTO campregDTO = null;
+		try {
+			// request 한글처리
+			request.setCharacterEncoding("utf-8");
+			// request 파라미터 가져오기 => int camp_id 저장
+			int camp_id = Integer.parseInt(request.getParameter("camp_id"));
+			// CampRegDAO 객체생성
+			campregDAO = new CampRegDAO();
+			// campregDTO = getCampReg(num) 메서드 호출
+			campregDTO = campregDAO.getCampRegUp(camp_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return campregDTO;
+	}//getCampRegUp
 	
 	
 }//클래스
