@@ -1,9 +1,4 @@
 
-
-
-
-
-
 @font-face {
     font-family: 'Pretendard-medium';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -66,7 +61,7 @@
 }
 
 .commu-contents-list__contents-box {
-	background: #dddddd;
+	background: ghostwhite;
 	padding: 0.1557vw 4.5641vw 0.1557vw 4.5641vw;
 	display: flex;
 	flex-direction: row;
@@ -121,7 +116,7 @@
 
 .commu-contents-list__frame-189 {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	gap: 0.5188vw;
 	align-items: flex-start;
 	justify-content: flex-start;
@@ -137,6 +132,10 @@
 	width: 12.9656vw;
 	height: 13.5938vw;
 	position: relative;
+	border-radius: 60px;
+    border: solid;
+    border-width: thin;
+}
 }
 
 .commu-contents-list__user {
@@ -151,6 +150,16 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
+    top: -4px;
+    left: 93px;
+}
+
+
+.commu-contents-list__user {
+	position: relative;
+    top: -4px;
+    left: 93px;
 }
 
 .commu-contents-list__free-icon-user-8484069-3 {
@@ -158,7 +167,7 @@
 	width: 1.2964vw;
 	height: 1.2964vw;
 	position: absolute;
-	left: 0.5703vw;
+	left: 1.5703vw;
 	top: 14.0547vw;
 }
 
@@ -168,7 +177,7 @@
 	height: 1.3667vw;
 	position: absolute;
 	left: 9.1276vw;
-	top: 14.0547vw;
+	top: 14vw;
 }
 
 .commu-contents-list___51 {
@@ -215,6 +224,10 @@
 	width: 12.9656vw;
 	height: 15.5589vw;
 	position: relative;
+	border-radius: 60px;
+    border: solid;
+    border-width: thin;
+}
 }
 
 .commu-contents-list__free-icon-user-8484069-2 {
@@ -291,6 +304,10 @@
 	width: 12.9656vw;
 	height: 15.5589vw;
 	position: relative;
+	border-radius: 60px;
+    border: solid;
+    border-width: thin;
+}
 }
 
 .commu-contents-list___512 {
@@ -369,6 +386,10 @@
 	width: 12.9656vw;
 	height: 15.5589vw;
 	position: relative;
+	border-radius: 60px;
+    border: solid;
+    border-width: thin;
+}
 }
 
 .commu-contents-list__user3 {
@@ -583,7 +604,7 @@
 }
 
 .commu-contents-list__contents-1 {
- background: #ededed;
+ background: ghostwhite;
     position: relative;
     left: 9.4792vw;
     top: 43.1771vw;
@@ -601,7 +622,7 @@ color: #000000;
     font: 800 1.6594vw/0.9333vw "Pretendard-medium", sans-serif;
     position: relative;
     left: 0.7260vw;
-    width: 14.6802vw;
+    width: 50vw;
     height: 4.8193vw;
     display: flex;
     align-items: center;

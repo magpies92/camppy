@@ -457,6 +457,15 @@ div.tab.active {
     width: 810px;
     text-align: center;
 }
+
+.btn btn-outline-success:hover { /* a태그에 마우스를 올렸을 때 */
+  color:red;
+  cursor: pointer; 
+}
+.btn btn-outline-secondary:hover { /* a태그에 마우스를 올렸을 때 */
+  color:red;
+  cursor: pointer; 
+}
 </style>
 </head>
 <body>
