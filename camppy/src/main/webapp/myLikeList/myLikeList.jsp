@@ -41,7 +41,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			src="member/join/images/free-icon-user-8484069-2.png" />
 		<div class="profileNickname"><%=nickname%></div>
 		<button type="button"
-			onclick="openCenteredPopup('update.me', 'ReviewPopup', 850, 630)"
+			onclick="openCenteredPopup('update.me', 'ReviewPopup', 850, 650)"
 			class="updateButton">
 			<div class="updateProfile">프로필수정</div>
 		</button>

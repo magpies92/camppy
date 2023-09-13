@@ -610,17 +610,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 /* 	border: none; */
 /* } */
 .del {
-	color: #ffffff;
-	text-align: center;
-	font: 700 25px/45px "NanumGothic", sans-serif;
-	position: absolute;
-	left: calc(50% - 49px);
-	top: 13px;
-	width: 100px;
-	height: 30px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+
 }
 
 div.tab.active {

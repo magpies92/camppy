@@ -1,4 +1,9 @@
 @charset "UTF-8";
+
+
+#join {
+	height: 900px;
+}
 .slide-16-9-1,
 .slide-16-9-1 * {
   box-sizing: border-box;
@@ -9,6 +14,8 @@
   height: 1100px;
   position: relative;
   overflow: hidden;
+  transform: scale(0.8);
+  top : -100px;
 }
 .slide-16-9-1__checknumber-box {
   background: #ffffff;
