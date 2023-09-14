@@ -74,6 +74,7 @@
 }
 
 .commu-insert__rectangle-2 {
+	cursor: pointer !important;
 	border-radius: 0.2552vw;
 	border-style: solid;
 	border-color: #000000;
@@ -207,6 +208,7 @@
 }
 
 .commu-insert__button-exit {
+	cursor: pointer !important;
 	border-radius: 0.2552vw;
 	border-style: solid;
 	border-color: #4da385;
@@ -235,6 +237,7 @@
 }
 
 .commu-insert__button-insert {
+	cursor: pointer !important;
 background: #4da385;
     border-radius: 0.2552vw;
     padding: 1.1219vw 3.2130vw 1.1219vw 3.2130vw;

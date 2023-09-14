@@ -276,6 +276,7 @@
   top: 47.3776vw; */
 }
 .mainpage__forest-7 {
+	cursor: pointer !important;
   flex-shrink: 0;
   width: 32.8125vw;
   height: 32.8125vw;

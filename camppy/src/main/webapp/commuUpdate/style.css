@@ -75,6 +75,7 @@
 }
 
 .rectangle-2 {
+	cursor: pointer !important;
 border-radius: 0.2552vw;
 	border-style: solid;
 	border-color: #000000;
@@ -179,6 +180,7 @@ color: #b9b9b9;
 }
 
 .button-exit {
+	cursor: pointer !important;
 	border-radius: 0.2552vw;
 	border-style: solid;
 	border-color: #4da385;
@@ -207,6 +209,7 @@ color: #b9b9b9;
 }
 
 .button-insert {
+	cursor: pointer !important;
 	background: #4da385;
 	border-radius: 0.2552vw;
 	padding: 1.1219vw 3.2130vw 1.1219vw 3.2130vw;

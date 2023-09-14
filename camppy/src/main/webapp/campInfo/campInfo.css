@@ -54,6 +54,7 @@
 
 
 .bannerRsButton {
+	cursor: pointer !important;
   color: #ffffff;
   font: 1vw "pretendard-medium", sans-serif;
   text-align: center;
@@ -70,6 +71,7 @@
   top: 16vw
 }
 .bannerRsButton1 {
+	cursor: pointer !important;
   color: #ffffff;
   font: 1vw "pretendard-medium", sans-serif;
   text-align: center;

@@ -481,6 +481,7 @@
 }
 
 .commu-contents-list__options {
+	cursor: pointer !important;
 	background: #4da385;
 	border-radius: 0.2594vw;
 	border-style: solid;
