@@ -71,7 +71,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 							onblur="restoreDefaultText(this);">
 
 						<!-- 설명   -->
-						<textarea class="commu-insert__3" placeholder="문의 내용을 입력해 주세요."
+						<textarea class="commu-insert__3" placeholder="내용을 입력해 주세요."
 							name="content"></textarea>
 
 						<label class="input-file-button" for="image-upload"> 
