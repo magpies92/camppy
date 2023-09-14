@@ -409,6 +409,7 @@
 }
 
 .likeButton {
+	cursor: pointer !important;
   color: #ffffff;
   font: 700 0.7293vw/1.8vw "pretendard-medium", sans-serif;
   text-align: center;
@@ -421,6 +422,7 @@
 }
 
 .unLikeButton {
+	cursor: pointer !important;
   color: #e32242;
   font: 700 0.7293vw/1.6vw "pretendard-medium", sans-serif;
   text-align: center;
@@ -450,6 +452,7 @@
 }
 
 .infoLink1 {
+	cursor: pointer !important;
   color: #8d8d8d;
   text-align: center;
   font: 400 0.7814vw/2.7606vw "pretendard-medium", sans-serif;
@@ -458,6 +461,7 @@
 }
 
 .infoLink2 {
+	cursor: pointer !important;
   color: #ffffff;
   text-align: center;
   font: 400 0.7814vw/2.7606vw "pretendard-medium", sans-serif;
@@ -581,4 +585,3 @@
   color: #000000;
   font: 700 0.6771vw/1.3021vw "pretendard-medium", sans-serif;
 }
-
