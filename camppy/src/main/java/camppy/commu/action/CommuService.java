@@ -16,6 +16,8 @@ import camppy.main.action.CampRegDAO;
 import camppy.main.action.CampRegDTO;
 import camppy.member.MemberDTO;
 import camppy.member.MemberService;
+import camppy.mypage.LikeDAO;
+import camppy.mypage.LikeDTO;
 
 public class CommuService {
 	CommuDAO commuDAO = null;
@@ -37,7 +39,7 @@ public class CommuService {
 			System.out.println(uploadPath);
 
 			int maxSize = 10 * 1024 * 1024;
-
+ 
 			MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "utf-8",
 					new DefaultFileRenamePolicy());
 
@@ -283,6 +285,57 @@ public class CommuService {
 		}
 	}// updateCommu()
 
+	public void insertLike(HttpServletRequest request) {
+		System.out.println("commuService insertLike()");
+		try {	
+			int member_id =Integer.parseInt(request.getParameter("member_id")); 
+			int post_id =Integer.parseInt(request.getParameter("post_id"));
+			System.out.println("멤버아이디테스트"+member_id);
+			System.out.println("포스트아이디테스트"+post_id);
+			/* int camp_like_id =Integer.parseInt(request.getParameter("camp_like_id")); */		
+			CommuDTO commuDTO = new CommuDTO();
+			commuDTO.setMember_id(member_id);
+			commuDTO.setPost_id(post_id);
+			/* likeDTO.setCamp_like_id(camp_like_id); */
+
+			// ReserveDetailDAO 객체생성
+			commuDAO = new CommuDAO();
+			// reserveDetailDTO = reserveDetailDTO() 메서드 호출
+			commuDAO.insertLike(commuDTO);
+			
+			/* int likeId=likeDAO.getMaxLikeId() +1; */
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void deleteLike(HttpServletRequest request) {
+		System.out.println("commuService deleteLike()");
+		try {		
+			 int member_id =Integer.parseInt(request.getParameter("member_id"));
+			 int post_id =Integer.parseInt(request.getParameter("post_id"));
+			 System.out.println("멤버아이디테스트"+member_id);
+			 System.out.println("포스트아이디테스트"+post_id);
+			
+			/* int camp_like_id =Integer.parseInt(request.getParameter("camp_like_id")); */		
+			CommuDTO commuDTO = new CommuDTO();
+			commuDTO.setMember_id(member_id);
+			commuDTO.setPost_id(post_id);
+			/* likeDTO.setCamp_like_id(camp_like_id); */
+
+			// ReserveDetailDAO 객체생성
+			commuDAO = new CommuDAO();
+			// reserveDetailDTO = reserveDetailDTO() 메서드 호출
+			commuDAO.deleteLike(commuDTO);
+			
+			/* int likeId=likeDAO.getMaxLikeId() +1; */
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	////////////////////////////////////////////////////////////////////////////////
 	// post안에 있는 목록을 가져 오는 기능
 	public List<CommuDTO> getmyCommuList(PageDTO pageDTO) {
@@ -298,7 +351,7 @@ public class CommuService {
 			// pageDTO 저장 startRow, endRow
 			pageDTO.setStartRow(startRow);
 			pageDTO.setEndRow(endRow);
-
+           
 			// LikeDAO 객체 생성
 			commuDAO = new CommuDAO();
 			// likeList = likeDAO.getLikeList() 메서드 호출
@@ -322,6 +375,7 @@ public class CommuService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(count);
 		return count;
 	}
 
@@ -356,6 +410,8 @@ public class CommuService {
 		}
 
 	}
+
+	
 
 	
 

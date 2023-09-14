@@ -19,7 +19,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-<meta charset="UTF-8">
 <title>Camppy</title>
 <style type="text/css">
 #sidebar{
@@ -58,6 +57,10 @@ color: #22741C;
 font-weight: bold;
 }
 
+.table td.buttuon:hover{
+background-color: #333;
+	color: #fff;
+}
 .count{
 float: right;
 position: relative;
@@ -451,7 +454,7 @@ div.tab.active {
      position: relative;
     left: 471px;
     transform: scale(1.4,1.4);
-    top: 21px;
+    top: 55px;
     line-height: 190%;
     letter-spacing: -1.5px;
     width: 810px;

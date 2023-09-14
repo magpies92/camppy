@@ -230,13 +230,12 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 		for (int i = pageDTO.getStartPage(); i <= pageDTO.getEndPage(); i++) {
 		%>
 
-		<a href="myContentsList.commu?pageNum=<%=i%>" class="page"><%=i%>ﾠ
-		</a>
+		<a href="myContentsList.commu?pageNum=<%=i%>" class="page"><%=i%></a>
 
 		<%
 		}
 		%>
-
+ 
 
 		<%
 		// 끝페이지번호 전체페이지수 비교 -> 전체페이지수 클 때 -> Next 보임

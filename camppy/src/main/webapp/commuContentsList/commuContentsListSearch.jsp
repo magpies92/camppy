@@ -172,14 +172,14 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
                      <%
 					}
                      %>
-					<!--              좋아요 아이콘  -->
-					<button type="button" id="bodyLikeIcon" >
-						<img class="commu-contents-list__like-1"
-							src="commuContentsList/like-1.png">
-					</button>
+<!-- 					             좋아요 아이콘  -->
+<!-- 					<button type="button" id="bodyLikeIcon" > -->
+<!-- 						<img class="commu-contents-list__like-1" -->
+<!-- 							src="commuContentsList/like-1.png"> -->
+<!-- 					</button> -->
 
 					<!--              좋아요 수  -->
-					<div class="commu-contents-list___25" id="bodyLikeCount"><%=commuDTO.getLike_cnt()%></div>
+<%-- 					<div class="commu-contents-list___25" id="bodyLikeCount"><%=commuDTO.getLike_cnt()%></div> --%>
 
 					<%
 					if (id != null) {

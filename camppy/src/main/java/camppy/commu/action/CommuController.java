@@ -16,6 +16,7 @@ import camppy.commu.db.CommuDTO;
 import camppy.commu.db.PageDTO;
 import camppy.member.MemberDTO;
 import camppy.member.MemberService;
+import camppy.mypage.MypageService;
 
 public class CommuController extends HttpServlet {
 	MemberService memberService = null;
@@ -36,7 +37,7 @@ public class CommuController extends HttpServlet {
 		System.out.println("MainFrontController doPost()");
 		doProcess(request, response);
 	}// doPost()
-
+ 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("MainFrontController doProcess()");
@@ -311,21 +312,55 @@ public class CommuController extends HttpServlet {
 
 			response.sendRedirect("commuContentsList.commu");
 		}
-
+        
+		if(sPath.equals("/insertLike.commu")) {
+			  System.out.println("주소 비교: /insertLike.commu");
+			  
+			  request.setCharacterEncoding("utf-8");
+			  
+			  //MypageService 객체 생성 
+			  commuService = new CommuService();
+			  
+			  //insertLike(request) 메서드 호출 
+			  commuService.insertLike(request);
+			  
+			 // 주소 변경되면서 likeList.my 이동 
+			  //response.sendRedirect("likeList.my");
+			  }
+			  
+			  if(sPath.equals("/deleteLike.commu")) {
+			  System.out.println("주소 비교: /deleteLike.commu");
+			  
+			  request.setCharacterEncoding("utf-8");
+			  
+			  //MypageService 객체 생성
+			  commuService = new CommuService();
+			  
+			  //insertLike(request) 메서드 호출
+			  commuService.deleteLike(request);
+			  
+			  //주소 변경되면서 likeList.my 이동 response.sendRedirect("likeList.my");
+			  }
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		if (sPath.equals("/myContentsList.commu")) {
 			System.out.println("가상주소 비교: /myContentsList.commu");
-
-			HttpSession session = request.getSession();
-			String id = (String) session.getAttribute("id");
-//			int memberid=(int)session.getAttribute("memberid");
-
 			
-				int memberid=(int)session.getAttribute("memberid");
-				
-				System.out.println("문제 memberid=" + memberid);
+			HttpSession session = request.getSession();
+			String id=(String)session.getAttribute("id");
+			if(id == null) {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script type='text/javascript'>");
+				out.println("alert('로그인을 해주세요')");
+				out.println("parent.location.replace('main.camp')");
+				out.println("</script>");
+				out.close();
+			}
+			else {
 
+				int memberid=(int)session.getAttribute("memberid");
+			 
 				int pageSize = 5;
 
 				String pageNum = request.getParameter("pageNum");
@@ -348,8 +383,7 @@ public class CommuController extends HttpServlet {
 
 				// 게시판 목록 리스트 가져오기
 				List<CommuDTO> myCommuList = commuService.getmyCommuList(pageDTO);
-                
-                
+                System.out.println(myCommuList);
 				// 게시판 총 개수 구하기
 				int count = commuService.getMyCommuCount(pageDTO);
 				System.out.println(count);
@@ -399,7 +433,10 @@ public class CommuController extends HttpServlet {
 
 				commuService.myContentsListDelete(request);
 			}
-
 		}
 	}
+}
+
+		
+	
 
