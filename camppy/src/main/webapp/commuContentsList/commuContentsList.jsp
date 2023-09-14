@@ -32,7 +32,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 
 
-
+ 
 
 <body>
 	<jsp:include page="/inc/top.jsp" />
@@ -95,7 +95,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				</div>
 			</div>
 
-
+ 
 			<div class="commu-contents-list__title">
 				<div class="commu-contents-list__2">커뮤니티</div>
 			</div>
@@ -113,7 +113,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				<div class="commu-contents-list__div-myp-02">
 					<select name="searchtype" class="commu-contents-list__options">
 						<option class="commu-contents-list__3" value="제목+내용">제목+내용</option>
-						<option class="commu-contents-list__3" value="아이디">아이디</option>
+						<option class="commu-contents-list__3" value="작성자">작성자</option>
 					</select> <input type="text" class="commu-contents-list__div-sc-camp"
 						name="search" placeholder="검색어를 입력하세요"> <img
 						class="commu-contents-list__button"
@@ -172,40 +172,6 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					<%
 					}
 					%>
-
-
-					<!--              좋아요 아이콘  -->
-					<%-- 					<% --%>
-					<!-- // 					if (id != null) { -->
-					<!-- // 						if (commuDAO.checklike(commuDTO.getPost_id(), memberDTO.getMember_id()) == 0) { -->
-					<%-- 					%> --%>
-					<!-- 					<div class="likeButton1"> -->
-					<!-- 					<input type="button" class="unLikeButton" style="display: inline;" -->
-					<!-- 						onclick="likeButton(this)" -->
-					<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
-					<!-- 					<input type="button" class="likeButton" style="display: none;" -->
-					<!-- 						onclick="unLikeButton(this)" -->
-					<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
-					<!-- 					</div> -->
-
-					<%-- 					<% --%>
-					<!-- // 					} else { -->
-					<%-- 					%> --%>
-					<!-- 					<div class="likeButton1"> -->
-					<!-- 					<input type="button" class="unLikeButton" style="display: none;" -->
-					<!-- 						onclick="likeButton(this)" -->
-					<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
-					<!-- 					<input type="button" class="likeButton" style="display: inline;" -->
-					<!-- 						onclick="unLikeButton(this)" -->
-					<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
-					<!-- 				    </div> -->
-					<%-- 					<% --%>
-					<!-- // 					} -->
-					<!-- // 					} -->
-					<%-- 					%> --%>
-
-
-
 
 					<%
 					if (id != null) {

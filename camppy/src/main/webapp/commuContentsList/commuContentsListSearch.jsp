@@ -112,7 +112,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				<div class="commu-contents-list__div-myp-02">
 					<select name="searchtype" class="commu-contents-list__options">
 						<option class="commu-contents-list__3" value="제목+내용">제목+내용</option>
-						<option class="commu-contents-list__3" value="아이디">아이디</option>
+						<option class="commu-contents-list__3" value="작성자">작성자</option>
 					</select> <input type="text" class="commu-contents-list__div-sc-camp"
 						name="search" placeholder="검색어를 입력하세요"> <img
 						class="commu-contents-list__button"
@@ -120,7 +120,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				</div>
 			</form>
 
-
+ 
 			<%
 			for (int i = 0; i < commuList.size(); i++) {
 				//commuList.size()

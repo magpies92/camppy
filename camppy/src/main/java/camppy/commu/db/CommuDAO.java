@@ -208,19 +208,94 @@ public class CommuDAO {
 		System.out.println("CommuDAO getCommuListSearch()");
 		List<CommuDTO> commuList = null;
 		try {
-			con = getConnection();
-			System.out.println(pageDTO.getSearch());
+			String sql = "";
 
-			String sql = "select p.create_date,p.last_modified_date,p.created_by,p.last_modified_by,p.comment_cnt,p.content,p.like_cnt,p.post_type,p.title,p.member_id,"
-					+ "	   i.post_image_id,i.created_date,i.post_id,i.member_id,i.last_modified_date,i.created_by,i.last_modified_by,i.img_url "
-					+ "from post p join post_image i " + "on (p.post_id = i.post_id) " + "where title like ? "
-					+ "order by post_id " + "desc limit ?,?";
+			con = getConnection();
+			System.out.println("111"+pageDTO.getSearch());
+			System.out.println("1111"+pageDTO.getSearchType());
+					
+			if (pageDTO.getSearchType().equals("제목+내용")) {
+				System.out.println(pageDTO.getSearchType());
+				sql = "\"select p.create_date,\"\n"
+						+ "						+ \"p.last_modified_date,\"\n"
+						+ "						+ \"p.created_by,\"\n"
+						+ "						+ \"p.last_modified_by,\"\n"
+						+ "						+ \"p.comment_cnt,\"\n"
+						+ "						+ \"p.content,\"\n"
+						+ "						+ \"p.like_cnt,\"\n"
+						+ "						+ \"p.post_type,\"\n"
+						+ "						+ \"p.title,\"\n"
+						+ "						+ \"p.member_id,\"\n"
+						+ "						+ \"i.post_image_id,\"\n"
+						+ "						+ \"i.created_date,\"\n"
+						+ "						+ \"i.post_id,\"\n"
+						+ "						+ \"i.member_id,\"\n"
+						+ "						+ \"i.last_modified_date,\"\n"
+						+ "						+ \"i.created_by,\"\n"
+						+ "						+ \"i.last_modified_by,\"\n"
+						+ "						+ \"i.img_url,\"	\n"
+						+ "						+ \"m.nicnkname\"\n"
+						+ "						+ \"from post p left join post_image i on (p.post_id = i.post_id)\"\n"
+						+ "						+ \"            left join members m on(p.member_id = m.member_id)\"\n"
+						+ "						+ \" where concat(p.title,p.content) like ? order by post_id desc limit ?,?";
+				
+			} else if (pageDTO.getSearchType().equals("제목 내용")) {
+				System.out.println(pageDTO.getSearchType());
+				sql = "select p.create_date,"
+						+ "p.last_modified_date,"
+						+ "p.created_by,"
+						+ "p.last_modified_by,"
+						+ "p.comment_cnt,"
+						+ "p.content,"
+						+ "p.like_cnt,"
+						+ "p.post_type,"
+						+ "p.title,"
+						+ "p.member_id,"
+						+ "i.post_image_id,"
+						+ "i.created_date,"
+						+ "i.post_id,"
+						+ "i.member_id,"
+						+ "i.last_modified_date,"
+						+ "i.created_by,"
+						+ "i.last_modified_by,"
+						+ "i.img_url, "
+						+ "m.nicnkname"
+						+ "from post p left join post_image i on (p.post_id = i.post_id)"
+						+ "            left join members m on(p.member_id = m.member_id)"
+						+ " where concat(p.title,p.content) like ? order by post_id desc limit ?,?";
+				
+			} else if (pageDTO.getSearchType().equals("작성자")) {
+				System.out.println(pageDTO.getSearchType());
+				sql="select p.create_date,"
+						+ "p.last_modified_date,"
+						+ "p.created_by,"
+						+ "p.last_modified_by,"
+						+ "p.comment_cnt,"
+						+ "p.content,"
+						+ "p.like_cnt,"
+						+ "p.post_type,"
+						+ "p.title,"
+						+ "p.member_id,"
+						+ "i.post_image_id,"
+						+ "i.created_date,"
+						+ "i.post_id,"
+						+ "i.member_id,"
+						+ "i.last_modified_date,"
+						+ "i.created_by,"
+						+ "i.last_modified_by,"
+						+ "i.img_url,"
+						+ "m.nickname"
+						+ "from post p left join post_image i on (p.post_id = i.post_id)"
+						+ "left join members m on (p.member_id = m.member_id) where nickname like ? order by post_id desc limit ?,?";
+			}
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%" + pageDTO.getSearch() + "%");
-			pstmt.setInt(2, pageDTO.getStartRow() - 1);// 시작행-1
+			pstmt.setInt(2, pageDTO.getStartRow()-1);// 시작행-1
 			pstmt.setInt(3, pageDTO.getPageSize());// 몇개
-			System.out.println("문제" + pstmt);
-			rs = pstmt.executeQuery();
+			System.err.println(pstmt);
+			
+			rs=pstmt.executeQuery();
 
 			commuList = new ArrayList();
 			while (rs.next()) {
@@ -240,6 +315,8 @@ public class CommuDAO {
 				commuDTO.setPost_image_id(rs.getInt("post_image_id"));
 				commuDTO.setCreated_date(rs.getTimestamp("created_date"));
 				commuDTO.setImg_url(rs.getString("img_url"));
+				commuDTO.setNickname(rs.getString("nickname"));
+				
 
 				// => 배열 한칸에 저장
 				commuList.add(commuDTO);
@@ -271,9 +348,9 @@ public class CommuDAO {
 			} else if (pageDTO.getSearchType().equals("제목 내용")) {
 				System.out.println(pageDTO.getSearchType());
 				sql = "select count(*) as count from post p where concat(p.title, p.content) like ?";
-			} else if (pageDTO.getSearchType().equals("아이디")) {
+			} else if (pageDTO.getSearchType().equals("작성자")) {
 				System.out.println(pageDTO.getSearchType());
-				sql = "select count(*) as count from post p join members m on (p.member_id = m.member_id) where m.id like ?";
+				sql = "select count(*) as count from post p join members m on (p.member_id = m.member_id) where m.nickname like ?";
 			}
 
 			pstmt = con.prepareStatement(sql);
@@ -625,6 +702,28 @@ public class CommuDAO {
 			con = getConnection();
 
 			String sql = "select count(*) from post where member_id =? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, memberid);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			dbclose();
+		}
+		return count;
+
+	}
+	
+	public int myCountrv(int memberid) {
+		int count = 0;
+		try {
+			con = getConnection();
+
+			String sql = "select count(*) from reviews where member_id =? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, memberid);
 			rs = pstmt.executeQuery();
