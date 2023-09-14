@@ -1,3 +1,4 @@
+<%@page import="camppy.commu.db.CommuDAO"%>
 <%@page import="camppy.member.MemberService"%>
 <%@page import="camppy.commu.action.CommuService"%>
 <%@page import="camppy.commu.db.PageDTO"%>
@@ -29,17 +30,22 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 </head>
 
 
+
+
+
+
 <body>
 	<jsp:include page="/inc/top.jsp" />
 
 	<!-- 	베스트 게시글  -->
 	<%
-	String id = (String) session.getAttribute("id");	
+	String id = (String) session.getAttribute("id");
 	MemberDTO memberDTO = (MemberDTO) request.getAttribute("memberDTO");
 	List<CommuDTO> commuRankList = (List<CommuDTO>) request.getAttribute("commuRankList");
 	List<CommuDTO> commuList = (List<CommuDTO>) request.getAttribute("commuList");
 	PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");
-	
+	CommuDAO commuDAO = new CommuDAO();
+	CommuDTO commuDTO = new CommuDTO();
 	%>
 	<div class="commu-contents-list">
 		<div class="commu-contents-list__section-body">
@@ -51,23 +57,21 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					for (int i = 0; i < commuRankList.size(); i++) {
 					%>
 					<%
-					CommuDTO commuDTO = commuRankList.get(i);
+				    commuDTO = commuRankList.get(i);
 					%>
 					<div class="commu-contents-list__box-3">
 						<div class="commu-contents-list__"><%=commuDTO.getTitle()%></div>
 						<div class="commu-contents-list__frame-189">
 							<a href="commuContentsList?post_id=<%=commuDTO.getPost_id()%>">
 								<%
-							if(commuDTO.getImg_url() != null){
-							%> <img class="commu-contents-list__rectangle-7"
-								src="upload/<%=commuDTO.getImg_url()%>" id="picture3"> <%
-							    }
-								else
-								{ 
+								if (commuDTO.getImg_url() != null) {
 								%> <img class="commu-contents-list__rectangle-7"
-								src="upload/5.png" id="picture3"> <%
-								}
-								%>
+								src="upload/<%=commuDTO.getImg_url()%>" id="picture3"> <%
+ } else {
+ %> <img class="commu-contents-list__rectangle-7" src="upload/5.png"
+								id="picture3"> <%
+ }
+ %>
 							</a>
 							<!-- user 닉네임 -->
 							<div class="commu-contents-list__user" id="name3"><%=commuDTO.getNickname()%></div>
@@ -121,11 +125,10 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			<%
 			for (int i = 0; i < commuList.size(); i++) {
 				//commuList.size()
-			
 			%>
 
 			<%
-			CommuDTO commuDTO = commuList.get(i);
+			commuDTO = commuList.get(i);
 			%>
 
 
@@ -152,8 +155,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 					<!--              내용이미지  -->
 					<%
-					if(commuDTO.getImg_url() != null){ 
-						
+					if (commuDTO.getImg_url() != null) {
 					%>
 					<a
 						href="commuContentsListSearch.commu?post_id=<%=commuDTO.getPost_id()%>">
@@ -161,9 +163,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 						src="upload/<%=commuDTO.getImg_url()%>" id="bodyContentsImage">
 					</a>
 					<%
-					}
-					else
-					{ 
+					} else {
 					%>
 					<a href="commuContents.commu?post_id=<%=commuDTO.getPost_id()%>">
 						<img class="commu-contents-list___002" src="upload/5.png"
@@ -171,21 +171,46 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					</a>
 					<%
 					}
-                     %>
+					%>
 
 
 					<!--              좋아요 아이콘  -->
-			
+<%-- 					<% --%>
+<!-- // 					if (id != null) { -->
+<!-- // 						if (commuDAO.checklike(commuDTO.getPost_id(), memberDTO.getMember_id()) == 0) { -->
+<%-- 					%> --%>
+<!-- 					<div class="likeButton1"> -->
+<!-- 					<input type="button" class="unLikeButton" style="display: inline;" -->
+<!-- 						onclick="likeButton(this)" -->
+<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
+<!-- 					<input type="button" class="likeButton" style="display: none;" -->
+<!-- 						onclick="unLikeButton(this)" -->
+<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
+<!-- 					</div> -->
 
+<%-- 					<% --%>
+<!-- // 					} else { -->
+<%-- 					%> --%>
+<!-- 					<div class="likeButton1"> -->
+<!-- 					<input type="button" class="unLikeButton" style="display: none;" -->
+<!-- 						onclick="likeButton(this)" -->
+<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
+<!-- 					<input type="button" class="likeButton" style="display: inline;" -->
+<!-- 						onclick="unLikeButton(this)" -->
+<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
+<!-- 				    </div> -->
+<%-- 					<% --%>
+<!-- // 					} -->
+<!-- // 					} -->
+<%-- 					%> --%>
+ 
 
-
-					<!--              좋아요 수  -->
-					<div class="commu-contents-list___25" id="bodyLikeCount"><%=commuDTO.getLike_cnt()%></div>
+				
 
 					<%
 					if (id != null) {
 						//if (id.equals(memberDTO.getId())) {
- 							if (commuDTO.getMember_id() == memberDTO.getMember_id()) {
+						if (commuDTO.getMember_id() == memberDTO.getMember_id()) {
 					%>
 					<input type="button" value="수정" class="commu-contents-list___12"
 						onclick="location.href='commuUpdate.commu?post_id=<%=commuDTO.getPost_id()%>'">
@@ -211,7 +236,6 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			<div id="page_control" class="commu-contents-list__list">
 
 				<%
-				 
 				if (pageDTO.getStartPage() > pageDTO.getPageBlock()) {
 				%>
 				<a
@@ -240,7 +264,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 				<%
 				}
 				%>
-				
+
 
 
 
@@ -251,6 +275,67 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 	</div>
 	<!-- //section-total -->
+<script type="text/javascript" src="script/jquery-3.7.0.js"></script>
+ <script type="text/javascript">
+<%--  likecount = <%=commuDAO.getlikecount(commuDTO.getPost_id())%>; --%>
+ function likeButton(e){ // e -> (this)의 정보를 여기로 전달하겠다
+ 	var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+ 	var memberid = <%=memberDTO.getMember_id()%>;
+ 	var postid= <%=commuDTO.getPost_id()%>;
+ 	likecount++;
+ 
+	
+ 			document.getElementsByClassName('unLikeButton')[i].style.display = "none"; // 즐겨찾기 취소 버튼 비활성화
+ 			document.getElementsByClassName('likeButton')[i].style.display = "inline"; // 즐겨찾기 추가 버튼 활성화
+ 			document.getElementsByClassName('unLikeButton')[i].value = "찜 "+likecount;
+ 			document.getElementsByClassName('likeButton')[i].value = "찜 "+likecount;
+ 			$.ajax({
+ 		         type : "POST",
+ 		         url : "insertLike.commu",
+ 		         data: {'member_id':memberid,'post_id':postid},
+ 		        /*  contentType: "application/json",
+ 		         dataType: "json",  */
+ 		          /* success : function (data, status) {
+ 		            alert(status);
+ 		         },
+ 		         error : function (status) {
+ 		            alert(status + "error!");
+ 		         }  */
+ 		     });
+ 
+    }
+ 
+ // 즐겨찾기 해제!!
+ function unLikeButton(e){
+    var i = $(".likeButton").index(e); // 같은 클래스 내 index 값을 가져옴
+    var memberid = <%=memberDTO.getMember_id()%>;
+ 	var postid= <%=commuDTO.getPost_id()%>;
+ 	likecount--;
+ 	
+    document.getElementsByClassName('unLikeButton')[i].style.display = "inline"; // 즐겨찾기 취소 버튼 비활성화
+    document.getElementsByClassName('likeButton')[i].style.display = "none"; // 즐겨찾기 추가 버튼 활성화
+    document.getElementsByClassName('unLikeButton')[i].value = "찜 "+likecount;
+		document.getElementsByClassName('likeButton')[i].value = "찜 "+likecount;
+   $.ajax({
+ 		         type : "POST",
+ 		         url : "deleteLike.commu",
+ 		         data: {'member_id':memberid,'post_id':postid}, 
+ 		        /* success : function (data, status) {
+ 		            alert(status);
+ 		         },
+ 		         error : function (status) {
+ 		            alert(status + "error!");
+ 		         }  */
+ 		     }); 
+ 
+    } 
+
+ 
+ 
+ 
+ </script>
+
+
 
 	<jsp:include page="/inc/bottom.jsp" />
 </body>

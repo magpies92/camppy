@@ -12,7 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import camppy.main.action.CampRegDTO;
-
+import camppy.mypage.LikeDTO;
 import camppy.commu.db.PageDTO;
 
 public class CommuDAO {
@@ -99,7 +99,6 @@ public class CommuDAO {
 
 			pstmt.executeUpdate();
 
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -107,12 +106,10 @@ public class CommuDAO {
 		}
 
 	}
-	
-	public void commuInsert1(CommuDTO commuDTO,int Post_id) {
+
+	public void commuInsert1(CommuDTO commuDTO, int Post_id) {
 		try {
 			con = getConnection();
-			
-			
 
 			String sql2 = "insert into post_image(created_date,post_id,member_id,last_modified_date,created_by,last_modified_by,img_url) values(?,?,?,?,?,?,?)";
 			pstmt2 = con.prepareStatement(sql2);
@@ -423,7 +420,7 @@ public class CommuDAO {
 			dbclose();
 		}
 	}
-	
+
 	public int getpostid() {
 		int Post_id = 0;
 		try {
@@ -432,10 +429,9 @@ public class CommuDAO {
 			String sql = "select * from post order by post_id desc";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
 
 			if (rs.next()) {
-			Post_id = rs.getInt("post_id");
+				Post_id = rs.getInt("post_id");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -444,8 +440,93 @@ public class CommuDAO {
 		}
 		return Post_id;
 	}
+
+	public int checklike(int postId, int memberid) {
+		System.out.println("commuDAO checklike()");
+		int check = 0;
+		try {
+			con = getConnection();
+
+			String sql = "select * from post_like where member_id = ? and post_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, memberid);
+			pstmt.setInt(2, postId);
+
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				check = rs.getInt("post_like_id");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+		}
+		return check;
+	}
+	
+	public int getlikecount(int postid) {
+		int likecount=0;
+		try {
+			con = getConnection();
+			
+			String sql ="select count(*) as likecount from post where post_id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, postid);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				likecount =rs.getInt("likecount");
+			}
+					
+					
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbclose();
+		}
+		return likecount;
+	}
 	
 	
+	public void insertLike(CommuDTO commuDTO) {
+		try{con=getConnection();
+		
+		String sql = "insert into post_like(member_id, post_id) values(?,?)";
+		pstmt=con.prepareStatement(sql);
+		
+		pstmt.setInt(1, commuDTO.getMember_id());
+		pstmt.setInt(2, commuDTO.getPost_id());
+		
+		pstmt.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			dbclose();
+		}
+		
+	}
+
+	public void deleteLike(CommuDTO commuDTO) {
+        try {
+    		con=getConnection();
+			String sql = "DELETE FROM post_like"
+					+ "    WHERE member_id = ? AND post_id = ?";
+			pstmt=con.prepareStatement(sql);
+			
+			/* pstmt.setInt(1, likeDTO.getCamp_like_id()); */
+			pstmt.setInt(1, commuDTO.getMember_id());
+			pstmt.setInt(2, commuDTO.getPost_id());
+			
+			pstmt.executeUpdate();
+        
+		} catch (Exception e) {
+           e.printStackTrace();
+		}finally {
+			dbclose();
+		}		
+	}
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public List<CommuDTO> getmyCommuList(PageDTO pageDTO) {
@@ -454,13 +535,13 @@ public class CommuDAO {
 		CommuDTO commuDTO = null;
 		try {
 			con = getConnection();
-
+			System.out.println();
 			String sql = "select p.post_id,p.content,p.like_cnt,p.title,p.member_id,i.post_image_id,i.img_url"
 					+ "       from post p left join post_image i" + "       on p.post_id = i.post_id"
 					+ "       where p.member_id =?" + "       order by post_id desc" + "       limit ?,?";
 
 			pstmt = con.prepareStatement(sql);
-
+			System.out.println("memberid="+ pageDTO.getMemberid());
 			pstmt.setInt(1, pageDTO.getMemberid());
 			pstmt.setInt(2, pageDTO.getStartRow() - 1);// 시작행-1
 			pstmt.setInt(3, pageDTO.getPageSize());// 몇 개
@@ -479,6 +560,7 @@ public class CommuDAO {
 				commuDTO.setImg_url(rs.getString("img_url"));
 
 				myCommuList.add(commuDTO);
+				
 			}
 
 		} catch (Exception e) {
@@ -488,7 +570,6 @@ public class CommuDAO {
 		}
 		return myCommuList;
 	}// getLikeList()
-	
 
 	public int getmyCommuCount(PageDTO pageDTO) {
 		System.out.println("CommuDAO getmyCommuCount()");
@@ -496,13 +577,17 @@ public class CommuDAO {
 		try {
 			con = getConnection();
 
-			String sql = "select count(*) from post p left join post_image i on p.post_id=i.post_id";
+			String sql = "select count(*) as counts from post where member_id=?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,pageDTO.getMemberid());
+			
 			rs = pstmt.executeQuery();
+			
 			if (rs.next()) {
-				count = rs.getInt("count(*)");
+				count = rs.getInt("counts");
 			}
-
+			System.out.println("문제"+count);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -513,8 +598,8 @@ public class CommuDAO {
 
 	public void myContentsListDelete(CommuDTO commuDTO) {
 		try {
-			con=getConnection();
-			
+			con = getConnection();
+
 			String sql = "DELETE FROM post where post_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, commuDTO.getPost_id());
@@ -523,28 +608,27 @@ public class CommuDAO {
 
 			String sql2 = "DELETE FROM post_image where post_id=?";
 			pstmt2 = con.prepareStatement(sql2);
-			pstmt2.setInt(1,commuDTO.getPost_id());
-			
+			pstmt2.setInt(1, commuDTO.getPost_id());
+
 			pstmt2.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			dbclose();
 		}
 	}
-	
-	
+
 	public int myCountids(int memberid) {
 		int count = 0;
 		try {
 			con = getConnection();
-			
-			String sql ="select count(*) from post where member_id =? ";
+
+			String sql = "select count(*) from post where member_id =? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, memberid);
-			rs= pstmt.executeQuery();
-			
-			if(rs.next()) {
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
 				count = rs.getInt("count(*)");
 			}
 		} catch (Exception e) {
@@ -552,34 +636,12 @@ public class CommuDAO {
 		} finally {
 			dbclose();
 		}
-		 return count;
-		
-	}
-	
-	public int myCountrv(int memberid) {
-		int count = 0;
-		try {
-			con = getConnection();
-			
-			String sql ="select count(*) from review where member_id =? ";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, memberid);
-			rs= pstmt.executeQuery();
-			
-			if(rs.next()) {
-				count = rs.getInt("count(*)");
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		} finally {
-			dbclose();
-		}
-		 return count;
-		
+		return count;
+
 	}
 
 	
-	
+
 	
 
 }
