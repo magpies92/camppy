@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'pretendard-medium';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/pretendard-medium-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 .questionList,
 .questionList * {
   box-sizing: border-box;
@@ -32,7 +40,7 @@
 .questionListA {
   color: #000000;
   text-align: center;
-  font: 700 2.8047vw/1.4281vw "NanumGothic", sans-serif;
+  font: 700 2.8047vw/1.4281vw "pretendard-medium", sans-serif;
   position: absolute;
   left: calc(50% - 6.5786vw);
   top: 0.0000vw;
@@ -75,7 +83,7 @@
 .questionListB {
   color: #777777;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   display: flex;
   align-items: center;
@@ -96,7 +104,7 @@
 .questionList2023Event {
   color: #333333;
   text-align: left;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   display: flex;
   align-items: center;
@@ -106,7 +114,7 @@
 .questionListC {
   color: #777777;
   text-align: center;
-  font: 400 0.8672vw/0.9177vw "Inter", sans-serif;
+  font: 400 0.8672vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   width: 4.8958vw;
   height: 2.0911vw;
@@ -134,7 +142,7 @@
 .questionListD {
   color: #777777;
   text-align: left;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   display: flex;
   align-items: center;
@@ -160,7 +168,7 @@
 .questionList2023Event {
   color: #333333;
   text-align: left;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   display: flex;
   align-items: center;
@@ -183,7 +191,7 @@
 .questionListD {
   color: #777777;
   text-align: center;
-  font: 400 0.8672vw/0.9177vw "Inter", sans-serif;
+  font: 400 0.8672vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   width: 3.8760vw;
   height: 2.3969vw;
@@ -209,7 +217,7 @@
 .questionList2023 {
   color: #777777;
   text-align: center;
-  font: 400 0.8672vw/0.9177vw "Inter", sans-serif;
+  font: 400 0.8672vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   width: 6.7828vw;
   display: flex;
@@ -252,7 +260,7 @@
 .questionList4 {
   color: #000000;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: absolute;
   left: 0.0000vw;
   top: calc(50% - 1.6828vw);
@@ -279,7 +287,7 @@
 .questionList5 {
   color: #000000;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   width: 49.3151vw;
   height: 3.3151vw;
@@ -303,7 +311,7 @@
 .questionList6 {
   color: #000000;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: absolute;
   left: 0.0000vw;
   top: calc(50% - 1.7339vw);
@@ -329,7 +337,7 @@
 .questionList7 {
   color: #000000;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: absolute;
   left: 0.0000vw;
   top: calc(50% - 1.7083vw);
@@ -355,7 +363,7 @@
 .questionList8 {
   color: #000000;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: absolute;
   left: calc(50% - 2.1677vw);
   top: calc(50% - 1.7083vw);
@@ -379,7 +387,7 @@
   top: 30.4688vw;
   overflow: hidden;
   color: #4da385;
-  font: 700 0.8333vw "Inter", sans-serif;
+  font: 700 0.8333vw "pretendard-medium", sans-serif;
    text-align: center;
 }
 /* #pageControl { */

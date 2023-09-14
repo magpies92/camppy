@@ -54,6 +54,7 @@
 
 
 .bannerRsButton {
+	cursor: pointer !important;
   color: #ffffff;
   font: 1vw "pretendard-medium", sans-serif;
   text-align: center;
@@ -70,6 +71,7 @@
   top: 16vw
 }
 .bannerRsButton1 {
+	cursor: pointer !important;
   color: #ffffff;
   font: 1vw "pretendard-medium", sans-serif;
   text-align: center;
@@ -123,7 +125,7 @@
 }
 
 .campPhotoBox .slideWrap{
-	max-width: 1200px;
+	max-width: 62.5000vw;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -154,17 +156,17 @@
 	z-index: 10;
 	top:50%;
 	transform: translateY(-50%);
-	padding: 50px;
+	padding: 2.6042vw;
 	cursor:pointer;
 }
 
 .campPhotoBox .slideList .left{
-	left: 30px;
+	left: 1.5625vw;
 	background: url('./campInfo/left-arrow.png') center center / 100% no-repeat;
 }
 
 .campPhotoBox .slideList .right{
-	right: 30px;
+	right: 1.5625vw;
 	background: url('./campInfo/right-arrow.png') center center / 100% no-repeat;
 }
 
@@ -409,6 +411,7 @@
 }
 
 .likeButton {
+	cursor: pointer !important;
   color: #ffffff;
   font: 700 0.7293vw/1.8vw "pretendard-medium", sans-serif;
   text-align: center;
@@ -421,6 +424,7 @@
 }
 
 .unLikeButton {
+	cursor: pointer !important;
   color: #e32242;
   font: 700 0.7293vw/1.6vw "pretendard-medium", sans-serif;
   text-align: center;
@@ -450,6 +454,7 @@
 }
 
 .infoLink1 {
+	cursor: pointer !important;
   color: #8d8d8d;
   text-align: center;
   font: 400 0.7814vw/2.7606vw "pretendard-medium", sans-serif;
@@ -458,6 +463,7 @@
 }
 
 .infoLink2 {
+	cursor: pointer !important;
   color: #ffffff;
   text-align: center;
   font: 400 0.7814vw/2.7606vw "pretendard-medium", sans-serif;
@@ -581,4 +587,3 @@
   color: #000000;
   font: 700 0.6771vw/1.3021vw "pretendard-medium", sans-serif;
 }
-

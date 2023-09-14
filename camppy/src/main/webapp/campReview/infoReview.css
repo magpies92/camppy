@@ -62,6 +62,7 @@
 }
 
 .bannerRsButton {
+	cursor: pointer !important;
   color: #ffffff;
   font: 1vw "Pretendard-medium", sans-serif;
   text-align: center;
@@ -115,7 +116,7 @@
 }
 
 .campPhotoBox .slideWrap{
-	max-width: 1200px;
+	max-width: 62.5000vw;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -146,17 +147,17 @@
 	z-index: 10;
 	top:50%;
 	transform: translateY(-50%);
-	padding: 50px;
+	padding: 2.6042vw;
 	cursor:pointer;
 }
 
 .campPhotoBox .slideList .left{
-	left: 30px;
+	left: 1.5625vw;
 	background: url('./campInfo/left-arrow.png') center center / 100% no-repeat;
 }
 
 .campPhotoBox .slideList .right{
-	right: 30px;
+	right: 1.5625vw;
 	background: url('./campInfo/right-arrow.png') center center / 100% no-repeat;
 }
 
@@ -401,6 +402,7 @@
 }
 
 .likeButton {
+	cursor: pointer !important;
   color: #ffffff;
   font: 700 0.7293vw/1.8vw "Pretendard-medium", sans-serif;
   text-align: center;
@@ -413,6 +415,7 @@
 }
 
 .unLikeButton {
+	cursor: pointer !important;
   color: #e32242;
   font: 700 0.7293vw/1.6vw "Pretendard-medium", sans-serif;
   text-align: center;
@@ -442,6 +445,7 @@
 }
 
 .infoLink1 {
+	cursor: pointer !important;
   color: #8d8d8d;
   text-align: center;
   font: 400 0.7814vw/2.7606vw "Pretendard-medium", sans-serif;
@@ -450,6 +454,7 @@
 }
 
 .infoLink2 {
+	cursor: pointer !important;
   color: #ffffff;
   text-align: center;
   font: 400 0.7814vw/2.7606vw "Pretendard-medium", sans-serif;
@@ -516,42 +521,42 @@
 .campinfoReview {
 	display: flex;
 	flex-direction: row;
-	gap: 0px;
+	gap: 0.0000vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	flex-shrink: 0;
-	width: 1202.42px;
-	height: 520.92px;
+	width: 62.6260vw;
+	height: 27.1312vw;
 	position: relative;
-	left: calc(50% - 599.74px);
+	left: calc(50% - 31.2365vw);
 }
 
 .reviewTop {
 	display: flex;
 	flex-direction: row;
-	gap: 0px;
+	gap: 0.0000vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
-	width: 1150px;
-	height: 60px;
+	width: 59.8958vw;
+	height: 3.1250vw;
 	position: relative;
-	top: 15px;
+	top: 0.7813vw;
 	border-bottom: solid;
-	border-width: 1px;
-	margin-bottom: -6px;
+	border-width: 0.0521vw;
+	margin-bottom: -0.3125vw;
 	
 }
 
 .reviewCount {
 	color: #000000;
 	text-align: left;
-	font: 400 19.58px/26.44px "Pretendard-medium", sans-serif;
+	font: 400 1.0198vw/1.3771vw "Pretendard-medium", sans-serif;
 	position: absolute;
-	left: 10px;
-	top: 30px;
-	width: 117.5px;
+	left: 0.5208vw;
+	top: 1.5625vw;
+	width: 6.1198vw;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
@@ -559,74 +564,74 @@
 
 .buttonInsert {
   background: #4da285;
-  border-radius: 5.97px;
+  border-radius: 0.3109vw;
   flex-shrink: 0;
-  width: 75px;
-  height: 25px;
+  width: 3.9063vw;
+  height: 1.3021vw;
   position: absolute;
-  left: 1075px;
-  top: 30px;
+  left: 55.9896vw;
+  top: 1.5625vw;
   color: #ffffff;
   text-align: center;
   font: "NanumGothic", sans-serif;
 }
 .campinfoList {
-	border-width: 0.98px 0px 0px 0px;
+	border-width: 0.0510vw 0.0000vw 0.0000vw 0.0000vw;
 	border-style: solid;
 	border-image: linear-gradient(0deg, rgba(179, 179, 179, 1) 0%,
 		rgba(0, 0, 0, 1) 0%);
 	border-image-slice: 1;
 	display: flex;
 	flex-direction: column;
-	gap: 0.49px;
+	gap: 0.0255vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
-	width: 1147.58px;
-	height: 404.4px;
+	width: 59.7698vw;
+	height: 21.0625vw;
 	position: absolute;
-	left: 40.15px;
-	top: 75.4px;
+	left: 2.0911vw;
+	top: 3.9271vw;
 }
 
 .campinfoRow {
 	border-style: solid;
 	border-color: #b3b3b3;
-	border-width: 0px 0px 0.98px 0px;
+	border-width: 0.0000vw 0.0000vw 0.0510vw 0.0000vw;
 	display: flex;
 	flex-direction: row;
-	gap: 0px;
+	gap: 0.0000vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	flex-shrink: 0;
-	width: 1150px;
-	height: 87.15px;
+	width: 59.8958vw;
+	height: 4.5391vw;
 	position: relative;
-	margin-bottom: -20px;
+	margin-bottom: -1.0417vw;
 }
 
 .campinfoStar {
 	display: flex;
 	flex-direction: row;
-	gap: 0.98px;
+	gap: 0.0510vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
 	position: absolute;
-	left: 50px;
-	top: 5px;
+	left: 2.6042vw;
+	top: 0.2604vw;
 }
 
 .campinfoStar1 {
 	color: #777777;
 	text-align: center;
-	font: 400 13.71px/19.58px "Pretendard-medium", sans-serif;
+	font: 400 0.7141vw/1.0198vw "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: auto;
-	top: 0px;
-	width: 145px;
-	height: 30px;
+	top: 0.0000vw;
+	width: 7.5521vw;
+	height: 1.5625vw;
 	display: flex;
 	align-items: center;
 }
@@ -634,25 +639,25 @@
 .reviewNum {
 	display: flex;
 	flex-direction: row;
-	gap: 0px;
+	gap: 0.0000vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
-	width: 46.02px;
+	width: 2.3969vw;
 	position: absolute;
-	left: 0.98px;
-	top: 20.56px;
+	left: 0.0510vw;
+	top: 1.0708vw;
 }
 
 .reviewNum1 {
 	color: #777777;
 	text-align: center;
-	font: 400 13.71px/19.58px "Pretendard-medium", sans-serif;
+	font: 400 0.7141vw/1.0198vw "Pretendard-medium", sans-serif;
 	position: absolute;
-	left: calc(50% - 17.14px);
-	top: 0px;
-	width: 34.27px;
-	height: 50.92px;
+	left: calc(50% - 0.8927vw);
+	top: 0.0000vw;
+	width: 1.7849vw;
+	height: 2.6521vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -660,24 +665,24 @@
 .reviewName {
 	display: flex;
 	flex-direction: row;
-	gap: 0.98px;
+	gap: 0.0510vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
 	position: absolute;
-	left: 50px;
-	top: 45px;
+	left: 2.6042vw;
+	top: 2.3438vw;
 }
 
 .reviewName1 {
 	color: #777777;
 	text-align: center;
-	font: 400 13.71px/19.58px "Pretendard-medium", sans-serif;
+	font: 400 0.7141vw/1.0198vw "Pretendard-medium", sans-serif;
 	position: absolute;
 	left: auto;
-	top: 0px;
-	width: 145px;
-	height: 20px;
+	top: 0.0000vw;
+	width: 7.5521vw;
+	height: 1.0417vw;
 	display: flex;
 	align-items: center;
 }
@@ -685,24 +690,24 @@
 .reviewDate {
 	display: flex;
 	flex-direction: row;
-	gap: 0.98px;
+	gap: 0.0510vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
 	position: absolute;
-	left: 160px;
-	top: 5px;
+	left: 8.3333vw;
+	top: 0.2604vw;
 }
 
 .reviewDate1 {
 	color: #777777;
 	text-align: center;
-	font: 400 13.71px/19.58px "Pretendard-medium", sans-serif;
+	font: 400 0.7141vw/1.0198vw "Pretendard-medium", sans-serif;
 	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 300px;
-	height: 30px;
+	left: 0.0000vw;
+	top: 0.0000vw;
+	width: 15.6250vw;
+	height: 1.5625vw;
 	display: flex;
 	align-items: center;
 }
@@ -710,26 +715,26 @@
 .reviewContents {
 	display: flex;
 	flex-direction: row;
-	gap: 0px;
+	gap: 0.0000vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
-	width: 930.21px;
-	height: 30.35px;
+	width: 48.4484vw;
+	height: 1.5807vw;
 	position: absolute;
-	left: 160px;
-	top: 45px;
+	left: 8.3333vw;
+	top: 2.3438vw;
 }
 
 .reviewContents1 {
 	color: #777777;
 	text-align: left;
-	font: 400 13.71px/19.58px "Pretendard-medium", sans-serif;
+	font: 400 0.7141vw/1.0198vw "Pretendard-medium", sans-serif;
 	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 1000px;
-	height: 20px;
+	left: 0.0000vw;
+	top: 0.0000vw;
+	width: 52.0833vw;
+	height: 1.0417vw;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
@@ -739,46 +744,46 @@
 .buttonUpdate{
 	display: flex;
 	flex-direction: row;
-	gap: 0.98px;
+	gap: 0.0510vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
 	position: absolute;
-	left: 350px;
-	top: 10px;
+	left: 18.2292vw;
+	top: 0.5208vw;
 }
 .buttonDel {
 	display: flex;
 	flex-direction: row;
-	gap: 0.98px;
+	gap: 0.0510vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
 	position: absolute;
-	left: 400px;
-	top: 10px;
+	left: 20.8333vw;
+	top: 0.5208vw;
 }
 .buttonSave{
 	display: flex;
 	flex-direction: row;
-	gap: 0.98px;
+	gap: 0.0510vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
 	position: absolute;
-	left: 800px;
-	top: 10px;
+	left: 41.6667vw;
+	top: 0.5208vw;
 }
 .buttonCancel{
 	display: flex;
 	flex-direction: row;
-	gap: 0.98px;
+	gap: 0.0510vw;
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-shrink: 0;
 	position: absolute;
-	left: 850px;
-	top: 10px;
+	left: 44.2708vw;
+	top: 0.5208vw;
 	display: none;
 }
 .editContent { 
@@ -786,26 +791,26 @@
   position: absolute; 
   top: 0; 
   left: 0; 
-  width: 600px; 
-  height: 20px;
-  font: 400 13.71px/19.58px "Pretendard-medium", sans-serif;
+  width: 31.2500vw; 
+  height: 1.0417vw;
+  font: 400 0.7141vw/1.0198vw "Pretendard-medium", sans-serif;
   color: #777777;
 }
   .pagination {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 20px;
+        margin-top: 1.0417vw;
         position:relative;
         left: 24vw;
     }
 
 .pagination a {
         text-decoration: none;
-        padding: 8px 16px;
-        margin: 0 4px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+        padding: 0.4167vw 0.8333vw;
+        margin: 0 0.2083vw;
+        border: 0.0521vw solid #ccc;
+        border-radius: 0.2083vw;
         color: #333;
         transition: background-color 0.3s, color 0.3s;
     }

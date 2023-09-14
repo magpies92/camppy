@@ -677,10 +677,10 @@ div.tab.active {
 	color: white;
 }
 
-.pagination a:hover {
-	background-color: #333;
-	color: #fff;
-}
+/* .pagination a:hover { */
+/* 	background-color: #333; */
+/* 	color: #fff; */
+/* } */
 
 #tab3 {
 	color: lightseagreen;

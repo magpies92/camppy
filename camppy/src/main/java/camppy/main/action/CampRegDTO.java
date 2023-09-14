@@ -15,6 +15,7 @@ public class CampRegDTO {
 	private String shortintro;
 	
 	private String campaddr;
+	private int campid;
 	
 	private String tel;
 	private String environment;
@@ -29,6 +30,20 @@ public class CampRegDTO {
 	private int campprice;
 	private String sido;
 	private String gungu;
+	private int imgchk;
+	public int getPicchk() {
+		return picchk;
+	}
+	public void setPicchk(int picchk) {
+		this.picchk = picchk;
+	}
+	private int picchk;
+	public int getImgchk() {
+		return imgchk;
+	}
+	public void setImgchk(int imgchk) {
+		this.imgchk = imgchk;
+	}
 	public String getSido() {
 		return sido;
 	}
@@ -43,7 +58,6 @@ public class CampRegDTO {
 	}
 	private String mapx;
 	private String mapy;
-	private int campid;
 	private String intro;
 	private String[] camppic = new String[5];			
 	private String[] camptag = new String[7];

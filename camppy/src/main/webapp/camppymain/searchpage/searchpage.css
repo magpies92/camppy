@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'Pretendard-medium';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -275,6 +276,7 @@
   top: 47.3776vw; */
 }
 .mainpage__forest-7 {
+	cursor: pointer !important;
   flex-shrink: 0;
   width: 32.8125vw;
   height: 32.8125vw;
@@ -545,16 +547,16 @@
 /* 	display: flex; */
 /* 	justify-content: center; */
 /* 	align-items: center; */
-/* 	margin: 20px; */
-/* 	left: 560px; */
+/* 	margin: 1.0417vw; */
+/* 	left: 29.1667vw; */
 /* } */
 
 .mainpage__list a {
 	text-decoration: none;
-	padding: 8px 16px;
-	margin: 0 4px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
+	padding: 0.4167vw 0.8333vw;
+	margin: 0 0.2083vw;
+	border: 0.0521vw solid #ccc;
+	border-radius: 0.2083vw;
 	color: #333;
 	transition: background-color 0.3s, color 0.3s;
 }
