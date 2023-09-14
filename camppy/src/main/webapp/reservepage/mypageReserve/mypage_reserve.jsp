@@ -385,6 +385,7 @@ div.tab.active {
 }
 
 .tab {
+cursor: pointer !important;
 	color: grey;
 	text-align: center;
 	font: 400 1.5625vw/1.4583vw "NanumGothic", sans-serif;

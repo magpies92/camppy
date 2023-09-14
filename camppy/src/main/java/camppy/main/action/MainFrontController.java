@@ -176,15 +176,33 @@ public class MainFrontController extends HttpServlet {
 						pageDTO.setCurrentPage(currentPage);
 						//검색어 저장
 						pageDTO.setSearch(keywordsearch);
-						String sido2 ="";
 						if (sido.equals("시/도 선택") || sido.equals(""))
 						{
 							
 							gungu = "";
 						}
-						else{sido2 =  sido.substring(0,2);} //abc
+						else if (sido.equals("강원도")) {
+							sido = "강원특별자치도";
+						}
+						else if (sido.equals("충청북도")) {
+							sido = "충북";
+						}
+						else if (sido.equals("경상북도")) {
+							sido = "경북";
+						}
+						else if (sido.equals("전라북도")) {
+							sido = "전북";
+						}
+						else if (sido.equals("충청남도")) {
+							sido = "충남";
+						}
+						else if (sido.equals("제주도")) {
+							sido = "제주특별자치도";
+						}
+						else {}
 						
-						pageDTO.setSido(sido2);
+						
+						pageDTO.setSido(sido);
 						pageDTO.setGungu(gungu);
 						// CampRegService 객체생성
 						campregService = new CampRegService();
