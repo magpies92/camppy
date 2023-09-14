@@ -208,7 +208,6 @@
 }
 
 .commu-insert__button-exit {
-	cursor: pointer !important;
 	border-radius: 0.2552vw;
 	border-style: solid;
 	border-color: #4da385;
@@ -227,6 +226,7 @@
 }
 
 .commu-insert__4 {
+	cursor: pointer !important;
 	color: #4da385;
 	text-align: center;
 	font: 700 1.6318vw "Pretendard-medium", sans-serif;
@@ -237,7 +237,6 @@
 }
 
 .commu-insert__button-insert {
-	cursor: pointer !important;
 background: #4da385;
     border-radius: 0.2552vw;
     padding: 1.1219vw 3.2130vw 1.1219vw 3.2130vw;
@@ -256,6 +255,7 @@ background: #4da385;
 }
 
 .commu-insert__5 {
+	cursor: pointer !important;
 	color: #ffffff;
 	text-align: center;
 	font: 700 1.6318vw "Pretendard-medium", sans-serif;

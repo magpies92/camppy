@@ -52,6 +52,7 @@
 }
 
 .selectDel {
+	cursor: pointer !important;
 	background: #4da285;
 	border-radius: 0.3109vw;
 	flex-shrink: 0;
@@ -840,6 +841,7 @@ div.tab.active {
 }
 
 .tab {
+	cursor: pointer !important;
 	color: grey;
 	text-align: center;
 	font: 400 1.5625vw/1.4583vw "pretendard-medium", sans-serif;
@@ -893,4 +895,7 @@ div.tab.active {
 
 #tab2 {
 	color: lightseagreen;
+}
+.selectCheck {
+	cursor: pointer !important;
 }
