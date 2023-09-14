@@ -94,8 +94,8 @@ public class CampRegController extends HttpServlet {
 			System.out.println("뽑은 가상주소 비교 : /campupdate.campreg");
 			
 			campregService = new CampRegService();
-			
-			CampRegDTO campregDTO  = campregService.getCampRegUp(request);
+			int camp_id = Integer.parseInt(request.getParameter("camp_id"));
+			CampRegDTO campregDTO  = campregService.getCampReg(camp_id);
 			
 			request.setAttribute("campregDTO", campregDTO);
 			
@@ -132,7 +132,11 @@ public class CampRegController extends HttpServlet {
 			
 			campregService.updateCampReg(request);
 			
-			response.sendRedirect("detail.de");
+			/*
+			 * dispatcher = request.getRequestDispatcher("detail.de?campId=2");
+			 * dispatcher.forward(request, response);
+			 */
+		
 		}//("/campregPro.campreg")
 		
 
