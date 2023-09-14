@@ -48,6 +48,7 @@
     	    checkbox.checked = selectAll.checked;
     	  })
     	}
+       
 </script>
 
 <meta charset="UTF-8">
@@ -65,7 +66,9 @@ String camp_id=(String)session.getAttribute("camp_id");
 
 	<h2>캠핑장 정보 등록</h2>
 
-	<form action="campregPro.campreg" method="post" enctype="multipart/form-data">
+	<form action="campupdatePro.campreg" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="campId" value="<%=campregDTO.getCampid()%>">
+	<input type="hidden" name="camp_id" value="<%=campregDTO.getCampid()%>">
 		캠핑장 이름 : <input type="text"  name="campname" value="<%=campregDTO.getCampname() %>" required><br>
 		한줄 소개 : <input type="text" name="shortintro" value="<%=campregDTO.getShortintro() %>" required><br>
 		<h3>캠핑장 태그를 선택해주세요</h3>
@@ -74,46 +77,84 @@ String camp_id=(String)session.getAttribute("camp_id");
        value="selectall"
        onclick='selectAll(this)'/> <b>전체 선택</b>
 <br>
+<%
+if(campregDTO.getCamptag()[0].equals("O")){ %>
 <input type="checkbox"
-       name="camptag1" 
+       name="camptag1" checked
        value="O"/> 전기
-
+       <%}else{ %>
+      <input type="checkbox"
+       name="camptag1" 
+       value="O"/> 전기 
+       <%} %>
+<%if(campregDTO.getCamptag()[1].equals("O")){ %>
+<input type="checkbox" 
+       name="camptag2" checked 
+       value='O' /> 와이파이
+<%}else{ %>
 <input type="checkbox" 
        name="camptag2" 
        value='O' /> 와이파이
-
+     <%} %>   
+     <%if(campregDTO.getCamptag()[2].equals("O")){ %>
 <input type="checkbox" 
+       name="camptag3"  checked
+       value="O" /> 장작판매
+       <%}else{ %>
+       <input type="checkbox" 
        name="camptag3" 
        value="O" /> 장작판매
-      
+       <%} %> 
+      <%if(campregDTO.getCamptag()[3].equals("O")){ %>
 <input type="checkbox" 
+       name="camptag4" checked
+       value="O" /> 온수 
+       <%}else{ %>
+       <input type="checkbox" 
        name="camptag4" 
        value="O" /> 온수
-      
+       <%} %> 
+       <%if(campregDTO.getCamptag()[4].equals("O")){ %>
        <input type="checkbox" 
+       name="camptag5" checked
+       value="O" /> 물놀이장
+     <%}else{ %>
+      <input type="checkbox" 
        name="camptag5" 
        value="O" /> 물놀이장
-     
+       <%} %> 
+       <%if(campregDTO.getCamptag()[5].equals("O")){ %>
        <input type="checkbox" 
+       name="camptag6" checked
+       value="O" /> 놀이터
+      <%}else{ %>
+        <input type="checkbox" 
        name="camptag6" 
        value="O" /> 놀이터
-      
+       <%} %> 
+       <%if(campregDTO.getCamptag()[6].equals("O")){ %>
+       <input type="checkbox" 
+       name="camptag7" checked
+       value="O" /> 운동시설
+       <%}else{ %>
        <input type="checkbox" 
        name="camptag7" 
        value="O" /> 운동시설
+       <%} %> 
        <br>
        
 		
-		캠핑장 대표 사진 기존: <img src="<%=campregDTO.getCampimg() %>" alt="대표 이미지">
+		캠핑장 대표 사진 기존<br>
+		<img src="campimg/<%=campregDTO.getCampimg() %>" alt="대표 이미지"><br>
 		캠핑장 대표 사진 수정: <input type="file" name="campimg" value="<%=campregDTO.getCampimg() %>"><br>
 		주소 : <input type="text" id="sample4_postcode" placeholder="우편번호" name="postAddr1"  readonly required>
-<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" required><br>
+<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" ><br>
 <input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="postAddr2" value="<%=campregDTO.getCampaddr() %>" size="60"  readonly required><br>
-<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소"  size="60" required>
+<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소"  size="60" >
 <span id="guide" style="color:#999;display:none" ></span>
 <input type="text" id="sample4_detailAddress" placeholder="상세주소" name="postAddr3" size="60"><br>
-<input type="hidden" id="sample4_extraAddress" placeholder="참고항목"  size="60" required>
-<input type="hidden" id="sample4_engAddress" placeholder="영문주소"  size="60" required><br>
+<input type="hidden" id="sample4_extraAddress" placeholder="참고항목"  size="60" >
+<input type="hidden" id="sample4_engAddress" placeholder="영문주소"  size="60" ><br>
 
 		문의처 : <input type="text" name="tel" value="<%=campregDTO.getTel() %>" required><br>
 		캠핑장 환경 : <input type="text" name="environment" value="<%=campregDTO.getEnvironment() %>" required><br>
@@ -124,8 +165,8 @@ String camp_id=(String)session.getAttribute("camp_id");
 		주변이용가능시설 : <input type="text" name="facility" value="<%=campregDTO.getFacility() %>" required><br>
 		소개 : <input type="text" name="intro" value="<%=campregDTO.getIntro() %>" required><br>
 		<h3>캠핑장 사진들(최대 5개)</h3>
-		기존 사진: <img src="<%=campregDTO.getCamppic() %>" alt="추가 이미지">
-<input type="button" value="사진 추가" onclick="javascript:addInputBox();">  <input type="button" value="추가한 사진 삭제" onclick="javascript:subtractInputBox();"><br>
+		<%-- 기존 사진: <img src="campimg/<%=campregDTO.getCamppic()[0] %>" alt="추가 이미지"> --%>
+<input type="button" value="사진 추가(기존 사진들은 삭제됨)" onclick="javascript:addInputBox();">  <input type="button" value="추가한 사진 삭제" onclick="javascript:subtractInputBox();"><br>
 <table id="dynamic_table" border="1">
 </table>
 		은행명 : <input type="text" name="bankname" value="<%=campregDTO.getBankname() %>" required><br>
@@ -133,7 +174,7 @@ String camp_id=(String)session.getAttribute("camp_id");
 		캠핑장 가격 : <input type="text" name="campprice" value="<%=campregDTO.getCampprice() %>" required><br>
 
 
-<input type="submit" value="캠핑장 정보 수정" onclick="location.href='detail.de?camp_id=<%=campregDTO.getCampid() %>'" onsubmit="return confirmSubmit();" />
+<input type="submit" value="캠핑장 정보 수정" onclick="if(!confirm('정말로 수정 하시겠습니까??')){return false;}" />
 	
 	
 <br>
@@ -257,7 +298,6 @@ function sample4_execDaumPostcode() {
 <input type="text" id="sigungu" placeholder="시군구"  size="60" name="sigungu" value="<%=campregDTO.getSigungu() %>" readonly><br>
 <input type="text" id="mapx" placeholder="X좌표"  name="mapx" size="60" value="<%=campregDTO.getMapx() %>" readonly><br>
 <input type="text" id="mapy" placeholder="Y좌표"  name="mapy" size="60" value="<%=campregDTO.getMapy() %>" readonly><br>
-<input type="text" id="rowscount" placeholder="rowscount"  name="rowscount" size="60"><br>
 </form>
 
 <script type="text/javascript">

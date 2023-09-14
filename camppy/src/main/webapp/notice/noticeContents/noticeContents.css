@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'pretendard-medium';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/pretendard-medium-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
 .noticeContents,
 .noticeContents * {
   box-sizing: border-box;
@@ -6,11 +15,11 @@
   background: #ffffff;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 0.5208vw;
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
-  height: 1600px;
+  height: 83.3333vw;
   position: relative;
   overflow: hidden;
 }
@@ -18,58 +27,58 @@
 .noticeContentsSectionBody {
   background: #ffffff;
   flex-shrink: 0;
-  width: 1920px;
-  height: 1600px;
+  width: 100.0000vw;
+  height: 83.3333vw;
   position: relative;
   overflow: hidden;
 }
 .noticeContentsQuestionContents {
   background: #efefef;
-  padding: 21px 13px 21px 13px;
+  padding: 1.0938vw 0.6771vw 1.0938vw 0.6771vw;
   display: flex;
   flex-direction: row;
-  gap: 444px;
+  gap: 23.1250vw;
   align-items: flex-end;
   justify-content: flex-start;
   flex-wrap: wrap;
-  width: 1660px;
-  height: 740px;
+  width: 86.4583vw;
+  height: 38.5417vw;
   position: absolute;
-  left: calc(50% - 795px);
-  top: 128px;
+  left: calc(50% - 41.4063vw);
+  top: 6.6667vw;
   overflow: hidden;
 }
 .noticeContentsA {
   color: #000000;
   text-align: left;
-  font: 800 32px/18px "NanumGothic", sans-serif;
+  font: 800 1.6667vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 60px;
-  top: 30px;
-  width: 183px;
-  height: 69px;
+  left: 3.1250vw;
+  top: 1.5625vw;
+  width: 9.5313vw;
+  height: 3.5938vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 .noticeContentsCommentButton {
   background: #4da385;
-  border-radius: 5px;
-  padding: 3px 15px 3px 15px;
+  border-radius: 0.2604vw;
+  padding: 0.1563vw 0.7813vw 0.1563vw 0.7813vw;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 0.5208vw;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 163px;
-  height: 70px;
+  width: 8.4896vw;
+  height: 3.6458vw;
   position: absolute;
-  left: 1342px;
-  top: 482px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  left: 69.8958vw;
+  top: 25.1042vw;
+  box-shadow: 0.0000vw 0.2083vw 0.2083vw 0.0000vw rgba(0, 0, 0, 0.25);
   overflow: hidden;
-      font: 700 30px/18px "NanumGothic", sans-serif; 
+      font: 700 1.5625vw/0.9375vw "pretendard-medium", sans-serif; 
    color: #ffffff;
    text-align: center;
 }
@@ -77,23 +86,23 @@
 .noticeContentsTitleNcontent {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0.7292vw;
   align-items: flex-start;
   justify-content: flex-start;
   flex-shrink: 0;
-  width: 1419px;
-  height: 157px;
+  width: 73.9063vw;
+  height: 8.1771vw;
   position: absolute;
-  left: 64px;
-  top: 181px;
+  left: 3.3333vw;
+  top: 9.4271vw;
 }
 .noticeContentsC {
   color: #000000;
   text-align: left;
-  font: 400 30px/18px "NanumGothic", sans-serif;
+  font: 400 1.5625vw/0.9375vw "pretendard-medium", sans-serif;
   position: relative;
-  width: 1468px;
-  height: 129px;
+  width: 76.4583vw;
+  height: 6.7188vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -102,80 +111,80 @@
 .noticeContentsD {
   color: #000000;
   text-align: left;
-  font: 400 25px/50px "NanumGothic", sans-serif;
+  font: 400 1.3021vw/2.6042vw "pretendard-medium", sans-serif;
   position: relative;
-  width: 1419px;
-  height: 101px;
+  width: 73.9063vw;
+  height: 5.2604vw;
 }
 .noticeContentsName {
-  padding: 10px;
+  padding: 0.5208vw;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 0.5208vw;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   position: absolute;
-  left: 64px;
-  top: 117px;
+  left: 3.3333vw;
+  top: 6.0938vw;
 }
 .noticeContentsE {
   color: #000000;
   text-align: left;
-  font: 400 24px/18px "NanumGothic", sans-serif;
+  font: 400 1.2500vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 1117px;
-  top: -70px;
-  width: 90px;
-  height: 27px;
+  left: 58.1771vw;
+  top: -3.6458vw;
+  width: 4.6875vw;
+  height: 1.4063vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   border-right: solid;
-  border-width: 2px;
+  border-width: 0.1042vw;
 }
 .noticeContentsIconBox {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 1.0417vw;
   align-items: flex-start;
   justify-content: flex-start;
   flex-shrink: 0;
-  height: 21px;
+  height: 1.0938vw;
   position: absolute;
-  left: 64px;
-  top: 431px;
+  left: 3.3333vw;
+  top: 22.4479vw;
 }
 .noticeContentsLike {
   flex-shrink: 0;
-  width: 23.72px;
-  height: 25px;
+  width: 1.2354vw;
+  height: 1.3021vw;
   position: relative;
 }
 .noticeContentsF {
   color: #000000;
   text-align: center;
-  font: 400 25px/18px "NanumGothic", sans-serif;
+  font: 400 1.3021vw/0.9375vw "pretendard-medium", sans-serif;
   position: relative;
-  width: 55px;
-  height: 23px;
+  width: 2.8646vw;
+  height: 1.1979vw;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .noticeContentsCommentIcon {
   flex-shrink: 0;
-  width: 25px;
-  height: 25px;
+  width: 1.3021vw;
+  height: 1.3021vw;
   position: relative;
 }
 .noticeContentsG {
   color: #000000;
   text-align: center;
-  font: 400 25px/18px "NanumGothic", sans-serif;
+  font: 400 1.3021vw/0.9375vw "pretendard-medium", sans-serif;
   position: relative;
-  width: 87px;
-  height: 23px;
+  width: 4.5313vw;
+  height: 1.1979vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,23 +192,23 @@
 .noticeContentsDateNbutton {
   display: flex;
   flex-direction: row;
-  gap: 0px;
+  gap: 0.0000vw;
   align-items: center;
   justify-content: flex-start;
   flex-shrink: 0;
-  width: 462px;
+  width: 24.0625vw;
   position: absolute;
-  left: 1297px;
-  top: 35px;
+  left: 67.5521vw;
+  top: 1.8229vw;
 }
 .noticeContents2023 {
   color: #000000;
   text-align: center;
-  font: 400 24px/18px "NanumGothic", sans-serif;
+  font: 400 1.2500vw/0.9375vw "pretendard-medium", sans-serif;
   position: relative;
-  width: 332px;
-  height: 51px;
-  left : -26px;
+  width: 17.2917vw;
+  height: 2.6563vw;
+  left : -1.3542vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,12 +217,12 @@
 .noticeContentsH {
   color: #000000;
   text-align: center;
-  font: 400 25px/18px "NanumGothic", sans-serif;
+  font: 400 1.3021vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 288px;
-  top: 16px;
-  width: 87px;
-  height: 30px;
+  left: 15.0000vw;
+  top: 0.8333vw;
+  width: 4.5313vw;
+  height: 1.5625vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -221,12 +230,12 @@
 .noticeContentsI {
   color: #000000;
   text-align: center;
-  font: 400 25px/18px "NanumGothic", sans-serif;
+  font: 400 1.3021vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 375px;
-  top: 16px;
-  width: 87px;
-  height: 30px;
+  left: 19.5313vw;
+  top: 0.8333vw;
+  width: 4.5313vw;
+  height: 1.5625vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -234,12 +243,12 @@
 .noticeContentsCommentBox {
   background: #ffffff;
   flex-shrink: 0;
-  width: 1252px;
-  height: 70px;
+  width: 65.2083vw;
+  height: 3.6458vw;
   position: absolute;
-  left: 64px;
-  top: 482px;
-  font: 400 25px/50px "NanumGothic", sans-serif;
+  left: 3.3333vw;
+  top: 25.1042vw;
+  font: 400 1.3021vw/2.6042vw "pretendard-medium", sans-serif;
   resize: none;
 
 }
@@ -247,24 +256,24 @@
   background: #ffffff;
   display: flex;
   flex-direction: row;
-  gap: 0px;
+  gap: 0.0000vw;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
-  width: 1591px;
-  height: 562px;
+  width: 82.8646vw;
+  height: 29.2708vw;
   position: absolute;
-  left: 165px;
-  top: 790px;
+  left: 8.5938vw;
+  top: 41.1458vw;
   overflow: hidden;
 }
 .noticeContentsJ {
   color: #000000;
   text-align: center;
-  font: 800 32px/18px "NanumGothic", sans-serif;
+  font: 800 1.6667vw/0.9375vw "pretendard-medium", sans-serif;
   position: relative;
-  width: 125px;
-  height: 93px;
+  width: 6.5104vw;
+  height: 4.8438vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -272,24 +281,24 @@
 .noticeContentsComment1 {
   border-style: solid;
   border-color: #c8c8c8;
-  border-width: 0px 0px 2px 0px;
+  border-width: 0.0000vw 0.0000vw 0.1042vw 0.0000vw;
   flex-shrink: 0;
-  width: 1593px;
-  height: 129px;
+  width: 82.9688vw;
+  height: 6.7188vw;
   position: absolute;
-  left: 0px;
-  top: 93px;
+  left: 0.0000vw;
+  top: 4.8438vw;
   overflow: hidden;
 }
 .noticeContentsK7 {
   color: #5a5a5a;
   text-align: center;
-  font: 400 27px/18px "NanumGothic", sans-serif;
+  font: 400 1.4063vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 1483px;
-  top: 64px;
-  width: 90px;
-  height: 44px;
+  left: 77.2396vw;
+  top: 3.3333vw;
+  width: 4.6875vw;
+  height: 2.2917vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -297,12 +306,12 @@
 .noticeContentsL {
   color: #000000;
   text-align: center;
-  font: 400 25px/18px "NanumGothic", sans-serif;
+  font: 400 1.3021vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 1512px;
-  top: 17px;
-  width: 61px;
-  height: 37px;
+  left: 78.7500vw;
+  top: 0.8854vw;
+  width: 3.1771vw;
+  height: 1.9271vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -310,12 +319,12 @@
 .noticeContentsM {
   color: #000000;
   text-align: center;
-  font: 400 25px/18px "NanumGothic", sans-serif;
+  font: 400 1.3021vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 1446px;
-  top: 17px;
-  width: 63px;
-  height: 37px;
+  left: 75.3125vw;
+  top: 0.8854vw;
+  width: 3.2813vw;
+  height: 1.9271vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -323,12 +332,12 @@
 .noticeContentsN {
   color: #000000;
   text-align: left;
-  font: 400 27px/18px "NanumGothic", sans-serif;
+  font: 400 1.4063vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 32px;
-  top: 68px;
-  width: 867px;
-  height: 44px;
+  left: 1.6667vw;
+  top: 3.5417vw;
+  width: 45.1563vw;
+  height: 2.2917vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -336,44 +345,44 @@
 .noticeContentsUser {
   color: #000000;
   text-align: left;
-  font: 400 30px/18px "NanumGothic", sans-serif;
+  font: 400 1.5625vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 72px;
-  top: 24px;
-  width: 78px;
-  height: 24px;
+  left: 3.7500vw;
+  top: 1.2500vw;
+  width: 4.0625vw;
+  height: 1.2500vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 .noticeContentsProfileIcon {
-  width: 30px;
-  height: 30px;
+  width: 1.5625vw;
+  height: 1.5625vw;
   position: absolute;
-  left: 32px;
-  top: 21px;
+  left: 1.6667vw;
+  top: 1.0938vw;
 }
 .noticeContentsComment2 {
   border-style: solid;
   border-color: #c8c8c8;
-  border-width: 0px 0px 2px 0px;
+  border-width: 0.0000vw 0.0000vw 0.1042vw 0.0000vw;
   flex-shrink: 0;
-  width: 1593px;
-  height: 129px;
+  width: 82.9688vw;
+  height: 6.7188vw;
   position: absolute;
-  left: 0px;
-  top: 222px;
+  left: 0.0000vw;
+  top: 11.5625vw;
   overflow: hidden;
 }
 .noticeContentsO5 {
   color: #5a5a5a;
   text-align: center;
-  font: 400 27px/18px "NanumGothic", sans-serif;
+  font: 400 1.4063vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 1483px;
-  top: 64px;
-  width: 90px;
-  height: 44px;
+  left: 77.2396vw;
+  top: 3.3333vw;
+  width: 4.6875vw;
+  height: 2.2917vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -381,24 +390,24 @@
 .noticeContentsComment3 {
   border-style: solid;
   border-color: #c8c8c8;
-  border-width: 0px 0px 2px 0px;
+  border-width: 0.0000vw 0.0000vw 0.1042vw 0.0000vw;
   flex-shrink: 0;
-  width: 1593px;
-  height: 129px;
+  width: 82.9688vw;
+  height: 6.7188vw;
   position: absolute;
-  left: 0px;
-  top: 351px;
+  left: 0.0000vw;
+  top: 18.2813vw;
   overflow: hidden;
 }
 .noticeContentsO3 {
   color: #5a5a5a;
   text-align: center;
-  font: 400 27px/18px "NanumGothic", sans-serif;
+  font: 400 1.4063vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 1483px;
-  top: 64px;
-  width: 90px;
-  height: 44px;
+  left: 77.2396vw;
+  top: 3.3333vw;
+  width: 4.6875vw;
+  height: 2.2917vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -406,12 +415,12 @@
 .noticeContents22 {
   color: #000000;
   text-align: center;
-  font: 400 25px/18px "NanumGothic", sans-serif;
+  font: 400 1.3021vw/0.9375vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 458px;
-  top: 16px;
-  width: 87px;
-  height: 30px;
+  left: 23.8542vw;
+  top: 0.8333vw;
+  width: 4.5313vw;
+  height: 1.5625vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -420,12 +429,12 @@
 .ContentsNbutton {
 	  display: flex;
   flex-direction: row;
-  gap: 0px;
+  gap: 0.0000vw;
   align-items: center;
   justify-content: flex-start;
   flex-shrink: 0;
-  width: 462px;
+  width: 24.0625vw;
   position: absolute;
-  left: 1057px;
-  top: 653px;
+  left: 55.0521vw;
+  top: 34.0104vw;
 }

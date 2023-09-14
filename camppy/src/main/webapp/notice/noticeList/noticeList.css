@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'pretendard-medium';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/pretendard-medium-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 .noticeList,
 .noticeList * {
   box-sizing: border-box;
@@ -32,7 +40,7 @@
 .noticeListA {
   color: #000000;
   text-align: center;
-  font: 700 2.8047vw/1.4281vw "NanumGothic", sans-serif;
+  font: 700 2.8047vw/1.4281vw "pretendard-medium", sans-serif;
   position: absolute;
   left: calc(50% - 6.5786vw);
   top: 0.0000vw;
@@ -75,7 +83,7 @@
 .noticeListB {
   color: #777777;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   display: flex;
   align-items: center;
@@ -96,7 +104,7 @@
 .noticeList2023Event {
   color: #333333;
   text-align: left;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   display: flex;
   align-items: center;
@@ -106,7 +114,7 @@
 .noticeListC {
   color: #777777;
   text-align: center;
-  font: 400 0.8672vw/0.9177vw "Inter", sans-serif;
+  font: 400 0.8672vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   width: 4.8958vw;
   height: 2.0911vw;
@@ -134,7 +142,7 @@
 .noticeListD {
   color: #777777;
   text-align: left;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   display: flex;
   align-items: center;
@@ -159,7 +167,7 @@
 .noticeList2023Event {
   color: #333333;
   text-align: left;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   display: flex;
   align-items: center;
@@ -182,7 +190,7 @@
 .noticeListD {
   color: #777777;
   text-align: center;
-  font: 400 0.8672vw/0.9177vw "Inter", sans-serif;
+  font: 400 0.8672vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   width: 3.8760vw;
   height: 2.3969vw;
@@ -208,7 +216,7 @@
 .noticeList2023 {
   color: #777777;
   text-align: center;
-  font: 400 0.8672vw/0.9177vw "Inter", sans-serif;
+  font: 400 0.8672vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   width: 6.7828vw;
   display: flex;
@@ -251,7 +259,7 @@
 .noticeList4 {
   color: #000000;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: absolute;
   left: 0.0000vw;
   top: calc(50% - 1.6828vw);
@@ -277,7 +285,7 @@
 .noticeList5 {
   color: #000000;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: relative;
   width: 49.3151vw;
   height: 3.3151vw;
@@ -301,7 +309,7 @@
 .noticeList6 {
   color: #000000;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: absolute;
   left: 0.0000vw;
   top: calc(50% - 1.7339vw);
@@ -327,7 +335,7 @@
 .noticeList7 {
   color: #000000;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: absolute;
   left: 0.0000vw;
   top: calc(50% - 1.7083vw);
@@ -353,7 +361,7 @@
 .noticeList8 {
   color: #000000;
   text-align: center;
-  font: 400 1.0198vw/0.9177vw "Inter", sans-serif;
+  font: 400 1.0198vw/0.9177vw "pretendard-medium", sans-serif;
   position: absolute;
   left: calc(50% - 2.1677vw);
   top: calc(50% - 1.7083vw);
@@ -395,16 +403,16 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 20px;
-	left: 940px;
+	margin: 1.0417vw;
+	left: 48.9583vw;
 }
 
 .pagination a {
 	text-decoration: none;
-	padding: 8px 16px;
-	margin: 0 4px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
+	padding: 0.4167vw 0.8333vw;
+	margin: 0 0.2083vw;
+	border: 0.0521vw solid #ccc;
+	border-radius: 0.2083vw;
 	color: #333;
 	transition: background-color 0.3s, color 0.3s;
 }
