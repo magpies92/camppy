@@ -66,7 +66,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 						name="title" onfocus="clearDefaultText(this);"
 						onblur="restoreDefaultText(this);">
 
-					<textarea class="bb" name="content"><%=commuDTO.getContent()%></textarea>
+					<textarea class="bb" name="content" style="resize: none;"><%=commuDTO.getContent()%></textarea>
 
 
 					<label class="input-file-button" for="image-upload"> <img

@@ -132,7 +132,7 @@
 	width: 12.9656vw;
 	height: 13.5938vw;
 	position: relative;
-	border-radius: 40px;
+	border-radius: 2.0833vw;
     border: solid black;
     border-width: thin;
 	
@@ -151,8 +151,8 @@
 	align-items: center;
 	justify-content: center;
 	position: relative;
-    top: -4px;
-    left: 70px;
+    top: -0.2083vw;
+    left: 3.6458vw;
 }
 
 
@@ -211,7 +211,7 @@
 	width: 12.9656vw;
 	height: 15.5589vw;
 	position: relative;
-	border-radius: 60px;
+	border-radius: 3.1250vw;
     border: solid;
     border-width: thin;
 }
@@ -291,7 +291,7 @@
 	width: 12.9656vw;
 	height: 15.5589vw;
 	position: relative;
-	border-radius: 60px;
+	border-radius: 3.1250vw;
     border: solid;
     border-width: thin;
 }
@@ -373,7 +373,7 @@
 	width: 12.9656vw;
 	height: 15.5589vw;
 	position: relative;
-	border-radius: 60px;
+	border-radius: 3.1250vw;
     border: solid;
     border-width: thin;
 }
@@ -1166,17 +1166,17 @@ width: 67.9901vw;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 20px;
-	left: 130px;
-	top: -200px;
+	margin: 1.0417vw;
+	left: 6.7708vw;
+	top: -10.4167vw;
 }
 
 .commu-contents-list__list a {
 	text-decoration: none;
-	padding: 8px 16px;
-	margin: 0 4px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
+	padding: 0.4167vw 0.8333vw;
+	margin: 0 0.2083vw;
+	border: 0.0521vw solid #ccc;
+	border-radius: 0.2083vw;
 	color: #333;
 	transition: background-color 0.3s, color 0.3s;
 }
