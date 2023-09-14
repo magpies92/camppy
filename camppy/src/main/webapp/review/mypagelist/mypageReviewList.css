@@ -272,6 +272,7 @@
 	position: absolute;
 	left: 20.8333vw;
 	top: 0.5208vw;
+	display : none;
 }
 
 .buttonSave {
