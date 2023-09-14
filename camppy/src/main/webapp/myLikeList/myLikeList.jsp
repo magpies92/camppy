@@ -149,12 +149,12 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 			// for(int i=시작하는 페이지 번호; i<=끝나는 페이지 번호; i++)
 			for (int i = pageDTO.getStartPage(); i <= pageDTO.getEndPage(); i++) {
 			%>
-			<a href="likeList.my?pageNum=<%=i%>" class="page"><%=i%>ﾠ </a>
+			<a href="likeList.my?pageNum=<%=i%>" class="page"><%=i%></a>
 			<%
 			}
 			%>
 
-
+ 
 			<%
 			// 끝페이지번호 전체페이지수 비교 -> 전체페이지수 클 때 -> Next 보임
 			if (pageDTO.getEndPage() < pageDTO.getPageCount()) {
