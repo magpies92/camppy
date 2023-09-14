@@ -40,7 +40,11 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 	<!-- 	베스트 게시글  -->
 	<%
 	String id = (String) session.getAttribute("id");
-	MemberDTO memberDTO = (MemberDTO) request.getAttribute("memberDTO");
+	MemberDTO memberDTO = new MemberDTO();
+	if(id != null){
+	memberDTO = (MemberDTO) request.getAttribute("memberDTO");
+	}
+	
 	List<CommuDTO> commuRankList = (List<CommuDTO>) request.getAttribute("commuRankList");
 	List<CommuDTO> commuList = (List<CommuDTO>) request.getAttribute("commuList");
 	PageDTO pageDTO = (PageDTO) request.getAttribute("pageDTO");

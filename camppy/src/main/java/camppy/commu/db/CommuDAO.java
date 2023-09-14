@@ -162,8 +162,9 @@ public class CommuDAO {
 		try {
 			con = getConnection();
 
-			String sql = "select p.create_date, p.last_modified_date, p.created_by, p.last_modified_by, p.comment_cnt, p.content, p.like_cnt, p.post_type, p.title, p.member_id, i.post_image_id, i.created_date, i.post_id, i.member_id, i.last_modified_date, i.created_by, i.last_modified_by, i.img_url, m.nickname from post p left "
-					+ "join post_image i on (p.post_id = i.post_id) left join members m on(p.member_id = m.member_id) order by post_id desc limit ?,?";
+			String sql = "select p.create_date,p.last_modified_date,p.created_by,p.last_modified_by,p.comment_cnt,p.content,p.like_cnt,p.post_type,p.title,p.member_id,\r\n"
+					+ "					   i.post_image_id,i.created_date,i.post_id,i.member_id,i.last_modified_date,i.created_by,i.last_modified_by,i.img_url, m.nickname\r\n"
+					+ "					from post p join post_image i on (p.post_id = i.post_id) left join members m on (m.member_id = p.member_id) order by post_id desc limit ?,?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, pageDTO.getStartRow() - 1);
 			pstmt.setInt(2, pageDTO.getPageSize());
@@ -185,12 +186,12 @@ public class CommuDAO {
 				commuDTO.setPost_type(rs.getString("post_type"));
 				commuDTO.setTitle(rs.getString("title"));
 				commuDTO.setMember_id(rs.getInt("member_id"));
+				commuDTO.setNickname(rs.getString("nickname"));
 
 				commuDTO.setPost_image_id(rs.getInt("post_image_id"));
 				commuDTO.setCreated_date(rs.getTimestamp("created_date"));
 //				commuDTO.setLast(rs.getString("last_modified_id"));
 				commuDTO.setImg_url(rs.getString("img_url"));
-				commuDTO.setNickname(rs.getString("nickname"));
 
 				// => 배열 한칸에 저장
 				commuList.add(commuDTO);
@@ -208,119 +209,117 @@ public class CommuDAO {
 		System.out.println("CommuDAO getCommuListSearch()");
 		List<CommuDTO> commuList = null;
 		try {
-			String sql = "";
-
 			con = getConnection();
-			System.out.println("111"+pageDTO.getSearch());
-			System.out.println("1111"+pageDTO.getSearchType());
-					
+			System.out.println(pageDTO.getSearch());
 			if (pageDTO.getSearchType().equals("제목+내용")) {
-				System.out.println(pageDTO.getSearchType());
-				sql = "\"select p.create_date,\"\n"
-						+ "						+ \"p.last_modified_date,\"\n"
-						+ "						+ \"p.created_by,\"\n"
-						+ "						+ \"p.last_modified_by,\"\n"
-						+ "						+ \"p.comment_cnt,\"\n"
-						+ "						+ \"p.content,\"\n"
-						+ "						+ \"p.like_cnt,\"\n"
-						+ "						+ \"p.post_type,\"\n"
-						+ "						+ \"p.title,\"\n"
-						+ "						+ \"p.member_id,\"\n"
-						+ "						+ \"i.post_image_id,\"\n"
-						+ "						+ \"i.created_date,\"\n"
-						+ "						+ \"i.post_id,\"\n"
-						+ "						+ \"i.member_id,\"\n"
-						+ "						+ \"i.last_modified_date,\"\n"
-						+ "						+ \"i.created_by,\"\n"
-						+ "						+ \"i.last_modified_by,\"\n"
-						+ "						+ \"i.img_url,\"	\n"
-						+ "						+ \"m.nicnkname\"\n"
-						+ "						+ \"from post p left join post_image i on (p.post_id = i.post_id)\"\n"
-						+ "						+ \"            left join members m on(p.member_id = m.member_id)\"\n"
-						+ "						+ \" where concat(p.title,p.content) like ? order by post_id desc limit ?,?";
+				String sql = "select p.create_date,p.last_modified_date,p.created_by,p.last_modified_by,p.comment_cnt,p.content,p.like_cnt,p.post_type,p.title,p.member_id,\r\n"
+						+ "					   i.post_image_id,i.created_date,i.post_id,i.member_id,i.last_modified_date,i.created_by,i.last_modified_by,i.img_url, m.nickname\r\n"
+						+ "					from post p join post_image i on (p.post_id = i.post_id) left join members m on (m.member_id = p.member_id) where concat(p.title,p.content) like ? order by post_id desc limit ?,?";
 				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + pageDTO.getSearch() + "%");
+				pstmt.setInt(2, pageDTO.getStartRow() - 1);// 시작행-1
+				pstmt.setInt(3, pageDTO.getPageSize());// 몇개
+				System.out.println("문제" + pstmt);
+				rs = pstmt.executeQuery();
+				
+				commuList = new ArrayList();
+				while (rs.next()) {
+					CommuDTO commuDTO = new CommuDTO();
+					commuDTO.setPost_id(rs.getInt("post_id"));
+					commuDTO.setCreate_date(rs.getTimestamp("Create_date"));
+					commuDTO.setLast_modified_date(rs.getTimestamp("last_modified_date"));
+					commuDTO.setCreated_by(rs.getString("created_by"));
+					commuDTO.setLast_modified_by(rs.getString("last_modified_by"));
+					commuDTO.setComment_cnt(rs.getInt("comment_cnt"));
+					commuDTO.setContent(rs.getString("content"));
+					commuDTO.setLike_cnt(rs.getInt("like_cnt"));
+					commuDTO.setPost_type(rs.getString("post_type"));
+					commuDTO.setTitle(rs.getString("title"));
+					commuDTO.setMember_id(rs.getInt("member_id"));
+					commuDTO.setNickname(rs.getString("nickname"));
+
+					commuDTO.setPost_image_id(rs.getInt("post_image_id"));
+					commuDTO.setCreated_date(rs.getTimestamp("created_date"));
+					commuDTO.setImg_url(rs.getString("img_url"));
+
+					// => 배열 한칸에 저장
+					commuList.add(commuDTO);
+				}
 			} else if (pageDTO.getSearchType().equals("제목 내용")) {
-				System.out.println(pageDTO.getSearchType());
-				sql = "select p.create_date,"
-						+ "p.last_modified_date,"
-						+ "p.created_by,"
-						+ "p.last_modified_by,"
-						+ "p.comment_cnt,"
-						+ "p.content,"
-						+ "p.like_cnt,"
-						+ "p.post_type,"
-						+ "p.title,"
-						+ "p.member_id,"
-						+ "i.post_image_id,"
-						+ "i.created_date,"
-						+ "i.post_id,"
-						+ "i.member_id,"
-						+ "i.last_modified_date,"
-						+ "i.created_by,"
-						+ "i.last_modified_by,"
-						+ "i.img_url, "
-						+ "m.nicnkname"
-						+ "from post p left join post_image i on (p.post_id = i.post_id)"
-						+ "            left join members m on(p.member_id = m.member_id)"
-						+ " where concat(p.title,p.content) like ? order by post_id desc limit ?,?";
+				String sql = "select p.create_date,p.last_modified_date,p.created_by,p.last_modified_by,p.comment_cnt,p.content,p.like_cnt,p.post_type,p.title,p.member_id,\r\n"
+						+ "					   i.post_image_id,i.created_date,i.post_id,i.member_id,i.last_modified_date,i.created_by,i.last_modified_by,i.img_url, m.nickname\r\n"
+						+ "					from post p join post_image i on (p.post_id = i.post_id) left join members m on (m.member_id = p.member_id) where concat(p.title,p.content) like ? order by post_id desc limit ?,?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + pageDTO.getSearch() + "%");
+				pstmt.setInt(2, pageDTO.getStartRow() - 1);// 시작행-1
+				pstmt.setInt(3, pageDTO.getPageSize());// 몇개
+				System.out.println("문제" + pstmt);
+				rs = pstmt.executeQuery();
 				
+				commuList = new ArrayList();
+				while (rs.next()) {
+					CommuDTO commuDTO = new CommuDTO();
+					commuDTO.setPost_id(rs.getInt("post_id"));
+					commuDTO.setCreate_date(rs.getTimestamp("Create_date"));
+					commuDTO.setLast_modified_date(rs.getTimestamp("last_modified_date"));
+					commuDTO.setCreated_by(rs.getString("created_by"));
+					commuDTO.setLast_modified_by(rs.getString("last_modified_by"));
+					commuDTO.setComment_cnt(rs.getInt("comment_cnt"));
+					commuDTO.setContent(rs.getString("content"));
+					commuDTO.setLike_cnt(rs.getInt("like_cnt"));
+					commuDTO.setPost_type(rs.getString("post_type"));
+					commuDTO.setTitle(rs.getString("title"));
+					commuDTO.setMember_id(rs.getInt("member_id"));
+					commuDTO.setNickname(rs.getString("nickname"));
+					
+
+					commuDTO.setPost_image_id(rs.getInt("post_image_id"));
+					commuDTO.setCreated_date(rs.getTimestamp("created_date"));
+					commuDTO.setImg_url(rs.getString("img_url"));
+
+					// => 배열 한칸에 저장
+					commuList.add(commuDTO);
+				}
 			} else if (pageDTO.getSearchType().equals("작성자")) {
-				System.out.println(pageDTO.getSearchType());
-				sql="select p.create_date,"
-						+ "p.last_modified_date,"
-						+ "p.created_by,"
-						+ "p.last_modified_by,"
-						+ "p.comment_cnt,"
-						+ "p.content,"
-						+ "p.like_cnt,"
-						+ "p.post_type,"
-						+ "p.title,"
-						+ "p.member_id,"
-						+ "i.post_image_id,"
-						+ "i.created_date,"
-						+ "i.post_id,"
-						+ "i.member_id,"
-						+ "i.last_modified_date,"
-						+ "i.created_by,"
-						+ "i.last_modified_by,"
-						+ "i.img_url,"
-						+ "m.nickname"
-						+ "from post p left join post_image i on (p.post_id = i.post_id)"
-						+ "left join members m on (p.member_id = m.member_id) where nickname like ? order by post_id desc limit ?,?";
-			}
-
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "%" + pageDTO.getSearch() + "%");
-			pstmt.setInt(2, pageDTO.getStartRow()-1);// 시작행-1
-			pstmt.setInt(3, pageDTO.getPageSize());// 몇개
-			System.err.println(pstmt);
-			
-			rs=pstmt.executeQuery();
-
-			commuList = new ArrayList();
-			while (rs.next()) {
-				CommuDTO commuDTO = new CommuDTO();
-				commuDTO.setPost_id(rs.getInt("post_id"));
-				commuDTO.setCreate_date(rs.getTimestamp("Create_date"));
-				commuDTO.setLast_modified_date(rs.getTimestamp("last_modified_date"));
-				commuDTO.setCreated_by(rs.getString("created_by"));
-				commuDTO.setLast_modified_by(rs.getString("last_modified_by"));
-				commuDTO.setComment_cnt(rs.getInt("comment_cnt"));
-				commuDTO.setContent(rs.getString("content"));
-				commuDTO.setLike_cnt(rs.getInt("like_cnt"));
-				commuDTO.setPost_type(rs.getString("post_type"));
-				commuDTO.setTitle(rs.getString("title"));
-				commuDTO.setMember_id(rs.getInt("member_id"));
-
-				commuDTO.setPost_image_id(rs.getInt("post_image_id"));
-				commuDTO.setCreated_date(rs.getTimestamp("created_date"));
-				commuDTO.setImg_url(rs.getString("img_url"));
-				commuDTO.setNickname(rs.getString("nickname"));
+				String sql = "select p.create_date,p.last_modified_date,p.created_by,p.last_modified_by,p.comment_cnt,p.content,p.like_cnt,p.post_type,p.title,p.member_id,\r\n"
+						+ "					   i.post_image_id,i.created_date,i.post_id,i.member_id,i.last_modified_date,i.created_by,i.last_modified_by,i.img_url, m.nickname\r\n"
+						+ "					from post p join post_image i on (p.post_id = i.post_id) left join members m on (m.member_id = p.member_id) where m.nickname like ? order by post_id desc limit ?,?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + pageDTO.getSearch() + "%");
+				pstmt.setInt(2, pageDTO.getStartRow() - 1);// 시작행-1
+				pstmt.setInt(3, pageDTO.getPageSize());// 몇개
+				System.out.println("문제" + pstmt);
+				rs = pstmt.executeQuery();
 				
+				commuList = new ArrayList();
+				while (rs.next()) {
+					CommuDTO commuDTO = new CommuDTO();
+					commuDTO.setPost_id(rs.getInt("post_id"));
+					commuDTO.setCreate_date(rs.getTimestamp("Create_date"));
+					commuDTO.setLast_modified_date(rs.getTimestamp("last_modified_date"));
+					commuDTO.setCreated_by(rs.getString("created_by"));
+					commuDTO.setLast_modified_by(rs.getString("last_modified_by"));
+					commuDTO.setComment_cnt(rs.getInt("comment_cnt"));
+					commuDTO.setContent(rs.getString("content"));
+					commuDTO.setLike_cnt(rs.getInt("like_cnt"));
+					commuDTO.setPost_type(rs.getString("post_type"));
+					commuDTO.setTitle(rs.getString("title"));
+					commuDTO.setMember_id(rs.getInt("member_id"));
+					commuDTO.setNickname(rs.getString("nickname"));
 
-				// => 배열 한칸에 저장
-				commuList.add(commuDTO);
-			}
+					commuDTO.setPost_image_id(rs.getInt("post_image_id"));
+					commuDTO.setCreated_date(rs.getTimestamp("created_date"));
+					commuDTO.setImg_url(rs.getString("img_url"));
+
+					// => 배열 한칸에 저장
+					commuList.add(commuDTO);
+				}
+				}
+
+			
+
+			
 			System.out.println("문제1" + pstmt);
 			System.out.println("문제2 commuList" + commuList);
 		} catch (Exception e) {
@@ -718,12 +717,12 @@ public class CommuDAO {
 
 	}
 	
-	public int myCountrv(int memberid) {
-		int count = 0;
-		try {
-			con = getConnection();
+   public int myCountrv(int memberid) {
+	   int count = 0;
+	   try {
+		   con = getConnection();
 
-			String sql = "select count(*) from reviews where member_id =? ";
+			String sql = "select count(*) from review where member_id =? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, memberid);
 			rs = pstmt.executeQuery();
@@ -731,14 +730,16 @@ public class CommuDAO {
 			if (rs.next()) {
 				count = rs.getInt("count(*)");
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		} finally {
-			dbclose();
-		}
-		return count;
-
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	}finally {
+		dbclose();
 	}
+	   return count;
+   }
+	
+	
 
 	
 

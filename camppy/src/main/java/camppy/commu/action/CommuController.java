@@ -202,7 +202,7 @@ public class CommuController extends HttpServlet {
 			request.setAttribute("pageDTO", pageDTO);
 			request.setAttribute("commuRankList", commuRankList);
 			request.setAttribute("memberDTO", memberDTO);
-			System.out.println(memberDTO.getMember_id());
+			//System.out.println(memberDTO.getMember_id());
 //			request.setAttribute("memberDTO2", memberDTO2);	
 
 			dispatcher = request.getRequestDispatcher("commuContentsList/commuContentsListSearch.jsp");
