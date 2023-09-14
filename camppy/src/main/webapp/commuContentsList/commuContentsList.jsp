@@ -57,7 +57,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					for (int i = 0; i < commuRankList.size(); i++) {
 					%>
 					<%
-				    commuDTO = commuRankList.get(i);
+					commuDTO = commuRankList.get(i);
 					%>
 					<div class="commu-contents-list__box-3">
 						<div class="commu-contents-list__"><%=commuDTO.getTitle()%></div>
@@ -146,7 +146,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 						id="bodyUsericon">
 
 					<!--              닉네임  -->
-					<div class="commu-contents-list__user-1" id="bodyName"><%=commuDTO.getMember_id()%></div>
+					<div class="commu-contents-list__user-1" id="bodyName"><%=commuDTO.getNickname()%></div>
 
 					<!--              후기  -->
 					<div class="commu-contents-list__5" id="campLater">
@@ -175,37 +175,37 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 
 					<!--              좋아요 아이콘  -->
-<%-- 					<% --%>
-<!-- // 					if (id != null) { -->
-<!-- // 						if (commuDAO.checklike(commuDTO.getPost_id(), memberDTO.getMember_id()) == 0) { -->
-<%-- 					%> --%>
-<!-- 					<div class="likeButton1"> -->
-<!-- 					<input type="button" class="unLikeButton" style="display: inline;" -->
-<!-- 						onclick="likeButton(this)" -->
-<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
-<!-- 					<input type="button" class="likeButton" style="display: none;" -->
-<!-- 						onclick="unLikeButton(this)" -->
-<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
-<!-- 					</div> -->
+					<%-- 					<% --%>
+					<!-- // 					if (id != null) { -->
+					<!-- // 						if (commuDAO.checklike(commuDTO.getPost_id(), memberDTO.getMember_id()) == 0) { -->
+					<%-- 					%> --%>
+					<!-- 					<div class="likeButton1"> -->
+					<!-- 					<input type="button" class="unLikeButton" style="display: inline;" -->
+					<!-- 						onclick="likeButton(this)" -->
+					<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
+					<!-- 					<input type="button" class="likeButton" style="display: none;" -->
+					<!-- 						onclick="unLikeButton(this)" -->
+					<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
+					<!-- 					</div> -->
 
-<%-- 					<% --%>
-<!-- // 					} else { -->
-<%-- 					%> --%>
-<!-- 					<div class="likeButton1"> -->
-<!-- 					<input type="button" class="unLikeButton" style="display: none;" -->
-<!-- 						onclick="likeButton(this)" -->
-<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
-<!-- 					<input type="button" class="likeButton" style="display: inline;" -->
-<!-- 						onclick="unLikeButton(this)" -->
-<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
-<!-- 				    </div> -->
-<%-- 					<% --%>
-<!-- // 					} -->
-<!-- // 					} -->
-<%-- 					%> --%>
- 
+					<%-- 					<% --%>
+					<!-- // 					} else { -->
+					<%-- 					%> --%>
+					<!-- 					<div class="likeButton1"> -->
+					<!-- 					<input type="button" class="unLikeButton" style="display: none;" -->
+					<!-- 						onclick="likeButton(this)" -->
+					<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
+					<!-- 					<input type="button" class="likeButton" style="display: inline;" -->
+					<!-- 						onclick="unLikeButton(this)" -->
+					<%-- 						value="추천 <%=commuDAO.getlikecount(commuDTO.getPost_id())%>"> --%>
+					<!-- 				    </div> -->
+					<%-- 					<% --%>
+					<!-- // 					} -->
+					<!-- // 					} -->
+					<%-- 					%> --%>
 
-				
+
+
 
 					<%
 					if (id != null) {
@@ -275,8 +275,8 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 	</div>
 	<!-- //section-total -->
-<script type="text/javascript" src="script/jquery-3.7.0.js"></script>
- <script type="text/javascript">
+	<script type="text/javascript" src="script/jquery-3.7.0.js"></script>
+	<script type="text/javascript">
 <%--  likecount = <%=commuDAO.getlikecount(commuDTO.getPost_id())%>; --%>
  function likeButton(e){ // e -> (this)의 정보를 여기로 전달하겠다
  	var i = $(".unLikeButton").index(e); // 같은 클래스 내 index 값을 가져옴

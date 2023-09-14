@@ -162,8 +162,8 @@ public class CommuDAO {
 		try {
 			con = getConnection();
 
-			String sql = "select p.create_date, p.last_modified_date, p.created_by, p.last_modified_by, p.comment_cnt, p.content, p.like_cnt, p.post_type, p.title, p.member_id, i.post_image_id, i.created_date, i.post_id, i.member_id, i.last_modified_date, i.created_by, i.last_modified_by, i.img_url from post p left "
-					+ "join post_image i on (p.post_id = i.post_id) order by post_id desc limit ?,?";
+			String sql = "select p.create_date, p.last_modified_date, p.created_by, p.last_modified_by, p.comment_cnt, p.content, p.like_cnt, p.post_type, p.title, p.member_id, i.post_image_id, i.created_date, i.post_id, i.member_id, i.last_modified_date, i.created_by, i.last_modified_by, i.img_url, m.nickname from post p left "
+					+ "join post_image i on (p.post_id = i.post_id) left join members m on(p.member_id = m.member_id) order by post_id desc limit ?,?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, pageDTO.getStartRow() - 1);
 			pstmt.setInt(2, pageDTO.getPageSize());
@@ -190,6 +190,7 @@ public class CommuDAO {
 				commuDTO.setCreated_date(rs.getTimestamp("created_date"));
 //				commuDTO.setLast(rs.getString("last_modified_id"));
 				commuDTO.setImg_url(rs.getString("img_url"));
+				commuDTO.setNickname(rs.getString("nickname"));
 
 				// => 배열 한칸에 저장
 				commuList.add(commuDTO);
@@ -639,30 +640,6 @@ public class CommuDAO {
 		return count;
 
 	}
-	
-   public int myCountrv(int memberid) {
-	   int count = 0;
-	   try {
-		   con = getConnection();
-
-			String sql = "select count(*) from review where member_id =? ";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, memberid);
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-				count = rs.getInt("count(*)");
-			}
-		
-	} catch (Exception e) {
-		e.printStackTrace();
-	}finally {
-		dbclose();
-	}
-	   return count;
-   }
-	
-	
 
 	
 

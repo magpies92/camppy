@@ -145,7 +145,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 						id="bodyUsericon">
 
 					<!--              닉네임  -->
-					<div class="commu-contents-list__user-1" id="bodyName"><%=commuDTO.getMember_id()%></div>
+					<div class="commu-contents-list__user-1" id="bodyName"><%=commuDTO.getNickname()%></div>
 
 					<!--              후기  -->
 					<div class="commu-contents-list__5" id="campLater">
@@ -180,7 +180,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 
 					<!--              좋아요 수  -->
 <%-- 					<div class="commu-contents-list___25" id="bodyLikeCount"><%=commuDTO.getLike_cnt()%></div> --%>
-
+ 
 					<%
 					if (id != null) {
 						//if (id.equals(memberDTO.getId())) {

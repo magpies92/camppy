@@ -171,6 +171,7 @@ public class CommuController extends HttpServlet {
 			List<CommuDTO> commuRankList = commuService.getCommuRank();
 			List<CommuDTO> commuList = commuService.getCommuListSearch(pageDTO);
 			System.out.println("문제1111" + searchtype);
+			
 			// 게시판 전체 글 개수 구하기
 			int count = commuService.getCommuCountSearch(pageDTO);
 			// 한 화면에 보여줄 페이지개수 설정
