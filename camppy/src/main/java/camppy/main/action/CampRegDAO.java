@@ -103,15 +103,32 @@ public class CampRegDAO {
 		List<CampRegDTO> campregList = null;
 		try {
 			
+			
 			//1,2 디비연결
 			con = getConnection();
+			
+			if (pageDTO.getSido().equals("시/도 선택"))
+			{
+				String sql="select camp.*, camp_addr.*\r\n"
+						+ "from camp join camp_addr\r\n"
+						+ "on camp.camp_id = camp_addr.camp_id\r\n"
+						+ "where  concat(camp.camp_type,camp.camp_type,camp.intro,camp.runtime,camp.season,camp.facility,camp.tel,camp.environment,camp.short_intro,camp_addr.do_nm,camp_addr.sigungu_nm) like ? \r\n"
+						+ "order by camp.camp_id desc limit ?, ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%"+pageDTO.getSearch()+"%");
+				pstmt.setInt(2, pageDTO.getStartRow()-1);//시작행-1
+				pstmt.setInt(3, pageDTO.getPageSize());
+				//4 실행 => 결과 저장
+				rs = pstmt.executeQuery();
+			}
+			else {
 			//3 sql  => mysql 제공 => limit 시작행-1, 몇개
 //			String sql="select * from campreg order by num desc";
 			String sql="select camp.*, camp_addr.*\r\n"
 					+ "from camp join camp_addr\r\n"
 					+ "on camp.camp_id = camp_addr.camp_id\r\n"
 					+ "where  concat(camp.camp_type,camp.camp_type,camp.intro,camp.runtime,camp.season,camp.facility,camp.tel,camp.environment,camp.short_intro) like ? \r\n"
-					+ "or camp_addr.do_nm like ? or camp_addr.sigungu_nm like ?  order by camp.camp_id desc limit ?, ?";
+					+ "and camp_addr.do_nm like ? and camp_addr.sigungu_nm like ?  order by camp.camp_id desc limit ?, ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+pageDTO.getSearch()+"%");
 			pstmt.setString(2, "%"+pageDTO.getSido()+"%");//시작행-1
@@ -120,6 +137,7 @@ public class CampRegDAO {
 			pstmt.setInt(5, pageDTO.getPageSize());
 			//4 실행 => 결과 저장
 			rs = pstmt.executeQuery();
+			}
 			// campregList 객체생성
 			campregList = new ArrayList<>();
 			//5 결과 행접근 => CampRegDTO객체생성 => set호출(열접근저장)
@@ -310,9 +328,17 @@ public class CampRegDAO {
 		try {
 			//1,2 디비연결
 			con=getConnection();
-			//3 sql select count(*) from campreg
-//String sql = "select count(*) from campreg where subject like '%검색어%';";
-			String sql="select count(*)\r\n"
+			
+			String sql ="";
+			if (pageDTO.getSido().equals("시/도 선택")) {
+			sql="select count(*)\r\n"
+					+ "from camp join camp_addr\r\n"
+					+ "on camp.camp_id = camp_addr.camp_id\r\n"
+					+ "where  concat(camp.camp_type,camp.camp_type,camp.intro,camp.runtime,camp.season,camp.facility,camp.tel,camp.environment,camp.short_intro,camp_addr.do_nm,camp_addr.sigungu_nm) like ? \r\n";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%"+pageDTO.getSearch()+"%");
+			}
+			else {sql = "select count(*)\r\n"
 					+ "from camp join camp_addr\r\n"
 					+ "on camp.camp_id = camp_addr.camp_id\r\n"
 					+ "where  concat(camp.camp_type,camp.camp_type,camp.intro,camp.runtime,camp.season,camp.facility,camp.tel,camp.environment,camp.short_intro) like ? \r\n"
@@ -320,7 +346,9 @@ public class CampRegDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+pageDTO.getSearch()+"%");
 			pstmt.setString(2, "%"+pageDTO.getSido()+"%");//시작행-1
-			pstmt.setString(3, "%"+pageDTO.getGungu()+"%");//몇개
+			pstmt.setString(3, "%"+pageDTO.getGungu()+"%");
+			}
+			//몇개
 			
 			
 			//4 실행 => 결과저장
