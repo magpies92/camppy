@@ -79,14 +79,14 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 							<img class="commu-contents-list__free-icon-user-8484069-3"
 								src="commuContentsList/free-icon-user-8484069-3.png" />
 							<!-- 좋아요 -->
-							<form action="submit" method="post">
-								<button type="button" id="likeButton3">
-									<img class="commu-contents-list__image-3"
-										src="commuContentsList/image-3.png" />
-								</button>
-							</form>
-							<!-- 좋아요  -->
-							<div class="commu-contents-list___51" id="likeCount3"><%=commuDTO.getLike_cnt()%></div>
+<!-- 							<form action="submit" method="post"> -->
+<!-- 								<button type="button" id="likeButton3"> -->
+<!-- 									<img class="commu-contents-list__image-3" -->
+<!-- 										src="commuContentsList/image-3.png" /> -->
+<!-- 								</button> -->
+<!-- 							</form> -->
+<!-- 							좋아요  -->
+<%-- 							<div class="commu-contents-list___51" id="likeCount3"><%=commuDTO.getLike_cnt()%></div> --%>
 						</div>
 					</div>
 					<%
