@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'pretendard-medium';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/pretendard-medium-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
 .noticeInsert,
 .noticeInsert * {
   box-sizing: border-box;
@@ -6,83 +16,83 @@
   background: #ffffff;
   display: flex;
   flex-direction: row;
-  gap: 9.79px;
+  gap: 0.5099vw;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
-  width: 1880px;
+  width: 97.9167vw;
   position: relative;
   overflow: hidden;
 }
 .noticeInsertSectionTotal {
   display: flex;
   flex-direction: row;
-  gap: 11.75px;
+  gap: 0.6120vw;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
   flex-shrink: 0;
-  width: 1880px;
-  height: 1300px;
+  width: 97.9167vw;
+  height: 67.7083vw;
   position: relative;
   overflow: hidden;
 }
 .noticeInsertSectionBody {
   flex-shrink: 0;
-  width: 1880px;
-  height: 1300px;
+  width: 97.9167vw;
+  height: 67.7083vw;
   position: relative;
   overflow: hidden;
 }
 .noticeInsertBodyContents {
-  width: 1392.38px;
-  height: 983.08px;
+  width: 72.5198vw;
+  height: 51.2021vw;
   position: absolute;
-  left: 234.02px;
-  top: 72.46px;
+  left: 12.1885vw;
+  top: 3.7740vw;
   overflow: hidden;
 }
 .noticeInsertLine2 {
   border-style: solid;
   border-color: #000000;
-  border-width: 0.98px 0 0 0;
-  width: 1198.5px;
-  height: 0px;
+  border-width: 0.0510vw 0 0 0;
+  width: 62.4219vw;
+  height: 0.0000vw;
   position: absolute;
-  left: 53.85px;
-  top: 797.04px;
+  left: 2.8047vw;
+  top: 41.5125vw;
 }
 
 .noticeInsertRectangle2 {
-  border-radius: 4.9px;
+  border-radius: 0.2552vw;
   border-style: solid;
   border-color: #000000;
-  border-width: 1.96px;
-  width: 327.04px;
-  height: 64.62px;
+  border-width: 0.1021vw;
+  width: 17.0333vw;
+  height: 3.3656vw;
   position: absolute;
-  left: 49.94px;
-  top: 39.17px;
+  left: 2.6010vw;
+  top: 2.0401vw;
   color: #000000;
-  font: 500 31.33px "Inter", sans-serif;
+  font: 500 1.6318vw "pretendard-medium", sans-serif;
 }
 
 .noticeInsert23{
-	font: 30px "Inter", sans-serif;
+	font: 1.5625vw "pretendard-medium", sans-serif;
 	 text-align: center;
-	 width: 152.12px;
-	 height: 59.25px;
+	 width: 7.9229vw;
+	 height: 3.0859vw;
 }
 
 .noticInsert {
   color: #000000;
   text-align: center;
-  font: 500 31.33px "Inter", sans-serif;
+  font: 500 1.6318vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: calc(50% - 681.5px);
-  top: calc(50% - 475.88px);
-  width: 200.73px;
-  height: 111.62px;
+  left: calc(50% - 35.4948vw);
+  top: calc(50% - 24.7854vw);
+  width: 10.4547vw;
+  height: 5.8135vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,48 +100,48 @@
 
 .noticeInsertFreeIconImage1 {
   opacity: 0.30000001192092896;
-  width: 104.77px;
-  height: 82.25px;
+  width: 5.4568vw;
+  height: 4.2839vw;
   position: absolute;
-  left: 89.1px;
-  top: 836.21px;
+  left: 4.6406vw;
+  top: 43.5526vw;
 }
 .noticeInsertImage1 {
-  width: 42.1px;
-  height: 42.1px;
+  width: 2.1927vw;
+  height: 2.1927vw;
   position: absolute;
-  left: 319.21px;
-  top: 49.94px;
+  left: 16.6255vw;
+  top: 2.6010vw;
 }
 .noticeInsertRectangle1 {
   border-style: solid;
   border-color: #000000;
-  border-width: 0.98px;
-  width: 1199.48px;
-  height: 830.33px;
+  border-width: 0.0510vw;
+  width: 62.4729vw;
+  height: 43.2464vw;
   position: absolute;
-  left: 52.88px;
-  top: 127.29px;
+  left: 2.7542vw;
+  top: 6.6297vw;
 }
 .noticeInsertLine1 {
   border-style: solid;
   border-color: #000000;
-  border-width: 0.98px 0 0 0;
-  width: 1121.15px;
-  height: 0px;
+  border-width: 0.0510vw 0 0 0;
+  width: 58.3932vw;
+  height: 0.0000vw;
   position: absolute;
-  left: 92.04px;
-  top: 268.29px;
+  left: 4.7938vw;
+  top: 13.9734vw;
 }
 .noticeInsert2 {
   border-color: #000000;
   text-align: left;
-  font: 700 31.33px "Inter", sans-serif;
+  font: 700 1.6318vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 93.04px;
-  top: 174.71px;
-  width: 1100.73px;
-  height: 51.19px;
+  left: 4.8458vw;
+  top: 9.0995vw;
+  width: 57.3297vw;
+  height: 2.6661vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -140,12 +150,12 @@
 .noticeInsert3 {
    border-color: #000000;
   text-align: left;
-  font: 500 31.33px "Inter", sans-serif;
+  font: 500 1.6318vw "pretendard-medium", sans-serif;
   position: absolute;
-  left: 94.04px;
-  top: 283.29px;
-  width: 1100.73px;
-  height: 650px;
+  left: 4.8979vw;
+  top: 14.7547vw;
+  width: 57.3297vw;
+  height: 33.8542vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -155,46 +165,46 @@
 .noticeInsertButton {
     display: flex;
     flex-direction: row;
-    gap: 0px;
+    gap: 0.0000vw;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 1199.48px;
-    height: 96.94px;
+    width: 62.4729vw;
+    height: 5.0490vw;
     position: absolute;
-    left: 289.02px;
-    top: 1059.46px;
+    left: 15.0531vw;
+    top: 55.1802vw;
     overflow: hidden;
 
 }
 .noticeInsertLeaveButton {
-  border-radius: 4.9px;
+  border-radius: 0.2552vw;
   border-style: solid;
   border-color: #4da385;
-  border-width: 1.96px;
+  border-width: 0.1021vw;
   flex-shrink: 0;
-  width: 182.12px;
-  height: 82.25px;
+  width: 9.4854vw;
+  height: 4.2839vw;
   position: absolute;
-  left: 0px;
-  top: 7.83px;
+  left: 0.0000vw;
+  top: 0.4078vw;
   overflow: hidden;
   color: #4da385;
-  font: 700 31.33px "Inter", sans-serif;
+  font: 700 1.6318vw "pretendard-medium", sans-serif;
    text-align: center;
 }
 
 .noticeInsertRegisterButton {
   background: #4da385;
-  border-radius: 4.9px;
+  border-radius: 0.2552vw;
   flex-shrink: 0;
-  width: 182.12px;
-  height: 82.25px;
+  width: 9.4854vw;
+  height: 4.2839vw;
   position: absolute;
-  left: 1017.35px;
-  top: 7.83px;
+  left: 52.9870vw;
+  top: 0.4078vw;
   overflow: hidden;
   color: #ffffff;
-  font: 700 31.33px "Inter", sans-serif;
+  font: 700 1.6318vw "pretendard-medium", sans-serif;
     text-align: center;
 }
 
