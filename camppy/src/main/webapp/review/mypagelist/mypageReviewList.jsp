@@ -324,7 +324,7 @@ while (rs.next()) {
 
 			if (confirm("정말로 삭제하시겠습니까?")) {
 				$.ajax({
-					url : "deleteReview.jsp",
+					url : "review/mypagelist/deleteReview.jsp",
 					method : "POST",
 					data : {
 						review_id : reviewId
@@ -332,6 +332,7 @@ while (rs.next()) {
 					success : function(response) {
 						if (response.trim() === "success") {
 							row.remove();
+							location.reload();
 						} else {
 							alert("삭제 실패");
 						}
