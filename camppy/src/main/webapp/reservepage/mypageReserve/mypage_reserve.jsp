@@ -30,7 +30,7 @@
 .art{
  	font-family: 'NanumSquareNeo';
     width: 45.2500vw;
-    height: 31.2500vw;
+    height: 40vw;
   	padding-left: 2.6042vw;
 /*     margin-bottom: 15.6250vw; */
     margin-left: 200;
