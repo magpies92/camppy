@@ -186,8 +186,7 @@ a, button, input, select, h1, h2, h3, h4, h5, * {
 					}
 					%>
 
-					<div class="likeListAdd">
-						회원번호:<%=commuDTO.getMember_id()%></div>
+					
 					<div class="likeListTitle">
 						제목 :<%=commuDTO.getTitle()%></div>
 					<div class="likeListTag">
