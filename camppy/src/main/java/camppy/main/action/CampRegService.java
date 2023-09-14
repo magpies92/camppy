@@ -336,14 +336,6 @@ public class CampRegService {
 	public void updateCampReg(HttpServletRequest request) {
 		System.out.println("CampRegService updateCampReg()");
 		try {
-			HttpSession session = request.getSession();
-			String id = (String) session.getAttribute("id");
-			
-			// MultipartRequest 객체생성 사용 => 폴더에 파일업로드, 파라미터정보저장
-//			import com.oreilly.servlet.MultipartRequest;
-			// 생성자 1) request 2)업로드할 파일경로 3) 파일크기 4) 한글처리 5) 파일이름변경
-			//업로드 폴더 만들기 webapp - upload 폴더만들기
-			// 업로드 폴더 경로=> 물리적 경로
 			String uploadPath=request.getRealPath("campimg");
 			// 이클립스에 실행하면 이클립스 가상경로 
 			System.out.println(uploadPath);
@@ -355,29 +347,42 @@ public class CampRegService {
 			MultipartRequest multi 
 			= new MultipartRequest(request, uploadPath, maxSize,"utf-8", new DefaultFileRenamePolicy()); 
 			
-			int camp_id = Integer.parseInt(multi.getParameter("camp_id"));
-			String camp_name = multi.getParameter("camp_name");
-			String short_intro = multi.getParameter("short_intro");
-			String camp_addr = multi.getParameter("camp_addr");
+			// multi 파라미터 값 가져오기
+			String campname = multi.getParameter("campname");
+			String shortintro = multi.getParameter("shortintro");
+			
 			String tel = multi.getParameter("tel");
 			String environment = multi.getParameter("environment");
-			String camp_type = multi.getParameter("camp_type");
+			String camptype = multi.getParameter("camptype");
 			String season = multi.getParameter("season");
 			String runtime = multi.getParameter("runtime");
 			String homepage = multi.getParameter("homepage");
 			String facility = multi.getParameter("facility");
+			System.out.println(multi.getFilesystemName("campimg"));
+			String campimg =multi.getFilesystemName("campimg");
+			System.out.println(campimg);
+			int imgchk = 0;
+			if(campimg==null) {
+				
+			}
+			else {
+				imgchk = 1;
+			}
+			System.out.println("imgchk는"+imgchk);
+			/*
+			 * if((null)) { imgchk = 1; } else { campimg =
+			 * multi.getFilesystemName("campimg"); }
+			 */
+			String bankaccount = multi.getParameter("bankaccount");
+			String bankname = multi.getParameter("bankname");
 			String intro = multi.getParameter("intro");
-			String camp_img = multi.getParameter("camp_img");
-			String bank_name = multi.getParameter("bank_name");
-			String bank_account = multi.getParameter("bank_account");
-			int camp_price= Integer.parseInt(multi.getParameter("camp_price"));
+			int campprice = Integer.parseInt(multi.getParameter("campprice"));
+			int campid = Integer.parseInt(multi.getParameter("campId"));
 			String  addr1= multi.getParameter("postAddr1");
 			String  addr2= multi.getParameter("postAddr2");
 			String  addr3= multi.getParameter("postAddr3");
-			String do_nm = multi.getParameter("do_nm");
-			String sigungu_nm = multi.getParameter("sigungu_nm");
-			String mapx = multi.getParameter("mapx");
-			String mapy = multi.getParameter("mapy");
+			String  doo= multi.getParameter("doo");
+			String  sigungu= multi.getParameter("sigungu");
 			String campaddr;
 			if (addr3.equalsIgnoreCase("")){
 			campaddr = addr2;
@@ -387,21 +392,43 @@ public class CampRegService {
 				campaddr = addr2+" "+addr3;
 				
 			}
+			String mapx=multi.getParameter("mapx");
+			String mapy=multi.getParameter("mapy");	    		
+		                     int i = 0;
+		                     int j =0;
+		                     String[] camppic= new String[5];
+		                   
+		                     System.out.println("그냥camppic[0] 값은"+camppic[0]);
+		                     for(i=0; i<5; i++){
+		                    	 j = i+1;
+		                         String name = "camppic"+String.valueOf(j);
+		                         camppic[i] = multi.getFilesystemName(name); 
+		                      
+		                     }
+		                     System.out.println("camppic1값은"+camppic[0]);
+		                     int picchk = 0;
+		         			if(camppic[0]==null) {
+		         				
+		         			}
+		         			else {
+		         				picchk = 1;
+		         			}
+		  String[] camptag = new String[7];
+		  for(i=0; i<7; i++){
+         	 j = i+1;
+              String name = "camptag"+String.valueOf(j);
+              camptag[i] = multi.getParameter(name); 
+           
+          }
+				  
+		                        
+		                  
+		                    	                         
+		      
+		    	
 			
-			int i = 0;
-            int j =0;
-            String[] camppic= new String[5];
-          
-            
-            for(i=0; i<5; i++){
-           	 j = i+1;
-                String name = "camppic"+String.valueOf(j);
-                camppic[i] = multi.getFilesystemName(name); 
-             
-            }	
-            
-            
-//첨부파일이름 가져오기
+			
+			//첨부파일이름 가져오기
 			
 			
 			// num, readcount, date => 변수저장
@@ -415,36 +442,43 @@ public class CampRegService {
 			// CampRegDTO 객체생성
 			CampRegDTO campregDTO = new CampRegDTO();
 			// set메서드 호출 파라미터값 저장
-			campregDTO.setCampname(camp_name);
-			campregDTO.setShortintro(short_intro);
+			campregDTO.setCampname(campname);
+			campregDTO.setShortintro(shortintro);
 			
-			campregDTO.setCampaddr(camp_addr);
+			campregDTO.setCampaddr(campaddr);
 			campregDTO.setTel(tel);
 			campregDTO.setEnvironment(environment);
-			campregDTO.setCamptype(camp_type);
+			campregDTO.setCamptype(camptype);
 			campregDTO.setSeason(season);
 			campregDTO.setRuntime(runtime);
 			campregDTO.setHomepage(homepage);
 			campregDTO.setFacility(facility);
-			campregDTO.setCampimg(camp_img);
-			/* campregDTO.setCamppic(camppic); */
-			campregDTO.setBankaccount(bank_account);
-			campregDTO.setBankname(bank_name);
+			if(imgchk==1) {campregDTO.setImgchk(imgchk);
+			campregDTO.setCampimg(campimg);}
+			else {
+				campregDTO.setImgchk(imgchk);
+				
+			}
+			
+			campregDTO.setBankaccount(bankaccount);
+			campregDTO.setBankname(bankname);
 			campregDTO.setIntro(intro);
-			campregDTO.setCampprice(camp_price);
-			campregDTO.setSido(do_nm);
-			campregDTO.setSigungu(sigungu_nm);
+			campregDTO.setCampprice(campprice);
+			campregDTO.setSido(doo);
+			campregDTO.setSigungu(sigungu);
 			campregDTO.setMapx(mapx);
 			campregDTO.setMapy(mapy);
-			campregDTO.setCamppic(camppic);
+			if(picchk==1) {campregDTO.setPicchk(picchk);
+			campregDTO.setCamppic(camppic);}
+			else {
+				campregDTO.setPicchk(picchk);
+				
+			}
+			
+			campregDTO.setCamptag(camptag);
+			campregDTO.setCampid(campid);
              
-			
-			//첨부파일
-			//campregDTO.setFile(file);
-			
-			
-			
-			
+		
 			// 리턴할형없음 updateCampReg(campregDTO) 호출
 			campregDAO.updateCampReg(campregDTO);
 			

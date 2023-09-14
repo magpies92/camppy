@@ -24,6 +24,9 @@ public class CampRegDAO {
 	PreparedStatement pstmt2=null;
 	PreparedStatement pstmt3=null;
 	ResultSet rs =null;
+	ResultSet rs1 =null;
+	ResultSet rs2 =null;
+	ResultSet rs3 =null;
 	
 	//1,2 단계 디비 연결 메서드  정의 => 필요로 할때 호출 사용
 	public Connection getConnection() throws Exception {
@@ -336,26 +339,66 @@ public class CampRegDAO {
 	
 	public CampRegDTO getCampReg(int campid) {
 		CampRegDTO campregDTO = null;
+		campregDTO = new CampRegDTO();
 		try {
-			//1,2 디비연결
-			con = getConnection();
-			//3 sql select * from campreg where num = ?
-			String sql="select * from camp where camp_id = ?";
+			
+			con=getConnection();
+			String sql = "select * from camp where camp_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, campid);
-			//4 실행 => 결과 저장
 			rs = pstmt.executeQuery();
-			//5 결과 행접근 => campregDTO 객체생성 
-			//        => set메서드 호출 => 열접근 데이터 저장
+			    //(물음표 순서,값)
 			if(rs.next()) {
-				campregDTO = new CampRegDTO();
-				campregDTO.setCampimg(rs.getString("camp_img"));
-				campregDTO.setCampname(rs.getString("camp_name"));
-				campregDTO.setCampid(rs.getInt("camp_id"));
-				campregDTO.setDate(rs.getTimestamp("reg_time"));
-				campregDTO.setCampprice(rs.getInt("camp_price"));
-				
+			campregDTO.setCampid(rs.getInt("camp_id"));
+			campregDTO.setHomepage(rs.getString("homepage"));
+			campregDTO.setCamptype(rs.getString("camp_type"));
+			campregDTO.setIntro(rs.getString("intro"));
+			campregDTO.setRuntime(rs.getString("runtime"));
+			campregDTO.setSeason(rs.getString("season"));
+			campregDTO.setFacility(rs.getString("facility"));
+			campregDTO.setTel(rs.getString("tel"));
+			campregDTO.setEnvironment(rs.getString("environment"));
+			campregDTO.setBankaccount(rs.getString("bank_account"));
+			campregDTO.setCampname(rs.getString("camp_name"));
+			campregDTO.setShortintro(rs.getString("short_intro"));
+			campregDTO.setCampimg(rs.getString("camp_img")); 
+			campregDTO.setCampprice(rs.getInt("camp_price"));
+			campregDTO.setBankname(rs.getString("bank_name")); 
 			}
+			
+	
+			String sql1 = "select * from camp_pic where camp_id = ?";
+			pstmt1=con.prepareStatement(sql1);
+			pstmt1.setInt(1, campid);
+			//4 실행 => 결과저장/			
+			rs1 =pstmt1.executeQuery();
+			if(rs1.next()) {
+				String[] camppic = {rs1.getString("pic1"),rs1.getString("pic2"),rs1.getString("pic3"),rs1.getString("pic4"),rs1.getString("pic5")};
+				
+				campregDTO.setCamppic(camppic);		
+			}
+		
+			
+			String sql2 = "select * from camp_tag where camp_id = ?";
+			pstmt2=con.prepareStatement(sql2);
+			pstmt2.setInt(1, campid);
+			rs2 =pstmt2.executeQuery();
+			if(rs2.next()) {
+				String[] camptag = {rs2.getString("elec"),rs2.getString("wifi"),rs2.getString("wood"),rs2.getString("hot"),rs2.getString("pool"),rs2.getString("play"),rs2.getString("gym")};
+				campregDTO.setCamptag(camptag);	
+			}			
+			String sql3 = "select * from camp_addr where camp_id = ?";
+			pstmt3=con.prepareStatement(sql3);
+			pstmt3.setInt(1, campid);
+			rs3 =pstmt3.executeQuery();
+			if(rs3.next()) {
+			campregDTO.setCampaddr(rs3.getString("camp_addr"));
+			campregDTO.setSido(rs3.getString("do_nm"));
+			campregDTO.setSigungu(rs3.getString("sigungu_nm"));
+			campregDTO.setMapx(rs3.getString("mapx"));
+			campregDTO.setMapy(rs3.getString("mapy"));		
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -366,47 +409,77 @@ public class CampRegDAO {
 	
 	
 	
-	public CampRegDTO getCampReg1(int camp_id) {
-		System.out.println("CampRegDTO getCampReg()");
-		CampRegDTO dto=null;
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
+	public CampRegDTO getCampReg1(int campid) {
+		CampRegDTO campregDTO = null;
+		campregDTO = new CampRegDTO();
 		try {
+			//1,2 디비연결
+		
 			con=getConnection();
-			String sql="select * from camp where camp_id=?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, camp_id);
-			rs=pstmt.executeQuery();
-			while(rs.next()) {
-				dto = new CampRegDTO();
-				dto.setTel(rs.getString("tel"));
-				dto.setEnvironment(rs.getString("environment"));
-				dto.setCamptype(rs.getString("camp_type"));
-				dto.setSeason(rs.getString("season"));
-				dto.setRuntime(rs.getString("runtime"));
-				dto.setHomepage(rs.getString("homepage"));
-				dto.setFacility(rs.getString("facility"));
-				dto.setCampimg(rs.getString("campimg"));
-				dto.setBankaccount(rs.getString("bankaccount"));
-				dto.setBankname(rs.getString("bankname"));
-				dto.setCampprice(rs.getInt("campprice"));
-				dto.setSido(rs.getString("do_nm"));
-				dto.setSigungu(rs.getString("sigungu_nm"));
-				dto.setMapx(rs.getString("mapx"));
-				dto.setMapy(rs.getString("mapy"));
-				dto.setCampid(rs.getInt("campid"));
-				dto.setIntro(rs.getString("intro"));
-
+			//3 sql insert
+			String sql = "select * from camp where camp_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, campid);
+			rs = pstmt.executeQuery();
+			    //(물음표 순서,값)
+			if(rs.next()) {
+				campregDTO.setCampid(rs.getInt("camp_id"));
+			campregDTO.setHomepage(rs.getString("homepage"));
+			campregDTO.setCamptype(rs.getString("camp_type"));
+			campregDTO.setIntro(rs.getString("intro"));
+			campregDTO.setRuntime(rs.getString("runtime"));
+			campregDTO.setSeason(rs.getString("season"));
+			campregDTO.setFacility(rs.getString("facility"));
+			campregDTO.setTel(rs.getString("tel"));
+			campregDTO.setEnvironment(rs.getString("environment"));
+			campregDTO.setBankaccount(rs.getString("bank_account"));
+			campregDTO.setCampname(rs.getString("camp_name"));
+			campregDTO.setShortintro(rs.getString("short_intro"));
+			campregDTO.setCampimg(rs.getString("camp_img")); 
+			campregDTO.setCampprice(rs.getInt("camp_price"));
+			campregDTO.setBankname(rs.getString("bank_name")); 
 			}
+			
+	
+			String sql1 = "select * from camp_pic where camp_id = ?";
+			pstmt1=con.prepareStatement(sql1);
+			pstmt1.setInt(1, campid);
+			//4 실행 => 결과저장/			
+			rs1 =pstmt1.executeQuery();
+			if(rs1.next()) {
+				String[] camppic = {rs1.getString("pic1"),rs1.getString("pic2"),rs1.getString("pic3"),rs1.getString("pic4"),rs1.getString("pic5")};
+				
+				campregDTO.setCamppic(camppic);		
+			}
+		
+			
+			String sql2 = "select * from camp_tag where camp_id = ?";
+			pstmt2=con.prepareStatement(sql2);
+			pstmt2.setInt(1, campid);
+			rs2 =pstmt2.executeQuery();
+			if(rs2.next()) {
+				String[] camptag = {rs2.getString("elec"),rs2.getString("wifi"),rs2.getString("wood"),rs2.getString("hot"),rs2.getString("pool"),rs2.getString("play"),rs2.getString("gym")};
+				campregDTO.setCamptag(camptag);	
+			}			
+			String sql3 = "select * from camp_addr where camp_id = ?";
+			pstmt3=con.prepareStatement(sql3);
+			pstmt3.setInt(1, campid);
+			rs3 =pstmt3.executeQuery();
+			if(rs3.next()) {
+			campregDTO.setCampaddr("camp_addr");
+			campregDTO.setSido("do_nm");
+			campregDTO.setSigungu("sigungu_nm");
+			campregDTO.setMapx("mapx");
+			campregDTO.setMapy("mapy");
+			
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			if(rs!=null) try { rs.close();} catch (Exception e2) {}
-			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
-			if(con!=null) try { con.close();} catch (Exception e2) {}
+			dbClose();
 		}
-		return dto;
+		return campregDTO;
 	}//getCampReg()
 	
 	public CampRegDTO getCampRank(int camprank) {
@@ -532,10 +605,11 @@ public class CampRegDAO {
 	public void updateCampReg(CampRegDTO campregDTO) {
 		try {
 			con = getConnection();
+			String sql="";
 			
-			String sql = "update camp set homepage=?,camp_type=?,intro=?,runtime=?,season=?,facility=?,tel=?,environment=?,bank_account=?,camp_name=?,short_intro=?,camp_img=?,camp_price=?,bank_name=? where camp_id=?";
+			if(campregDTO.getImgchk()==1)
+			{sql = "update camp set homepage=?,camp_type=?,intro=?,runtime=?,season=?,facility=?,tel=?,environment=?,bank_account=?,camp_name=?,short_intro=?,camp_img=?,camp_price=?,bank_name=? where camp_id=?";
 			pstmt=con.prepareStatement(sql);
-			    //(물음표 순서,값)
 			pstmt.setString(1, campregDTO.getHomepage());
 			pstmt.setString(2, campregDTO.getCamptype());
 			pstmt.setString(3, campregDTO.getIntro());
@@ -547,30 +621,52 @@ public class CampRegDAO {
 			pstmt.setString(9, campregDTO.getBankaccount());
 			pstmt.setString(10, campregDTO.getCampname());
 			pstmt.setString(11, campregDTO.getShortintro());
-			pstmt.setString(12, campregDTO.getCampimg()); 
+			pstmt.setString(12, campregDTO.getCampimg());
 			pstmt.setInt(13, campregDTO.getCampprice());
 			pstmt.setString(14, campregDTO.getBankname()); 
-			pstmt1.setInt(15, campregDTO.getCampid());	
-			pstmt.executeUpdate();
+			System.out.println(campregDTO.getCampid());
+			pstmt.setInt(15, campregDTO.getCampid());	
+			pstmt.executeUpdate();}else {	
+			sql = "update camp set homepage=?,camp_type=?,intro=?,runtime=?,season=?,facility=?,tel=?,environment=?,bank_account=?,camp_name=?,short_intro=?,camp_price=?,bank_name=? where camp_id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, campregDTO.getHomepage());
+			pstmt.setString(2, campregDTO.getCamptype());
+			pstmt.setString(3, campregDTO.getIntro());
+			pstmt.setString(4, campregDTO.getRuntime());
+			pstmt.setString(5, campregDTO.getSeason());
+			pstmt.setString(6, campregDTO.getFacility());
+			pstmt.setString(7, campregDTO.getTel());
+			pstmt.setString(8, campregDTO.getEnvironment());
+			pstmt.setString(9, campregDTO.getBankaccount());
+			pstmt.setString(10, campregDTO.getCampname());
+			pstmt.setString(11, campregDTO.getShortintro());
+			pstmt.setInt(12, campregDTO.getCampprice());
+			pstmt.setString(13, campregDTO.getBankname()); 
+			System.out.println(campregDTO.getCampid());
+			pstmt.setInt(14, campregDTO.getCampid());	
+			pstmt.executeUpdate();}
+			    
 			
-			String sql1 = "update camp_pic set camp_id=?,pic1=?,pic2=?,pic3=?,pic4=?,pic5=? where camp_id=?";
-			pstmt1=con.prepareStatement(sql1);	
-			pstmt1.setString(1, campregDTO.getCamppic()[0]);
-			pstmt1.setString(2, campregDTO.getCamppic()[1]);	
-			pstmt1.setString(3, campregDTO.getCamppic()[2]);	
-			pstmt1.setString(4, campregDTO.getCamppic()[3]);	
-			pstmt1.setString(5, campregDTO.getCamppic()[4]);	
-			pstmt1.setInt(6, campregDTO.getCampid());	
-			pstmt1.executeUpdate();	
+			String sql1 ="";
+			if(campregDTO.getPicchk()==1) {
+			  sql1 = "update camp_pic set pic1=?,pic2=?,pic3=?,pic4=?,pic5=? where camp_id=?";
+			  pstmt1=con.prepareStatement(sql1); pstmt1.setString(1,
+			  campregDTO.getCamppic()[0]); pstmt1.setString(2, campregDTO.getCamppic()[1]);
+			  pstmt1.setString(3, campregDTO.getCamppic()[2]); pstmt1.setString(4,
+			  campregDTO.getCamppic()[3]); pstmt1.setString(5, campregDTO.getCamppic()[4]);
+			  pstmt1.setInt(6, campregDTO.getCampid()); pstmt1.executeUpdate();
+			}
+			  
+			  String sql2 =
+			  "update camp_addr set camp_addr=?,do_nm=?,sigungu_nm=?,mapx=?,mapy=? where camp_id=?"
+			  ; pstmt2=con.prepareStatement(sql2); pstmt2.setString(1,
+			  campregDTO.getCampaddr()); pstmt2.setString(2, campregDTO.getSido());
+			  pstmt2.setString(3, campregDTO.getSigungu()); pstmt2.setString(4,
+			  campregDTO.getMapx()); pstmt2.setString(5, campregDTO.getMapy());
+			  pstmt2.setInt(6, campregDTO.getCampid()); pstmt2.executeUpdate();
+			 
 			
-			String sql2 = "update camp_pic set camp_addr=?,do_nm=?,sigungu_nm=?,mapx=?,mapy=? where camp_id=?";
-			pstmt2=con.prepareStatement(sql2);
-			pstmt2.setString(1, campregDTO.getCampaddr());
-			pstmt2.setString(2, campregDTO.getSido());
-			pstmt2.setString(3, campregDTO.getSigungu());
-			pstmt2.setString(4, campregDTO.getMapx());
-			pstmt2.setString(5, campregDTO.getMapy());
-			pstmt2.executeUpdate();
+			System.out.println(campregDTO.getCampprice());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
