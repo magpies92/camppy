@@ -39,7 +39,7 @@ public class CommuService {
 			System.out.println(uploadPath);
 
 			int maxSize = 10 * 1024 * 1024;
-
+ 
 			MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "utf-8",
 					new DefaultFileRenamePolicy());
 

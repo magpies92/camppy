@@ -37,7 +37,7 @@ public class CommuController extends HttpServlet {
 		System.out.println("MainFrontController doPost()");
 		doProcess(request, response);
 	}// doPost()
-
+ 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("MainFrontController doProcess()");
